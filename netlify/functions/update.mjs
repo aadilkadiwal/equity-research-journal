@@ -22,10 +22,10 @@ export default async (req) => {
   try { body = await req.json(); } catch { return json({ error: 'invalid JSON body' }, 400); }
   const { fileBase64 } = body || {};
   if (!fileBase64 || !body?.quarter) return json({ error: 'fileBase64 and quarter are required' }, 400);
-  if (!/^Q[1-4]\s?FY\d{2}$/i.test(body.quarter)) return json({ error: 'quarter must look like "Q1 FY27"' }, 400);
-  // Normalise to the canonical "Q1 FY27" form (single space, upper-case) so the
+  if (!/^Q[1-4]\s?\d{4}$/i.test(body.quarter)) return json({ error: 'quarter must look like "Q4 2026"' }, 400);
+  // Normalise to the canonical "Q4 2026" form (single space, upper-case) so the
   // stored label always matches what linkReports derives from folder names.
-  const quarter = body.quarter.trim().toUpperCase().replace(/^(Q[1-4])\s*FY/, '$1 FY');
+  const quarter = body.quarter.trim().toUpperCase().replace(/^(Q[1-4])\s*(\d{4})$/, '$1 $2');
 
   // 1) parse the uploaded workbook
   let rows, headers;

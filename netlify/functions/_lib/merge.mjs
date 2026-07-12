@@ -17,7 +17,7 @@ const str = (v) => (v != null && String(v).trim() ? String(v).trim() : null);
 /**
  * @param data   current companies.json object ({meta, companies})
  * @param rows   array of row objects keyed by sheet headers
- * @param opts   { quarter: 'Q1 FY27' }
+ * @param opts   { quarter: 'Q4 2026' }
  * Returns { data, added, updated, quarterUpserts }.
  */
 export function mergeRows(data, rows, { quarter }) {

@@ -48,7 +48,7 @@ npm run preview    # serve the built dist/
 python3 scripts/import_excel.py \
   --input "/path/to/Research Stock 2026.xlsx" \
   --sheet "Q426 Earning" \
-  --quarter "Q1 FY27"
+  --quarter "Q1 2027"
 ```
 The importer **merges**: it upserts each company and adds that quarter's note to the
 company's timeline, keeping earlier quarters. Re-running the same quarter replaces
@@ -100,7 +100,7 @@ first (`backend.repo`).
       "marketCap": 23145,
       "tier": "Tier 1",
       "quarters": [
-        { "quarter": "Q4 FY26", "tier": "Tier 1", "view": "Positive",
+        { "quarter": "Q4 2026", "tier": "Tier 1", "view": "Positive",
           "note": "…" }
       ]
     }
