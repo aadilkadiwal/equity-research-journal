@@ -14,18 +14,8 @@ XLSX.set_fs(fs);
 const here = dirname(fileURLToPath(import.meta.url));
 const out = join(here, '..', 'public', 'research-sheet-template.xlsx');
 
-// One illustrative row so the expected value/type of each column is obvious.
-const example = {
-  CompanyName: 'Example Industries Ltd',
-  Industry: 'Capital Goods',
-  MarketCap: 12345.67,
-  Tier: 'Tier 1',
-  'TradingView Code': 'EXAMPLE',
-  View: 'Positive', // Positive / Watch / Concern / Negative
-  Note: 'One-line, plain-English view for this quarter.',
-};
-
-const ws = XLSX.utils.json_to_sheet([example], { header: REQUIRED_COLUMNS });
+// Header-only template: just the column names, no sample data rows.
+const ws = XLSX.utils.aoa_to_sheet([REQUIRED_COLUMNS]);
 const wb = XLSX.utils.book_new();
 // sheet name matches update.mjs's /earning/i preference so it's always picked
 XLSX.utils.book_append_sheet(wb, ws, 'Earnings');
