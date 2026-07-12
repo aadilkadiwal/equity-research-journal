@@ -11,7 +11,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Negative",
           "note": "Maggi-and-Nescafe giant just posted its best sales quarter in a decade, driven by selling more in small towns plus premium products. Steady record, but a new outsider CEO is unproven.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nestle-india-ltd.pdf"
         }
@@ -62,8 +62,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Positive",
-          "note": "Record all-time-high order book gives long-term visibility, but revenue stays lumpy and unpredictable each quarter.",
+          "view": "Concern",
+          "note": "Makes boilers and turbines for coal power plants, which India is ordering again. The record order book is finally turning into real sales and tripled profit - but at 87 times earnings on thin ~8% returns, it's priced for perfection.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bharat-heavy-electricals-ltd.pdf"
         }
       ]
@@ -114,7 +114,7 @@
           "quarter": "Q4 2026",
           "tier": "Tier 1",
           "view": "Concern",
-          "note": "Quality online beauty brand but very expensive; only interesting to enter near long-term support levels.",
+          "note": "Runs Nykaa, India's online beauty and fashion retailer. Sales crossed Rs 10,000 crore and profit jumped 183% as margins finally widen - but the stock trades near 460 times earnings on a thin 2% profit.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/fsn-e-commerce-ventures-ltd.pdf"
         }
       ]
@@ -130,8 +130,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Government copper miner; earnings ride on volatile copper prices - no clear company-specific trigger right now.",
+          "view": "Concern",
+          "note": "India's only integrated copper miner. FY26 profit nearly doubled on high copper prices, not volume; the plan to triple ore output by 2030 is finally moving but years away, and the stock looks expensive.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hindustan-copper-ltd.pdf"
         }
       ]
@@ -164,7 +164,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Concern",
           "note": "Specialty chemical maker: sales up 41%, profit doubled as new plants filled up, with more capacity landing next year. Management reliably delivers. Only catch is the very expensive share price.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/navin-fluorine-international-ltd.pdf"
         }
@@ -181,8 +181,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Growing fast (CP Plus cameras) but hasn't turned that growth into real cash for three years running.",
+          "view": "Watch",
+          "note": "Makes CP PLUS CCTV cameras. A 2025 rule banning Chinese brands handed it the market - FY26 sales up 36%, profit up 166%, share near 45%. But the stock trades at a punchy 127 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aditya-infotech-ltd.pdf"
         }
       ]
@@ -232,8 +232,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Positive",
-          "note": "Turned from losses to profit (Rs 199cr); its new antibiotic Zaynich just won US FDA approval - a potential big earnings driver.",
+          "view": "Watch",
+          "note": "Makes medicines and its own novel antibiotic. The turnaround is real - profit back at 317 cr and margins tripled - but the whole story now rests on Zaynich, a just-FDA-approved drug that isn't selling yet.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/wockhardt-ltd.pdf"
         }
       ]
@@ -249,7 +249,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Positive",
+          "view": "Concern",
           "note": "Sales nearly doubled. It builds India's AI supercomputers and already holds a huge government AI order bigger than last year's entire sales, so the growth engine is very real.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/netweb-technologies-india-ltd.pdf"
         }
@@ -266,8 +266,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Good drug-chemicals business, but earnings swing wildly from quarter to quarter - hard to rely on.",
+          "view": "Watch",
+          "note": "Makes pharma ingredients and does contract manufacturing for drug innovators. FY26 sales jumped 37% as a few big custom-molecule orders shipped - but revenue is lumpy and the stock trades at 69x earnings. Management stays honest.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/neuland-laboratories-ltd.pdf"
         }
       ]
@@ -283,7 +283,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Positive",
+          "view": "Concern",
           "note": "Order book fine, but there IS a trigger: shifting to higher-value electronics doubled its profit margin and nearly doubled profit in one year. Management under-promises, over-delivers.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/syrma-sgs-technology-ltd.pdf"
         }
@@ -301,7 +301,7 @@
           "quarter": "Q4 2026",
           "tier": "Tier 1",
           "view": "Positive",
-          "note": "Shift to high-value pharma chemicals is lifting profits; fresh triggers - a Korea semiconductor JV and battery chemicals - plus nearly debt-free.",
+          "note": "Makes advanced pharma-chemical building blocks (formerly Ami Organics). A shift into high-value CDMO contracts has doubled both margins and profit, and management keeps beating its own guidance. Main worry is the rich price, near record highs.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/acutaas-chemicals-ltd.pdf"
         }
       ]
@@ -351,7 +351,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Positive",
           "note": "Makes generators for gas power plants, with booming demand from AI data centres; order book more than doubled and management keeps beating its own targets. Caveats: very expensive stock and founders selling down heavily.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/td-power-systems-ltd.pdf"
         }
@@ -368,8 +368,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
-          "note": "Entering aerospace and semiconductors, but the payoff is 1-2 years away and the stock has already run up.",
+          "view": "Positive",
+          "note": "Makes precision-forged auto parts and is fast building an aerospace, defence and semiconductor arm - sales there jumped 155% to Rs 315 crore, lifting profit and margins. But the stock is priced very richly.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sansera-engineering-ltd.pdf"
         }
       ]
@@ -436,8 +436,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Pharma research/formulations play, but currently not attractive on the numbers.",
+          "view": "Watch",
+          "note": "Makes complex US specialty and generic medicines; sales rose 37% to Rs1,754 crore as higher-margin new launches land and its FDA pipeline grows. But the stock trades near 100 times earnings - priced for perfection.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rubicon-research-ltd.pdf"
         }
       ]
@@ -453,8 +453,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Won big new orders but the stock has already jumped; carries heavy debt and may need to borrow more just to deliver them.",
+          "view": "Watch",
+          "note": "Makes optical fibre and cable for telecom and data centres. Recovery is real - FY26 orders doubled to Rs 7,687 crore, profit turned positive - but margins stay thin and much is already priced in.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sterlite-technologies-ltd.pdf"
         }
       ]
@@ -488,7 +488,7 @@
           "quarter": "Q4 2026",
           "tier": "Tier 1",
           "view": "Concern",
-          "note": "Steady auto-parts maker, but there's no clear new trigger to lift earnings sharply from here.",
+          "note": "Spark Minda makes auto parts - wiring, locks, clusters. FY26 sales rose 22% and profit 40% on premium electronics and a Rs 10,000 crore order book, but the stock is pricey near 69 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/minda-corporation-ltd.pdf"
         }
       ]
@@ -522,7 +522,7 @@
           "quarter": "Q4 2026",
           "tier": "Tier 1",
           "view": "Watch",
-          "note": "Transformer maker; stock has already run up and still has no data-center power orders to justify the price.",
+          "note": "Makes power transformers. Roughly quadrupled capacity into India's grid boom; FY26 sales jumped 49% and it turned debt-free. But it's freshly listed, the high-voltage push is unproven, and the stock trades near 60 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/atlanta-electricals-ltd.pdf"
         }
       ]
@@ -538,7 +538,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Concern",
           "note": "South-India diagnostics chain with an excellent, honest management team that consistently beats its own targets, high margins, and volume-led growth. The only worry is the pricey stock versus its sales and assets.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vijaya-diagnostic-centre-ltd.pdf"
         }
@@ -606,8 +606,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Sales rose only because gold prices went up, not because it sold more jewellery - no real volume growth.",
+          "view": "Watch",
+          "note": "Tamil Nadu gold-jewellery retailer opening new Chennai stores; FY26 sales up 73% and profit nearly tripled - but much of that jump is soaring gold prices, and the stock trades at a steep 57 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/thangamayil-jewellery-ltd.pdf"
         }
       ]
@@ -623,8 +623,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Order-driven growth is there, but the company burns cash and has tripled its borrowings in two years.",
+          "view": "Concern",
+          "note": "Makes electronics for nearly every Indian missile and naval weapon, now adding explosives. A booming order book lifted sales 61% and doubled profit, but cash burn is heavy and the stock trades near 120x earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/apollo-micro-systems-ltd.pdf"
         }
       ]
@@ -692,7 +692,7 @@
           "quarter": "Q4 2026",
           "tier": "Tier 1",
           "view": "Watch",
-          "note": "Delivery-logistics player; worth watching only if it can hold its thin ~7% profit margin next quarter.",
+          "note": "India's largest last-mile delivery firm for online shopping and quick commerce. Just turned profitable - FY26 profit jumped to Rs 115 crore as market share doubled, but the stock trades at a steep 116 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shadowfax-technologies-ltd.pdf"
         }
       ]
@@ -708,7 +708,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Concern",
+          "view": "Positive",
           "note": "Pharma turnaround finally paying off: profit doubled, debt slashed, new drug launched. But management repeatedly hypes then quietly drops promised drug deals, and a US FDA warning stays unresolved.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shilpa-medicare-ltd.pdf"
         }
@@ -742,8 +742,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Concern",
-          "note": "Interesting engine-controls business, but too little listed track record yet to judge it.",
+          "view": "Watch",
+          "note": "Makes sensorless engine/motor control units for two-wheelers and gensets. Sales jumped 61% to Rs 1,058 cr and profit doubled as emission rules drove ISG adoption - but the stock trades at a steep 117 P/E.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sedemac-mechatronics-ltd.pdf"
         }
       ]
@@ -759,7 +759,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Concern",
           "note": "Builds electronics for other firms; sales up 46%, profit nearly doubled, and it hit its revenue-doubling target a year early. Strong growth - but the stock is priced for perfection.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/avalon-technologies-ltd.pdf"
         }
@@ -776,7 +776,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Concern",
+          "view": "Positive",
           "note": "Engineering firm with a huge confirmed order book riding India's infra boom. Red flag: the flashy '4x growth' was only on paper, and a group merger dilutes owners ~26%. Very expensive stock.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/lloyds-steels-industries-ltd.pdf"
         }
@@ -963,8 +963,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Concern",
-          "note": "Steady industrial-tools business, but no clear trigger to boost earnings meaningfully.",
+          "view": "Watch",
+          "note": "Makes industrial cutting tools and machine tools; India's factory-building boom lifted latest-quarter sales 39%. But profit stayed flat for three years, exports remain weak, and the stock is pricey at 45 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kennametal-india-ltd.pdf"
         }
       ]
@@ -1014,8 +1014,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Thin-margin security/staffing business; FY25 showed how quickly profit evaporates on wage inflation and Australia losses.",
+          "view": "Watch",
+          "note": "Runs India's biggest security-guard and facility-management business. FY26 rebounded hard - Q4 sales up 31% and returns finally crossed 15% - but margins are wafer-thin (~2.4% net) and the long-promised cash-logistics listing keeps slipping.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sis-ltd.pdf"
         }
       ]
@@ -1065,8 +1065,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Promoters sold about 24% of their stake in the past year - a worrying signal for small investors.",
+          "view": "Concern",
+          "note": "Makes and licences fashion watches (Timex, Guess, Versace). Sales up 48% to Rs 799 cr and profit doubled as brands and online scaled - but stock trades at 72x and the promoter sold down to 51%.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/timex-group-india-ltd.pdf"
         }
       ]
@@ -1076,7 +1076,7 @@
       "name": "Aeroflex Industries Ltd",
       "tvCode": "AEROFLEX",
       "industry": "Capital Goods",
-      "marketCap": 4206.0,
+      "marketCap": 4206,
       "tier": "Tier 1",
       "quarters": [
         {
@@ -1100,7 +1100,7 @@
           "quarter": "Q4 2026",
           "tier": "Tier 1",
           "view": "Watch",
-          "note": "Revenue largely locked till 2028, but a HAL-demerger overhang and an idle Dubai vessel dent near-term earnings.",
+          "note": "Owns India's biggest fleet of offshore oil-field support ships. Record FY26 - sales up 46% and profit doubled as new vessels and high charter rates kicked in. Earnings stay lumpy and it pays heavy promoter fees.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/seamec-ltd.pdf"
         }
       ]
@@ -1133,7 +1133,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Positive",
           "note": "Makes tiny critical parts for circuit breakers, smart meters and EVs. Profit jumped 25% by shifting to higher-value products; new EV-parts plant coming. But management keeps swapping its growth story.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shivalik-bimetal-controls-ltd.pdf"
         }
@@ -1235,8 +1235,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Red flags: promoters selling, growth funded by 4x more debt, and cash stuck for ~9 months.",
+          "view": "Watch",
+          "note": "Makes railway anti-collision Kavach systems; one of three approved suppliers. A 4,150 crore order book drove sales up over 120% - but operating cash flow is deeply negative, debt is rising and the stock is pricey.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kernex-microsystems-india-ltd.pdf"
         }
       ]
@@ -1252,8 +1252,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Warning signs: promoters are selling and the business isn't converting its profit into cash.",
+          "view": "Concern",
+          "note": "Makes electronics and safety systems for Indian Railways. Sales and profit nearly tripled on a fat order book and new Kavach approval - but the stock is pricey and profits came with heavy negative cash flow and rising debt.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/concord-control-systems-ltd.pdf"
         }
       ]
@@ -1269,7 +1269,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Positive",
           "note": "India's biggest crane-rental firm is riding the wind-power and infrastructure boom, growing ~30% yearly. Demand is solid, but watch the big management shake-up, thinner margins and reduced disclosure.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sanghvi-movers-ltd.pdf"
         }
@@ -1286,7 +1286,7 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
+          "view": "Concern",
           "note": "Cable maker whose sales doubled and profit tripled. Old worry about 'no room to grow' looks wrong: capacity is tripling toward FY30 and exports just began. Management keeps beating targets, but stock is pricey.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/v-marc-india-ltd.pdf"
         }
@@ -1303,8 +1303,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Concern",
-          "note": "Management itself expects flat revenue (same as last year) - little growth to look forward to.",
+          "view": "Watch",
+          "note": "Makes tractor and earth-mover parts, mostly for export. The farm and construction downturn has bottomed - Q4 sales jumped 34% and profit doubled - but it's a cyclical bounce, still below the 2023 peak, with US-tariff risk.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/uniparts-india-ltd.pdf"
         }
       ]
@@ -1371,8 +1371,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Expensive, barely makes any profit after costs, and struggles to turn sales into actual cash.",
+          "view": "Concern",
+          "note": "Makes defence gear - rocket-launcher structures and armour - plus e-vehicles. Big Army and Israel orders are the draw, but FY26 sales fell 13%, quarters swing wildly, and it burns cash while priced at 143 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nibe-ltd.pdf"
         }
       ]
@@ -1405,8 +1405,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Small pharma exporter, but currently not attractive on quality and valuation.",
+          "view": "Watch",
+          "note": "Exports generic medicines. Sales jumped 36% to Rs503 crore as it pushes into higher-margin regulated European markets - but profit isn't turning into cash (only Rs17 crore collected) and money owed by customers is piling up.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kwality-pharmaceuticals-ltd.pdf"
         }
       ]
@@ -1422,8 +1422,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Barely converts profit into cash and customers are taking longer and longer to pay - a warning sign.",
+          "view": "Watch",
+          "note": "Makes low-cost latex condoms; profit doubled to ~27cr and capacity nearly doubled, with a first 43cr South Africa export order shipping - but the stock trades at 78x earnings and profit isn't turning into cash.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/anondita-medicare-ltd.pdf"
         }
       ]
@@ -1490,8 +1490,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Weak cash generation and heavily dependent on Indian Navy orders - a concentrated, risky revenue base.",
+          "view": "Watch",
+          "note": "Makes fluid and high-pressure air systems for Navy submarines. A Rs 514 cr defence order book drove FY26 sales up 43% and profit up 63% - but cash flow stays negative and the stock is pricey at 44x.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/cff-fluid-control-ltd.pdf"
         }
       ]
@@ -1507,8 +1507,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Positive",
-          "note": "Quality Kauvery hospital chain; profit margins rising (25->29%), nearly debt-free, new 200-bed block filling up fast.",
+          "view": "Concern",
+          "note": "Single-city Trichy hospital. Its new 200-bed block filled from 65% to 81% occupancy, doubling FY26 profit to Rs47cr; trustworthy team. But the easy ramp is now done and the stock is pricey at P/E 47.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kmc-speciality-hospitals-india-ltd.pdf"
         }
       ]
@@ -1524,8 +1524,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Watch",
-          "note": "Stock has already jumped on improving margins - most of the good news is already in the price.",
+          "view": "Positive",
+          "note": "Makes injectable medicines and antibiotics, exports over 70%. FY26 profit doubled to Rs 103 crore as margins jumped and debt hit zero - but roughly Rs 23 crore was a one-off gain.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/venus-remedies-ltd.pdf"
         }
       ]
@@ -1541,8 +1541,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Electronics-manufacturing services, but hasn't generated positive cash for the last three years.",
+          "view": "Concern",
+          "note": "Makes electronics for defence and aerospace gear. A Rs 1,309 crore order book and 30% sales growth give a real runway, but cash stays stuck in working capital and the stock is richly priced.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vinyas-innovative-technologies-ltd.pdf"
         }
       ]
@@ -1575,8 +1575,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Expensive for what it earns - very low returns on capital (~3%) despite the rich valuation.",
+          "view": "Concern",
+          "note": "Makes door and window hardware; sales grew to Rs160 crore and margins hit 13%. Growth is real, but the stock trades at 95 times earnings and much of its balance sheet is idle related-party investment.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hardwyn-india-ltd.pdf"
         }
       ]
@@ -1593,7 +1593,7 @@
           "quarter": "Q4 2026",
           "tier": "Tier 1",
           "view": "Watch",
-          "note": "Good repeat-demand business expanding capacity, but too little history to judge it confidently yet.",
+          "note": "Makes furnace-lining powder (ramming mass) for India's steel makers. Sales up 39% and profit up 60% as it quadruples capacity - but the stock is pricey at 82 times earnings and the big expansion is still unproven.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/monolithisch-india-ltd.pdf"
         }
       ]
@@ -1626,8 +1626,8 @@
         {
           "quarter": "Q4 2026",
           "tier": "Tier 1",
-          "view": "Negative",
-          "note": "Borrowings already 3x last year and spending Rs 800cr on expansion against a Rs 1,200cr company - stretched and risky.",
+          "view": "Watch",
+          "note": "Kolkata steel processor that converts steel for Tata for a fee; posted record FY26 profit of Rs 81 cr. Now betting Rs 803 cr on a new Bokaro plant - transformational but unproven and debt-heavy.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bmw-industries-ltd.pdf"
         }
       ]
