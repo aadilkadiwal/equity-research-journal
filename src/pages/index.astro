@@ -1,0 +1,444 @@
+---
+import Base from '../layouts/Base.astro';
+import data from '../data/companies.json';
+import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterChanges } from '../lib/render.js';
+
+const companies = data.companies;
+const industries = [...new Set(companies.map((c) => c.industry).filter(Boolean))].sort();
+const tiers = ['Tier 1', 'Tier 2', 'Tier 3', 'Tier 4'];
+
+const viewDots = {
+  Positive: 'var(--view-positive-bar)', Watch: 'var(--view-watch-bar)',
+  Concern: 'var(--view-concern-bar)', Negative: 'var(--view-negative-bar)',
+};
+const VIEW_MEANING = {
+  Positive: 'looks promising', Watch: 'keep an eye on',
+  Concern: 'be cautious', Negative: 'avoid for now',
+};
+
+const counts = viewCounts(companies);
+const totalRated = VIEW_ORDER.reduce((s, v) => s + counts[v], 0);
+const changes = quarterChanges(companies);
+const upgrades = changes.filter((c) => c.dir === 'up');
+const downgrades = changes.filter((c) => c.dir === 'down');
+const initialRows = initialListHTML(companies);
+---
+<Base title="Aadil Kadiwal · Equity Research & Views">
+  <section class="hero">
+    <h1 class="hero-title">Equity Research &amp; Views</h1>
+  </section>
+
+  <!-- Summary bar + view legend -->
+  <section class="view-summary" aria-label="View distribution">
+    <div class="vs-bar">
+      {VIEW_ORDER.filter((v) => counts[v] > 0).map((v) => (
+        <span class={`vs-seg view-${v.toLowerCase()}`} style={`flex:${counts[v]}`} title={`${v}: ${counts[v]}`}></span>
+      ))}
+    </div>
+    <div class="vs-legend">
+      {VIEW_ORDER.map((v) => (
+        <span class="vs-item">
+          <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>
+          <b>{v}</b> <span class="vs-meaning">{VIEW_MEANING[v]}</span> <span class="vs-n">{counts[v]}</span>
+        </span>
+      ))}
+    </div>
+  </section>
+
+  {changes.length > 0 && (
+    <details class="qoq">
+      <summary>What changed last quarter — <b class="up">↑ {upgrades.length} upgraded</b> · <b class="down">↓ {downgrades.length} downgraded</b></summary>
+      <div class="qoq-body">
+        {upgrades.length > 0 && (
+          <div class="qoq-col">
+            <h4 class="up">Upgraded</h4>
+            {upgrades.map((c) => (
+              <a class="qoq-item" href={`#c-${c.slug}`}>{c.name} <span class="qoq-move">{c.from} → {c.to}</span></a>
+            ))}
+          </div>
+        )}
+        {downgrades.length > 0 && (
+          <div class="qoq-col">
+            <h4 class="down">Downgraded</h4>
+            {downgrades.map((c) => (
+              <a class="qoq-item" href={`#c-${c.slug}`}>{c.name} <span class="qoq-move">{c.from} → {c.to}</span></a>
+            ))}
+          </div>
+        )}
+      </div>
+    </details>
+  )}
+
+  <div class="toolbar">
+    <div class="tb-find">
+      <input class="search" id="search" type="search" placeholder="Search name, symbol, industry or notes…" autocomplete="off" />
+      <select id="industry" aria-label="Filter by industry" data-dd="Search industry…">
+        <option value="">All industries</option>
+        {industries.map((s) => <option value={s}>{s}</option>)}
+      </select>
+      <select id="tier" aria-label="Filter by tier" data-dd data-note="tier-note-tpl">
+        <option value="">All tiers</option>
+        {tiers.map((t) => <option value={t}>{t}</option>)}
+      </select>
+      <template id="tier-note-tpl">
+        <div class="dd-note">
+          <b>Tier</b> = the weaker of YoY Sales &amp; PAT growth
+          <ul>
+            <li><b>Tier 1</b> — both ≥ 20%</li>
+            <li><b>Tier 2</b> — both ≥ 15% (under 20)</li>
+            <li><b>Tier 3</b> — both ≥ 10% (under 15)</li>
+            <li><b>Tier 4</b> — either &lt; 10%</li>
+          </ul>
+        </div>
+      </template>
+      <select class="sort" id="sort" aria-label="Sort by" data-dd>
+        <option value="mcap">Sort: Market cap</option>
+        <option value="name">Sort: Name A–Z</option>
+        <option value="tier">Sort: Tier</option>
+        <option value="view">Sort: View</option>
+      </select>
+      <button class="btn ghost" id="export" title="Download the filtered list as an NSE:SYMBOL watchlist">⬇ Watchlist</button>
+    </div>
+
+    <div class="chips" id="view-chips">
+      {VIEW_ORDER.map((v) => (
+        <button class="chip" data-view={v} aria-pressed="false">
+          <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>{v}<span class="n" data-count></span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="active-filters" id="active-filters"></div>
+  <p class="count" id="count"></p>
+  <div class="list" id="list" set:html={initialRows}></div>
+  <div class="empty-state" id="empty" style="display:none">
+    No companies match your filters. <button class="btn ghost" id="clear-empty">Clear filters</button>
+  </div>
+  <nav class="pager" id="pager" aria-label="Pagination"></nav>
+
+  <script type="application/json" id="dataset" set:html={JSON.stringify(companies).replace(/</g, '\\u003c')}></script>
+</Base>
+
+<script>
+  import { rowHTML, latestEntry, VIEW_ORDER, esc } from '../lib/render.js';
+
+  const DATA = JSON.parse(document.getElementById('dataset').textContent);
+
+  const listEl = document.getElementById('list');
+  const searchEl = document.getElementById('search');
+  const sortEl = document.getElementById('sort');
+  const tierEl = document.getElementById('tier');
+  const industryEl = document.getElementById('industry');
+  const countEl = document.getElementById('count');
+  const emptyEl = document.getElementById('empty');
+  const chipsEl = document.getElementById('view-chips');
+  const exportBtn = document.getElementById('export');
+  const activeFiltersEl = document.getElementById('active-filters');
+  const pagerEl = document.getElementById('pager');
+
+  const activeViews = new Set();
+  // Fewer per page on phones (1-column grid) than on desktop (2-column).
+  // Breakpoint matches the CSS where .list collapses to a single column.
+  const mqMobile = window.matchMedia('(max-width: 640px)');
+  let PAGE_SIZE = mqMobile.matches ? 12 : 24;
+  let currentPage = 1;
+  let lastVisible = [];
+
+  // Rank by the tier shown on the card (latest quarter), not the company-level
+  // field, so the sort order matches what's rendered.
+  const tierRank = (c) => { const m = /(\d)/.exec((c._latest && c._latest.tier) || c.tier || ''); return m ? +m[1] : 9; };
+
+  const haystack = (c) => {
+    if (c._haystack == null) {
+      const notes = (c.quarters || []).map((q) => q.note || '').join(' ');
+      c._haystack = `${c.name} ${c.tvCode || ''} ${c.industry || ''} ${notes}`.toLowerCase();
+    }
+    return c._haystack;
+  };
+  function matches(c, term) {
+    return haystack(c).includes(term);
+  }
+
+  function apply() {
+    const term = searchEl.value.trim().toLowerCase();
+    const tier = tierEl.value;
+    const industry = industryEl.value;
+
+    // Resolve each company's latest quarter once per pass and cache it on the
+    // object — filter, counts, view-filter and the sort comparators all reuse it
+    // instead of re-reducing the timeline every time.
+    const base = DATA.filter((c) => {
+      c._latest = latestEntry(c);
+      if (!c._latest) return false;
+      if (term && !matches(c, term)) return false;
+      if (tier && c.tier !== tier) return false;
+      if (industry && c.industry !== industry) return false;
+      return true;
+    });
+
+    const counts = { Positive: 0, Watch: 0, Concern: 0, Negative: 0 };
+    base.forEach((c) => { const v = c._latest.view; if (counts[v] != null) counts[v]++; });
+    chipsEl.querySelectorAll('.chip').forEach((chip) => {
+      chip.querySelector('[data-count]').textContent = ' ' + (counts[chip.dataset.view] ?? 0);
+    });
+
+    let visible = base.filter((c) => activeViews.size === 0 || activeViews.has(c._latest.view));
+    const sort = sortEl.value;
+    const byCap = (a, b) => (b.marketCap || 0) - (a.marketCap || 0);
+    if (sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name));
+    else if (sort === 'tier') visible.sort((a, b) => (tierRank(a) - tierRank(b)) || byCap(a, b));
+    else if (sort === 'view') visible.sort((a, b) => (VIEW_ORDER.indexOf(a._latest.view) - VIEW_ORDER.indexOf(b._latest.view)) || byCap(a, b));
+    else visible.sort(byCap);
+
+    lastVisible = visible;
+    currentPage = 1;
+    renderPage();
+    renderActiveFilters(term, tier, industry);
+  }
+
+  function renderPage() {
+    const total = lastVisible.length;
+    const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if (currentPage > pages) currentPage = pages;
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const slice = lastVisible.slice(start, start + PAGE_SIZE);
+    listEl.innerHTML = slice.map((c) => rowHTML(c, c._latest || latestEntry(c))).join('');
+    emptyEl.style.display = total === 0 ? '' : 'none';
+    countEl.textContent = total === 0 ? `0 companies` : `Showing ${start + 1}–${start + slice.length} of ${total}`;
+    renderPagination(pages);
+  }
+
+  function pageWindow(cur, pages) {
+    const out = [];
+    for (let i = 1; i <= pages; i++) {
+      if (i === 1 || i === pages || (i >= cur - 1 && i <= cur + 1)) out.push(i);
+      else if (out[out.length - 1] !== '…') out.push('…');
+    }
+    return out;
+  }
+
+  function renderPagination(pages) {
+    if (pages <= 1) { pagerEl.innerHTML = ''; return; }
+    let html = `<button class="pg-btn" data-pg="prev" ${currentPage === 1 ? 'disabled' : ''}>‹ Prev</button>`;
+    for (const p of pageWindow(currentPage, pages)) {
+      html += p === '…' ? `<span class="pg-gap">…</span>` : `<button class="pg-btn pg-num${p === currentPage ? ' active' : ''}" data-pg="${p}">${p}</button>`;
+    }
+    html += `<button class="pg-btn" data-pg="next" ${currentPage === pages ? 'disabled' : ''}>Next ›</button>`;
+    pagerEl.innerHTML = html;
+  }
+
+  function goToPage(p) {
+    const pages = Math.max(1, Math.ceil(lastVisible.length / PAGE_SIZE));
+    if (p === 'prev') p = currentPage - 1; else if (p === 'next') p = currentPage + 1; else p = parseInt(p, 10);
+    currentPage = Math.min(Math.max(1, p), pages);
+    renderPage();
+    document.querySelector('.toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderActiveFilters(term, tier, industry) {
+    const tokens = [];
+    if (term) tokens.push({ type: 'search', label: `“${term}”` });
+    [...activeViews].forEach((v) => tokens.push({ type: 'view', val: v, label: v }));
+    if (tier) tokens.push({ type: 'tier', label: tier });
+    if (industry) tokens.push({ type: 'industry', label: industry });
+    if (!tokens.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML =
+      tokens.map((t) => `<button class="token" data-type="${t.type}" data-val="${esc(t.val || '')}">${esc(t.label)}<span class="x">✕</span></button>`).join('') +
+      `<button class="token-clear" id="clear-all">Clear all</button>`;
+  }
+
+  function clearAll() {
+    searchEl.value = ''; tierEl.value = ''; industryEl.value = '';
+    tierEl.dispatchEvent(new Event('change', { bubbles: true }));
+    industryEl.dispatchEvent(new Event('change', { bubbles: true }));
+    activeViews.clear();
+    chipsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+    apply();
+  }
+
+  // ---- toast + deep-link anchors ----
+  let toastEl;
+  function toast(msg) {
+    if (!toastEl) { toastEl = document.createElement('div'); toastEl.className = 'toast'; document.body.appendChild(toastEl); }
+    toastEl.textContent = msg; toastEl.classList.add('show');
+    clearTimeout(toast._t); toast._t = setTimeout(() => toastEl.classList.remove('show'), 1500);
+  }
+  function flashRow(slug) {
+    const el = document.getElementById('c-' + slug);
+    if (!el) return false;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.add('row-flash');
+    setTimeout(() => el.classList.remove('row-flash'), 1600);
+    return true;
+  }
+  function handleHash() {
+    const m = /^#c-(.+)$/.exec(location.hash);
+    if (!m) return;
+    const slug = decodeURIComponent(m[1]);
+    if (!DATA.some((c) => c.slug === slug)) return;
+    // make sure it's on the current filtered set + right page
+    if (!lastVisible.some((c) => c.slug === slug)) clearAll();
+    const idx = lastVisible.findIndex((c) => c.slug === slug);
+    if (idx >= 0) { currentPage = Math.floor(idx / PAGE_SIZE) + 1; renderPage(); }
+    setTimeout(() => flashRow(slug), 60);
+  }
+
+  // events
+  searchEl.addEventListener('input', apply);
+  sortEl.addEventListener('change', apply);
+  tierEl.addEventListener('change', apply);
+  industryEl.addEventListener('change', apply);
+
+  chipsEl.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    const v = chip.dataset.view;
+    if (activeViews.has(v)) { activeViews.delete(v); chip.setAttribute('aria-pressed', 'false'); }
+    else { activeViews.add(v); chip.setAttribute('aria-pressed', 'true'); }
+    apply();
+  });
+
+  activeFiltersEl.addEventListener('click', (e) => {
+    if (e.target.closest('#clear-all')) return clearAll();
+    const tok = e.target.closest('.token');
+    if (!tok) return;
+    const { type, val } = tok.dataset;
+    if (type === 'search') searchEl.value = '';
+    else if (type === 'tier') { tierEl.value = ''; tierEl.dispatchEvent(new Event('change', { bubbles: true })); }
+    else if (type === 'industry') { industryEl.value = ''; industryEl.dispatchEvent(new Event('change', { bubbles: true })); }
+    else if (type === 'view') { activeViews.delete(val); chipsEl.querySelector(`.chip[data-view="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
+    apply();
+  });
+
+  document.getElementById('clear-empty').addEventListener('click', clearAll);
+
+  pagerEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.pg-btn');
+    if (btn && !btn.disabled) goToPage(btn.dataset.pg);
+  });
+
+  listEl.addEventListener('click', (e) => {
+    const t = e.target.closest('.hist-toggle');
+    if (t) {
+      const hist = t.nextElementSibling;
+      const open = hist.hasAttribute('hidden');
+      if (open) hist.removeAttribute('hidden'); else hist.setAttribute('hidden', '');
+      t.setAttribute('aria-expanded', String(open));
+      const n = hist.querySelectorAll('.entry').length;
+      t.textContent = `${open ? '▾' : '▸'} history (${n})`;
+      return;
+    }
+    const nm = e.target.closest('.row-nm');
+    if (nm) {
+      const slug = nm.closest('.row').dataset.slug;
+      history.replaceState(null, '', '#c-' + slug);
+      flashRow(slug);
+      if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(() => toast('Link copied')).catch(() => {});
+    }
+  });
+  listEl.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.row-nm')) { e.preventDefault(); e.target.closest('.row-nm').click(); }
+  });
+
+  exportBtn.addEventListener('click', () => {
+    const symbols = lastVisible.filter((c) => c.tvCode).map((c) => `NSE:${c.tvCode}`);
+    if (!symbols.length) return;
+    const blob = new Blob([symbols.join('\n')], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'watchlist.txt'; a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // global keyboard: "/" focus search, Esc clears search
+  document.addEventListener('keydown', (e) => {
+    const tag = (document.activeElement.tagName || '').toLowerCase();
+    if (e.key === '/' && tag !== 'input' && tag !== 'textarea' && tag !== 'select') { e.preventDefault(); searchEl.focus(); }
+    else if (e.key === 'Escape' && document.activeElement === searchEl && searchEl.value) { searchEl.value = ''; apply(); }
+  });
+
+  // ---- custom dropdowns (native <select> kept in sync underneath) ----
+  function enhanceSelect(sel) {
+    const searchPlaceholder = sel.dataset.dd;
+    const searchable = !!searchPlaceholder;
+    const noteTpl = sel.dataset.note ? document.getElementById(sel.dataset.note) : null;
+    const noteHTML = noteTpl ? noteTpl.innerHTML : '';
+    const opts = [...sel.options].map((o) => ({ value: o.value, label: o.textContent }));
+    const labelOf = (v) => (opts.find((o) => o.value === v) || opts[0] || {}).label || '';
+
+    const wrap = document.createElement('div');
+    wrap.className = 'dd';
+    sel.parentNode.insertBefore(wrap, sel);
+    wrap.appendChild(sel);
+
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'dd-trigger'; btn.setAttribute('aria-haspopup', 'listbox');
+    const menu = document.createElement('div');
+    menu.className = 'dd-menu'; menu.hidden = true;
+    wrap.appendChild(btn); wrap.appendChild(menu);
+    let activeIdx = -1;
+
+    const CHEV = `<span class="dd-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>`;
+    function paintTrigger() {
+      const info = noteHTML ? `<span class="dd-info" tabindex="0" role="note" aria-label="What are tiers?">ⓘ<span class="dd-tip">${noteHTML}</span></span>` : '';
+      btn.innerHTML = `<span class="dd-label">${esc(labelOf(sel.value))}</span>${info}${CHEV}`;
+    }
+    const optEls = () => [...menu.querySelectorAll('.dd-opt')];
+    function highlight(i) {
+      const os = optEls(); os.forEach((o) => o.classList.remove('kbd'));
+      if (i >= 0 && i < os.length) { os[i].classList.add('kbd'); os[i].scrollIntoView({ block: 'nearest' }); activeIdx = i; }
+    }
+    function renderMenu(filter) {
+      const f = (filter || '').toLowerCase();
+      const list = opts.filter((o) => o.label.toLowerCase().includes(f));
+      menu.innerHTML =
+        (searchable ? `<div class="dd-search"><input type="text" placeholder="${esc(searchPlaceholder)}" /></div>` : '') +
+        `<div class="dd-list" role="listbox">` +
+        (list.length ? list.map((o) => `<button type="button" role="option" class="dd-opt${o.value === sel.value ? ' sel' : ''}" data-value="${esc(o.value)}">${esc(o.label)}</button>`).join('') : `<div class="dd-empty">No matches</div>`) +
+        `</div>`;
+      activeIdx = optEls().findIndex((o) => o.classList.contains('sel'));
+      if (searchable) {
+        const si = menu.querySelector('.dd-search input');
+        si.value = filter || '';
+        si.addEventListener('input', () => renderMenu(si.value));
+        setTimeout(() => si.focus(), 0);
+      }
+    }
+    function open() { renderMenu(''); menu.hidden = false; wrap.classList.add('open'); }
+    function close() { menu.hidden = true; wrap.classList.remove('open'); }
+
+    btn.addEventListener('click', (e) => { if (e.target.closest('.dd-info')) { e.stopPropagation(); return; } e.stopPropagation(); menu.hidden ? open() : close(); });
+    menu.addEventListener('click', (e) => {
+      const opt = e.target.closest('.dd-opt');
+      if (!opt) return;
+      sel.value = opt.dataset.value;
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+      paintTrigger(); close(); btn.focus();
+    });
+    wrap.addEventListener('keydown', (e) => {
+      if (menu.hidden) { if ((e.key === 'ArrowDown' || e.key === 'Enter') && document.activeElement === btn) { e.preventDefault(); open(); } return; }
+      if (e.key === 'ArrowDown') { e.preventDefault(); highlight(Math.min(activeIdx + 1, optEls().length - 1)); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(Math.max(activeIdx - 1, 0)); }
+      else if (e.key === 'Enter') { const o = optEls()[activeIdx]; if (o) { e.preventDefault(); o.click(); } }
+    });
+    paintTrigger();
+    return { wrap, close };
+  }
+  const dropdowns = [...document.querySelectorAll('select[data-dd]')].map(enhanceSelect);
+  // One delegated pair of listeners for all dropdowns (was one pair per select):
+  // any outside click, or Escape, closes every open menu.
+  document.addEventListener('click', (e) => { dropdowns.forEach((d) => { if (!d.wrap.contains(e.target)) d.close(); }); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') dropdowns.forEach((d) => d.close()); });
+
+  // Re-paginate if the viewport crosses the mobile/desktop breakpoint.
+  mqMobile.addEventListener('change', () => {
+    PAGE_SIZE = mqMobile.matches ? 12 : 24;
+    currentPage = 1;
+    renderPage();
+  });
+
+  apply();
+  handleHash();
+  window.addEventListener('hashchange', handleHash);
+</script>

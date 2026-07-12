@@ -1,0 +1,98 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+const {
+  title = 'Aadil Kadiwal · Equity Research & Views',
+  description = 'Equity research & views by Aadil Kadiwal — a plain-English view on each company, quarter by quarter. Educational only, not investment advice.',
+} = Astro.props;
+const site = Astro.site;
+const canonical = site ? new URL(Astro.url.pathname, site).href : Astro.url.pathname;
+const ogImage = site ? new URL('/og.png', site).href : '/og.png';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#6355d6" />
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aadil Kadiwal · Equity Research & Views" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <title>{title}</title>
+    <!-- set theme + density before paint to avoid flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a class="brand" href="/">
+          <svg class="brand-mark" viewBox="0 0 64 64" width="24" height="24" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="var(--accent)"></rect>
+            <text x="32" y="44" text-anchor="middle" font-family="var(--font-sans)" font-size="30" font-weight="700" fill="#fff">AK</text>
+          </svg>
+          <span class="brand-name">Aadil Kadiwal</span>
+        </a>
+        <span class="spacer"></span>
+        <a class="btn ghost market-breadth" href="https://chartink.com/dashboard/422097" target="_blank" rel="noopener" title="Open the Market Breadth dashboard on Chartink">📊 <span class="mb-label">Market Breadth ↗</span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">🌗</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-about">
+          <h3>About</h3>
+          <p>
+            <strong>Aadil Kadiwal · Equity Research &amp; Views.</strong> A personal, plain-English take on Indian
+            listed companies — one recorded view per company each quarter, with an AI-generated concall report behind
+            most names. <strong>Method:</strong> each company gets a view (Positive / Watch / Concern / Negative) formed
+            from its latest results, concall reading and valuation; a <em>Tier</em> (1–4) grades earnings momentum
+            (the weaker of YoY sales &amp; PAT growth). Views are revisited every quarter and may change.
+          </p>
+        </div>
+        <p class="disclaimer">
+          <strong>For information and educational purposes only — not investment advice.</strong>
+          Views and notes are personal opinions recorded per quarter and may be wrong or out of date.
+          Figures as stated by companies (₹ crore). Do your own research before investing.
+        </p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var tbtn = document.getElementById('theme-toggle');
+        if (tbtn) tbtn.addEventListener('click', function () {
+          var cur = document.documentElement.getAttribute('data-theme');
+          var mql = window.matchMedia('(prefers-color-scheme: dark)');
+          var next = cur ? (cur === 'dark' ? 'light' : 'dark') : (mql.matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>

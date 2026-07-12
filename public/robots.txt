@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://aadil-kadiwal-research.netlify.app/sitemap-index.xml

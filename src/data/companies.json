@@ -1,0 +1,1704 @@
+{
+  "companies": [
+    {
+      "slug": "nestleind",
+      "name": "Nestle India Ltd",
+      "tvCode": "NESTLEIND",
+      "industry": "FMCG",
+      "marketCap": 265881.4,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Maggi-and-Nescafe giant just posted its best sales quarter in a decade, driven by selling more in small towns plus premium products. Steady record, but a new outsider CEO is unproven.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/nestle-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "hindzinc",
+      "name": "Hindustan Zinc Ltd",
+      "tvCode": "HINDZINC",
+      "industry": "Mining & Minerals",
+      "marketCap": 248681.03,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Record profits, but nearly half now ride on a silver-price boom that could reverse. Costs are world-class, yet the promised silver-output growth keeps falling short.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/hindustan-zinc-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "solarinds",
+      "name": "Solar Industries",
+      "tvCode": "SOLARINDS",
+      "industry": "Defence",
+      "marketCap": 156674.48,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "World's largest explosives maker with a booming defence arm (Pinaka rockets, drones) - profit up 35% and a two-year order book. Real, proven growth, but the stock is very pricey.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/solar-industries-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "bhel",
+      "name": "Bharat Heavy Electricals",
+      "tvCode": "BHEL",
+      "industry": "Power",
+      "marketCap": 131294.92,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Record all-time-high order book gives long-term visibility, but revenue stays lumpy and unpredictable each quarter.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/bharat-heavy-electricals-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "cgpower",
+      "name": "CG Power & Industrial Solutions",
+      "tvCode": "CGPOWER",
+      "industry": "Power",
+      "marketCap": 130451.85,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Riding a power-grid boom, winning big transformer orders including for US data centres, with capacity being multiplied several-fold and a new semiconductor bet. Cleaned-up, debt-free business; current management consistently delivers, though the turnaround is young.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/cg-power-and-industrial-solutions-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "gvt-d",
+      "name": "GE Vernova T&D India Ltd",
+      "tvCode": "GVT&D",
+      "industry": "Power",
+      "marketCap": 113348.21,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Grid-equipment maker in India's massive power build-out; orders booked equal ~3 years of sales and profit margins tripled. Management reliably under-promises and over-delivers. Strongest pick here.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/ge-vernova-t-and-d-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "nykaa",
+      "name": "FSN E-Commerce Ventures",
+      "tvCode": "NYKAA",
+      "industry": "Technology",
+      "marketCap": 78632.06,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Quality online beauty brand but very expensive; only interesting to enter near long-term support levels.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/fsn-e-commerce-ventures-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "hindcopper",
+      "name": "Hindustan Copper Ltd",
+      "tvCode": "HINDCOPPER",
+      "industry": "Mining & Minerals",
+      "marketCap": 55144.54,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Government copper miner; earnings ride on volatile copper prices - no clear company-specific trigger right now.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/hindustan-copper-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "atherenerg",
+      "name": "Ather Energy Ltd",
+      "tvCode": "ATHERENERG",
+      "industry": "Auto",
+      "marketCap": 35747.41,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Electric scooter maker whose market share nearly tripled to 1-in-5, losses almost gone. But still not profitable, shares look pricey, and a sharp jump in raw-material costs is squeezing margins.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/ather-energy-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "navinfluor",
+      "name": "Navin Fluorine International Ltd",
+      "tvCode": "NAVINFLUOR",
+      "industry": "Chemicals",
+      "marketCap": 34648.52,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Specialty chemical maker: sales up 41%, profit doubled as new plants filled up, with more capacity landing next year. Management reliably delivers. Only catch is the very expensive share price.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/navin-fluorine-international-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "cpplus",
+      "name": "Aditya Infotech Ltd",
+      "tvCode": "CPPLUS",
+      "industry": "Consumer Goods",
+      "marketCap": 31107.82,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Growing fast (CP Plus cameras) but hasn't turned that growth into real cash for three years running.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/aditya-infotech-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "gland",
+      "name": "Gland Pharma Ltd",
+      "tvCode": "GLAND",
+      "industry": "Healthcare",
+      "marketCap": 30830.98,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Injectable-drug maker whose loss-making Europe unit finally turned profitable, powering profit up 47%. Contract manufacturing is the growth engine, plus future weight-loss-drug upside. But that Europe fix arrived a year late.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/gland-pharma-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "shyammetl",
+      "name": "Shyam Metalics & Energy Ltd",
+      "tvCode": "SHYAMMETL",
+      "industry": "Mining & Minerals",
+      "marketCap": 24334.71,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Steel sales keep growing fast but profit stayed flat four years while it kept building plants. Latest quarter finally shows profit jumping - a first real hint that spending pays off.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/shyam-metalics-and-energy-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "wockpharma",
+      "name": "Wockhardt Ltd",
+      "tvCode": "WOCKPHARMA",
+      "industry": "Healthcare",
+      "marketCap": 23171.74,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Turned from losses to profit (Rs 199cr); its new antibiotic Zaynich just won US FDA approval - a potential big earnings driver.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/wockhardt-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "netweb",
+      "name": "Netweb Technologies India Ltd",
+      "tvCode": "NETWEB",
+      "industry": "Technology",
+      "marketCap": 23145.25,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Sales nearly doubled. It builds India's AI supercomputers and already holds a huge government AI order bigger than last year's entire sales, so the growth engine is very real.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/netweb-technologies-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "neulandlab",
+      "name": "Neuland Laboratories Ltd",
+      "tvCode": "NEULANDLAB",
+      "industry": "Healthcare",
+      "marketCap": 21814.66,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Good drug-chemicals business, but earnings swing wildly from quarter to quarter - hard to rely on.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/neuland-laboratories-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "syrma",
+      "name": "Syrma SGS Technology Ltd",
+      "tvCode": "SYRMA",
+      "industry": "Technology",
+      "marketCap": 21454.32,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Order book fine, but there IS a trigger: shifting to higher-value electronics doubled its profit margin and nearly doubled profit in one year. Management under-promises, over-delivers.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/syrma-sgs-technology-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "acutaas",
+      "name": "Acutaas Chemicals Ltd",
+      "tvCode": "ACUTAAS",
+      "industry": "Healthcare",
+      "marketCap": 21254.33,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Shift to high-value pharma chemicals is lifting profits; fresh triggers - a Korea semiconductor JV and battery chemicals - plus nearly debt-free.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/acutaas-chemicals-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "emmvee",
+      "name": "Emmvee Photovoltaic Power Ltd",
+      "tvCode": "EMMVEE",
+      "industry": "Energy",
+      "marketCap": 20138.38,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Solar-panel maker riding India's make-in-India push; sales doubled, profit nearly tripled, debt-free, with a huge new factory funded and on track. Management delivers what it promises.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/emmvee-photovoltaic-power-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "mtartech",
+      "name": "MTAR Technologies",
+      "tvCode": "MTARTECH",
+      "industry": "Capital Goods",
+      "marketCap": 19220.13,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes precision parts for AI-data-centre fuel cells and nuclear reactors. Order book tripled, profit up 76% - real growth. Catch: leans heavily on one US customer and often misses its targets.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/mtar-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "tdpowersys",
+      "name": "TD Power Systems",
+      "tvCode": "TDPOWERSYS",
+      "industry": "Power",
+      "marketCap": 18497.45,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes generators for gas power plants, with booming demand from AI data centres; order book more than doubled and management keeps beating its own targets. Caveats: very expensive stock and founders selling down heavily.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/td-power-systems-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sansera",
+      "name": "Sansera Engineering",
+      "tvCode": "SANSERA",
+      "industry": "Auto",
+      "marketCap": 17799.84,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Entering aerospace and semiconductors, but the payoff is 1-2 years away and the stock has already run up.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/sansera-engineering-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "hfcl",
+      "name": "HFCL",
+      "tvCode": "HFCL",
+      "industry": "Telecom",
+      "marketCap": 17741.36,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes internet fibre cables. AI data-centre demand brought a record $1.1 billion export order and doubled profit. Real driver - but management chronically misses deadlines and the stock's pricey.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/hfcl-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "rrkabel",
+      "name": "R R Kabel Ltd",
+      "tvCode": "RRKABEL",
+      "industry": "Wires and Cables",
+      "marketCap": 17651.67,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "India's wire-and-cable maker is booming - profit jumped 62% as it shifts to higher-value cable for data centres and solar. Big new factories arrive by 2027-28. Fans/lights arm still loss-making.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/rr-kabel-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "granules",
+      "name": "Granules India Ltd",
+      "tvCode": "GRANULES",
+      "industry": "Healthcare",
+      "marketCap": 17461.01,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Shifted from raw ingredients to finished tablets, lifting margins and finally breaking three flat years (sales +20%). Swiss weight-loss-drug arm now profitable. Watch: a US FDA plant issue stays unresolved.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/granules-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "rubicon",
+      "name": "Rubicon Research Ltd",
+      "tvCode": "RUBICON",
+      "industry": "Healthcare",
+      "marketCap": 16567.29,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Pharma research/formulations play, but currently not attractive on the numbers.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/rubicon-research-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "stltech",
+      "name": "Sterlite Technologies",
+      "tvCode": "STLTECH",
+      "industry": "Telecom",
+      "marketCap": 14566.28,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Won big new orders but the stock has already jumped; carries heavy debt and may need to borrow more just to deliver them.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/sterlite-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "rainbow",
+      "name": "Rainbow Children's Medicare Ltd",
+      "tvCode": "RAINBOW",
+      "industry": "Healthcare",
+      "marketCap": 13761.27,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "India's largest children's-hospital chain. It has built lots of new beds that are still half-empty, so profits can grow just by filling them. New CEO targets 20% growth; management delivers consistently.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/rainbow-childrens-medicare-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "mindacorp",
+      "name": "Minda Corporation",
+      "tvCode": "MINDACORP",
+      "industry": "Auto",
+      "marketCap": 13738.7,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Steady auto-parts maker, but there's no clear new trigger to lift earnings sharply from here.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/minda-corporation-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "happyforge",
+      "name": "Happy Forgings Ltd",
+      "tvCode": "HAPPYFORGE",
+      "industry": "Capital Goods",
+      "marketCap": 13667.94,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Making pricier, precision truck and tractor parts is lifting profits to record highs; a signed Rs 950 cr order book fuels growth. FY27 is spending-heavy, but management reliably delivers.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/happy-forgings-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "atlantaele",
+      "name": "Atlanta Electricals Ltd",
+      "tvCode": "ATLANTAELE",
+      "industry": "Power",
+      "marketCap": 12657.95,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Transformer maker; stock has already run up and still has no data-center power orders to justify the price.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/atlanta-electricals-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "vijaya",
+      "name": "Vijaya Diagnostic Centre Ltd",
+      "tvCode": "VIJAYA",
+      "industry": "Healthcare",
+      "marketCap": 12442.45,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "South-India diagnostics chain with an excellent, honest management team that consistently beats its own targets, high margins, and volume-led growth. The only worry is the pricey stock versus its sales and assets.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/vijaya-diagnostic-centre-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "lumaxtech",
+      "name": "Lumax Auto Technologies",
+      "tvCode": "LUMAXTECH",
+      "industry": "Auto",
+      "marketCap": 11758.31,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Auto-parts firm moving into high-tech parts; sensors business grew 150% and CNG kits are scaling fast, beating targets. Solid, but the dividend was cut sharply despite booming profit.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/lumax-auto-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "marksans",
+      "name": "Marksans Pharma Ltd",
+      "tvCode": "MARKSANS",
+      "industry": "Healthcare",
+      "marketCap": 11546.68,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes cheap generic medicines sold to US and UK stores. Steadily grabbing more shelf space in America, debt-free with cash to spare; the new Goa factory is only half used, so room to grow.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/marksans-pharma-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "metropolis",
+      "name": "Metropolis Healthcare Ltd",
+      "tvCode": "METROPOLIS",
+      "industry": "Healthcare",
+      "marketCap": 11361.56,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Diagnostics chain; the flashy 24% growth came mostly from buying labs. Real underlying growth is only ~12% and the promised profit-margin improvement has never arrived.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/metropolis-healthcare-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "thangamayl",
+      "name": "Thangamayil Jewellery",
+      "tvCode": "THANGAMAYL",
+      "industry": "Jewellery",
+      "marketCap": 11171.5,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Sales rose only because gold prices went up, not because it sold more jewellery - no real volume growth.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/thangamayil-jewellery-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "apollo",
+      "name": "Apollo Micro Systems",
+      "tvCode": "APOLLO",
+      "industry": "Defence",
+      "marketCap": 11111.79,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Order-driven growth is there, but the company burns cash and has tripled its borrowings in two years.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/apollo-micro-systems-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "corona",
+      "name": "Corona Remedies Ltd",
+      "tvCode": "CORONA",
+      "industry": "Healthcare",
+      "marketCap": 10738.49,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Steady branded-medicine maker growing twice as fast as the market, and it beat its own targets. New brands, weight-loss drug launch and fertility push add fresh growth; management delivers.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/corona-remedies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "parkhosps",
+      "name": "Park Medi World Ltd",
+      "tvCode": "PARKHOSPS",
+      "industry": "Healthcare",
+      "marketCap": 10639.75,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Buys and builds hospitals at half the usual cost, then fills the beds. Profit up 27%, now debt-free, and future expansion is fully self-funded. A third of beds still empty means room to grow.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/park-medi-world-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "viyash",
+      "name": "Viyash Scientific Ltd",
+      "tvCode": "VIYASH",
+      "industry": "Healthcare",
+      "marketCap": 9992.65,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Merging two drug firms nearly tripled profit margins and grew profit 14-fold - management delivered early and honestly. A real, proven turnaround; only catch is the pricey stock.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/viyash-scientific-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "shadowfax",
+      "name": "Shadowfax Technologies Ltd",
+      "tvCode": "SHADOWFAX",
+      "industry": "Logistics",
+      "marketCap": 9597.66,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Delivery-logistics player; worth watching only if it can hold its thin ~7% profit margin next quarter.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/shadowfax-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "shilpamed",
+      "name": "Shilpa Medicare Ltd",
+      "tvCode": "SHILPAMED",
+      "industry": "Healthcare",
+      "marketCap": 9588.4,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Pharma turnaround finally paying off: profit doubled, debt slashed, new drug launched. But management repeatedly hypes then quietly drops promised drug deals, and a US FDA warning stays unresolved.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/shilpa-medicare-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kirlpnu",
+      "name": "Kirloskar Pneumatic Company",
+      "tvCode": "KIRLPNU",
+      "industry": "Capital Goods",
+      "marketCap": 9405.79,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes compressors India used to import, winning market share with record orders and its best-ever profit margins. A real growth engine - but it keeps missing its own sales-growth targets.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/kirloskar-pneumatic-company-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sedemac",
+      "name": "Sedemac Mechatronics Ltd",
+      "tvCode": "SEDEMAC",
+      "industry": "Capital Goods",
+      "marketCap": 8712.18,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Interesting engine-controls business, but too little listed track record yet to judge it.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/sedemac-mechatronics-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "avalon",
+      "name": "Avalon Technologies Ltd",
+      "tvCode": "AVALON",
+      "industry": "Contract Manufacturing",
+      "marketCap": 8380.67,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Builds electronics for other firms; sales up 46%, profit nearly doubled, and it hit its revenue-doubling target a year early. Strong growth - but the stock is priced for perfection.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/avalon-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "lloydsengg",
+      "name": "Lloyds Steels Industries Ltd",
+      "tvCode": "LLOYDSENGG",
+      "industry": "Capital Goods",
+      "marketCap": 8313.18,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Engineering firm with a huge confirmed order book riding India's infra boom. Red flag: the flashy '4x growth' was only on paper, and a group merger dilutes owners ~26%. Very expensive stock.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/lloyds-steels-industries-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "imfa",
+      "name": "Indian Metals & Ferro Alloys Ltd",
+      "tvCode": "IMFA",
+      "industry": "Mining & Minerals",
+      "marketCap": 7944.2,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Low-cost maker of a key stainless-steel ingredient. Nearly doubling output via a bought Tata plant plus a new one, right as global prices spike. Genuine growth, reasonably priced; watch for delays.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/indian-metals-ferro-alloys-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "yatharth",
+      "name": "Yatharth Hospital & Trauma Care Services Ltd",
+      "tvCode": "YATHARTH",
+      "industry": "Healthcare",
+      "marketCap": 7899.03,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "A proven engine: buy hospitals cheaply near Delhi, fill beds, raise the bill per bed. Sales up 36%, heading to 5,000 beds. New premium Gurugram hospital opens 2027; management delivers.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/yatharth-hospital-and-trauma-care-services-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "midhani",
+      "name": "Mishra Dhatu Nigam Ltd",
+      "tvCode": "MIDHANI",
+      "industry": "Steel",
+      "marketCap": 7888.03,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "India's near-monopoly maker of strategic defence metals, riding a large import-substitution opportunity. But management repeatedly promises high growth and delivers less; profit margins have also halved over the years. Story steady, execution disappoints.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/mishra-dhatu-nigam-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "precwire",
+      "name": "Precision Wires India",
+      "tvCode": "PRECWIRE",
+      "industry": "Capital Goods",
+      "marketCap": 7589.27,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "India's biggest transformer-wire maker, growing steadily on the grid boom (sales +35%, profit +72%). New copper plant should lift margins, but it's not running yet and stock is pricey.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/precision-wires-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kingfa",
+      "name": "Kingfa Science & Technology (India) Ltd",
+      "tvCode": "KINGFA",
+      "industry": "Capital Goods",
+      "marketCap": 7432.57,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "India's biggest maker of upgraded high-performance plastics for cars and appliances. A fully-funded new-plant expansion is live, profit margins keep rising yearly, almost no debt, and management delivers what it promises.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/kingfa-science-and-technology-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "krn",
+      "name": "KRN Heat Exchanger and Refrigeration Ltd",
+      "tvCode": "KRN",
+      "industry": "Capital Goods",
+      "marketCap": 7356.86,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Makes cooling coils for AC and data centres; sales jumped 38%. But the big new factory is only 15-20% used, profit margins slipped, and it may sell new shares, hurting existing owners.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/krn-heat-exchanger-and-refrigeration-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "nephroplus",
+      "name": "Nephrocare Health Services Ltd",
+      "tvCode": "NEPHROPLUS",
+      "industry": "Healthcare",
+      "marketCap": 6519.14,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "India's biggest dialysis chain is exporting its low-cost model to pricier overseas markets, lifting profit 75%. Saudi unit still loses money but is minor; too newly-listed to fully trust management.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/nephrocare-health-services-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "supriya",
+      "name": "Supriya Lifescience Ltd",
+      "tvCode": "SUPRIYA",
+      "industry": "Healthcare",
+      "marketCap": 6496.97,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Debt-free drug-ingredient maker winning business as the world shifts away from China. Rich, rising margins; management consistently delivers. New capacity funded, breaking ground next year.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/supriya-lifescience-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "paras",
+      "name": "Paras Defence and Space Technologies",
+      "tvCode": "PARAS",
+      "industry": "Defence",
+      "marketCap": 6399.04,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "India's near-monopoly maker of military-grade optics for defence and space. Order book keeps growing and profits rose 46%, but the share is priced extremely high and founders are trimming stake.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/paras-defence-and-space-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "ashapurmin",
+      "name": "Ashapura Minechem Ltd",
+      "tvCode": "ASHAPURMIN",
+      "industry": "Mining & Minerals",
+      "marketCap": 6247.88,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Sales nearly doubled as its West Africa bauxite mine ramped up. But profit per tonne halved when bauxite prices crashed - strong volumes, yet earnings swing wildly with commodity prices.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/ashapura-minechem-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kennamet",
+      "name": "Kennametal India",
+      "tvCode": "KENNAMET",
+      "industry": "Capital Goods",
+      "marketCap": 6210.95,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Steady industrial-tools business, but no clear trigger to boost earnings meaningfully.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/kennametal-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sjs",
+      "name": "SJS Enterprises",
+      "tvCode": "SJS",
+      "industry": "Auto",
+      "marketCap": 6035.72,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Actually has a clear growth engine the note missed: fancier decorative parts, big new customer Hero, exports up 60%, record margins. Strong - but the stock is priced expensively.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/sjs-enterprises-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "skipper",
+      "name": "Skipper",
+      "tvCode": "SKIPPER",
+      "industry": "Power",
+      "marketCap": 5535.1,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "India's biggest power-line tower maker, riding a huge grid build-out with a record order book. But management has cut its growth target two years running as exports weaken.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/skipper-limited.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sis",
+      "name": "SIS",
+      "tvCode": "SIS",
+      "industry": "BFSI",
+      "marketCap": 5022.34,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Thin-margin security/staffing business; FY25 showed how quickly profit evaporates on wage inflation and Australia losses.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/sis-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "innovacap",
+      "name": "Innova Captab Ltd",
+      "tvCode": "INNOVACAP",
+      "industry": "Healthcare",
+      "marketCap": 4926.71,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Medicine-maker's sales jumped 31%, led by fast-growing own brands. New Jammu factory barely used yet - big growth runway - but it keeps missing management's targets, and profit grew only 10%.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/innova-captab-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kshintl",
+      "name": "KSH International Ltd",
+      "tvCode": "KSHINTL",
+      "industry": "Wires and Cables",
+      "marketCap": 4714.31,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Makes special wire for grid transformers, the only Indian supplier for the top grade; profit-per-tonne rising fast in a power boom. Caution: very expensive stock, short record.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/ksh-international-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "timex",
+      "name": "Timex Group India",
+      "tvCode": "TIMEX",
+      "industry": "Retail & Hospitality",
+      "marketCap": 4281.46,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Promoters sold about 24% of their stake in the past year - a worrying signal for small investors.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/timex-group-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "aeroflex",
+      "name": "Aeroflex Industries Ltd",
+      "tvCode": "AEROFLEX",
+      "industry": "Capital Goods",
+      "marketCap": 4206.0,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Debt-free maker of industrial metal hoses. Real new engine: cooling units for AI data centres, already 5% of sales and guided to a fifth next year. Management reliably delivers.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/aeroflex-industries-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "seamecltd",
+      "name": "SEAMEC Ltd",
+      "tvCode": "SEAMECLTD",
+      "industry": "Logistics",
+      "marketCap": 3793.66,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Revenue largely locked till 2028, but a HAL-demerger overhang and an idle Dubai vessel dent near-term earnings.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/seamec-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "wheels",
+      "name": "Wheels India",
+      "tvCode": "WHEELS",
+      "industry": "Auto",
+      "marketCap": 3585.06,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Wheel and parts maker recovering nicely, but the promised double-digit profit margin has been '2 years away' for years and is still stuck near 8%. Rising steel and fuel costs are a fresh worry.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/wheels-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sbcl",
+      "name": "Shivalik Bimetal Controls",
+      "tvCode": "SBCL",
+      "industry": "Capital Goods",
+      "marketCap": 3432.92,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes tiny critical parts for circuit breakers, smart meters and EVs. Profit jumped 25% by shifting to higher-value products; new EV-parts plant coming. But management keeps swapping its growth story.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/shivalik-bimetal-controls-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "rptech",
+      "name": "Rashi Peripherals Ltd",
+      "tvCode": "RPTECH",
+      "industry": "Technology",
+      "marketCap": 3395.81,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "A razor-thin (2-3% margin) tech-hardware distributor, but a real PC-upgrade wave lifted profits 35% this year. Just remember it's riding a temporary cycle, not a lasting advantage.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/rashi-peripherals-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "rpel",
+      "name": "Raghav Productivity Enhancers",
+      "tvCode": "RPEL",
+      "industry": "Capital Goods",
+      "marketCap": 3118.38,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "World's top furnace-lining maker, debt-free with fat ~29% margins and steady market-share gains. New 29% capacity boost goes live around Oct 2026 for very little money. Worth watching for that.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/raghav-productivity-enhancers-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "pspproject",
+      "name": "PSP Projects",
+      "tvCode": "PSPPROJECT",
+      "industry": "Real Estate & Infra",
+      "marketCap": 3113.96,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Builder now co-owned by Adani, with a four-year order book. But profit's been flat four years as margins collapsed, and management repeatedly misses targets and flip-flopped strategy.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/psp-projects-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "adffoods",
+      "name": "ADF Foods Ltd",
+      "tvCode": "ADFFOODS",
+      "industry": "FMCG",
+      "marketCap": 2969.61,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Sells Indian frozen food abroad; its US brand is now in 3,000 stores and running ahead of plan, plus a new factory just opened. Watch out: Middle East war could slow next year's growth.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/adf-foods-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sotl",
+      "name": "Savita Oil Technologies Ltd",
+      "tvCode": "SOTL",
+      "industry": "Chemicals",
+      "marketCap": 2877.14,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Makes transformer oils for power grids; FY26 was a record rebound. But profits swing with oil prices - they nearly halved over two years before recovering. Exciting new products still tiny.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/savita-oil-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kernex",
+      "name": "Kernex Microsystems (India) Ltd",
+      "tvCode": "KERNEX",
+      "industry": "Railways",
+      "marketCap": 2842.98,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Red flags: promoters selling, growth funded by 4x more debt, and cash stuck for ~9 months.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/kernex-microsystems-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "cncrd",
+      "name": "Concord Control Systems Ltd",
+      "tvCode": "CNCRD",
+      "industry": "Railways",
+      "marketCap": 2821.9,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Warning signs: promoters are selling and the business isn't converting its profit into cash.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/concord-control-systems-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sanghvimov",
+      "name": "Sanghvi Movers Ltd",
+      "tvCode": "SANGHVIMOV",
+      "industry": "Capital Goods",
+      "marketCap": 2790.36,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "India's biggest crane-rental firm is riding the wind-power and infrastructure boom, growing ~30% yearly. Demand is solid, but watch the big management shake-up, thinner margins and reduced disclosure.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/sanghvi-movers-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "vmarcind",
+      "name": "V-Marc India Ltd",
+      "tvCode": "VMARCIND",
+      "industry": "Wires and Cables",
+      "marketCap": 2768.33,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Cable maker whose sales doubled and profit tripled. Old worry about 'no room to grow' looks wrong: capacity is tripling toward FY30 and exports just began. Management keeps beating targets, but stock is pricey.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/v-marc-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "uniparts",
+      "name": "Uniparts India Ltd",
+      "tvCode": "UNIPARTS",
+      "industry": "Auto",
+      "marketCap": 2746.68,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Management itself expects flat revenue (same as last year) - little growth to look forward to.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/uniparts-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "buildpro",
+      "name": "Shankara Buildpro Ltd",
+      "tvCode": "BUILDPRO",
+      "industry": "Building Materials & Home Improvement",
+      "marketCap": 2730.23,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Newly separated steel-and-building-materials distributor with very high returns; sales up 30%, profit up 63%. But margins are wafer-thin (~3%), and its higher-margin own-brand push keeps disappointing.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/shankara-buildpro-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kddl",
+      "name": "KDDL Ltd",
+      "tvCode": "KDDL",
+      "industry": "Retail & Hospitality",
+      "marketCap": 2679.4,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Watch-parts maker that also owns India's top luxury-watch retailer. Real star is its precision-metal-parts arm growing 35%+ for aerospace and EVs. Trustworthy team that keeps beating its own targets.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/kddl-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "antelopus",
+      "name": "Antelopus Selan Energy Ltd",
+      "tvCode": "ANTELOPUS",
+      "industry": "Energy",
+      "marketCap": 2537.6,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Oil producer whose new owners are pumping far more from cheap, proven wells - production and profit rising four straight years, debt-free. Real driver; main risk is falling oil prices.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/antelopus-selan-energy-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "nibe",
+      "name": "NIBE",
+      "tvCode": "NIBE",
+      "industry": "Defence",
+      "marketCap": 2155.88,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Expensive, barely makes any profit after costs, and struggles to turn sales into actual cash.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/nibe-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "aimtron",
+      "name": "Aimtron Electronics Ltd",
+      "tvCode": "AIMTRON",
+      "industry": "Contract Manufacturing",
+      "marketCap": 2096.67,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Contract electronics builder nearly doubling sales on the China-plus-one shift into higher-value design work. Real growth, but expensive, cash flow is weak, and reporting stays thin.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/aimtron-electronics-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kpl",
+      "name": "Kwality Pharmaceuticals Ltd",
+      "tvCode": "KPL",
+      "industry": "Healthcare",
+      "marketCap": 2075.97,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Small pharma exporter, but currently not attractive on quality and valuation.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/kwality-pharmaceuticals-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "anondita",
+      "name": "Anondita Medicare Ltd",
+      "tvCode": "ANONDITA",
+      "industry": "FMCG",
+      "marketCap": 1995.04,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Barely converts profit into cash and customers are taking longer and longer to pay - a warning sign.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/anondita-medicare-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "vidyawires",
+      "name": "Vidya Wires Ltd",
+      "tvCode": "VIDYAWIRES",
+      "industry": "Wires and Cables",
+      "marketCap": 1993.57,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Sales jumped mainly on higher copper prices, not more selling (volume up just 6.5%). New factory doubles capacity but is barely running yet; profit margins stay thin and unproven.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/vidya-wires-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "krishnadef",
+      "name": "Krishna Defence & Allied Industries Ltd",
+      "tvCode": "KRISHNADEF",
+      "industry": "Defence",
+      "marketCap": 1774.09,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Makes navy steel India once imported - a real engine that grew sales fivefold. But orders in hand have shrunk to under half a year's sales, clouding near-term growth.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/krishna-defence-and-allied-industries-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "nglfine",
+      "name": "NGL Fine Chem Ltd",
+      "tvCode": "NGLFINE",
+      "industry": "Healthcare",
+      "marketCap": 1690.72,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes animal-medicine ingredients. Old plants are full; sales up 36% and profit doubled as demand recovered - but it's a cyclical bounce and the new plant keeps slipping. Management stays honest.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/ngl-fine-chem-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "cff",
+      "name": "CFF Fluid Control Ltd",
+      "tvCode": "CFF",
+      "industry": "Defence",
+      "marketCap": 1686.42,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Weak cash generation and heavily dependent on Indian Navy orders - a concentrated, risky revenue base.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/cff-fluid-control-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "kmcshil",
+      "name": "KMC Speciality Hospitals (India) Ltd",
+      "tvCode": "KMCSHIL",
+      "industry": "Healthcare",
+      "marketCap": 1639.48,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Quality Kauvery hospital chain; profit margins rising (25->29%), nearly debt-free, new 200-bed block filling up fast.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/kmc-speciality-hospitals-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "venusrem",
+      "name": "Venus Remedies Ltd",
+      "tvCode": "VENUSREM",
+      "industry": "Healthcare",
+      "marketCap": 1625.92,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Stock has already jumped on improving margins - most of the good news is already in the price.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/venus-remedies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "vinyas",
+      "name": "Vinyas Innovative Technologies Ltd",
+      "tvCode": "VINYAS",
+      "industry": "Contract Manufacturing",
+      "marketCap": 1507.21,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Electronics-manufacturing services, but hasn't generated positive cash for the last three years.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/vinyas-innovative-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sakar",
+      "name": "Sakar Healthcare Ltd",
+      "tvCode": "SAKAR",
+      "industry": "Healthcare",
+      "marketCap": 1267.47,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Cancer-drug factory is the engine: sales jumped 42%, profit 67%, and the plant is paid-for and under 30% full. Watch: the big Europe export dream keeps slipping.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/sakar-healthcare-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "hardwyn",
+      "name": "Hardwyn India",
+      "tvCode": "HARDWYN",
+      "industry": "Consumer Goods",
+      "marketCap": 1228.9,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Expensive for what it earns - very low returns on capital (~3%) despite the rich valuation.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/hardwyn-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "monolith",
+      "name": "Monolithisch India Ltd",
+      "tvCode": "MONOLITH",
+      "industry": "Capital Goods",
+      "marketCap": 1213.96,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Good repeat-demand business expanding capacity, but too little history to judge it confidently yet.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/monolithisch-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "aeroenter",
+      "name": "Aeroflex Enterprises Ltd",
+      "tvCode": "AEROENTER",
+      "industry": "Diversified",
+      "marketCap": 1155.84,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Not a real operating business but a holding company that buys firms and sells them for one-off gains. Profits are lumpy, 'startup portfolio' claims look promotional, disclosure weak. Best avoided.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/aeroflex-enterprises-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "bmw",
+      "name": "BMW Industries Ltd",
+      "tvCode": "BMW",
+      "industry": "Steel",
+      "marketCap": 1135.56,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Borrowings already 3x last year and spending Rs 800cr on expansion against a Rs 1,200cr company - stretched and risky.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/bmw-industries-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "etl",
+      "name": "Emkay Tools Ltd",
+      "tvCode": "ETL",
+      "industry": "Capital Goods",
+      "marketCap": 1117.82,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Fast-growing, debt-free tap-and-tool maker with unusually high profit margins from premium products. But the stock looks expensive versus its sales and assets, and its listing is too new to trust the track record yet.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/emkay-tools-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "gksl",
+      "name": "Gujarat Kidney & Super Speciality Ltd",
+      "tvCode": "GKSL",
+      "industry": "Healthcare",
+      "marketCap": 1078.15,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Gujarat hospital chain growing by buying hospitals, not organically; own margins slipping. Red flags: restated three years' accounts in court, broke listing rules, and big investors quickly exited.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/gujarat-kidney-super-speciality-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "galaprec",
+      "name": "Gala Precision Engineering Ltd",
+      "tvCode": "GALAPREC",
+      "industry": "Capital Goods",
+      "marketCap": 1076.85,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Its bolt and fastener business is booming (+64%), and a new Chennai plant ramps up mid-2026 to fuel growth. Management delivers on promises, though profit margins stay slightly thin.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/gala-precision-engineering-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "accentmic",
+      "name": "Accent Microcell Ltd",
+      "tvCode": "ACCENTMIC",
+      "industry": "Healthcare",
+      "marketCap": 1057.2,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 FY26",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Risky. Its one growth plant has been delayed twice and still earns nothing; this year's sales growth came from thin-margin reselling, not real products. Wait for the plant to actually run.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-FY26/accent-microcell-ltd.pdf"
+        }
+      ]
+    }
+  ]
+}
