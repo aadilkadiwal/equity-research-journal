@@ -67,8 +67,8 @@ Then **trigger a deploy** so the functions pick up the env.
 ## Using it
 1. Go to `https://<your-site>.netlify.app/admin`.
 2. **Sign in with GitHub** (only `ALLOWED_LOGIN` is accepted).
-3. Choose the `.xlsx`, type the **Quarter** (e.g. `Q1 FY27` — must match the
-   `Q1-FY27` report folder), **Upload & publish**.
+3. Choose the `.xlsx`, type the **Quarter** (e.g. `Q1 2027` — must match the
+   `Q1-2027` report folder), **Upload & publish**.
 4. It reports what changed; the site rebuilds in ~1 minute.
 
 ## Local testing (optional)

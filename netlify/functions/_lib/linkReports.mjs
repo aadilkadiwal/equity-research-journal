@@ -4,7 +4,7 @@
 import { listTree } from './github.mjs';
 
 const STOP = new Set(['and', 'ltd', 'limited', 'the', 'pvt', 'private', 'co', 'india', 'inc']);
-const QF = /^Q[1-4]-FY\d{2}$/;
+const QF = /^Q[1-4]-(?:FY\d{2}|\d{4})$/;
 
 const norm = (s) =>
   String(s).toLowerCase().replace(/&/g, ' ')
@@ -19,7 +19,7 @@ export async function linkReports(data, { repo, branch, token }) {
     if (!p.toLowerCase().endsWith('.pdf')) continue;
     const parts = p.split('/');
     if (parts.length < 2 || !QF.test(parts[0])) continue;
-    const quarter = parts[0].replace('-', ' ');           // Q4-FY26 -> Q4 FY26
+    const quarter = parts[0].replace('-FY', ' 20').replace('-', ' '); // Q4-FY26 -> Q4 2026 (also Q4-2026 -> Q4 2026)
     const key = norm(parts[parts.length - 1].replace(/\.pdf$/i, ''));
     index.set(`${quarter}::${key}`, base + p);
   }

@@ -41,13 +41,13 @@ PDF per company to `Q<n>-FY<yy>/<company>.pdf` in the **public** repo
 npm run import -- \
   --input "/path/Research Stock 2027.xlsx" \
   --sheet "Q127 Earning" \
-  --quarter "Q1 FY27"
+  --quarter "Q1 2027"
 ```
 - **Merges** — it upserts each company and **appends this quarter** to the
   company's timeline, keeping earlier quarters. Re-running the same quarter
   replaces just that quarter's entry.
 - Refreshes market cap / tier / industry to the latest.
-- The `--quarter` label (`Q1 FY27`) must match the report folder (`Q1-FY27`).
+- The `--quarter` label (`Q1 2027`) must match the report folder (`Q1-2027`).
 
 ### 4. Link the AI reports  →  `reportUrl` per quarter
 Resolved **automatically** — the `/admin` upload runs server-side `linkReports.mjs`

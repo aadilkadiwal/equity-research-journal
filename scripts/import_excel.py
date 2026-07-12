@@ -16,7 +16,7 @@ Usage:
     python3 scripts/import_excel.py \
         --input "/path/to/Research Stock 2026.xlsx" \
         --sheet "Q426 Earning" \
-        --quarter "Q4 FY26"
+        --quarter "Q4 2026"
 
 Requires: openpyxl  (pip install openpyxl)
 """
@@ -44,7 +44,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True, help="Path to the .xlsx file")
     ap.add_argument("--sheet", default="Q426 Earning", help="Worksheet name")
-    ap.add_argument("--quarter", required=True, help='Quarter label, e.g. "Q4 FY26"')
+    ap.add_argument("--quarter", required=True, help='Quarter label, e.g. "Q4 2026"')
     here = os.path.dirname(os.path.abspath(__file__))
     ap.add_argument("--json", default=os.path.join(here, "..", "src", "data", "companies.json"))
     args = ap.parse_args()
