@@ -71,7 +71,7 @@ const initialRows = initialListHTML(companies);
 
   <div class="toolbar">
     <div class="tb-find">
-      <input class="search" id="search" type="search" placeholder="Search name, symbol, industry or notes…" autocomplete="off" />
+      <input class="search" id="search" type="search" placeholder="Search company name or symbol…" autocomplete="off" />
       <select id="industry" aria-label="Filter by industry" data-dd="Search industry…">
         <option value="">All industries</option>
         {industries.map((s) => <option value={s}>{s}</option>)}
@@ -149,10 +149,11 @@ const initialRows = initialListHTML(companies);
   // field, so the sort order matches what's rendered.
   const tierRank = (c) => { const m = /(\d)/.exec((c._latest && c._latest.tier) || c.tier || ''); return m ? +m[1] : 9; };
 
+  // Search matches company name and symbol (tvCode) only — not industry or
+  // notes. Use the industry/tier dropdowns to narrow by those.
   const haystack = (c) => {
     if (c._haystack == null) {
-      const notes = (c.quarters || []).map((q) => q.note || '').join(' ');
-      c._haystack = `${c.name} ${c.tvCode || ''} ${c.industry || ''} ${notes}`.toLowerCase();
+      c._haystack = `${c.name} ${c.tvCode || ''}`.toLowerCase();
     }
     return c._haystack;
   };
