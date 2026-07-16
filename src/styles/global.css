@@ -330,7 +330,6 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   border-radius: var(--r-md); padding: var(--sp-4) var(--sp-5) var(--sp-4) var(--sp-5); box-shadow: var(--shadow); overflow: hidden;
   transition: border-color .12s ease;
 }
-.row::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--bar, var(--view-unrated-bar)); }
 .row:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
 .row.view-positive { background: color-mix(in srgb, var(--view-positive-bar) 4%, var(--surface)); }
 .row.view-watch    { background: color-mix(in srgb, var(--view-watch-bar) 4%, var(--surface)); }
@@ -511,13 +510,18 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .ema-k { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
 .ema-price { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
 .ema-tag { margin-left: auto; font-size: var(--fs-label); color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
-.ema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-2); margin-top: var(--sp-2); }
-.ema-tile { border: 1px solid var(--border); border-radius: var(--r-sm); padding: 8px 10px; background: var(--surface); }
-.ema-tile .tl-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
-.ema-tile .tl { font-size: 11px; font-weight: 800; color: var(--muted); letter-spacing: .3px; }
-.ema-tile .tv { font-size: var(--fs-secondary); font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 4px; }
-.ema-tile .td { display: inline-flex; align-items: center; gap: 3px; font-size: var(--fs-label); font-weight: 800; font-variant-numeric: tabular-nums; }
+/* minmax(0,1fr) lets the 3 columns shrink instead of overflowing the card on
+   narrow phones; the stacked label/value/% keeps each line short enough to fit. */
+.ema-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-2); margin-top: var(--sp-2); }
+.ema-tile { border: 1px solid var(--border); border-radius: var(--r-sm); padding: 8px 10px; background: var(--surface); min-width: 0; }
+.ema-tile .tl { font-size: 11px; font-weight: 800; color: var(--muted); letter-spacing: .3px; white-space: nowrap; }
+.ema-tile .tv { font-size: var(--fs-secondary); font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 3px; }
+.ema-tile .td { display: inline-flex; align-items: center; gap: 3px; font-size: var(--fs-label); font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 3px; }
 .ema-tile .arw { font-size: 9px; }
+@media (max-width: 640px) {
+  .ema-tile { padding: 7px 8px; }
+  .ema-tile .tv { font-size: var(--fs-label); }
+}
 .ema-tile.above { border-color: color-mix(in srgb, var(--view-positive-bar) 40%, var(--border)); background: color-mix(in srgb, var(--view-positive-bar) 6%, var(--surface)); }
 .ema-tile.above .td { color: var(--view-positive-fg); }
 .ema-tile.below { border-color: color-mix(in srgb, var(--view-negative-bar) 40%, var(--border)); background: color-mix(in srgb, var(--view-negative-bar) 6%, var(--surface)); }
