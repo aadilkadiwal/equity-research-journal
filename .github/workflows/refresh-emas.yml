@@ -1,0 +1,44 @@
+name: Refresh weekly EMAs
+
+# Once daily after the NSE close (15:30 IST = 10:00 UTC); run 10:45 UTC so EOD
+# data has settled. Weekdays only. Manual run available via "Run workflow".
+on:
+  schedule:
+    - cron: "45 10 * * 1-5"
+  workflow_dispatch:
+
+# Prevent overlapping runs; let a newer run cancel an in-flight one.
+concurrency:
+  group: refresh-emas
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet yfinance curl_cffi
+
+      - name: Compute EMAs
+        run: python3 scripts/emas/compute_emas.py --source yf
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- src/data/emas.json; then
+            echo "No EMA changes."
+          else
+            git config user.name  "ema-bot"
+            git config user.email "ema-bot@users.noreply.github.com"
+            git add src/data/emas.json
+            git commit -m "data: refresh weekly EMAs"
+            git push
+          fi

@@ -15,6 +15,38 @@ export const latestEntry = (c) => {
   return qs.length ? qs.reduce((a, b) => (quarterKey(b.quarter) >= quarterKey(a.quarter) ? b : a)) : null;
 };
 
+const fmtINR = (n) =>
+  (n == null || isNaN(n)) ? '—'
+    : `₹${Number(n).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const fmtDate = (iso) => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+  return m ? `${+m[3]} ${MON[+m[2] - 1]} '${m[1].slice(2)}` : (iso || '');
+};
+
+// Weekly-EMA trend panel. Renders only when EMA data (c.ema) is present, so
+// companies without price data (or the first paint before data exists) are
+// unaffected. Tiles are green when price is above the EMA, red when below.
+function emaPanelHTML(c) {
+  const r = c.ema;
+  if (!r || !r.ema) return '';
+  const tiles = ['10W', '20W', '40W'].map((w) => {
+    const val = r.ema[w], d = r.dist ? r.dist[w] : null;
+    if (val == null || d == null) return '';
+    const above = d >= 0;
+    return `<div class="ema-tile ${above ? 'above' : 'below'}">
+        <div class="tl-row"><span class="tl">${w}</span><span class="td"><span class="arw">${above ? '▲' : '▼'}</span>${above ? '+' : ''}${d.toFixed(1)}%</span></div>
+        <div class="tv">${fmtINR(val)}</div>
+      </div>`;
+  }).join('');
+  if (!tiles) return '';
+  return `<div class="ema">
+        <div class="ema-head"><span class="ema-k">Price</span><span class="ema-price">${fmtINR(r.price)}</span><span class="ema-tag">Weekly EMA${r.asOf ? ` · ${fmtDate(r.asOf)}` : ''}</span></div>
+        <div class="ema-grid">${tiles}</div>
+      </div>`;
+}
+
 function histEntryHTML(h) {
   return `<div class="entry view-${vslug(h.view)}">
       <div class="entry-top">
@@ -48,6 +80,7 @@ export function rowHTML(c, e) {
         <div class="row-id">
           <div class="row-name"><span class="row-nm" role="button" tabindex="0" title="Copy link to this company">${esc(c.name)}</span>${c.tvCode ? ` <span class="row-sym">${esc(c.tvCode)}</span>` : ''}${flip ? ` <span class="flip-chip">↕ from ${esc(flip)}</span>` : ''}</div>
           <div class="row-submeta">${[c.industry].filter(Boolean).map(esc).join(' · ')}${c.marketCap != null ? `${c.industry ? ' · ' : ''}<span class="row-cap">${esc(formatMcap(c.marketCap))}</span>` : ''}</div>
+          ${emaPanelHTML(c)}
           <div class="row-note${e.note ? '' : ' empty'}">${esc(e.note || 'No note this quarter.')}</div>
           ${older.length ? `<button class="hist-toggle" aria-expanded="false">▸ history (${older.length})</button>
             <div class="hist" hidden>${older.map(histEntryHTML).join('')}</div>` : ''}

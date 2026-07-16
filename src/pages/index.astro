@@ -1,9 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import data from '../data/companies.json';
+import emas from '../data/emas.json';
 import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterChanges } from '../lib/render.js';
 
-const companies = data.companies;
+// Attach the weekly-EMA record (10/20/40W + % distance) to each company by slug.
+// Refreshed daily by .github/workflows/refresh-emas.yml; absent entries just
+// render no panel.
+const companies = data.companies.map((c) => ({ ...c, ema: (emas.companies || {})[c.slug] || null }));
 const industries = [...new Set(companies.map((c) => c.industry).filter(Boolean))].sort();
 const tiers = ['Tier 1', 'Tier 2', 'Tier 3', 'Tier 4'];
 
@@ -96,6 +100,7 @@ const initialRows = initialListHTML(companies);
         <option value="name">Sort: Name A–Z</option>
         <option value="tier">Sort: Tier</option>
         <option value="view">Sort: View</option>
+        <option value="ema">Sort: Closest to EMA</option>
       </select>
       <button class="btn ghost" id="export" title="Download the filtered list as an NSE:SYMBOL watchlist">⬇ Watchlist</button>
     </div>
@@ -106,6 +111,14 @@ const initialRows = initialListHTML(companies);
           <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>{v}<span class="n" data-count></span>
         </button>
       ))}
+    </div>
+
+    <div class="ema-tools" id="ema-tools">
+      <span class="ema-lab">Near an EMA (≤2%)</span>
+      <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of the 10-week EMA">10W</button>
+      <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of the 20-week EMA">20W</button>
+      <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of the 40-week EMA">40W</button>
+      <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤7% apart)">⇉ Converging EMAs</button>
     </div>
   </div>
 
@@ -137,7 +150,9 @@ const initialRows = initialListHTML(companies);
   const activeFiltersEl = document.getElementById('active-filters');
   const pagerEl = document.getElementById('pager');
 
+  const emaToolsEl = document.getElementById('ema-tools');
   const activeViews = new Set();
+  const activeEma = new Set();
   // Fewer per page on phones (1-column grid) than on desktop (2-column).
   // Breakpoint matches the CSS where .list collapses to a single column.
   const mqMobile = window.matchMedia('(max-width: 640px)');
@@ -185,11 +200,31 @@ const initialRows = initialListHTML(companies);
     });
 
     let visible = base.filter((c) => activeViews.size === 0 || activeViews.has(c._latest.view));
+
+    // EMA screening: keep only companies matching every active "vs EMA" chip.
+    // "Near" = price within NEAR% of that weekly EMA. "Converging" = the three
+    // EMAs are bunched within CONVERGE% of each other (a weekly squeeze).
+    if (activeEma.size) {
+      const NEAR = 2, CONVERGE = 7;
+      const near = (r, w) => { const v = r.dist && r.dist[w]; return v != null && Math.abs(v) <= NEAR; };
+      visible = visible.filter((c) => {
+        const r = c.ema;
+        if (!r) return false;
+        if (activeEma.has('near10') && !near(r, '10W')) return false;
+        if (activeEma.has('near20') && !near(r, '20W')) return false;
+        if (activeEma.has('near40') && !near(r, '40W')) return false;
+        if (activeEma.has('converge') && !(r.spread != null && r.spread <= CONVERGE)) return false;
+        return true;
+      });
+    }
+
     const sort = sortEl.value;
     const byCap = (a, b) => (b.marketCap || 0) - (a.marketCap || 0);
+    const emaNear = (c) => (c.ema && c.ema.min_abs_dist != null) ? c.ema.min_abs_dist : Infinity;
     if (sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name));
     else if (sort === 'tier') visible.sort((a, b) => (tierRank(a) - tierRank(b)) || byCap(a, b));
     else if (sort === 'view') visible.sort((a, b) => (VIEW_ORDER.indexOf(a._latest.view) - VIEW_ORDER.indexOf(b._latest.view)) || byCap(a, b));
+    else if (sort === 'ema') visible.sort((a, b) => (emaNear(a) - emaNear(b)) || byCap(a, b));
     else visible.sort(byCap);
 
     lastVisible = visible;
@@ -243,6 +278,8 @@ const initialRows = initialListHTML(companies);
     [...activeViews].forEach((v) => tokens.push({ type: 'view', val: v, label: v }));
     if (tier) tokens.push({ type: 'tier', label: tier });
     if (industry) tokens.push({ type: 'industry', label: industry });
+    const emaLbl = { near10: 'Near 10W (≤2%)', near20: 'Near 20W (≤2%)', near40: 'Near 40W (≤2%)', converge: 'Converging EMAs' };
+    [...activeEma].forEach((k) => tokens.push({ type: 'ema', val: k, label: emaLbl[k] }));
     if (!tokens.length) { activeFiltersEl.innerHTML = ''; return; }
     activeFiltersEl.innerHTML =
       tokens.map((t) => `<button class="token" data-type="${t.type}" data-val="${esc(t.val || '')}">${esc(t.label)}<span class="x">✕</span></button>`).join('') +
@@ -254,7 +291,9 @@ const initialRows = initialListHTML(companies);
     tierEl.dispatchEvent(new Event('change', { bubbles: true }));
     industryEl.dispatchEvent(new Event('change', { bubbles: true }));
     activeViews.clear();
+    activeEma.clear();
     chipsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+    emaToolsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
     apply();
   }
 
@@ -300,6 +339,15 @@ const initialRows = initialListHTML(companies);
     apply();
   });
 
+  emaToolsEl.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    const k = chip.dataset.ema;
+    if (activeEma.has(k)) { activeEma.delete(k); chip.setAttribute('aria-pressed', 'false'); }
+    else { activeEma.add(k); chip.setAttribute('aria-pressed', 'true'); }
+    apply();
+  });
+
   activeFiltersEl.addEventListener('click', (e) => {
     if (e.target.closest('#clear-all')) return clearAll();
     const tok = e.target.closest('.token');
@@ -309,6 +357,7 @@ const initialRows = initialListHTML(companies);
     else if (type === 'tier') { tierEl.value = ''; tierEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'industry') { industryEl.value = ''; industryEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'view') { activeViews.delete(val); chipsEl.querySelector(`.chip[data-view="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
+    else if (type === 'ema') { activeEma.delete(val); emaToolsEl.querySelector(`.chip[data-ema="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
     apply();
   });
 
