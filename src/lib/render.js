@@ -36,13 +36,14 @@ function emaPanelHTML(c) {
     if (val == null || d == null) return '';
     const above = d >= 0;
     return `<div class="ema-tile ${above ? 'above' : 'below'}">
-        <div class="tl-row"><span class="tl">${w}</span><span class="td"><span class="arw">${above ? '▲' : '▼'}</span>${above ? '+' : ''}${d.toFixed(1)}%</span></div>
+        <div class="tl">${w} EMA</div>
         <div class="tv">${fmtINR(val)}</div>
+        <div class="td"><span class="arw">${above ? '▲' : '▼'}</span>${above ? '+' : ''}${d.toFixed(1)}%</div>
       </div>`;
   }).join('');
   if (!tiles) return '';
   return `<div class="ema">
-        <div class="ema-head"><span class="ema-k">Price</span><span class="ema-price">${fmtINR(r.price)}</span><span class="ema-tag">Weekly EMA${r.asOf ? ` · ${fmtDate(r.asOf)}` : ''}</span></div>
+        <div class="ema-head"><span class="ema-k">Price</span><span class="ema-price">${fmtINR(r.price)}</span>${r.asOf ? `<span class="ema-tag">as of ${fmtDate(r.asOf)}</span>` : ''}</div>
         <div class="ema-grid">${tiles}</div>
       </div>`;
 }
