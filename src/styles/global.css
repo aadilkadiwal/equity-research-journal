@@ -505,6 +505,28 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(12px); background: var(--text); color: var(--bg); padding: 9px 16px; border-radius: var(--r-pill); font-size: var(--fs-label); font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .16s ease, transform .16s ease; z-index: 200; }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* ---------- Weekly-EMA trend panel ---------- */
+.ema { margin-top: var(--sp-3); padding-top: var(--sp-3); border-top: 1px dashed var(--border); }
+.ema-head { display: flex; align-items: baseline; gap: 4px var(--sp-2); flex-wrap: wrap; }
+.ema-k { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
+.ema-price { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.ema-tag { margin-left: auto; font-size: var(--fs-label); color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+.ema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-2); margin-top: var(--sp-2); }
+.ema-tile { border: 1px solid var(--border); border-radius: var(--r-sm); padding: 8px 10px; background: var(--surface); }
+.ema-tile .tl-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.ema-tile .tl { font-size: 11px; font-weight: 800; color: var(--muted); letter-spacing: .3px; }
+.ema-tile .tv { font-size: var(--fs-secondary); font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 4px; }
+.ema-tile .td { display: inline-flex; align-items: center; gap: 3px; font-size: var(--fs-label); font-weight: 800; font-variant-numeric: tabular-nums; }
+.ema-tile .arw { font-size: 9px; }
+.ema-tile.above { border-color: color-mix(in srgb, var(--view-positive-bar) 40%, var(--border)); background: color-mix(in srgb, var(--view-positive-bar) 6%, var(--surface)); }
+.ema-tile.above .td { color: var(--view-positive-fg); }
+.ema-tile.below { border-color: color-mix(in srgb, var(--view-negative-bar) 40%, var(--border)); background: color-mix(in srgb, var(--view-negative-bar) 6%, var(--surface)); }
+.ema-tile.below .td { color: var(--view-negative-fg); }
+
+/* EMA screening chips + "near" threshold */
+.ema-tools { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin: 0 0 var(--sp-2); }
+.ema-tools .ema-lab { font-size: var(--fs-label); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; margin-right: var(--sp-1); }
+.chip[data-ema][aria-pressed="true"] { color: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 /* footer about */
 .footer-about { margin-bottom: 16px; }
 .footer-about h3 { margin: 0 0 6px; font-size: var(--fs-secondary); color: var(--text); }
