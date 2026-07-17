@@ -105,20 +105,22 @@ const initialRows = initialListHTML(companies);
       <button class="btn ghost" id="export" title="Download the filtered list as an NSE:SYMBOL watchlist">⬇ Watchlist</button>
     </div>
 
-    <div class="chips" id="view-chips">
-      {VIEW_ORDER.map((v) => (
-        <button class="chip" data-view={v} aria-pressed="false">
-          <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>{v}<span class="n" data-count></span>
-        </button>
-      ))}
-    </div>
+    <div class="filter-row">
+      <div class="chips" id="view-chips">
+        {VIEW_ORDER.map((v) => (
+          <button class="chip" data-view={v} aria-pressed="false">
+            <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>{v}<span class="n" data-count></span>
+          </button>
+        ))}
+      </div>
 
-    <div class="ema-tools" id="ema-tools">
-      <span class="ema-lab">Near an EMA (≤2%)</span>
-      <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of the 10-week EMA">10W</button>
-      <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of the 20-week EMA">20W</button>
-      <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of the 40-week EMA">40W</button>
-      <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤7% apart)">⇉ Converging EMAs</button>
+      <div class="ema-tools" id="ema-tools">
+        <span class="ema-lab">Near an EMA (≤2%)</span>
+        <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of the 10-week EMA">10W</button>
+        <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of the 20-week EMA">20W</button>
+        <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of the 40-week EMA">40W</button>
+        <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤7% apart)">⇉ Converging EMAs</button>
+      </div>
     </div>
   </div>
 
