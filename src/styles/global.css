@@ -529,6 +529,10 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 
 /* EMA screening chips + "near" threshold */
 .ema-tools { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin: 0 0 var(--sp-2); }
+/* View chips and EMA filters share one row: views left, EMA filters right, so
+   the horizontal space is used instead of two half-empty rows. Wraps on mobile. */
+.filter-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-5); }
+.filter-row .chips, .filter-row .ema-tools { margin: 0; }
 .ema-tools .ema-lab { font-size: var(--fs-label); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; margin-right: var(--sp-1); }
 .chip[data-ema][aria-pressed="true"] { color: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 /* footer about */
