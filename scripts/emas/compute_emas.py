@@ -61,7 +61,12 @@ def main():
         rec = None
         if res and res.get("rows"):
             weekly = [c for _, c in weekly_closes_from_daily(res["rows"])]
-            r = build_record(slug, res.get("price"), weekly)
+            # Previous trading day's close for the 1-day change. Runs after the
+            # NSE close, so rows[-1] is today's close (== price) and rows[-2] is
+            # the prior session. None for a listing with a single daily bar.
+            rows = res["rows"]
+            prev_close = rows[-2][1] if len(rows) >= 2 else None
+            r = build_record(slug, res.get("price"), weekly, prev_close=prev_close)
             if r["ema"]["10W"] is not None:      # need at least the 10W EMA to be useful
                 r["asOf"] = run_date
                 rec = r

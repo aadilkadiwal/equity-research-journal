@@ -57,6 +57,14 @@ check("build_record spread None when <3 EMAs", _rec["spread"] is None)
 _flat = build_record("y", 100.0, [100.0] * 45)   # all EMAs equal → spread ~0
 check("build_record spread ~0 for flat series", approx(_flat["spread"], 0.0, 1e-9))
 
+# 4b) day-over-day change (Screener-style 1-day change vs previous close)
+_up = build_record("u", 110.0, [100.0] * 12, prev_close=100.0)
+check("day change +10% up", approx(_up.get("dayChangePct"), 10.0, 1e-9) and _up.get("prevClose") == 100.0)
+_dn = build_record("d", 95.0, [100.0] * 12, prev_close=100.0)
+check("day change -5% down", approx(_dn.get("dayChangePct"), -5.0, 1e-9))
+check("no day change when prev_close absent", "dayChangePct" not in build_record("n", 100.0, [100.0] * 12))
+check("no day change when prev_close zero", "dayChangePct" not in build_record("z", 100.0, [100.0] * 12, prev_close=0))
+
 # 5) SFL end-to-end oracle (real weekly closes -> matches TradingView)
 fx = os.path.join(HERE, "fixtures", "sfl_weekly.json")
 if os.path.exists(fx):

@@ -42,8 +42,14 @@ function emaPanelHTML(c) {
       </div>`;
   }).join('');
   if (!tiles) return '';
+  // 1-day change vs the previous trading day's close (Screener-style). Direction
+  // is carried by the arrow + colour; shown only when the pipeline emitted it.
+  const chg = (r.dayChangePct == null) ? '' : (() => {
+    const up = r.dayChangePct >= 0;
+    return `<span class="ema-chg ${up ? 'up' : 'down'}"><span class="arw">${up ? '▲' : '▼'}</span>${Math.abs(r.dayChangePct).toFixed(2)}%</span>`;
+  })();
   return `<div class="ema">
-        <div class="ema-head"><span class="ema-k">Price</span><span class="ema-price">${fmtINR(r.price)}</span>${r.asOf ? `<span class="ema-tag">as of ${fmtDate(r.asOf)}</span>` : ''}</div>
+        <div class="ema-head"><span class="ema-k">Price</span><span class="ema-price">${fmtINR(r.price)}</span>${chg}${r.asOf ? `<span class="ema-tag">as of ${fmtDate(r.asOf)}</span>` : ''}</div>
         <div class="ema-grid">${tiles}</div>
       </div>`;
 }
