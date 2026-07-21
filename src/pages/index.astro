@@ -25,7 +25,10 @@ const totalRated = VIEW_ORDER.reduce((s, v) => s + counts[v], 0);
 const changes = quarterChanges(companies);
 const upgrades = changes.filter((c) => c.dir === 'up');
 const downgrades = changes.filter((c) => c.dir === 'down');
-const initialRows = initialListHTML(companies);
+// SSR only the first page (desktop page size); the client paginates the rest on
+// load. Trims first-paint HTML and removes the all-rows→page-1 reflow. Trade-off:
+// no-JS visitors see the first 24 rows only.
+const initialRows = initialListHTML(companies, 24);
 ---
 <Base title="Aadil Kadiwal · Equity Research & Views">
   <section class="hero">
@@ -96,11 +99,10 @@ const initialRows = initialListHTML(companies);
         </div>
       </template>
       <select class="sort" id="sort" aria-label="Sort by" data-dd>
+        <option value="view" selected>Sort: View</option>
         <option value="mcap">Sort: Market cap</option>
         <option value="name">Sort: Name A–Z</option>
         <option value="tier">Sort: Tier</option>
-        <option value="view">Sort: View</option>
-        <option value="ema">Sort: Closest to EMA</option>
       </select>
       <button class="btn ghost" id="export" title="Download the filtered list as an NSE:SYMBOL watchlist">⬇ Watchlist</button>
     </div>
@@ -119,7 +121,7 @@ const initialRows = initialListHTML(companies);
         <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of the 10-week EMA">10W</button>
         <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of the 20-week EMA">20W</button>
         <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of the 40-week EMA">40W</button>
-        <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤7% apart)">⇉ Converging EMAs</button>
+        <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤5% apart)">⇉ Converging EMAs</button>
       </div>
     </div>
   </div>
@@ -136,7 +138,7 @@ const initialRows = initialListHTML(companies);
 </Base>
 
 <script>
-  import { rowHTML, latestEntry, VIEW_ORDER, esc } from '../lib/render.js';
+  import { rowHTML, latestEntry, VIEW_ORDER, viewRank, esc } from '../lib/render.js';
 
   const DATA = JSON.parse(document.getElementById('dataset').textContent);
 
@@ -190,7 +192,8 @@ const initialRows = initialListHTML(companies);
       c._latest = latestEntry(c);
       if (!c._latest) return false;
       if (term && !matches(c, term)) return false;
-      if (tier && c.tier !== tier) return false;
+      // Match the tier shown on the card (latest quarter), not the company field.
+      if (tier && (c._latest.tier || c.tier) !== tier) return false;
       if (industry && c.industry !== industry) return false;
       return true;
     });
@@ -207,7 +210,7 @@ const initialRows = initialListHTML(companies);
     // "Near" = price within NEAR% of that weekly EMA. "Converging" = the three
     // EMAs are bunched within CONVERGE% of each other (a weekly squeeze).
     if (activeEma.size) {
-      const NEAR = 2, CONVERGE = 7;
+      const NEAR = 2, CONVERGE = 5;
       const near = (r, w) => { const v = r.dist && r.dist[w]; return v != null && Math.abs(v) <= NEAR; };
       visible = visible.filter((c) => {
         const r = c.ema;
@@ -222,11 +225,9 @@ const initialRows = initialListHTML(companies);
 
     const sort = sortEl.value;
     const byCap = (a, b) => (b.marketCap || 0) - (a.marketCap || 0);
-    const emaNear = (c) => (c.ema && c.ema.min_abs_dist != null) ? c.ema.min_abs_dist : Infinity;
     if (sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name));
     else if (sort === 'tier') visible.sort((a, b) => (tierRank(a) - tierRank(b)) || byCap(a, b));
-    else if (sort === 'view') visible.sort((a, b) => (VIEW_ORDER.indexOf(a._latest.view) - VIEW_ORDER.indexOf(b._latest.view)) || byCap(a, b));
-    else if (sort === 'ema') visible.sort((a, b) => (emaNear(a) - emaNear(b)) || byCap(a, b));
+    else if (sort === 'view') visible.sort((a, b) => (viewRank(a._latest.view) - viewRank(b._latest.view)) || byCap(a, b));
     else visible.sort(byCap);
 
     lastVisible = visible;
@@ -290,12 +291,11 @@ const initialRows = initialListHTML(companies);
 
   function clearAll() {
     searchEl.value = ''; tierEl.value = ''; industryEl.value = '';
-    tierEl.dispatchEvent(new Event('change', { bubbles: true }));
-    industryEl.dispatchEvent(new Event('change', { bubbles: true }));
     activeViews.clear();
     activeEma.clear();
     chipsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
     emaToolsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+    dropdowns.forEach((d) => d.repaint());   // resync custom-dropdown labels to the reset <select>s
     apply();
   }
 
@@ -327,7 +327,9 @@ const initialRows = initialListHTML(companies);
   }
 
   // events
-  searchEl.addEventListener('input', apply);
+  // Debounce search so each keystroke doesn't trigger a full filter+sort+rebuild.
+  let searchDebounce;
+  searchEl.addEventListener('input', () => { clearTimeout(searchDebounce); searchDebounce = setTimeout(apply, 140); });
   sortEl.addEventListener('change', apply);
   tierEl.addEventListener('change', apply);
   industryEl.addEventListener('change', apply);
@@ -395,7 +397,7 @@ const initialRows = initialListHTML(companies);
 
   exportBtn.addEventListener('click', () => {
     const symbols = lastVisible.filter((c) => c.tvCode).map((c) => `NSE:${c.tvCode}`);
-    if (!symbols.length) return;
+    if (!symbols.length) { toast('No symbols to export'); return; }
     const blob = new Blob([symbols.join('\n')], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -425,7 +427,8 @@ const initialRows = initialListHTML(companies);
     wrap.appendChild(sel);
 
     const btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 'dd-trigger'; btn.setAttribute('aria-haspopup', 'listbox');
+    btn.type = 'button'; btn.className = 'dd-trigger';
+    btn.setAttribute('aria-haspopup', 'listbox'); btn.setAttribute('aria-expanded', 'false');
     const menu = document.createElement('div');
     menu.className = 'dd-menu'; menu.hidden = true;
     wrap.appendChild(btn); wrap.appendChild(menu);
@@ -457,8 +460,8 @@ const initialRows = initialListHTML(companies);
         setTimeout(() => si.focus(), 0);
       }
     }
-    function open() { renderMenu(''); menu.hidden = false; wrap.classList.add('open'); }
-    function close() { menu.hidden = true; wrap.classList.remove('open'); }
+    function open() { renderMenu(''); menu.hidden = false; wrap.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+    function close() { menu.hidden = true; wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
 
     btn.addEventListener('click', (e) => { if (e.target.closest('.dd-info')) { e.stopPropagation(); return; } e.stopPropagation(); menu.hidden ? open() : close(); });
     menu.addEventListener('click', (e) => {
@@ -474,8 +477,11 @@ const initialRows = initialListHTML(companies);
       else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(Math.max(activeIdx - 1, 0)); }
       else if (e.key === 'Enter') { const o = optEls()[activeIdx]; if (o) { e.preventDefault(); o.click(); } }
     });
+    // Repaint on any <select> change, including programmatic resets, so the
+    // custom label never goes stale.
+    sel.addEventListener('change', paintTrigger);
     paintTrigger();
-    return { wrap, close };
+    return { wrap, close, repaint: paintTrigger };
   }
   const dropdowns = [...document.querySelectorAll('select[data-dd]')].map(enhanceSelect);
   // One delegated pair of listeners for all dropdowns (was one pair per select):

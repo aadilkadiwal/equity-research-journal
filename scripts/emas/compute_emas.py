@@ -30,7 +30,8 @@ def main():
     ap.add_argument("--source", choices=["yf", "browser"], default="yf")
     args = ap.parse_args()
 
-    data = json.load(open(COMPANIES))
+    with open(COMPANIES) as f:
+        data = json.load(f)
     pairs = [(c["slug"], f"{c['tvCode']}.NS") for c in data["companies"] if c.get("tvCode")]
     slug_by_sym = {s: slug for slug, s in pairs}
 
@@ -40,15 +41,20 @@ def main():
     prev = {}
     if os.path.exists(OUT):
         try:
-            prev = json.load(open(OUT)).get("companies", {})
-        except Exception:
+            with open(OUT) as f:
+                prev = json.load(f).get("companies", {})
+        except Exception as e:
+            # Loud, not silent: an empty fallback drops every company that also fails this run.
+            print(f"WARNING: could not read previous {OUT} ({e}); last-good fallback is EMPTY this run")
             prev = {}
     pairs.sort(key=lambda p: (prev.get(p[0]) or {}).get("asOf", ""))  # "" (never fetched) leads
     symbols = [s for _, s in pairs]
 
     # IST run date (the workflow fires ~16:15 IST, after the NSE close).
-    run_date = (datetime.datetime.now(datetime.timezone.utc)
-                + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
+    run_date_obj = (datetime.datetime.now(datetime.timezone.utc)
+                    + datetime.timedelta(hours=5, minutes=30)).date()
+    run_date = run_date_obj.isoformat()
+    STALE_DAYS = 5   # a latest bar older than this ⇒ delisted/halted, not fresh
     print(f"fetching {len(symbols)} symbols via {args.source} (stalest first) …")
 
     fetch_many = (__import__("fetch_yf") if args.source == "yf" else __import__("fetch_browser")).fetch_many
@@ -66,8 +72,11 @@ def main():
             # the prior session. None for a listing with a single daily bar.
             rows = res["rows"]
             prev_close = rows[-2][1] if len(rows) >= 2 else None
+            # A delisted/halted symbol still returns its last bar; don't stamp that
+            # frozen price as fresh — let it fall through to kept-last-good.
+            stale = (run_date_obj - rows[-1][0]).days > STALE_DAYS
             r = build_record(slug, res.get("price"), weekly, prev_close=prev_close)
-            if r["ema"]["10W"] is not None:      # need at least the 10W EMA to be useful
+            if r["ema"]["10W"] is not None and not stale:   # need ≥10W EMA and a recent bar
                 r["asOf"] = run_date
                 rec = r
         if rec:
@@ -80,6 +89,15 @@ def main():
             insufficient.append(sym)              # had data, but < 10 weeks of history
         else:
             missing.append(sym)
+
+    # Mass-outage guard: if nothing fetched fresh, don't overwrite the good
+    # snapshot with all-stale data — exit non-zero so no misleading commit lands.
+    if symbols and ok == 0:
+        print(f"ERROR: 0 of {len(symbols)} symbols returned fresh data — not writing {OUT}. "
+              f"({len(kept)} would-be kept-last-good, {len(missing)} no data)")
+        sys.exit(1)
+    if symbols and ok < 0.5 * len(symbols):
+        print(f"WARNING: only {ok}/{len(symbols)} symbols fresh — possible throttling/API issue")
 
     out = {
         "updatedAt": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes"),

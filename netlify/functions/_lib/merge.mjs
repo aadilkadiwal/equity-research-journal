@@ -40,23 +40,26 @@ export function mergeRows(data, rows, { quarter }) {
     const industry = str(row['Industry']);
 
     let comp = byKey.get(key);
+    const isNew = !comp;
     if (!comp) {
       comp = { slug: slugify(tv || name), name, tvCode: tv, industry, marketCap: mcap, tier, quarters: [] };
       data.companies.push(comp);
       byKey.set(key, comp);
-      added++;
     } else {
       if (mcap != null) comp.marketCap = mcap;
       if (industry) comp.industry = industry;
       if (tier) comp.tier = tier;
-      updated++;
     }
 
+    // Count only rows that produce a quarter entry — others are dropped below.
     if (view || note) {
+      const prior = comp.quarters.find((q) => q.quarter === quarter);
       const entry = { quarter, tier, view, note: note || '' };
+      if (prior && prior.reportUrl) entry.reportUrl = prior.reportUrl; // preserve linked report
       comp.quarters = comp.quarters.filter((q) => q.quarter !== quarter); // upsert: drop same quarter first
       comp.quarters.push(entry);
       quarterUpserts++;
+      if (isNew) added++; else updated++;
     }
   }
 

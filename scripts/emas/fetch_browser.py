@@ -30,8 +30,14 @@ def _parse(txt):
                 for t, c in zip(ts, src) if c is not None]
         if not rows:
             return None
-        return {"price": meta.get("regularMarketPrice"), "rows": rows}
-    except Exception:
+        # regularMarketPrice is missing after-hours/for halted names; fall back to
+        # the last close so we never emit a null price (empty but fresh-looking panel).
+        price = meta.get("regularMarketPrice")
+        if price is None:
+            price = rows[-1][1]
+        return {"price": price, "rows": rows}
+    except Exception as e:
+        print(f"  browser parse failed: {e}")
         return None
 
 

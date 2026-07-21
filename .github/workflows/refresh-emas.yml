@@ -26,7 +26,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install deps
-        run: pip install --quiet yfinance curl_cffi
+        # Pinned so a breaking yfinance/curl_cffi release can't silently land in
+        # the daily job (an all-symbol fetch failure would otherwise look benign).
+        run: pip install --quiet "yfinance==1.5.1" "curl_cffi==0.15.0"
 
       - name: Compute EMAs
         run: python3 scripts/emas/compute_emas.py --source yf
@@ -40,5 +42,12 @@ jobs:
             git config user.email "ema-bot@users.noreply.github.com"
             git add src/data/emas.json
             git commit -m "data: refresh weekly EMAs"
-            git push
+            # Another commit (a data import, an overlapping run) may have advanced
+            # the branch during the multi-minute compute; rebase before pushing so
+            # the day's EMAs aren't lost to a rejected non-fast-forward push.
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin "$GITHUB_REF_NAME" && git push && break
+              echo "push attempt $attempt failed; retrying"
+              sleep 5
+            done
           fi

@@ -6,8 +6,16 @@ import { formatMcap, quarterKey } from './format.js';
 export const VIEW_ORDER = ['Positive', 'Watch', 'Concern', 'Negative'];
 export const VIEW_GLYPH = { Positive: '▲', Watch: '●', Concern: '◆', Negative: '▼' };
 
+// Sort rank for a view; unknown/unrated ranks LAST (a raw indexOf -1 would sort
+// it first). Shared by server + client sorts.
+export const viewRank = (v) => { const i = VIEW_ORDER.indexOf(v); return i < 0 ? VIEW_ORDER.length : i; };
+
 export const esc = (s) =>
   String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// esc() stops attribute breakout but not the scheme — gate hrefs to http(s) so a
+// `javascript:` reportUrl can't execute.
+const safeHttpUrl = (u) => (/^https?:\/\//i.test(u || '') ? u : null);
 const vslug = (v) => (v ? String(v).toLowerCase() : 'unrated');
 
 export const latestEntry = (c) => {
@@ -55,12 +63,13 @@ function emaPanelHTML(c) {
 }
 
 function histEntryHTML(h) {
+  const hr = safeHttpUrl(h.reportUrl);
   return `<div class="entry view-${vslug(h.view)}">
       <div class="entry-top">
         <span class="entry-q">${esc(h.quarter)}</span>
         ${h.view ? `<span class="badge view-${vslug(h.view)}"><span class="gly">${VIEW_GLYPH[h.view] || ''}</span>${esc(h.view)}</span>` : ''}
         ${h.tier ? `<span class="badge tier">${esc(h.tier)}</span>` : ''}
-        ${h.reportUrl ? `<a class="ilink" href="${esc(h.reportUrl)}" target="_blank" rel="noopener">✨ AI report ↗</a>` : ''}
+        ${hr ? `<a class="ilink" href="${esc(hr)}" target="_blank" rel="noopener">✨ AI report ↗</a>` : ''}
       </div>
       <div class="entry-note">${esc(h.note || '—')}</div>
     </div>`;
@@ -69,7 +78,7 @@ function histEntryHTML(h) {
 export function rowHTML(c, e) {
   const vs = vslug(e.view);
   const symbol = c.tvCode ? `NSE:${c.tvCode}` : null;
-  const report = e.reportUrl || null; // this quarter's report
+  const report = safeHttpUrl(e.reportUrl); // this quarter's report
   // Sort the timeline once (oldest→newest); derive both the "flip" and the
   // "older" list from it instead of sorting twice.
   const chrono = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
@@ -101,12 +110,17 @@ export function rowHTML(c, e) {
     </div>`;
 }
 
-// Default order used for the server-rendered first paint (market cap desc).
-export function initialListHTML(companies) {
-  return companies
+// First paint, ordered to match the client's default "Sort: View" so nothing
+// reorders once JS runs. `limit` renders only the first page (client paginates
+// on load), avoiding a full second copy of every row on top of the JSON island.
+export function initialListHTML(companies, limit) {
+  const ranked = companies
     .map((c) => ({ c, e: latestEntry(c) }))
     .filter(({ e }) => e)
-    .sort((a, b) => (b.c.marketCap || 0) - (a.c.marketCap || 0))
+    .sort((a, b) =>
+      (viewRank(a.e.view) - viewRank(b.e.view)) ||
+      ((b.c.marketCap || 0) - (a.c.marketCap || 0)));
+  return (limit ? ranked.slice(0, limit) : ranked)
     .map(({ c, e }) => rowHTML(c, e))
     .join('');
 }
@@ -123,7 +137,6 @@ export function viewCounts(companies) {
 
 // Quarter-over-quarter changes: latest vs previous quarter per company.
 export function quarterChanges(companies) {
-  const rank = { Positive: 0, Watch: 1, Concern: 2, Negative: 3 }; // lower = better
   const out = [];
   for (const c of companies) {
     const qs = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
@@ -133,7 +146,7 @@ export function quarterChanges(companies) {
     out.push({
       name: c.name, slug: c.slug, from: prev.view, to: cur.view,
       quarter: cur.quarter,
-      dir: rank[cur.view] < rank[prev.view] ? 'up' : 'down',
+      dir: viewRank(cur.view) < viewRank(prev.view) ? 'up' : 'down',
     });
   }
   return out;
