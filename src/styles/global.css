@@ -509,6 +509,11 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .ema-head { display: flex; align-items: baseline; gap: 4px var(--sp-2); flex-wrap: wrap; }
 .ema-k { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
 .ema-price { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+/* 1-day change chip next to the price; green up / red down, matching EMA tiles. */
+.ema-chg { display: inline-flex; align-items: center; gap: 3px; font-size: var(--fs-label); font-weight: 800; font-variant-numeric: tabular-nums; }
+.ema-chg .arw { font-size: 9px; }
+.ema-chg.up { color: var(--view-positive-fg); }
+.ema-chg.down { color: var(--view-negative-fg); }
 .ema-tag { margin-left: auto; font-size: var(--fs-label); color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
 /* minmax(0,1fr) lets the 3 columns shrink instead of overflowing the card on
    narrow phones; the stacked label/value/% keeps each line short enough to fit. */

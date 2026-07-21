@@ -53,10 +53,15 @@ def distance_pct(price, ema_val):
     return (price - ema_val) / ema_val * 100.0
 
 
-def build_record(slug, price, weekly_closes, use_live_close=True):
+def build_record(slug, price, weekly_closes, prev_close=None, use_live_close=True):
     """Build the per-company EMA record the frontend consumes.
 
     weekly_closes: chronological list of weekly close floats (incl current week).
+    prev_close: previous trading day's close. When given (and non-zero) with a
+      live `price`, emits `prevClose` and `dayChangePct` — the Screener-style
+      1-day change, (price - prevClose) / prevClose. Omitted when not computable
+      (e.g. a brand-new listing with a single close) so the frontend can simply
+      skip the chip. The daily fetch already has this as the second-to-last bar.
     use_live_close: set the developing (latest) week's close to `price`. This is
       what makes the EMA match TradingView / Zerodha intraday — the current
       weekly bar closes at the live price. At EOD price == that close, so it is a
@@ -87,4 +92,7 @@ def build_record(slug, price, weekly_closes, use_live_close=True):
     rec["min_abs_dist"] = round(min(abs(d) for d in have), 2) if have else None
     es = [e for e in emas.values() if e is not None]
     rec["spread"] = round((max(es) - min(es)) / min(es) * 100, 2) if len(es) == 3 else None
+    if price is not None and prev_close not in (None, 0):
+        rec["prevClose"] = round(prev_close, 2)
+        rec["dayChangePct"] = round((price - prev_close) / prev_close * 100, 2)
     return rec

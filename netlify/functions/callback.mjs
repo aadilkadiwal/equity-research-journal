@@ -20,12 +20,16 @@ export default async (req) => {
       redirect_uri: `${url.origin}/api/callback`,
     }),
   });
-  const tok = await tokRes.json();
+  // GitHub can return non-JSON (rate-limit/outage) — return a clean 401, not a 500 crash.
+  if (!tokRes.ok) return new Response('OAuth token exchange failed', { status: 401 });
+  let tok;
+  try { tok = await tokRes.json(); } catch { return new Response('OAuth token exchange failed', { status: 401 }); }
   if (!tok.access_token) return new Response('OAuth token exchange failed', { status: 401 });
 
   const login = await getLogin(tok.access_token);
+  // Fail CLOSED: an unset allow-list authorizes nobody (see session.mjs).
   const allowed = (process.env.ALLOWED_LOGIN || '').toLowerCase();
-  if (!login || (allowed && login.toLowerCase() !== allowed)) {
+  if (!login || !allowed || login.toLowerCase() !== allowed) {
     return new Response(`Not authorized (${login || 'unknown'})`, { status: 403 });
   }
 

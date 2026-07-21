@@ -15,7 +15,15 @@ export async function getFile(repo, path, ref, token) {
   if (r.status === 404) return { sha: null, content: null };
   if (!r.ok) throw new Error(`getFile ${path}: ${r.status} ${await r.text()}`);
   const j = await r.json();
-  return { sha: j.sha, content: Buffer.from(j.content, 'base64').toString('utf8') };
+  // Contents API inlines `content` only below 1 MB; above that it returns an
+  // empty string with encoding "none", so fall back to the Blobs API (up to 100 MB).
+  if (j.content && j.encoding === 'base64') {
+    return { sha: j.sha, content: Buffer.from(j.content, 'base64').toString('utf8') };
+  }
+  const b = await fetch(`${API}/repos/${repo}/git/blobs/${j.sha}`, { headers: headers(token) });
+  if (!b.ok) throw new Error(`getFile blob ${path}: ${b.status} ${await b.text()}`);
+  const bj = await b.json();
+  return { sha: j.sha, content: Buffer.from(bj.content, bj.encoding || 'base64').toString('utf8') };
 }
 
 export async function putFile(repo, path, branch, token, contentStr, message, sha) {
@@ -36,7 +44,7 @@ export async function listTree(repo, ref, token) {
 }
 
 export async function getLogin(userToken) {
-  const r = await fetch(`${API}/user`, { headers: { ...headers(userToken), Accept: 'application/vnd.github+json' } });
+  const r = await fetch(`${API}/user`, { headers: headers(userToken) });
   if (!r.ok) return null;
   const j = await r.json();
   return j.login || null;

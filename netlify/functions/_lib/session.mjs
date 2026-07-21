@@ -40,7 +40,8 @@ export function currentUser(req) {
   const c = parseCookies(req.headers.get('cookie'));
   const s = verify(c.ak_session, secret);
   if (!s) return null;
+  // Fail CLOSED: an unset/empty ALLOWED_LOGIN must authorize nobody, not everybody.
   const allowed = (process.env.ALLOWED_LOGIN || '').toLowerCase();
-  if (allowed && String(s.login).toLowerCase() !== allowed) return null;
+  if (!allowed || String(s.login).toLowerCase() !== allowed) return null;
   return s;
 }

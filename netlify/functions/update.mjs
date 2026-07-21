@@ -22,6 +22,8 @@ export default async (req) => {
   try { body = await req.json(); } catch { return json({ error: 'invalid JSON body' }, 400); }
   const { fileBase64 } = body || {};
   if (!fileBase64 || !body?.quarter) return json({ error: 'fileBase64 and quarter are required' }, 400);
+  // Bound before decoding so a zip-bomb payload can't OOM the function (~9 MB decoded).
+  if (typeof fileBase64 !== 'string' || fileBase64.length > 12_000_000) return json({ error: 'file too large' }, 413);
   if (!/^Q[1-4]\s?\d{4}$/i.test(body.quarter)) return json({ error: 'quarter must look like "Q4 2026"' }, 400);
   // Normalise to the canonical "Q4 2026" form (single space, upper-case) so the
   // stored label always matches what linkReports derives from folder names.
@@ -49,30 +51,33 @@ export default async (req) => {
     }, 400);
   }
 
-  // 2) fetch current companies.json, merge, (3) resolve report links
-  let current = { companies: [] }, sha = null;
-  try {
+  // Re-reads companies.json each call so a retry merges against the freshest content.
+  async function commitOnce() {
     const f = await getFile(siteRepo, dataPath, branch, token);
-    sha = f.sha;
-    if (f.content) current = JSON.parse(f.content);
-  } catch (e) {
-    return json({ error: 'could not read companies.json: ' + e.message }, 502);
-  }
-
-  const { data, added, updated, quarterUpserts } = mergeRows(current, rows, { quarter });
-
-  let linked = 0;
-  if (env.REPORTS_REPO) {
-    linked = await linkReports(data, { repo: env.REPORTS_REPO, branch: env.REPORTS_BRANCH || 'main', token });
-  }
-
-  // 4) commit
-  try {
+    const current = f.content ? JSON.parse(f.content) : { companies: [] };
+    const { data, added, updated, quarterUpserts } = mergeRows(current, rows, { quarter });
+    let linked = 0;
+    if (env.REPORTS_REPO) {
+      linked = await linkReports(data, { repo: env.REPORTS_REPO, branch: env.REPORTS_BRANCH || 'main', token });
+    }
     const out = JSON.stringify(data, null, 2) + '\n';
-    await putFile(siteRepo, dataPath, branch, token, out, `data: ${quarter} update via /admin (${quarterUpserts} companies)`, sha);
-  } catch (e) {
-    return json({ error: 'commit failed: ' + e.message }, 502);
+    await putFile(siteRepo, dataPath, branch, token, out, `data: ${quarter} update via /admin (${quarterUpserts} companies)`, f.sha);
+    return { ok: true, quarter, added, updated, quarterUpserts, reportsLinked: linked, totalCompanies: data.companies.length };
   }
 
-  return json({ ok: true, quarter, added, updated, quarterUpserts, reportsLinked: linked, totalCompanies: data.companies.length });
+  // A concurrent commit can advance the file between our read and PUT → GitHub
+  // 409s on the stale sha. Re-read and retry once before surfacing the conflict.
+  try {
+    return json(await commitOnce());
+  } catch (e) {
+    if (/\b409\b/.test(e.message || '')) {
+      try { return json(await commitOnce()); }
+      catch (e2) {
+        console.error('update commit retry failed:', e2);
+        return json({ error: 'the data file changed during the upload — please retry' }, 409);
+      }
+    }
+    console.error('update failed:', e);
+    return json({ error: 'could not save the update — please retry' }, 502);
+  }
 };
