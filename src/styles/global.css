@@ -388,7 +388,9 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .hero-sub { margin: var(--sp-1) 0 0; color: var(--muted); font-size: var(--fs-secondary); }
 
 /* ---------- Toolbar ---------- */
-.toolbar { display: flex; flex-direction: column; gap: var(--sp-3); margin: var(--sp-4) 0 var(--sp-3); }
+/* Grouped filter panel — one boxed home for search, sort, and all filters. */
+.toolbar { display: flex; flex-direction: column; gap: var(--sp-3); margin: var(--sp-4) 0 var(--sp-3);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg, 14px); padding: var(--sp-3) var(--sp-4); }
 /* zone 1: find + period */
 .tb-find { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
 .tb-find .search { flex: 1 1 320px; }
@@ -403,9 +405,9 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 @media (min-width: 760px) {
   .toolbar {
     position: sticky; top: var(--header-h); z-index: 15;
-    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
     backdrop-filter: blur(8px);
-    padding: var(--sp-3) 0; margin: 0 0 var(--sp-2);
+    padding: var(--sp-3) var(--sp-4); margin: 0 0 var(--sp-3);
   }
 }
 
@@ -423,15 +425,33 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 /* Active filter tokens */
 .active-filters { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin: var(--sp-2) 0 var(--sp-1); }
 .active-filters:empty { display: none; }
+.af-lead { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-right: 2px; }
 .token {
-  display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-label); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-label);
   background: var(--surface-2); border: 1px solid var(--border); color: var(--text);
-  padding: 4px 6px 4px var(--sp-3); border-radius: var(--r-pill); cursor: pointer;
+  padding: 4px 6px 4px 10px; border-radius: var(--r-pill); cursor: pointer;
 }
-.token:hover { border-color: var(--view-negative-bar); }
-.token .x { display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center; border-radius: 50%; background: var(--border); font-size: 11px; }
-.token-clear { background: transparent; border: 0; color: var(--accent); font-weight: 700; font-size: var(--fs-label); cursor: pointer; padding: 4px 6px; font-family: inherit; }
-.token-clear:hover { text-decoration: underline; }
+.token .tk-cat { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.token .tk-gly { font-size: 11px; line-height: 1; }
+.token .tk-val { font-weight: 700; }
+.token:hover { border-color: var(--muted); }
+.token .x { display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center; border-radius: 50%; background: var(--border); font-size: 11px; transition: background .12s, color .12s; }
+.token .x:hover { background: var(--view-negative-bar); color: #fff; }
+/* Colour-coded by filter type — views take their semantic colour, EMA the brand accent. */
+.token.view-positive { border-color: color-mix(in srgb, var(--view-positive-bar) 55%, var(--border)); background: color-mix(in srgb, var(--view-positive-bar) 10%, var(--surface)); color: var(--view-positive-fg); }
+.token.view-watch    { border-color: color-mix(in srgb, var(--view-watch-bar) 55%, var(--border));    background: color-mix(in srgb, var(--view-watch-bar) 10%, var(--surface));    color: var(--view-watch-fg); }
+.token.view-concern  { border-color: color-mix(in srgb, var(--view-concern-bar) 55%, var(--border));  background: color-mix(in srgb, var(--view-concern-bar) 10%, var(--surface));  color: var(--view-concern-fg); }
+.token.view-negative { border-color: color-mix(in srgb, var(--view-negative-bar) 55%, var(--border)); background: color-mix(in srgb, var(--view-negative-bar) 10%, var(--surface)); color: var(--view-negative-fg); }
+.token[class*="view-"] .tk-gly { color: currentColor; }
+.token.token-ema { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+.token.token-ema .tk-cat, .token.token-ema .tk-val { color: var(--accent); }
+/* Reset pill — sits at the far right of the active-filters row; returns
+   everything (filters + sort) to default. Shown only when something is set. */
+.token-reset { margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1px solid var(--accent); color: var(--accent);
+  font-weight: 700; font-size: var(--fs-label); cursor: pointer; padding: 5px 12px;
+  border-radius: 999px; font-family: inherit; }
+.token-reset:hover { background: var(--accent); color: #fff; }
 
 /* Focus visibility */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--r-sm); }
