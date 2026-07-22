@@ -130,7 +130,7 @@ const initialRows = initialListHTML(companies, 24);
   <p class="count" id="count"></p>
   <div class="list" id="list" set:html={initialRows}></div>
   <div class="empty-state" id="empty" style="display:none">
-    No companies match your filters. <button class="btn ghost" id="clear-empty">Clear filters</button>
+    No companies match your filters. <button class="btn ghost" id="clear-empty">↺ Reset</button>
   </div>
   <nav class="pager" id="pager" aria-label="Pagination"></nav>
 
@@ -138,7 +138,7 @@ const initialRows = initialListHTML(companies, 24);
 </Base>
 
 <script>
-  import { rowHTML, latestEntry, VIEW_ORDER, viewRank, esc } from '../lib/render.js';
+  import { rowHTML, latestEntry, VIEW_ORDER, VIEW_GLYPH, viewRank, esc } from '../lib/render.js';
 
   const DATA = JSON.parse(document.getElementById('dataset').textContent);
 
@@ -276,21 +276,34 @@ const initialRows = initialListHTML(companies, 24);
   }
 
   function renderActiveFilters(term, tier, industry) {
+    // Faceted chips: each carries its category (kicker or, for views, a coloured
+    // glyph) so you can read WHAT is filtered at a glance, not just the value.
     const tokens = [];
-    if (term) tokens.push({ type: 'search', label: `“${term}”` });
-    [...activeViews].forEach((v) => tokens.push({ type: 'view', val: v, label: v }));
-    if (tier) tokens.push({ type: 'tier', label: tier });
-    if (industry) tokens.push({ type: 'industry', label: industry });
-    const emaLbl = { near10: 'Near 10W (≤2%)', near20: 'Near 20W (≤2%)', near40: 'Near 40W (≤2%)', converge: 'Converging EMAs' };
-    [...activeEma].forEach((k) => tokens.push({ type: 'ema', val: k, label: emaLbl[k] }));
-    if (!tokens.length) { activeFiltersEl.innerHTML = ''; return; }
+    if (term) tokens.push({ type: 'search', cat: 'Search', label: term });
+    [...activeViews].forEach((v) => tokens.push({ type: 'view', val: v, label: v, cls: `view-${v.toLowerCase()}`, gly: VIEW_GLYPH[v] }));
+    if (tier) tokens.push({ type: 'tier', cat: 'Tier', label: tier.replace(/^Tier\s*/i, '') });
+    if (industry) tokens.push({ type: 'industry', cat: 'Industry', label: industry });
+    const emaShort = { near10: 'Near 10W', near20: 'Near 20W', near40: 'Near 40W', converge: 'Converging' };
+    [...activeEma].forEach((k) => tokens.push({ type: 'ema', val: k, cat: 'EMA', label: emaShort[k] }));
+    // "Dirty" = any filter OR a non-default sort — so Reset also surfaces when
+    // only the sort was changed (Reset returns sort to View too).
+    const dirty = tokens.length || sortEl.value !== 'view';
+    if (!dirty) { activeFiltersEl.innerHTML = ''; return; }
+    const chip = (t) => {
+      const lead = t.gly ? `<span class="tk-gly">${t.gly}</span>`
+        : (t.cat ? `<span class="tk-cat">${esc(t.cat)}</span>` : '');
+      return `<button class="token token-${t.type}${t.cls ? ' ' + t.cls : ''}" data-type="${t.type}" data-val="${esc(t.val || '')}" title="Remove this filter">`
+        + `${lead}<span class="tk-val">${esc(t.label)}</span><span class="x" aria-hidden="true">✕</span></button>`;
+    };
     activeFiltersEl.innerHTML =
-      tokens.map((t) => `<button class="token" data-type="${t.type}" data-val="${esc(t.val || '')}">${esc(t.label)}<span class="x">✕</span></button>`).join('') +
-      `<button class="token-clear" id="clear-all">Clear all</button>`;
+      `<span class="af-lead">Filters</span>` +
+      tokens.map(chip).join('') +
+      `<button class="token-reset" id="reset" title="Reset all filters and sort to default">↺ Reset</button>`;
   }
 
   function clearAll() {
     searchEl.value = ''; tierEl.value = ''; industryEl.value = '';
+    sortEl.value = 'view';                    // back to the default sort
     activeViews.clear();
     activeEma.clear();
     chipsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
@@ -353,7 +366,7 @@ const initialRows = initialListHTML(companies, 24);
   });
 
   activeFiltersEl.addEventListener('click', (e) => {
-    if (e.target.closest('#clear-all')) return clearAll();
+    if (e.target.closest('#reset')) return clearAll();
     const tok = e.target.closest('.token');
     if (!tok) return;
     const { type, val } = tok.dataset;
