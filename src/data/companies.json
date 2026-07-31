@@ -52,6 +52,23 @@
       ]
     },
     {
+      "slug": "polycab",
+      "name": "Polycab India",
+      "tvCode": "POLYCAB",
+      "industry": "Wires & Cables",
+      "marketCap": 138821.42,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Biggest wire and cable maker, with genuinely consistent management and a consumer arm that has become a real second engine. But growth is coming from higher copper prices rather than more units sold, exports have missed their target for years, and the stock is already over priced - no earning trigger for me as of now.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/polycab-india-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "bhel",
       "name": "Bharat Heavy Electricals",
       "tvCode": "BHEL",
@@ -99,6 +116,23 @@
           "view": "Positive",
           "note": "Grid-equipment maker in India's massive power build-out; orders booked equal ~3 years of sales and profit margins tripled. Management reliably under-promises and over-delivers. Strongest pick here.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ge-vernova-t-and-d-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "srf",
+      "name": "SRF",
+      "tvCode": "SRF",
+      "industry": "Speciality Chemicals",
+      "marketCap": 84921.58,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Real engine is refrigerant gases, where global quota rules let it run plants flat out while prices stay firm, and management is unusually candid. The latest numbers are flattered by a war-driven windfall management says will fade, and the big new plant and the Chemours contract only start paying from FY28.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/srf-ltd.pdf"
         }
       ]
     },
@@ -171,6 +205,23 @@
       ]
     },
     {
+      "slug": "hscl",
+      "name": "Himadri Speciality Chemical Ltd",
+      "tvCode": "HSCL",
+      "industry": "Bulk Chemicals",
+      "marketCap": 34387.03,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Carbon maker steadily shifting from cheap grades to costly ones, which more than doubled its margins, and fresh capacity has restarted volume growth after two capped years. Promoters keep raising their stake. The battery-material bet earns nothing until FY28 and takes on China, and it adds a new venture almost every quarter.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/himadri-speciality-chemical-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "cpplus",
       "name": "Aditya Infotech Ltd",
       "tvCode": "CPPLUS",
@@ -218,6 +269,30 @@
           "view": "Concern",
           "note": "Steel sales keep growing fast but profit stayed flat four years while it kept building plants. Latest quarter finally shows profit jumping - a first real hint that spending pays off.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shyam-metalics-and-energy-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "emmvee",
+      "name": "Emmvee Photovoltaic Power Ltd",
+      "tvCode": "EMMVEE",
+      "industry": "Solar",
+      "marketCap": 23387.42,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Solar-panel maker riding India's make-in-India push; sales doubled, profit nearly tripled, debt-free, with a huge new factory funded and on track. Management delivers what it promises.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/emmvee-photovoltaic-power-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Solar panel and cell maker. Made-in-India cells have crossed half of sales now that local-content rules are in force, and that is the higher-margin half; a fully funded plant nearly doubles capacity by March 2027. Management gave its first-ever target this year and still has to prove it, and industry overcapacity is the real risk.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/emmvee-photovoltaic-power-ltd.pdf"
         }
       ]
     },
@@ -303,23 +378,6 @@
           "view": "Positive",
           "note": "Makes advanced pharma-chemical building blocks (formerly Ami Organics). A shift into high-value CDMO contracts has doubled both margins and profit, and management keeps beating its own guidance. Main worry is the rich price, near record highs.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/acutaas-chemicals-ltd.pdf"
-        }
-      ]
-    },
-    {
-      "slug": "emmvee",
-      "name": "Emmvee Photovoltaic Power Ltd",
-      "tvCode": "EMMVEE",
-      "industry": "Energy",
-      "marketCap": 20138.38,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Watch",
-          "note": "Solar-panel maker riding India's make-in-India push; sales doubled, profit nearly tripled, debt-free, with a huge new factory funded and on track. Management delivers what it promises.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/emmvee-photovoltaic-power-ltd.pdf"
         }
       ]
     },
@@ -514,8 +572,8 @@
       "slug": "atlantaele",
       "name": "Atlanta Electricals Ltd",
       "tvCode": "ATLANTAELE",
-      "industry": "Power",
-      "marketCap": 12657.95,
+      "industry": "Transformers",
+      "marketCap": 12704.79,
       "tier": "Tier 1",
       "quarters": [
         {
@@ -524,6 +582,13 @@
           "view": "Watch",
           "note": "Makes power transformers. Roughly quadrupled capacity into India's grid boom; FY26 sales jumped 49% and it turned debt-free. But it's freshly listed, the high-voltage push is unproven, and the stock trades near 60 times earnings.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/atlanta-electricals-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Transformer maker in India's power-grid boom. Order book is at a record 1.5 years of sales, the high-voltage orders it long promised are finally landing, and its big new plant is only about a third full so there is plenty of room to grow. Management delivers, but the stock is expensive.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/atlanta-electricals-ltd.pdf"
         }
       ]
     },
@@ -541,6 +606,23 @@
           "view": "Concern",
           "note": "South-India diagnostics chain with an excellent, honest management team that consistently beats its own targets, high margins, and volume-led growth. The only worry is the pricey stock versus its sales and assets.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vijaya-diagnostic-centre-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "ace",
+      "name": "Action Construction Equipment",
+      "tvCode": "ACE",
+      "industry": "Construction & Mining Equipment",
+      "marketCap": 11797.53,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "India's largest crane maker, debt-free with a third of its capacity idle, and margins are its one proven strength. But volumes fell last year, the 'double revenue' target was quietly re-dated, guidance has been withheld three quarters running, and the heavy-crane prize waits on a duty the government won't notify. No earning trigger visible.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/action-construction-equipment-ltd.pdf"
         }
       ]
     },
@@ -745,6 +827,23 @@
           "view": "Watch",
           "note": "Makes sensorless engine/motor control units for two-wheelers and gensets. Sales jumped 61% to Rs 1,058 cr and profit doubled as emission rules drove ISG adoption - but the stock trades at a steep 117 P/E.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sedemac-mechatronics-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "bororenew",
+      "name": "Borosil Renewables Ltd",
+      "tvCode": "BORORENEW",
+      "industry": "Solar",
+      "marketCap": 8604.25,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Only large Indian maker of solar-panel glass, and import duties now locked in to 2029 have transformed its margins. A fully funded expansion lifts capacity 60% by March 2027, and the loss-making German unit is written off and gone. A long furnace shutdown falls due around FY28.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/borosil-renewables-ltd.pdf"
         }
       ]
     },
@@ -1021,6 +1120,23 @@
       ]
     },
     {
+      "slug": "cyientdlm",
+      "name": "Cyient DLM Ltd",
+      "tvCode": "CYIENTDLM",
+      "industry": "Contract",
+      "marketCap": 4943.51,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Electronics maker for aerospace and defence. A new CEO turned it around, the order book is at a record two years of sales and plants are only half full. The recovery has barely started after the same promise was broken three times, almost all sales are exports exposed to war disruption, and the stock is very expensive.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/cyient-dlm-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "innovacap",
       "name": "Innova Captab Ltd",
       "tvCode": "INNOVACAP",
@@ -1089,6 +1205,40 @@
       ]
     },
     {
+      "slug": "sswl",
+      "name": "Steel Strips Wheels",
+      "tvCode": "SSWL",
+      "industry": "Auto Ancillary",
+      "marketCap": 4126.93,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Wheel maker finally earning more per wheel after years of pushing customers for price hikes, with exports turning up and a sold-out new plant coming. Profit has gone nowhere for four years while sales nearly doubled, interest eats nearly half of operating profit, and its own targets are routinely missed or quietly re-dated.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/steel-strips-wheels-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "mahlog",
+      "name": "Mahindra Logistics",
+      "tvCode": "MAHLOG",
+      "industry": "Logistics",
+      "marketCap": 3880.9,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "New CEO turned chronic losses around by clearing debt, cutting idle warehouse space and dropping loss-making contracts. Those fixes are one-time and nearly finished, so growth must now come from volume and pricing; the Express arm still loses money with no deadline, and it leans heavily on the Mahindra group.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/mahindra-logistics-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "seamecltd",
       "name": "SEAMEC Ltd",
       "tvCode": "SEAMECLTD",
@@ -1153,6 +1303,23 @@
           "view": "Negative",
           "note": "A razor-thin (2-3% margin) tech-hardware distributor, but a real PC-upgrade wave lifted profits 35% this year. Just remember it's riding a temporary cycle, not a lasting advantage.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rashi-peripherals-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "tatva",
+      "name": "Tatva Chintan Pharma Chem Ltd",
+      "tvCode": "TATVA",
+      "industry": "Speciality Chemicals",
+      "marketCap": 3344.86,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "World's second-biggest maker of the chemicals behind vehicle exhaust catalysts, and tighter Euro-7 rules are now turning into real orders across all four products. A new plant is approved because the existing one is nearly full. Management has a long habit of missing its own timelines, and the stock is very expensive.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/tatva-chintan-pharma-chem-ltd.pdf"
         }
       ]
     },
@@ -1361,6 +1528,23 @@
       ]
     },
     {
+      "slug": "dycl",
+      "name": "Dynamic Cables Ltd",
+      "tvCode": "DYCL",
+      "industry": "Wires & Cables",
+      "marketCap": 2156.77,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Power-cable maker riding India's grid spending, with a better product mix and its first US shipment done. Units sold are barely growing - the headline is mostly metal prices - the order book has stalled because buyers won't lock high prices, and the new plant is already 15 months late.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/dynamic-cables-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "nibe",
       "name": "NIBE",
       "tvCode": "NIBE",
@@ -1531,6 +1715,23 @@
       ]
     },
     {
+      "slug": "navkarcorp",
+      "name": "Navkar Corporation",
+      "tvCode": "NAVKARCORP",
+      "industry": "Freight Forwarding",
+      "marketCap": 1580.98,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Container yards near Mumbai port, loss-making until JSW took over and fixed it. A third of capacity is still idle so profit keeps climbing as it fills, helped by a fast-growing rail fleet and cheap rail-land terminals. The stock is pricey.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/navkar-corporation-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "vinyas",
       "name": "Vinyas Innovative Technologies Ltd",
       "tvCode": "VINYAS",
@@ -1684,6 +1885,23 @@
       ]
     },
     {
+      "slug": "menonbe",
+      "name": "Menon Bearings",
+      "tvCode": "MENONBE",
+      "industry": "Bearings",
+      "marketCap": 1065.71,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Engine-bearings maker breaking into the US - a recent trip brought enquiries and confidentiality deals from big global auto names - and it can nearly double sales on existing plants with very little spending. Those are enquiries, not orders yet, management often misses its own targets, and railway brakes keep getting delayed.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/menon-bearings-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "accentmic",
       "name": "Accent Microcell Ltd",
       "tvCode": "ACCENTMIC",
@@ -1697,6 +1915,23 @@
           "view": "Negative",
           "note": "Risky. Its one growth plant has been delayed twice and still earns nothing; this year's sales growth came from thin-margin reselling, not real products. Wait for the plant to actually run.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/accent-microcell-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "southwest",
+      "name": "South West Pinnacle Exploration Ltd",
+      "tvCode": "SOUTHWEST",
+      "industry": "Metals & Mining",
+      "marketCap": 771.06,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Drills and surveys ground for miners. Order book has more than doubled to about 3 years of sales as the government auctions hundreds of coal and mineral blocks, and its fixed-cost rig model means extra work drops straight to profit. Two clients are 60% of the book, every rig is already running full, and its own coal mine keeps slipping.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/south-west-pinnacle-exploration-ltd.pdf"
         }
       ]
     }
