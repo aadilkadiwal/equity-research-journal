@@ -1,0 +1,10 @@
+# Cloudflare Pages config.
+#
+# Note there is no `nodejs_compat` flag: the functions in functions/ run on Web
+# APIs only (Web Crypto, fetch, atob/btoa), so nothing needs the Node shim.
+#
+# Secrets are NOT set here — add them in the Cloudflare dashboard under
+# Settings → Variables and Secrets (see ADMIN-SETUP.md).
+name = "equity-research-journal"
+compatibility_date = "2026-08-01"
+pages_build_output_dir = "dist"

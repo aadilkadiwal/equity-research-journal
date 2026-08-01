@@ -1,4 +1,6 @@
 // Minimal GitHub REST helpers via fetch (no Octokit dependency).
+import { base64ToUtf8, utf8ToBase64 } from './base64.js';
+
 const API = 'https://api.github.com';
 
 function headers(token) {
@@ -18,16 +20,16 @@ export async function getFile(repo, path, ref, token) {
   // Contents API inlines `content` only below 1 MB; above that it returns an
   // empty string with encoding "none", so fall back to the Blobs API (up to 100 MB).
   if (j.content && j.encoding === 'base64') {
-    return { sha: j.sha, content: Buffer.from(j.content, 'base64').toString('utf8') };
+    return { sha: j.sha, content: base64ToUtf8(j.content) };
   }
   const b = await fetch(`${API}/repos/${repo}/git/blobs/${j.sha}`, { headers: headers(token) });
   if (!b.ok) throw new Error(`getFile blob ${path}: ${b.status} ${await b.text()}`);
   const bj = await b.json();
-  return { sha: j.sha, content: Buffer.from(bj.content, bj.encoding || 'base64').toString('utf8') };
+  return { sha: j.sha, content: base64ToUtf8(bj.content) };
 }
 
 export async function putFile(repo, path, branch, token, contentStr, message, sha) {
-  const body = { message, content: Buffer.from(contentStr, 'utf8').toString('base64'), branch };
+  const body = { message, content: utf8ToBase64(contentStr), branch };
   if (sha) body.sha = sha;
   const r = await fetch(`${API}/repos/${repo}/contents/${encodeURI(path)}`, {
     method: 'PUT', headers: headers(token), body: JSON.stringify(body),

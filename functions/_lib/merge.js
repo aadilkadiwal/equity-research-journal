@@ -3,7 +3,7 @@
 // SAME company + SAME quarter → the new entry REPLACES the old one.
 
 // The column headers an uploaded sheet must contain. Single source of truth —
-// used by update.mjs to validate uploads and by scripts/make_template.mjs to
+// used by update.js to validate uploads and by scripts/make_template.mjs to
 // build the downloadable template, so the three can never drift apart.
 export const REQUIRED_COLUMNS = ['CompanyName', 'Industry', 'MarketCap', 'Tier', 'TradingView Code', 'View', 'Note'];
 

@@ -7,3 +7,5 @@ __pycache__/
 public/uploads/
 .env
 .env.*
+.dev.vars
+.wrangler/

@@ -1,0 +1,14 @@
+---
+// Cloudflare Pages serves dist/404.html with a real 404 status for any unmatched
+// path. Without this file the asset handler answers 200 with the homepage, which
+// Google treats as a soft 404.
+import Base from '../layouts/Base.astro';
+---
+<Base title="Not found · Aadil Kadiwal · Equity Research & Views" description="That page doesn't exist.">
+  <main class="wrap" style="text-align:center; padding:80px 24px;">
+    <p style="font-size:44px; font-weight:800; margin:0 0 4px; color:var(--muted);">404</p>
+    <h1 style="font-size:22px; margin:0 0 10px;">That page doesn't exist</h1>
+    <p style="color:var(--muted); margin:0 0 22px;">The link may be out of date, or the company may not be on the list.</p>
+    <a class="btn primary" href="/">← Back to the journal</a>
+  </main>
+</Base>

@@ -1,12 +1,12 @@
-import { sign, cookie, parseCookies } from './_lib/session.mjs';
-import { getLogin } from './_lib/github.mjs';
+import { sign, cookie, parseCookies } from '../_lib/session.js';
+import { getLogin } from '../_lib/github.js';
 
-// GitHub OAuth callback. Path: /api/callback
-export default async (req) => {
-  const url = new URL(req.url);
+// GitHub OAuth callback. Route: /api/callback
+export async function onRequestGet({ request, env }) {
+  const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
-  const cookies = parseCookies(req.headers.get('cookie'));
+  const cookies = parseCookies(request.headers.get('cookie'));
   if (!code || !state || state !== cookies.oauth_state) {
     return new Response('Bad OAuth state', { status: 400 });
   }
@@ -14,8 +14,8 @@ export default async (req) => {
     method: 'POST',
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      client_id: process.env.GITHUB_CLIENT_ID,
-      client_secret: process.env.GITHUB_CLIENT_SECRET,
+      client_id: env.GITHUB_CLIENT_ID,
+      client_secret: env.GITHUB_CLIENT_SECRET,
       code,
       redirect_uri: `${url.origin}/api/callback`,
     }),
@@ -27,13 +27,13 @@ export default async (req) => {
   if (!tok.access_token) return new Response('OAuth token exchange failed', { status: 401 });
 
   const login = await getLogin(tok.access_token);
-  // Fail CLOSED: an unset allow-list authorizes nobody (see session.mjs).
-  const allowed = (process.env.ALLOWED_LOGIN || '').toLowerCase();
+  // Fail CLOSED: an unset allow-list authorizes nobody (see session.js).
+  const allowed = (env.ALLOWED_LOGIN || '').toLowerCase();
   if (!login || !allowed || login.toLowerCase() !== allowed) {
     return new Response(`Not authorized (${login || 'unknown'})`, { status: 403 });
   }
 
-  const session = sign({ login, exp: Date.now() + 1000 * 60 * 60 * 8 }, process.env.SESSION_SECRET);
+  const session = await sign({ login, exp: Date.now() + 1000 * 60 * 60 * 8 }, env.SESSION_SECRET);
   return new Response(null, {
     status: 302,
     headers: [
@@ -42,4 +42,4 @@ export default async (req) => {
       ['Set-Cookie', cookie('oauth_state', '', 0)],
     ],
   });
-};
+}

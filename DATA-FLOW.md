@@ -9,7 +9,7 @@ Report links are resolved automatically when you upload via `/admin`.
  ───────────────────         ──────────────────────          ────────────────           ─────────────────             ──────────
  Edit the Excel sheet   →    /concall-tracker skill      →   npm run import ...     →    linkReports.mjs runs      →   npm run build
  (view + note + tier)        pushes Q<n>-FY<yy>/*.pdf         merges into                on /admin upload              → deploy
-                             to the public GitHub repo        companies.json             (adds reportUrl, auto)        (Netlify)
+                             to the public GitHub repo        companies.json             (adds reportUrl, auto)        (Cloudflare)
 ```
 
 ## Each quarter (the normal flow)
@@ -50,7 +50,7 @@ npm run import -- \
 - The `--quarter` label (`Q1 2027`) must match the report folder (`Q1-2027`).
 
 ### 4. Link the AI reports  →  `reportUrl` per quarter
-Resolved **automatically** — the `/admin` upload runs server-side `linkReports.mjs`
+Resolved **automatically** — the `/admin` upload runs server-side `linkReports.js`
 right after merging. It lists the reports repo via the GitHub API, matches each
 company (handles `&`/`and`, `Ltd`, `India`), and writes `reportUrl` onto **each
 quarter entry**, so every quarter's note links its own report. No separate command.
@@ -59,8 +59,8 @@ quarter entry**, so every quarter's note links its own report. No separate comma
 ```bash
 npm run build      # static output in dist/
 ```
-Then deploy: push to the site's GitHub repo (Netlify auto-builds), or
-`netlify deploy --prod --dir dist`.
+Then deploy: push to the site's GitHub repo — Cloudflare Pages auto-builds. Or run
+`npx wrangler pages deploy dist` for a one-off manual deploy.
 
 ## What changes on the site automatically
 - The new quarter becomes the **latest note** per company; the previous quarter
@@ -71,5 +71,5 @@ Then deploy: push to the site's GitHub repo (Netlify auto-builds), or
 
 ## One-off single-company edit
 - Quickest: edit `src/data/companies.json` by hand, then `npm run build`.
-- Browser editing: the Sveltia CMS config at `public/admin/` gives a `/admin`
-  editor once the site is hosted with a Git backend.
+- Browser editing: `/admin` takes a one-quarter sheet and commits it for you.
+  Re-uploading the same quarter replaces just that quarter. See `ADMIN-SETUP.md`.

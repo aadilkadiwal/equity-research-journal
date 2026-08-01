@@ -7,7 +7,7 @@ shown **inline** (no clicking); each row links out to the AI **Concall report**,
 and Screener.in. Once a company has more than one quarter, an inline "history" toggle reveals
 the older notes in place.
 
-**Public read, you're the only editor. Free to host on Netlify. Not investment advice.**
+**Public read, you're the only editor. Free to host on Cloudflare Pages. Not investment advice.**
 
 ## Stack
 
@@ -16,7 +16,9 @@ the older notes in place.
   quarter + view + tier + industry filters, sort, removable active-filter chips,
   pagination (24/page), and the company popup (with ← → keyboard browsing). Single page, no routes.
 - **TradingView / Screener.in** — deep-research links from each company popup.
-- **Sveltia CMS** — Git-based `/admin` editor that commits `companies.json` to your repo.
+- **`/admin`** — GitHub-login upload page: drop in a quarter's Excel sheet and it
+  merges into `companies.json` and commits. Runs on Cloudflare Pages Functions
+  (`functions/`). See `ADMIN-SETUP.md`.
 - **Data** — a single `src/data/companies.json` (studied companies only). No backend, no database.
 
 ## Design notes
@@ -65,27 +67,30 @@ company's slugified name, so the link is **resolved per company** (not a fixed p
 stored in each company's `reportUrl` in `companies.json`.
 
 Report links are resolved **automatically** on every `/admin` upload by the server-side
-`linkReports.mjs`: it lists the reports repo via the GitHub API, matches each company (handles
-`&`/`and`, `Ltd`, `India` suffixes), picks the **most recent week**, and writes the `reportUrl`.
-Companies with no report found simply show no AI-report link.
+`functions/_lib/linkReports.js`: it lists the reports repo via the GitHub API, matches each
+company (handles `&`/`and`, `Ltd`, `India` suffixes), picks the **most recent week**, and writes
+the `reportUrl`. Companies with no report found simply show no AI-report link.
 
-> **Note:** the research repo is **private**, so these links only open for GitHub accounts with
-> access. To let public visitors open them, make the repo **public**, or mirror the PDFs into the
-> site's `public/` folder and point `reportUrl` there.
+> **Note:** `aadilkadiwal/india-stock-research` must stay **public** — the report links point
+> straight at files in it, so making it private would 404 for every visitor. If you ever do need
+> it private, mirror the PDFs into the site's `public/` folder and point `reportUrl` there first.
 
-### One at a time — in the browser (after hosting)
-Go to `/admin`, log in, add/edit a company and its quarter note, save. Sveltia commits
-`companies.json` and Netlify redeploys. Set your GitHub repo in `public/admin/config.yml`
-first (`backend.repo`).
+### One at a time — in the browser
+Go to `/admin`, sign in with GitHub, upload the quarter's sheet. See `ADMIN-SETUP.md`.
 
 ## Deploy (free)
 
 1. Push this folder to a GitHub repo.
-2. On Netlify: **New site → import from GitHub**. Build command `npm run build`,
-   publish directory `dist` (already in `netlify.toml`).
-3. For the `/admin` editor: set `backend.repo` in `public/admin/config.yml` to your repo,
-   and connect a Git backend (GitHub OAuth / Netlify Identity).
-4. (Optional) Add a custom domain (~₹800/yr).
+2. On Cloudflare: **Workers & Pages → Create → Pages → Connect to Git**. Framework preset
+   **Astro**, build command `npm run build`, output directory `dist` (also in `wrangler.toml`).
+   The `functions/` directory becomes `/api/*` automatically.
+3. For `/admin`: add the environment variables listed in `ADMIN-SETUP.md`.
+4. (Optional) Add a custom domain (~₹800/yr) — and update `site` in `astro.config.mjs`.
+
+Why Cloudflare and not Netlify: the weekday EMA job commits `emas.json` ~22 times a month, and
+each commit is a rebuild. Netlify's free plan bills 15 credits per deploy against a 300-credit
+cap (≈20 deploys), so the bot alone overran it. Cloudflare Pages allows 500 builds/month with
+unlimited bandwidth.
 
 ## Data shape (`src/data/companies.json`)
 
@@ -110,5 +115,5 @@ first (`backend.repo`).
 
 ## Roadmap ideas (not built yet)
 Thematic tags, quarter-over-quarter diff page, import-time view/note consistency check,
-visitor bookmarks (localStorage), PWA/offline, price column across the list (Netlify
-scheduled function), privacy-friendly analytics.
+visitor bookmarks (localStorage), PWA/offline, price column across the list (Cloudflare
+scheduled Worker), privacy-friendly analytics.

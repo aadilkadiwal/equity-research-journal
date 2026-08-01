@@ -67,7 +67,7 @@ import '../../styles/global.css';
       </div>
     </div>
 
-    <script is:inline>
+    <script>
       const $ = (id) => document.getElementById(id);
       const result = $('result');
       function show(cls, html) { result.className = cls; result.innerHTML = html; }
@@ -77,15 +77,37 @@ import '../../styles/global.css';
         $('who-login').textContent = u.login;
       }).catch(() => { $('signedout').hidden = false; });
 
+      // The workbook is parsed here rather than in the function: Cloudflare's free
+      // plan gives each request 10ms of CPU, and SheetJS needs far more than that.
+      // The server still validates the session and the column headers.
+      // Loaded on demand so the ~900 KB parser isn't in the initial page load.
+      async function parseSheet(file) {
+        const XLSX = await import('xlsx');
+        const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+        const sheetName = wb.SheetNames.find((n) => /earning/i.test(n)) || wb.SheetNames[0];
+        const sheet = wb.Sheets[sheetName];
+        if (!sheet) throw new Error('the workbook has no readable sheet');
+        const headers = (XLSX.utils.sheet_to_json(sheet, { header: 1 })[0] || []).map((h) => String(h).trim());
+        const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
+        return { headers, rows };
+      }
+
       $('upload-form')?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const file = $('file').files[0];
         const quarter = $('quarter').value.trim();
         if (!file || !quarter) return;
-        $('submit').disabled = true; show('', 'Uploading & merging…'); result.className = ''; result.style.display = 'block'; result.textContent = 'Uploading & merging…';
+        $('submit').disabled = true; result.className = ''; result.style.display = 'block'; result.textContent = 'Reading sheet…';
         try {
-          const fileBase64 = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1]); fr.onerror = rej; fr.readAsDataURL(file); });
-          const r = await fetch('/api/update', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fileBase64, quarter }) });
+          let headers, rows;
+          try {
+            ({ headers, rows } = await parseSheet(file));
+          } catch (err) {
+            throw new Error('could not read the Excel file: ' + err.message);
+          }
+          if (!rows.length) throw new Error('that sheet has no data rows');
+          result.textContent = `Merging ${rows.length} rows…`;
+          const r = await fetch('/api/update', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ rows, headers, quarter }) });
           const j = await r.json();
           if (!r.ok) throw new Error(j.error || ('HTTP ' + r.status));
           show('ok', `✓ Published <b>${quarter}</b>. ${j.quarterUpserts} companies (${j.added} new), ${j.reportsLinked} report links, ${j.totalCompanies} total. The site rebuilds in ~1 minute.`);

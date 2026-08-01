@@ -6,7 +6,7 @@ Merges by company (TradingView code / name): each run upserts the company's
 fixed info and adds/replaces ONE quarter entry in its timeline, so running it
 every quarter builds up the history instead of overwriting it.
 
-NOTE: the upsert rules here mirror netlify/functions/_lib/merge.mjs (the /admin
+NOTE: the upsert rules here mirror functions/_lib/merge.js (the /admin
 upload path). Two differences are intentional: this script reads by column
 *index* (the raw source sheet), while merge.mjs reads by header *name* (the
 template); and merge.mjs validates REQUIRED_COLUMNS while this local script does
