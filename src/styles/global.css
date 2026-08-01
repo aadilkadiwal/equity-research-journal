@@ -149,7 +149,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   display: inline-flex; align-items: center;
 }
 .dd:has(#tier) .dd-trigger { min-width: 120px; }
-.dd:has(#quarter) .dd-trigger { min-width: 132px; }
+.dd:has(#quarter) .dd-trigger { min-width: 144px; }
 .dd-trigger:hover { border-color: var(--accent); }
 .dd.open .dd-trigger { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
 .dd-label { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -379,11 +379,10 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 
 /* ---------- Earlier quarters (superseded views) ----------
-   Named by content rather than a bare count, and deliberately NOT a card: a
-   nested .entry inside .row meant two borders, two left bars and two
-   backgrounds competing for the same content. A 2px left rule in the view
-   colour carries the same signal at a fraction of the weight. Dashed top rule
-   so it doesn't echo the solid one above .row-actions a few pixels below. */
+   Named by content rather than a bare count. Each superseded quarter is boxed
+   the way the parent card is — view-tinted background, border in the same view
+   colour — so the history reads as a stack of past cards. Dashed top rule on the
+   toggle so it doesn't echo the solid one above .row-actions a few pixels below. */
 .older-toggle {
   margin: var(--sp-3) 0 0; padding: var(--sp-3) 0 0; width: 100%;
   background: transparent; border: 0; border-top: 1px dashed var(--border);
@@ -392,10 +391,18 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   text-transform: uppercase; letter-spacing: .5px; color: var(--muted);
 }
 .older-toggle:hover { color: var(--accent); }
-.older-toggle .caret { font-size: 10px; opacity: .8; }
+/* Caret runs larger than the label it sits next to — it's the affordance that
+   says "this opens", and at 10px it disappeared against the uppercase text. */
+.older-toggle .caret { font-size: 16px; line-height: 1; opacity: .9; }
 .older { margin: var(--sp-2) 0 0; display: flex; flex-direction: column; gap: var(--sp-3); }
 .older[hidden] { display: none; }
-.older-item { padding-left: var(--sp-3); border-left: 2px solid var(--bar, var(--view-unrated-bar)); }
+/* Tinted a touch harder than .row (8% vs 4%) — these sit on an already-tinted
+   card, so the parent's mix would read as no fill at all. */
+.older-item {
+  padding: var(--sp-3); border-radius: var(--r-sm);
+  border: 1px solid color-mix(in srgb, var(--bar, var(--view-unrated-bar)) 45%, var(--border));
+  background: color-mix(in srgb, var(--bar, var(--view-unrated-bar)) 8%, var(--surface));
+}
 .older-top { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
 .older-q { font-weight: 700; font-size: var(--fs-label); font-variant-numeric: tabular-nums; }
 .older-view { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-label); font-weight: 700; }
