@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import data from '../data/companies.json';
 import emas from '../data/emas.json';
-import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterChanges } from '../lib/render.js';
+import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterChanges, quarterBuckets, newestQuarter, newlyCovered } from '../lib/render.js';
 
 // Attach the weekly-EMA record (10/20/40W + % distance) to each company by slug.
 // Refreshed daily by .github/workflows/refresh-emas.yml; absent entries just
@@ -10,6 +10,10 @@ import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterChanges } f
 const companies = data.companies.map((c) => ({ ...c, ema: (emas.companies || {})[c.slug] || null }));
 const industries = [...new Set(companies.map((c) => c.industry).filter(Boolean))].sort();
 const tiers = ['Tier 1', 'Tier 2', 'Tier 3', 'Tier 4'];
+// Quarter options, newest first, each labelled with how many companies' CURRENT
+// view comes from it. A company revisited later belongs to the newer bucket
+// only, so these counts partition the book rather than overlapping.
+const quarters = quarterBuckets(companies);
 
 const viewDots = {
   Positive: 'var(--view-positive-bar)', Watch: 'var(--view-watch-bar)',
@@ -22,9 +26,11 @@ const VIEW_MEANING = {
 
 const counts = viewCounts(companies);
 const totalRated = VIEW_ORDER.reduce((s, v) => s + counts[v], 0);
+const newestQ = newestQuarter(companies);
 const changes = quarterChanges(companies);
 const upgrades = changes.filter((c) => c.dir === 'up');
 const downgrades = changes.filter((c) => c.dir === 'down');
+const fresh = newlyCovered(companies, newestQ);
 // SSR only the first page (desktop page size); the client paginates the rest on
 // load. Trims first-paint HTML and removes the all-rows→page-1 reflow. Trade-off:
 // no-JS visitors see the first 24 rows only.
@@ -36,7 +42,7 @@ const initialRows = initialListHTML(companies, 24);
   </section>
 
   <!-- Summary bar + view legend -->
-  <section class="view-summary" aria-label="View distribution">
+  <section class="view-summary" aria-label="View distribution across all companies">
     <div class="vs-bar">
       {VIEW_ORDER.filter((v) => counts[v] > 0).map((v) => (
         <span class={`vs-seg view-${v.toLowerCase()}`} style={`flex:${counts[v]}`} title={`${v}: ${counts[v]}`}></span>
@@ -52,9 +58,12 @@ const initialRows = initialListHTML(companies, 24);
     </div>
   </section>
 
-  {changes.length > 0 && (
+  {(changes.length > 0 || fresh.length > 0) && (
     <details class="qoq">
-      <summary>What changed last quarter — <b class="up">↑ {upgrades.length} upgraded</b> · <b class="down">↓ {downgrades.length} downgraded</b></summary>
+      <summary>
+        What changed in <b>{newestQ}</b> — <b class="up">↑ {upgrades.length} upgraded</b> · <b class="down">↓ {downgrades.length} downgraded</b>
+        {fresh.length > 0 && <> · <b class="new">+ {fresh.length} newly covered</b></>}
+      </summary>
       <div class="qoq-body">
         {upgrades.length > 0 && (
           <div class="qoq-col">
@@ -72,6 +81,14 @@ const initialRows = initialListHTML(companies, 24);
             ))}
           </div>
         )}
+        {fresh.length > 0 && (
+          <div class="qoq-col">
+            <h4 class="new">Newly covered</h4>
+            {fresh.map((c) => (
+              <a class="qoq-item" href={`#c-${c.slug}`}>{c.name} <span class="qoq-move">{c.view}</span></a>
+            ))}
+          </div>
+        )}
       </div>
     </details>
   )}
@@ -79,6 +96,20 @@ const initialRows = initialListHTML(companies, 24);
   <div class="toolbar">
     <div class="tb-find">
       <input class="search" id="search" type="search" placeholder="Search company name or symbol…" autocomplete="off" />
+      <select id="quarter" aria-label="Filter by quarter" data-dd data-note="quarter-note-tpl">
+        <option value="" data-count={String(companies.length)}>All</option>
+        {quarters.map((q) => <option value={q.quarter} data-count={String(q.count)}>{q.quarter}</option>)}
+      </select>
+      <template id="quarter-note-tpl">
+        <div class="dd-note">
+          <b>Quarter</b> = when you last formed a view
+          <ul>
+            {quarters.map((q) => <li><b>{q.quarter}</b> — {q.count} {q.count === 1 ? 'company' : 'companies'}</li>)}
+          </ul>
+          A company revisited in a newer quarter appears under that newer one only, so these add up
+          to {companies.length}.
+        </div>
+      </template>
       <select id="industry" aria-label="Filter by industry" data-dd="Search industry…">
         <option value="">All industries</option>
         {industries.map((s) => <option value={s}>{s}</option>)}
@@ -99,7 +130,7 @@ const initialRows = initialListHTML(companies, 24);
         </div>
       </template>
       <select class="sort" id="sort" aria-label="Sort by" data-dd>
-        <option value="view" selected>Sort: View</option>
+        <option value="view" selected>Sort: View · newest first</option>
         <option value="mcap">Sort: Market cap</option>
         <option value="name">Sort: Name A–Z</option>
         <option value="tier">Sort: Tier</option>
@@ -138,13 +169,16 @@ const initialRows = initialListHTML(companies, 24);
 </Base>
 
 <script>
-  import { rowHTML, latestEntry, VIEW_ORDER, VIEW_GLYPH, viewRank, esc } from '../lib/render.js';
+  import { rowHTML, latestEntry, newestQuarter, VIEW_ORDER, VIEW_GLYPH, viewRank, esc } from '../lib/render.js';
+  import { quarterKey } from '../lib/format.js';
 
   const DATA = JSON.parse(document.getElementById('dataset').textContent);
+  const NEWEST_Q = newestQuarter(DATA);
 
   const listEl = document.getElementById('list');
   const searchEl = document.getElementById('search');
   const sortEl = document.getElementById('sort');
+  const quarterEl = document.getElementById('quarter');
   const tierEl = document.getElementById('tier');
   const industryEl = document.getElementById('industry');
   const countEl = document.getElementById('count');
@@ -182,6 +216,7 @@ const initialRows = initialListHTML(companies, 24);
 
   function apply() {
     const term = searchEl.value.trim().toLowerCase();
+    const quarter = quarterEl.value;
     const tier = tierEl.value;
     const industry = industryEl.value;
 
@@ -191,6 +226,9 @@ const initialRows = initialListHTML(companies, 24);
     const base = DATA.filter((c) => {
       c._latest = latestEntry(c);
       if (!c._latest) return false;
+      // Quarter = where a company's CURRENT view comes from, so the buckets
+      // partition the book: one revisited later drops out of the older bucket.
+      if (quarter && c._latest.quarter !== quarter) return false;
       if (term && !matches(c, term)) return false;
       // Match the tier shown on the card (latest quarter), not the company field.
       if (tier && (c._latest.tier || c.tier) !== tier) return false;
@@ -225,15 +263,20 @@ const initialRows = initialListHTML(companies, 24);
 
     const sort = sortEl.value;
     const byCap = (a, b) => (b.marketCap || 0) - (a.marketCap || 0);
+    // Newest quarter first, so within each view band the freshest thinking
+    // surfaces above views that haven't been revisited.
+    const byQuarter = (a, b) => quarterKey(b._latest.quarter) - quarterKey(a._latest.quarter);
     if (sort === 'name') visible.sort((a, b) => a.name.localeCompare(b.name));
     else if (sort === 'tier') visible.sort((a, b) => (tierRank(a) - tierRank(b)) || byCap(a, b));
-    else if (sort === 'view') visible.sort((a, b) => (viewRank(a._latest.view) - viewRank(b._latest.view)) || byCap(a, b));
+    // Keep these three keys in lockstep with initialListHTML() in render.js —
+    // a mismatch reorders the SSR'd first page the moment this script runs.
+    else if (sort === 'view') visible.sort((a, b) => (viewRank(a._latest.view) - viewRank(b._latest.view)) || byQuarter(a, b) || byCap(a, b));
     else visible.sort(byCap);
 
     lastVisible = visible;
     currentPage = 1;
     renderPage();
-    renderActiveFilters(term, tier, industry);
+    renderActiveFilters(term, quarter, tier, industry);
   }
 
   function renderPage() {
@@ -242,7 +285,7 @@ const initialRows = initialListHTML(companies, 24);
     if (currentPage > pages) currentPage = pages;
     const start = (currentPage - 1) * PAGE_SIZE;
     const slice = lastVisible.slice(start, start + PAGE_SIZE);
-    listEl.innerHTML = slice.map((c) => rowHTML(c, c._latest || latestEntry(c))).join('');
+    listEl.innerHTML = slice.map((c) => rowHTML(c, c._latest || latestEntry(c), NEWEST_Q)).join('');
     emptyEl.style.display = total === 0 ? '' : 'none';
     countEl.textContent = total === 0 ? `0 companies` : `Showing ${start + 1}–${start + slice.length} of ${total}`;
     renderPagination(pages);
@@ -275,11 +318,12 @@ const initialRows = initialListHTML(companies, 24);
     document.querySelector('.toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function renderActiveFilters(term, tier, industry) {
+  function renderActiveFilters(term, quarter, tier, industry) {
     // Faceted chips: each carries its category (kicker or, for views, a coloured
     // glyph) so you can read WHAT is filtered at a glance, not just the value.
     const tokens = [];
     if (term) tokens.push({ type: 'search', cat: 'Search', label: term });
+    if (quarter) tokens.push({ type: 'quarter', cat: 'Quarter', label: quarter });
     [...activeViews].forEach((v) => tokens.push({ type: 'view', val: v, label: v, cls: `view-${v.toLowerCase()}`, gly: VIEW_GLYPH[v] }));
     if (tier) tokens.push({ type: 'tier', cat: 'Tier', label: tier.replace(/^Tier\s*/i, '') });
     if (industry) tokens.push({ type: 'industry', cat: 'Industry', label: industry });
@@ -302,7 +346,7 @@ const initialRows = initialListHTML(companies, 24);
   }
 
   function clearAll() {
-    searchEl.value = ''; tierEl.value = ''; industryEl.value = '';
+    searchEl.value = ''; quarterEl.value = ''; tierEl.value = ''; industryEl.value = '';
     sortEl.value = 'view';                    // back to the default sort
     activeViews.clear();
     activeEma.clear();
@@ -344,6 +388,7 @@ const initialRows = initialListHTML(companies, 24);
   let searchDebounce;
   searchEl.addEventListener('input', () => { clearTimeout(searchDebounce); searchDebounce = setTimeout(apply, 140); });
   sortEl.addEventListener('change', apply);
+  quarterEl.addEventListener('change', apply);
   tierEl.addEventListener('change', apply);
   industryEl.addEventListener('change', apply);
 
@@ -371,6 +416,7 @@ const initialRows = initialListHTML(companies, 24);
     if (!tok) return;
     const { type, val } = tok.dataset;
     if (type === 'search') searchEl.value = '';
+    else if (type === 'quarter') { quarterEl.value = ''; quarterEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'tier') { tierEl.value = ''; tierEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'industry') { industryEl.value = ''; industryEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'view') { activeViews.delete(val); chipsEl.querySelector(`.chip[data-view="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
@@ -386,14 +432,15 @@ const initialRows = initialListHTML(companies, 24);
   });
 
   listEl.addEventListener('click', (e) => {
-    const t = e.target.closest('.hist-toggle');
+    const t = e.target.closest('.older-toggle');
     if (t) {
-      const hist = t.nextElementSibling;
-      const open = hist.hasAttribute('hidden');
-      if (open) hist.removeAttribute('hidden'); else hist.setAttribute('hidden', '');
+      const box = t.nextElementSibling;
+      const open = box.hasAttribute('hidden');
+      box.toggleAttribute('hidden', !open);
       t.setAttribute('aria-expanded', String(open));
-      const n = hist.querySelectorAll('.entry').length;
-      t.textContent = `${open ? '▾' : '▸'} history (${n})`;
+      // Only the caret changes — the label was fixed at render time, so it can't
+      // drift out of sync with what's actually inside.
+      t.querySelector('.caret').textContent = open ? '▾' : '▸';
       return;
     }
     const nm = e.target.closest('.row-nm');
@@ -431,7 +478,9 @@ const initialRows = initialListHTML(companies, 24);
     const searchable = !!searchPlaceholder;
     const noteTpl = sel.dataset.note ? document.getElementById(sel.dataset.note) : null;
     const noteHTML = noteTpl ? noteTpl.innerHTML : '';
-    const opts = [...sel.options].map((o) => ({ value: o.value, label: o.textContent }));
+    // data-count renders a right-aligned tally in the menu only — the trigger
+    // stays label-only so it doesn't read as "Q1 2027 · 15".
+    const opts = [...sel.options].map((o) => ({ value: o.value, label: o.textContent, count: o.dataset.count || '' }));
     const labelOf = (v) => (opts.find((o) => o.value === v) || opts[0] || {}).label || '';
 
     const wrap = document.createElement('div');
@@ -463,7 +512,7 @@ const initialRows = initialListHTML(companies, 24);
       menu.innerHTML =
         (searchable ? `<div class="dd-search"><input type="text" placeholder="${esc(searchPlaceholder)}" /></div>` : '') +
         `<div class="dd-list" role="listbox">` +
-        (list.length ? list.map((o) => `<button type="button" role="option" class="dd-opt${o.value === sel.value ? ' sel' : ''}" data-value="${esc(o.value)}">${esc(o.label)}</button>`).join('') : `<div class="dd-empty">No matches</div>`) +
+        (list.length ? list.map((o) => `<button type="button" role="option" class="dd-opt${o.value === sel.value ? ' sel' : ''}" data-value="${esc(o.value)}">${esc(o.label)}${o.count ? `<span class="dd-n">${esc(o.count)}</span>` : ''}</button>`).join('') : `<div class="dd-empty">No matches</div>`) +
         `</div>`;
       activeIdx = optEls().findIndex((o) => o.classList.contains('sel'));
       if (searchable) {
