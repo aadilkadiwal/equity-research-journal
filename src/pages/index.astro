@@ -96,23 +96,13 @@ const initialRows = initialListHTML(companies, 24);
   <div class="toolbar">
     <div class="tb-find">
       <input class="search" id="search" type="search" placeholder="Search company name or symbol…" autocomplete="off" />
-      <select id="quarter" aria-label="Filter by quarter" data-dd data-note="quarter-note-tpl">
-        <option value="" data-count={String(companies.length)}>All</option>
-        {quarters.map((q) => <option value={q.quarter} data-count={String(q.count)}>{q.quarter}</option>)}
-      </select>
-      <template id="quarter-note-tpl">
-        <div class="dd-note">
-          <b>Quarter</b> = when you last formed a view
-          <ul>
-            {quarters.map((q) => <li><b>{q.quarter}</b> — {q.count} {q.count === 1 ? 'company' : 'companies'}</li>)}
-          </ul>
-          A company revisited in a newer quarter appears under that newer one only, so these add up
-          to {companies.length}.
-        </div>
-      </template>
       <select id="industry" aria-label="Filter by industry" data-dd="Search industry…">
         <option value="">All industries</option>
         {industries.map((s) => <option value={s}>{s}</option>)}
+      </select>
+      <select id="quarter" aria-label="Filter by quarter" data-dd>
+        <option value="" data-count={String(companies.length)}>All Quarter</option>
+        {quarters.map((q) => <option value={q.quarter} data-count={String(q.count)}>{q.quarter}</option>)}
       </select>
       <select id="tier" aria-label="Filter by tier" data-dd data-note="tier-note-tpl">
         <option value="">All tiers</option>
