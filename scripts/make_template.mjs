@@ -1,12 +1,12 @@
 // Generates public/research-sheet-template.xlsx — the sample sheet users download
 // from /admin so their column headers always match what the uploader expects.
-// Headers come from REQUIRED_COLUMNS (shared with update.mjs) so they can't drift.
+// Headers come from REQUIRED_COLUMNS (shared with update.js) so they can't drift.
 //   run: npm run template
 import XLSX from 'xlsx';
 import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { REQUIRED_COLUMNS } from '../netlify/functions/_lib/merge.mjs';
+import { REQUIRED_COLUMNS } from '../functions/_lib/merge.js';
 
 // The SheetJS CDN build doesn't auto-bind Node fs — required for writeFile.
 XLSX.set_fs(fs);

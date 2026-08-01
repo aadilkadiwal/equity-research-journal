@@ -1,7 +1,7 @@
 // Resolve per-quarter AI report links from the reports repo. Runs automatically
 // on every /admin upload (see update.mjs). Sets q.reportUrl on each quarter entry
 // that has a matching PDF in the `Q<n>-FY<yy>/` folder.
-import { listTree } from './github.mjs';
+import { listTree } from './github.js';
 
 const STOP = new Set(['and', 'ltd', 'limited', 'the', 'pvt', 'private', 'co', 'india', 'inc']);
 const QF = /^Q[1-4]-(?:FY\d{2}|\d{4})$/;

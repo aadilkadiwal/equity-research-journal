@@ -7,6 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:cf": "astro build && npx wrangler pages dev dist",
     "import": "python3 scripts/import_excel.py",
     "template": "node scripts/make_template.mjs"
   },

@@ -40,6 +40,8 @@ possible, and make sure `npm run build` passes.
   data in `src/data/` (`companies.json`, `emas.json`).
 - `scripts/` — the data pipeline (`import_excel.py`, and the weekly-EMA job in
   `scripts/emas/`).
-- `netlify/functions/` — the admin upload / auth serverless functions.
+- `functions/` — the admin upload / auth code, deployed as Cloudflare Pages
+  Functions. `functions/api/*.js` are the routes (file path = URL path);
+  `functions/_lib/` is shared code (a leading `_` keeps it un-routed).
 
 See `README.md` and `DATA-FLOW.md` for how data flows onto the site.

@@ -9,7 +9,7 @@ carries its own `asOf` date, and stale companies are refreshed first.
 
 `.github/workflows/refresh-emas.yml` runs **once daily after NSE close**
 (`45 10 * * 1-5` UTC = ~16:15 IST, weekdays), computes `src/data/emas.json`, and
-commits it if changed. Netlify then auto-rebuilds and the static site serves the
+commits it if changed. Cloudflare Pages then auto-rebuilds and the static site serves the
 new numbers. No runtime functions, no database — the data is baked in.
 
 Private-repo Actions minutes: a ~2-min daily job ≈ 60 min/month (2,000 free).
