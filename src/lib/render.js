@@ -23,6 +23,32 @@ export const latestEntry = (c) => {
   return qs.length ? qs.reduce((a, b) => (quarterKey(b.quarter) >= quarterKey(a.quarter) ? b : a)) : null;
 };
 
+// The most recent quarter anywhere in the dataset. Cards from this quarter get
+// the "fresh" treatment on their quarter label, and it's the quarter the
+// "what changed" panel reports on.
+export const newestQuarter = (companies) => {
+  let best = null;
+  for (const c of companies) {
+    const e = latestEntry(c);
+    if (e && (!best || quarterKey(e.quarter) > quarterKey(best))) best = e.quarter;
+  }
+  return best;
+};
+
+// Companies bucketed by the quarter their CURRENT view comes from. A company
+// revisited in a newer quarter belongs to that newer one only, so the buckets
+// partition the book — they sum to the company count with nothing counted twice.
+export function quarterBuckets(companies) {
+  const counts = {};
+  for (const c of companies) {
+    const e = latestEntry(c);
+    if (e) counts[e.quarter] = (counts[e.quarter] || 0) + 1;
+  }
+  return Object.keys(counts)
+    .sort((a, b) => quarterKey(b) - quarterKey(a))
+    .map((quarter) => ({ quarter, count: counts[quarter] }));
+}
+
 const fmtINR = (n) =>
   (n == null || isNaN(n)) ? '—'
     : `₹${Number(n).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -62,20 +88,34 @@ function emaPanelHTML(c) {
       </div>`;
 }
 
-function histEntryHTML(h) {
+// One superseded quarter inside the "Earlier quarters" panel. Deliberately not
+// a card: a 2px left rule in the view colour carries the same signal the old
+// nested .entry did, without a second border/background inside the row card.
+function olderItemHTML(h) {
   const hr = safeHttpUrl(h.reportUrl);
-  return `<div class="entry view-${vslug(h.view)}">
-      <div class="entry-top">
-        <span class="entry-q">${esc(h.quarter)}</span>
-        ${h.view ? `<span class="badge view-${vslug(h.view)}"><span class="gly">${VIEW_GLYPH[h.view] || ''}</span>${esc(h.view)}</span>` : ''}
+  return `<div class="older-item view-${vslug(h.view)}">
+      <div class="older-top">
+        <span class="older-q">${esc(h.quarter)}</span>
+        ${h.view ? `<span class="older-view view-${vslug(h.view)}"><span class="gly">${VIEW_GLYPH[h.view] || ''}</span>${esc(h.view)}</span>` : ''}
         ${h.tier ? `<span class="badge tier">${esc(h.tier)}</span>` : ''}
         ${hr ? `<a class="ilink" href="${esc(hr)}" target="_blank" rel="noopener">✨ AI report ↗</a>` : ''}
       </div>
-      <div class="entry-note">${esc(h.note || '—')}</div>
+      <div class="older-note">${esc(h.note || '—')}</div>
     </div>`;
 }
 
-export function rowHTML(c, e) {
+// Collapsed disclosure for superseded quarters. Named by content rather than a
+// bare count — "(1)" said nothing, while "3 earlier quarters" says how much is
+// behind the click. The label is fixed at render time and the caret lives in its
+// own span, so toggling never rewrites (and never desyncs) the text.
+function olderPanelHTML(older) {
+  if (!older.length) return '';
+  const label = older.length === 1 ? 'Earlier quarter' : `${older.length} earlier quarters`;
+  return `<button class="older-toggle" aria-expanded="false"><span class="caret">▸</span>${label}</button>
+      <div class="older" hidden>${older.map(olderItemHTML).join('')}</div>`;
+}
+
+export function rowHTML(c, e, newestQ) {
   const vs = vslug(e.view);
   const symbol = c.tvCode ? `NSE:${c.tvCode}` : null;
   const report = safeHttpUrl(e.reportUrl); // this quarter's report
@@ -85,21 +125,24 @@ export function rowHTML(c, e) {
   const ci = chrono.findIndex((x) => x.quarter === e.quarter);
   const prev = ci > 0 ? chrono[ci - 1] : null;
   const flip = prev && prev.view && e.view && prev.view !== e.view ? prev.view : null;
-  const older = chrono.filter((x) => x.quarter !== e.quarter).reverse();
+  // Strictly older than the rendered entry, newest first. Slicing by position
+  // (rather than filtering out the current quarter) keeps a future quarter from
+  // ever showing up as history if a card is rendered at a non-latest entry.
+  const older = chrono.slice(0, ci).reverse();
+  const fresh = newestQ && e.quarter === newestQ ? ' fresh' : '';
   return `<div class="row view-${vs}" id="c-${esc(c.slug)}" data-slug="${esc(c.slug)}">
       <div class="row-head">
         <div class="row-view">
           <span class="badge view-${vs}"><span class="gly">${VIEW_GLYPH[e.view] || ''}</span>${esc(e.view || 'Unrated')}</span>
           ${e.tier ? `<span class="badge tier">${esc(e.tier)}</span>` : ''}
-          <span class="row-view-q">${esc(e.quarter || '')}</span>
+          <span class="row-view-q${fresh}">${esc(e.quarter || '')}</span>
         </div>
         <div class="row-id">
           <div class="row-name"><span class="row-nm" role="button" tabindex="0" title="Copy link to this company">${esc(c.name)}</span>${c.tvCode ? ` <span class="row-sym">${esc(c.tvCode)}</span>` : ''}${flip ? ` <span class="flip-chip">↕ from ${esc(flip)}</span>` : ''}</div>
           <div class="row-submeta">${[c.industry].filter(Boolean).map(esc).join(' · ')}${c.marketCap != null ? `${c.industry ? ' · ' : ''}<span class="row-cap">${esc(formatMcap(c.marketCap))}</span>` : ''}</div>
           ${emaPanelHTML(c)}
           <div class="row-note${e.note ? '' : ' empty'}">${esc(e.note || 'No note this quarter.')}</div>
-          ${older.length ? `<button class="hist-toggle" aria-expanded="false">▸ history (${older.length})</button>
-            <div class="hist" hidden>${older.map(histEntryHTML).join('')}</div>` : ''}
+          ${olderPanelHTML(older)}
         </div>
         <div class="row-actions">
           ${report ? `<a class="link-chip primary" href="${esc(report)}" target="_blank" rel="noopener">✨ AI report</a>` : ''}
@@ -113,15 +156,19 @@ export function rowHTML(c, e) {
 // First paint, ordered to match the client's default "Sort: View" so nothing
 // reorders once JS runs. `limit` renders only the first page (client paginates
 // on load), avoiding a full second copy of every row on top of the JSON island.
+// The three sort keys here MUST stay identical to the 'view' branch of apply()
+// in index.astro — any divergence shows up as a visible reflow on load.
 export function initialListHTML(companies, limit) {
+  const newestQ = newestQuarter(companies);
   const ranked = companies
     .map((c) => ({ c, e: latestEntry(c) }))
     .filter(({ e }) => e)
     .sort((a, b) =>
       (viewRank(a.e.view) - viewRank(b.e.view)) ||
+      (quarterKey(b.e.quarter) - quarterKey(a.e.quarter)) ||
       ((b.c.marketCap || 0) - (a.c.marketCap || 0)));
   return (limit ? ranked.slice(0, limit) : ranked)
-    .map(({ c, e }) => rowHTML(c, e))
+    .map(({ c, e }) => rowHTML(c, e, newestQ))
     .join('');
 }
 
@@ -133,6 +180,16 @@ export function viewCounts(companies) {
     if (e && counts[e.view] != null) counts[e.view]++;
   }
   return counts;
+}
+
+// Companies whose first-ever view landed in `newestQ`. quarterChanges() can't
+// see these (it needs two quarters to compare), so without this the summary
+// reads as a quiet quarter even when most of the work was new coverage.
+export function newlyCovered(companies, newestQ) {
+  if (!newestQ) return [];
+  return companies
+    .filter((c) => (c.quarters || []).length === 1 && c.quarters[0].quarter === newestQ)
+    .map((c) => ({ name: c.name, slug: c.slug, view: c.quarters[0].view }));
 }
 
 // Quarter-over-quarter changes: latest vs previous quarter per company.
