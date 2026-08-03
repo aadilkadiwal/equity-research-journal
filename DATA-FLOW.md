@@ -7,7 +7,7 @@ Report links are resolved automatically when you upload via `/admin`.
 ```
  (1) Study & record          (2) Generate AI reports         (3) Import notes            (4) Link reports              (5) Publish
  ───────────────────         ──────────────────────          ────────────────           ─────────────────             ──────────
- Edit the Excel sheet   →    /concall-tracker skill      →   npm run import ...     →    linkReports.mjs runs      →   npm run build
+ Edit the Excel sheet   →    /concall-tracker skill      →   npm run import ...     →    linkReports.js runs       →   npm run build
  (view + note + tier)        pushes Q<n>-FY<yy>/*.pdf         merges into                on /admin upload              → deploy
                              to the public GitHub repo        companies.json             (adds reportUrl, auto)        (Cloudflare)
 ```
@@ -64,8 +64,9 @@ Then deploy: push to the site's GitHub repo — Cloudflare Pages auto-builds. Or
 
 ## What changes on the site automatically
 - The new quarter becomes the **latest note** per company; the previous quarter
-  drops into the **"▸ history"** expander.
-- The **"What changed last quarter"** digest auto-populates (upgrades / downgrades).
+  drops into the **"▸ Earlier quarters"** expander.
+- The **"What changed in `<quarter>`"** digest auto-populates (upgrades / downgrades /
+  newly covered).
 - A company's **"↕ from …"** chip appears when its view changed vs last quarter.
 - AI-report links point to the new quarter's PDFs.
 
