@@ -256,6 +256,54 @@
       ]
     },
     {
+      "slug": "stltech",
+      "name": "Sterlite Technologies",
+      "tvCode": "STLTECH",
+      "industry": "Telecom",
+      "marketCap": 29103.66,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes optical fibre and cable for telecom and data centres. Recovery is real - FY26 orders doubled to Rs 7,687 crore, profit turned positive - but margins stay thin and much is already priced in.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sterlite-technologies-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes optical fibre and cable end to end, one of few firms worldwide. Data centres went 1% to 21% in a quarter; the order book is ₹18,618 cr - 2.4 years of sales - anchored by a $1.1 bn hyperscaler deal to FY29, and it is net cash. But it is already turning orders away.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/sterlite-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "rrkabel",
+      "name": "R R Kabel Ltd",
+      "tvCode": "RRKABEL",
+      "industry": "Wires & Cables",
+      "marketCap": 28523.64,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "India's wire-and-cable maker is booming - profit jumped 62% as it shifts to higher-value cable for data centres and solar. Big new factories arrive by 2027-28. Fans/lights arm still loss-making.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rr-kabel-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes house and industrial wiring, 90% of sales. Cable volumes grew 25% against an industry at 10-12% and segment margin hit 9.9%, clearing the whole FY27 target in the first quarter with no inventory gain, on 28% return on capital and a self-funded ₹1,200 cr build. But 54% headline growth sits on 17% volume.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/rr-kabel-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "shyammetl",
       "name": "Shyam Metalics & Energy Ltd",
       "tvCode": "SHYAMMETL",
@@ -450,23 +498,6 @@
       ]
     },
     {
-      "slug": "rrkabel",
-      "name": "R R Kabel Ltd",
-      "tvCode": "RRKABEL",
-      "industry": "Wires and Cables",
-      "marketCap": 17651.67,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Watch",
-          "note": "India's wire-and-cable maker is booming - profit jumped 62% as it shifts to higher-value cable for data centres and solar. Big new factories arrive by 2027-28. Fans/lights arm still loss-making.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rr-kabel-ltd.pdf"
-        }
-      ]
-    },
-    {
       "slug": "granules",
       "name": "Granules India Ltd",
       "tvCode": "GRANULES",
@@ -501,19 +532,19 @@
       ]
     },
     {
-      "slug": "stltech",
-      "name": "Sterlite Technologies",
-      "tvCode": "STLTECH",
-      "industry": "Telecom",
-      "marketCap": 14566.28,
+      "slug": "sobha",
+      "name": "Sobha Ltd",
+      "tvCode": "SOBHA",
+      "industry": "Real Estate Developer",
+      "marketCap": 15538.05,
       "tier": "Tier 1",
       "quarters": [
         {
-          "quarter": "Q4 2026",
+          "quarter": "Q1 2027",
           "tier": "Tier 1",
-          "view": "Watch",
-          "note": "Makes optical fibre and cable for telecom and data centres. Recovery is real - FY26 orders doubled to Rs 7,687 crore, profit turned positive - but margins stay thin and much is already priced in.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sterlite-technologies-ltd.pdf"
+          "view": "Concern",
+          "note": "Bengaluru housebuilder that owns its own construction arm. ₹20,553 cr of homes sold sits outside the profit account awaiting occupancy certificates, carrying 30%+ project margin against the 6% reported. That margin has been promised on five straight calls since Feb 2024, and collections grew 10% against pre-sales up 76%.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/sobha-ltd.pdf"
         }
       ]
     },
@@ -1103,6 +1134,30 @@
       ]
     },
     {
+      "slug": "aeroflex",
+      "name": "Aeroflex Industries Ltd",
+      "tvCode": "AEROFLEX",
+      "industry": "Metal Products",
+      "marketCap": 5533.41,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Debt-free maker of industrial metal hoses. Real new engine: cooling units for AI data centres, already 5% of sales and guided to a fifth next year. Management reliably delivers.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aeroflex-industries-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes braided steel hoses plus the cooling skids that circulate coolant through AI data centres. Value-added assemblies are 63% of sales at 22-26% margins against 16-20% for plain hose, and the core plant is only 65% used. But every skid has gone to one Indian intermediary, with no order book.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/aeroflex-industries-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "sis",
       "name": "SIS",
       "tvCode": "SIS",
@@ -1184,23 +1239,6 @@
           "view": "Concern",
           "note": "Makes and licences fashion watches (Timex, Guess, Versace). Sales up 48% to Rs 799 cr and profit doubled as brands and online scaled - but stock trades at 72x and the promoter sold down to 51%.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/timex-group-india-ltd.pdf"
-        }
-      ]
-    },
-    {
-      "slug": "aeroflex",
-      "name": "Aeroflex Industries Ltd",
-      "tvCode": "AEROFLEX",
-      "industry": "Capital Goods",
-      "marketCap": 4206,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Positive",
-          "note": "Debt-free maker of industrial metal hoses. Real new engine: cooling units for AI data centres, already 5% of sales and guided to a fifth next year. Management reliably delivers.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aeroflex-industries-ltd.pdf"
         }
       ]
     },
@@ -1528,6 +1566,40 @@
       ]
     },
     {
+      "slug": "gandhar",
+      "name": "Gandhar Oil Refinery (India) Ltd",
+      "tvCode": "GANDHAR",
+      "industry": "Lubricants",
+      "marketCap": 2309.99,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Blends base oil into pharma and cosmetic white oils plus transformer oil. The record profit is a war windfall - spread ₹28,145 a kilolitre against a normal ₹8,274 on volumes up just 8%. Indian plants are 97% full with no capex announced, and working capital has stretched 47 to 91 days.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/gandhar-oil-refinery-india-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "servotech",
+      "name": "Servotech Power Systems Ltd",
+      "tvCode": "SERVOTECH",
+      "industry": "Consumer Electronics",
+      "marketCap": 2269.3,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Assembles solar inverters, panels and EV chargers. No earning trigger visible and management is not consistent. The story has rotated EV to solar to battery storage, operating cash flow has been negative four years running, borrowings tripled to ₹198 cr, and foreign holding has gone from 8.9% to 0.05%.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/servotech-power-systems-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "dycl",
       "name": "Dynamic Cables Ltd",
       "tvCode": "DYCL",
@@ -1626,6 +1698,30 @@
           "view": "Concern",
           "note": "Sales jumped mainly on higher copper prices, not more selling (volume up just 6.5%). New factory doubles capacity but is barely running yet; profit margins stay thin and unproven.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vidya-wires-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "monolith",
+      "name": "Monolithisch India Ltd",
+      "tvCode": "MONOLITH",
+      "industry": "Metal Products",
+      "marketCap": 1783.99,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes furnace-lining powder (ramming mass) for India's steel makers. Sales up 39% and profit up 60% as it quadruples capacity - but the stock is pricey at 82 times earnings and the big expansion is still unproven.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/monolithisch-india-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes the heat-proof lining rammed into steel furnaces - a consumable, not a one-off sale. Premium SGB grade went 15% to 50% of revenue in one quarter, and a funded plant more than doubles capacity from late September. But four targets were trimmed in a single quarter and the cash cycle runs 184 days.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/monolithisch-india-ltd.pdf"
         }
       ]
     },
@@ -1783,23 +1879,6 @@
       ]
     },
     {
-      "slug": "monolith",
-      "name": "Monolithisch India Ltd",
-      "tvCode": "MONOLITH",
-      "industry": "Capital Goods",
-      "marketCap": 1213.96,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Watch",
-          "note": "Makes furnace-lining powder (ramming mass) for India's steel makers. Sales up 39% and profit up 60% as it quadruples capacity - but the stock is pricey at 82 times earnings and the big expansion is still unproven.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/monolithisch-india-ltd.pdf"
-        }
-      ]
-    },
-    {
       "slug": "aeroenter",
       "name": "Aeroflex Enterprises Ltd",
       "tvCode": "AEROENTER",
@@ -1915,6 +1994,23 @@
           "view": "Negative",
           "note": "Risky. Its one growth plant has been delayed twice and still earns nothing; this year's sales growth came from thin-margin reselling, not real products. Wait for the plant to actually run.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/accent-microcell-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "bhageria",
+      "name": "Bhageria Industries Ltd",
+      "tvCode": "BHAGERIA",
+      "industry": "Pigments",
+      "marketCap": 943.65,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Makes dye intermediates. Exports tripled to ₹304 cr, but 74% goes to China - the one country management told the call was no threat. One earnings call in its entire listed history, then nine months of silence through an oleum leak, a plant shutdown, a rating watch and a rare-earth shell company.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/bhageria-industries-ltd.pdf"
         }
       ]
     },
