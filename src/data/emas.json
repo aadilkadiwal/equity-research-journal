@@ -1,843 +1,843 @@
 {
  "companies": {
   "accentmic": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.09,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.59,
    "dist": {
-    "10W": 10.81,
-    "20W": 19.51,
-    "40W": 34.47
+    "10W": 12.21,
+    "20W": 21.19,
+    "40W": 36.47
    },
    "ema": {
-    "10W": 505.77,
-    "20W": 468.96,
-    "40W": 416.77
+    "10W": 507.39,
+    "20W": 469.81,
+    "40W": 417.2
    },
-   "min_abs_dist": 10.81,
-   "prevClose": 548.95,
-   "price": 560.45,
+   "min_abs_dist": 12.21,
+   "prevClose": 560.45,
+   "price": 569.35,
    "slug": "accentmic",
-   "spread": 21.36,
+   "spread": 21.62,
    "weeks": 140
   },
   "ace": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.62,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.68,
    "dist": {
-    "10W": 5.69,
-    "20W": 10.0,
-    "40W": 10.47
+    "10W": 6.27,
+    "20W": 10.66,
+    "40W": 11.18
    },
    "ema": {
-    "10W": 1020.26,
-    "20W": 980.29,
-    "40W": 976.11
+    "10W": 1021.59,
+    "20W": 980.98,
+    "40W": 976.46
    },
-   "min_abs_dist": 5.69,
-   "prevClose": 1096.1,
-   "price": 1078.3,
+   "min_abs_dist": 6.27,
+   "prevClose": 1078.3,
+   "price": 1085.6,
    "slug": "ace",
-   "spread": 4.52,
+   "spread": 4.62,
    "weeks": 314
   },
   "acutaas": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.36,
+   "asOf": "2026-08-14",
+   "dayChangePct": 4.02,
    "dist": {
-    "10W": -3.23,
-    "20W": 3.71,
-    "40W": 20.19
+    "10W": -0.05,
+    "20W": 7.45,
+    "40W": 24.72
    },
    "ema": {
-    "10W": 3214.37,
-    "20W": 2999.32,
-    "40W": 2588.16
+    "10W": 3237.1,
+    "20W": 3011.23,
+    "40W": 2594.25
    },
-   "min_abs_dist": 3.23,
-   "prevClose": 3153.4,
-   "price": 3110.6,
+   "min_abs_dist": 0.05,
+   "prevClose": 3110.6,
+   "price": 3235.6,
    "slug": "acutaas",
-   "spread": 24.2,
+   "spread": 24.78,
    "weeks": 257
   },
   "adffoods": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.08,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.23,
    "dist": {
-    "10W": -6.39,
-    "20W": -2.59,
-    "40W": 3.82
+    "10W": -6.22,
+    "20W": -2.39,
+    "40W": 4.05
    },
    "ema": {
-    "10W": 279.73,
-    "20W": 268.81,
-    "40W": 252.2
+    "10W": 279.84,
+    "20W": 268.87,
+    "40W": 252.23
    },
-   "min_abs_dist": 2.59,
-   "prevClose": 261.65,
-   "price": 261.85,
+   "min_abs_dist": 2.39,
+   "prevClose": 261.85,
+   "price": 262.45,
    "slug": "adffoods",
-   "spread": 10.92,
+   "spread": 10.95,
    "weeks": 314
   },
   "aeroenter": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -3.18,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.21,
    "dist": {
-    "10W": 3.56,
-    "20W": 11.61,
-    "40W": 21.72
+    "10W": 5.42,
+    "20W": 13.81,
+    "40W": 24.25
    },
    "ema": {
-    "10W": 120.87,
-    "20W": 112.16,
-    "40W": 102.84
+    "10W": 121.37,
+    "20W": 112.43,
+    "40W": 102.98
    },
-   "min_abs_dist": 3.56,
-   "prevClose": 129.29,
-   "price": 125.18,
+   "min_abs_dist": 5.42,
+   "prevClose": 125.18,
+   "price": 127.95,
    "slug": "aeroenter",
-   "spread": 17.53,
+   "spread": 17.86,
    "weeks": 195
   },
   "aeroflex": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.38,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.59,
    "dist": {
-    "10W": 5.24,
-    "20W": 15.02,
-    "40W": 35.83
+    "10W": 7.43,
+    "20W": 17.66,
+    "40W": 39.11
    },
    "ema": {
-    "10W": 425.95,
-    "20W": 389.73,
-    "40W": 330.0
+    "10W": 428.06,
+    "20W": 390.83,
+    "40W": 330.57
    },
-   "min_abs_dist": 5.24,
-   "prevClose": 446.55,
-   "price": 448.25,
+   "min_abs_dist": 7.43,
+   "prevClose": 448.25,
+   "price": 459.85,
    "slug": "aeroflex",
-   "spread": 29.07,
+   "spread": 29.49,
    "weeks": 155
   },
   "aimtron": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.2,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.62,
    "dist": {
-    "10W": 18.08,
-    "20W": 31.64,
-    "40W": 52.41
+    "10W": 17.51,
+    "20W": 30.93,
+    "40W": 51.54
    },
    "ema": {
-    "10W": 1404.11,
-    "20W": 1259.49,
-    "40W": 1087.81
+    "10W": 1402.26,
+    "20W": 1258.52,
+    "40W": 1087.31
    },
-   "min_abs_dist": 18.08,
-   "prevClose": 1661.35,
-   "price": 1657.95,
+   "min_abs_dist": 17.51,
+   "prevClose": 1657.95,
+   "price": 1647.75,
    "slug": "aimtron",
-   "spread": 29.08,
+   "spread": 28.97,
    "weeks": 115
   },
   "antelopus": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.33,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.76,
    "dist": {
-    "10W": 0.42,
-    "20W": 6.92,
-    "40W": 17.19
+    "10W": -2.21,
+    "20W": 4.01,
+    "40W": 13.96
    },
    "ema": {
-    "10W": 801.45,
-    "20W": 752.68,
-    "40W": 686.75
+    "10W": 800.32,
+    "20W": 752.43,
+    "40W": 686.72
    },
-   "min_abs_dist": 0.42,
-   "prevClose": 802.15,
-   "price": 804.8,
+   "min_abs_dist": 2.21,
+   "prevClose": 804.8,
+   "price": 782.6,
    "slug": "antelopus",
-   "spread": 16.7,
+   "spread": 16.54,
    "weeks": 314
   },
   "apollo": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.59,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.99,
    "dist": {
-    "10W": -0.39,
-    "20W": 7.37,
-    "40W": 22.06
+    "10W": 0.42,
+    "20W": 8.32,
+    "40W": 23.19
    },
    "ema": {
-    "10W": 391.22,
-    "20W": 362.95,
-    "40W": 319.28
+    "10W": 391.92,
+    "20W": 363.31,
+    "40W": 319.47
    },
-   "min_abs_dist": 0.39,
-   "prevClose": 379.85,
-   "price": 389.7,
+   "min_abs_dist": 0.42,
+   "prevClose": 389.7,
+   "price": 393.55,
    "slug": "apollo",
-   "spread": 22.53,
+   "spread": 22.68,
    "weeks": 314
   },
   "ashapurmin": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -3.71,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.66,
    "dist": {
-    "10W": -9.08,
-    "20W": -7.41,
-    "40W": -3.9
+    "10W": -10.35,
+    "20W": -8.82,
+    "40W": -5.42
    },
    "ema": {
-    "10W": 674.95,
-    "20W": 662.79,
-    "40W": 638.56
+    "10W": 673.1,
+    "20W": 661.82,
+    "40W": 638.06
    },
-   "min_abs_dist": 3.9,
-   "prevClose": 637.3,
-   "price": 613.65,
+   "min_abs_dist": 5.42,
+   "prevClose": 613.65,
+   "price": 603.45,
    "slug": "ashapurmin",
-   "spread": 5.7,
+   "spread": 5.49,
    "weeks": 314
   },
   "atherenerg": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.73,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.98,
    "dist": {
-    "10W": 21.91,
-    "20W": 38.48,
-    "40W": 66.38
+    "10W": 20.98,
+    "20W": 37.29,
+    "40W": 64.87
    },
    "ema": {
-    "10W": 1252.13,
-    "20W": 1102.35,
-    "40W": 917.49
+    "10W": 1249.4,
+    "20W": 1100.92,
+    "40W": 916.76
    },
-   "min_abs_dist": 21.91,
-   "prevClose": 1569.4,
-   "price": 1526.5,
+   "min_abs_dist": 20.98,
+   "prevClose": 1526.5,
+   "price": 1511.5,
    "slug": "atherenerg",
-   "spread": 36.47,
+   "spread": 36.28,
    "weeks": 67
   },
   "atlantaele": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.69,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.93,
    "dist": {
-    "10W": -0.56,
-    "20W": 3.66,
-    "40W": 25.58
+    "10W": 1.14,
+    "20W": 5.55,
+    "40W": 27.93
    },
    "ema": {
-    "10W": 1658.22,
-    "20W": 1590.74,
-    "40W": 1313.05
+    "10W": 1661.83,
+    "20W": 1592.38,
+    "40W": 1313.81
    },
-   "min_abs_dist": 0.56,
-   "prevClose": 1660.4,
-   "price": 1648.9,
+   "min_abs_dist": 1.14,
+   "prevClose": 1648.9,
+   "price": 1680.8,
    "slug": "atlantaele",
-   "spread": 26.29,
+   "spread": 26.49,
    "weeks": 46
   },
   "avalon": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.71,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.18,
    "dist": {
-    "10W": 9.95,
-    "20W": 22.57,
-    "40W": 42.61
+    "10W": 10.43,
+    "20W": 23.15,
+    "40W": 43.33
    },
    "ema": {
-    "10W": 1755.68,
-    "20W": 1574.99,
-    "40W": 1353.59
+    "10W": 1757.57,
+    "20W": 1575.99,
+    "40W": 1354.1
    },
-   "min_abs_dist": 9.95,
+   "min_abs_dist": 10.43,
    "prevClose": 1963.9,
-   "price": 1930.4,
+   "price": 1940.8,
    "slug": "avalon",
-   "spread": 29.71,
+   "spread": 29.8,
    "weeks": 174
   },
   "bhageria": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.43,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.55,
    "dist": {
-    "10W": -1.46,
-    "20W": 3.48,
-    "40W": 8.13
+    "10W": -2.5,
+    "20W": 2.55,
+    "40W": 7.31
    },
    "ema": {
-    "10W": 203.34,
-    "20W": 193.62,
-    "40W": 185.29
+    "10W": 204.36,
+    "20W": 194.3,
+    "40W": 185.68
    },
-   "min_abs_dist": 1.46,
-   "prevClose": 205.35,
-   "price": 200.36,
+   "min_abs_dist": 2.5,
+   "prevClose": 200.36,
+   "price": 199.25,
    "slug": "bhageria",
-   "spread": 9.74,
+   "spread": 10.06,
    "weeks": 314
   },
   "bhel": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.0,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.4,
    "dist": {
-    "10W": 4.42,
-    "20W": 11.23,
-    "40W": 23.75
+    "10W": 4.76,
+    "20W": 11.63,
+    "40W": 24.22
    },
    "ema": {
-    "10W": 402.23,
-    "20W": 377.6,
-    "40W": 339.41
+    "10W": 402.54,
+    "20W": 377.76,
+    "40W": 339.49
    },
-   "min_abs_dist": 4.42,
+   "min_abs_dist": 4.76,
    "prevClose": 420.0,
-   "price": 420.0,
+   "price": 421.7,
    "slug": "bhel",
-   "spread": 18.51,
+   "spread": 18.57,
    "weeks": 314
   },
   "bororenew": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.97,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.34,
    "dist": {
-    "10W": 1.24,
-    "20W": 4.37,
-    "40W": 6.63
+    "10W": 1.09,
+    "20W": 4.14,
+    "40W": 6.34
    },
    "ema": {
-    "10W": 571.93,
-    "20W": 554.76,
-    "40W": 543.0
+    "10W": 570.83,
+    "20W": 554.09,
+    "40W": 542.64
    },
-   "min_abs_dist": 1.24,
-   "prevClose": 573.45,
-   "price": 579.0,
+   "min_abs_dist": 1.09,
+   "prevClose": 579.0,
+   "price": 577.05,
    "slug": "bororenew",
-   "spread": 5.33,
+   "spread": 5.19,
    "weeks": 314
   },
   "buildpro": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.06,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.56,
    "dist": {
-    "10W": 5.9,
-    "20W": 13.53,
+    "10W": 4.24,
+    "20W": 11.71,
     "40W": null
    },
    "ema": {
-    "10W": 1197.76,
-    "20W": 1117.23,
+    "10W": 1197.81,
+    "20W": 1117.69,
     "40W": null
    },
-   "min_abs_dist": 5.9,
-   "prevClose": 1242.8,
-   "price": 1268.4,
+   "min_abs_dist": 4.24,
+   "prevClose": 1268.4,
+   "price": 1248.6,
    "slug": "buildpro",
    "spread": null,
    "weeks": 32
   },
   "cgpower": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.16,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.41,
    "dist": {
-    "10W": 0.25,
-    "20W": 3.69,
-    "40W": 10.53
+    "10W": 0.59,
+    "20W": 4.07,
+    "40W": 10.96
    },
    "ema": {
-    "10W": 884.3,
-    "20W": 855.02,
-    "40W": 802.08
+    "10W": 884.95,
+    "20W": 855.36,
+    "40W": 802.25
    },
-   "min_abs_dist": 0.25,
-   "prevClose": 888.0,
-   "price": 886.55,
+   "min_abs_dist": 0.59,
+   "prevClose": 886.55,
+   "price": 890.15,
    "slug": "cgpower",
-   "spread": 10.25,
+   "spread": 10.31,
    "weeks": 314
   },
   "corona": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.06,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.13,
    "dist": {
-    "10W": 5.76,
-    "20W": 13.08,
+    "10W": 6.67,
+    "20W": 14.18,
     "40W": null
    },
    "ema": {
-    "10W": 1998.19,
-    "20W": 1868.8,
+    "10W": 2003.48,
+    "20W": 1871.68,
     "40W": null
    },
-   "min_abs_dist": 5.76,
-   "prevClose": 2135.9,
-   "price": 2113.2,
+   "min_abs_dist": 6.67,
+   "prevClose": 2113.2,
+   "price": 2137.1,
    "slug": "corona",
    "spread": null,
    "weeks": 35
   },
   "cpplus": {
-   "asOf": "2026-08-13",
+   "asOf": "2026-08-14",
    "dayChangePct": -5.0,
    "dist": {
-    "10W": 7.13,
-    "20W": 20.54,
-    "40W": 48.06
+    "10W": 2.77,
+    "20W": 15.17,
+    "40W": 41.16
    },
    "ema": {
-    "10W": 3457.69,
-    "20W": 3073.02,
-    "40W": 2501.9
+    "10W": 3424.02,
+    "20W": 3055.38,
+    "40W": 2492.87
    },
-   "min_abs_dist": 7.13,
-   "prevClose": 3899.1,
-   "price": 3704.2,
+   "min_abs_dist": 2.77,
+   "prevClose": 3704.2,
+   "price": 3519.0,
    "slug": "cpplus",
-   "spread": 38.2,
+   "spread": 37.35,
    "weeks": 54
   },
   "cyientdlm": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 5.69,
+   "asOf": "2026-08-14",
+   "dayChangePct": -4.33,
    "dist": {
-    "10W": 21.56,
-    "20W": 39.01,
-    "40W": 53.44
+    "10W": 17.42,
+    "20W": 33.76,
+    "40W": 47.28
    },
    "ema": {
-    "10W": 599.0,
-    "20W": 523.81,
-    "40W": 474.56
+    "10W": 593.27,
+    "20W": 520.81,
+    "40W": 473.03
    },
-   "min_abs_dist": 21.56,
-   "prevClose": 688.95,
-   "price": 728.15,
+   "min_abs_dist": 17.42,
+   "prevClose": 728.15,
+   "price": 696.65,
    "slug": "cyientdlm",
-   "spread": 26.22,
+   "spread": 25.42,
    "weeks": 162
   },
   "dycl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.3,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.13,
    "dist": {
-    "10W": 16.93,
-    "20W": 24.34,
-    "40W": 28.45
+    "10W": 15.88,
+    "20W": 23.1,
+    "40W": 27.09
    },
    "ema": {
-    "10W": 389.43,
-    "20W": 366.2,
-    "40W": 354.5
+    "10W": 388.5,
+    "20W": 365.71,
+    "40W": 354.25
    },
-   "min_abs_dist": 16.93,
-   "prevClose": 454.0,
-   "price": 455.35,
+   "min_abs_dist": 15.88,
+   "prevClose": 455.35,
+   "price": 450.2,
    "slug": "dycl",
-   "spread": 9.86,
+   "spread": 9.67,
    "weeks": 212
   },
   "emmvee": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.03,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.66,
    "dist": {
-    "10W": 0.43,
-    "20W": 7.22,
+    "10W": -0.11,
+    "20W": 6.58,
     "40W": null
    },
    "ema": {
-    "10W": 322.25,
-    "20W": 301.85,
+    "10W": 321.86,
+    "20W": 301.64,
     "40W": null
    },
-   "min_abs_dist": 0.43,
-   "prevClose": 317.2,
-   "price": 323.65,
+   "min_abs_dist": 0.11,
+   "prevClose": 323.65,
+   "price": 321.5,
    "slug": "emmvee",
    "spread": null,
    "weeks": 39
   },
   "galaprec": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 3.11,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.33,
    "dist": {
-    "10W": -2.9,
-    "20W": 3.76,
-    "40W": 11.69
+    "10W": -4.77,
+    "20W": 1.57,
+    "40W": 9.23
    },
    "ema": {
-    "10W": 1055.12,
-    "20W": 987.37,
-    "40W": 917.25
+    "10W": 1050.77,
+    "20W": 985.09,
+    "40W": 916.08
    },
-   "min_abs_dist": 2.9,
-   "prevClose": 993.6,
-   "price": 1024.5,
+   "min_abs_dist": 1.57,
+   "prevClose": 1024.5,
+   "price": 1000.6,
    "slug": "galaprec",
-   "spread": 15.03,
+   "spread": 14.7,
    "weeks": 101
   },
   "gandhar": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 3.58,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.34,
    "dist": {
-    "10W": 13.87,
-    "20W": 28.11,
-    "40W": 41.72
+    "10W": 14.18,
+    "20W": 28.49,
+    "40W": 42.16
    },
    "ema": {
-    "10W": 214.93,
-    "20W": 191.04,
-    "40W": 172.7
+    "10W": 215.08,
+    "20W": 191.12,
+    "40W": 172.74
    },
-   "min_abs_dist": 13.87,
-   "prevClose": 236.28,
-   "price": 244.75,
+   "min_abs_dist": 14.18,
+   "prevClose": 244.75,
+   "price": 245.57,
    "slug": "gandhar",
-   "spread": 24.45,
+   "spread": 24.51,
    "weeks": 142
   },
   "gksl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.27,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.18,
    "dist": {
-    "10W": 4.05,
-    "20W": 8.01,
+    "10W": 4.23,
+    "20W": 8.21,
     "40W": null
    },
    "ema": {
-    "10W": 130.88,
+    "10W": 130.89,
     "20W": 126.08,
     "40W": null
    },
-   "min_abs_dist": 4.05,
-   "prevClose": 133.16,
-   "price": 136.18,
+   "min_abs_dist": 4.23,
+   "prevClose": 136.18,
+   "price": 136.43,
    "slug": "gksl",
    "spread": null,
    "weeks": 33
   },
   "gland": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.64,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.73,
    "dist": {
-    "10W": 19.88,
-    "20W": 30.47,
-    "40W": 42.61
+    "10W": 19.96,
+    "20W": 30.57,
+    "40W": 42.73
    },
    "ema": {
-    "10W": 2475.56,
-    "20W": 2274.53,
-    "40W": 2080.88
+    "10W": 2476.03,
+    "20W": 2274.78,
+    "40W": 2081.0
    },
-   "min_abs_dist": 19.88,
+   "min_abs_dist": 19.96,
    "prevClose": 2891.2,
-   "price": 2967.6,
+   "price": 2970.2,
    "slug": "gland",
-   "spread": 18.97,
+   "spread": 18.98,
    "weeks": 300
   },
   "granules": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.84,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.1,
    "dist": {
-    "10W": 3.52,
-    "20W": 10.42,
-    "40W": 21.76
+    "10W": 3.74,
+    "20W": 10.62,
+    "40W": 21.94
    },
    "ema": {
-    "10W": 828.41,
-    "20W": 776.61,
-    "40W": 704.3
+    "10W": 827.43,
+    "20W": 775.97,
+    "40W": 703.93
    },
-   "min_abs_dist": 3.52,
-   "prevClose": 864.8,
-   "price": 857.55,
+   "min_abs_dist": 3.74,
+   "prevClose": 857.55,
+   "price": 858.4,
    "slug": "granules",
-   "spread": 17.62,
+   "spread": 17.55,
    "weeks": 314
   },
   "gvt-d": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.31,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.05,
    "dist": {
-    "10W": -3.47,
-    "20W": -1.73,
-    "40W": 7.97
+    "10W": -2.63,
+    "20W": -0.8,
+    "40W": 9.05
    },
    "ema": {
-    "10W": 4459.48,
-    "20W": 4380.61,
-    "40W": 3986.83
+    "10W": 4467.71,
+    "20W": 4384.92,
+    "40W": 3989.04
    },
-   "min_abs_dist": 1.73,
-   "prevClose": 4406.5,
-   "price": 4304.7,
+   "min_abs_dist": 0.8,
+   "prevClose": 4304.7,
+   "price": 4350.0,
    "slug": "gvt-d",
-   "spread": 11.86,
+   "spread": 12.0,
    "weeks": 314
   },
   "happyforge": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.75,
+   "asOf": "2026-08-14",
+   "dayChangePct": 4.08,
    "dist": {
-    "10W": 20.35,
-    "20W": 31.64,
-    "40W": 46.98
+    "10W": 24.15,
+    "20W": 36.31,
+    "40W": 52.54
    },
    "ema": {
-    "10W": 1668.18,
-    "20W": 1525.12,
-    "40W": 1365.91
+    "10W": 1683.09,
+    "20W": 1532.93,
+    "40W": 1369.91
    },
-   "min_abs_dist": 20.35,
-   "prevClose": 2022.7,
-   "price": 2007.6,
+   "min_abs_dist": 24.15,
+   "prevClose": 2007.6,
+   "price": 2089.6,
    "slug": "happyforge",
-   "spread": 22.13,
+   "spread": 22.86,
    "weeks": 138
   },
   "hardwyn": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.0,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.56,
    "dist": {
-    "10W": -15.06,
-    "20W": -19.87,
-    "40W": -17.89
+    "10W": -16.19,
+    "20W": -21.03,
+    "40W": -19.12
    },
    "ema": {
-    "10W": 13.55,
-    "20W": 14.36,
-    "40W": 14.02
+    "10W": 13.52,
+    "20W": 14.35,
+    "40W": 14.01
    },
-   "min_abs_dist": 15.06,
+   "min_abs_dist": 16.19,
    "prevClose": 11.51,
-   "price": 11.51,
+   "price": 11.33,
    "slug": "hardwyn",
-   "spread": 6.0,
+   "spread": 6.13,
    "weeks": 227
   },
   "hfcl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.64,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.87,
    "dist": {
-    "10W": 13.76,
-    "20W": 31.25,
-    "40W": 61.8
+    "10W": 12.07,
+    "20W": 29.1,
+    "40W": 59.01
    },
    "ema": {
-    "10W": 199.85,
-    "20W": 173.23,
-    "40W": 140.52
+    "10W": 199.08,
+    "20W": 172.82,
+    "40W": 140.31
    },
-   "min_abs_dist": 13.76,
-   "prevClose": 221.52,
-   "price": 227.36,
+   "min_abs_dist": 12.07,
+   "prevClose": 227.36,
+   "price": 223.11,
    "slug": "hfcl",
-   "spread": 42.23,
+   "spread": 41.89,
    "weeks": 314
   },
   "hindcopper": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.59,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.83,
    "dist": {
-    "10W": 5.67,
-    "20W": 6.06,
-    "40W": 12.54
+    "10W": 3.24,
+    "20W": 3.35,
+    "40W": 9.52
    },
    "ema": {
-    "10W": 515.24,
-    "20W": 513.35,
-    "40W": 483.8
+    "10W": 512.44,
+    "20W": 511.88,
+    "40W": 483.05
    },
-   "min_abs_dist": 5.67,
-   "prevClose": 547.7,
-   "price": 544.45,
+   "min_abs_dist": 3.24,
+   "prevClose": 544.45,
+   "price": 529.05,
    "slug": "hindcopper",
-   "spread": 6.5,
+   "spread": 6.08,
    "weeks": 314
   },
   "hindzinc": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.07,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.84,
    "dist": {
-    "10W": 3.03,
-    "20W": 2.83,
-    "40W": 5.03
+    "10W": 0.63,
+    "20W": 0.18,
+    "40W": 2.19
    },
    "ema": {
-    "10W": 561.36,
-    "20W": 562.45,
-    "40W": 550.67
+    "10W": 558.36,
+    "20W": 560.88,
+    "40W": 549.87
    },
-   "min_abs_dist": 2.83,
-   "prevClose": 584.6,
-   "price": 578.35,
+   "min_abs_dist": 0.18,
+   "prevClose": 578.35,
+   "price": 561.9,
    "slug": "hindzinc",
-   "spread": 2.14,
+   "spread": 2.0,
    "weeks": 314
   },
   "hscl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.07,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.37,
    "dist": {
-    "10W": 8.32,
-    "20W": 17.92,
-    "40W": 31.19
+    "10W": 8.64,
+    "20W": 18.31,
+    "40W": 31.65
    },
    "ema": {
-    "10W": 718.41,
-    "20W": 659.88,
-    "40W": 593.16
+    "10W": 718.94,
+    "20W": 660.16,
+    "40W": 593.3
    },
-   "min_abs_dist": 8.32,
-   "prevClose": 762.4,
-   "price": 778.15,
+   "min_abs_dist": 8.64,
+   "prevClose": 778.15,
+   "price": 781.05,
    "slug": "hscl",
-   "spread": 21.12,
+   "spread": 21.18,
    "weeks": 314
   },
   "imfa": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.49,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.06,
    "dist": {
-    "10W": 1.57,
-    "20W": 3.12,
-    "40W": 9.35
+    "10W": -0.14,
+    "20W": 1.19,
+    "40W": 7.21
    },
    "ema": {
-    "10W": 1411.91,
-    "20W": 1390.77,
-    "40W": 1311.53
+    "10W": 1406.53,
+    "20W": 1387.95,
+    "40W": 1310.08
    },
-   "min_abs_dist": 1.57,
-   "prevClose": 1470.7,
-   "price": 1434.1,
+   "min_abs_dist": 0.14,
+   "prevClose": 1434.1,
+   "price": 1404.5,
    "slug": "imfa",
-   "spread": 7.65,
+   "spread": 7.36,
    "weeks": 314
   },
   "innovacap": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 3.49,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.1,
    "dist": {
-    "10W": 9.87,
-    "20W": 16.64,
-    "40W": 23.5
+    "10W": 8.84,
+    "20W": 15.45,
+    "40W": 22.2
    },
    "ema": {
-    "10W": 953.38,
-    "20W": 898.06,
-    "40W": 848.17
+    "10W": 951.86,
+    "20W": 897.33,
+    "40W": 847.82
    },
-   "min_abs_dist": 9.87,
-   "prevClose": 1012.2,
-   "price": 1047.5,
+   "min_abs_dist": 8.84,
+   "prevClose": 1047.5,
+   "price": 1036.0,
    "slug": "innovacap",
-   "spread": 12.4,
+   "spread": 12.27,
    "weeks": 138
   },
   "kddl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.47,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.4,
    "dist": {
-    "10W": 18.24,
-    "20W": 29.57,
-    "40W": 40.34
+    "10W": 17.87,
+    "20W": 29.12,
+    "40W": 39.82
    },
    "ema": {
-    "10W": 3337.28,
-    "20W": 3045.37,
-    "40W": 2811.72
+    "10W": 3334.42,
+    "20W": 3043.87,
+    "40W": 2810.96
    },
-   "min_abs_dist": 18.24,
-   "prevClose": 3850.6,
-   "price": 3945.9,
+   "min_abs_dist": 17.87,
+   "prevClose": 3945.9,
+   "price": 3930.2,
    "slug": "kddl",
-   "spread": 18.69,
+   "spread": 18.62,
    "weeks": 314
   },
   "kennamet": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 2.85,
+   "asOf": "2026-08-14",
+   "dayChangePct": -4.38,
    "dist": {
-    "10W": 20.25,
-    "20W": 26.29,
-    "40W": 33.45
+    "10W": 16.11,
+    "20W": 21.41,
+    "40W": 27.98
    },
    "ema": {
-    "10W": 3055.51,
-    "20W": 2909.22,
-    "40W": 2753.21
+    "10W": 3025.94,
+    "20W": 2893.7,
+    "40W": 2745.24
    },
-   "min_abs_dist": 20.25,
-   "prevClose": 3572.3,
-   "price": 3674.1,
+   "min_abs_dist": 16.11,
+   "prevClose": 3674.1,
+   "price": 3513.3,
    "slug": "kennamet",
-   "spread": 10.98,
+   "spread": 10.23,
    "weeks": 192
   },
   "kernex": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 3.33,
+   "asOf": "2026-08-14",
+   "dayChangePct": -9.74,
    "dist": {
-    "10W": 5.37,
-    "20W": 19.18,
-    "40W": 39.63
+    "10W": -3.08,
+    "20W": 8.78,
+    "40W": 26.87
    },
    "ema": {
-    "10W": 2128.32,
-    "20W": 1881.7,
-    "40W": 1606.19
+    "10W": 2088.59,
+    "20W": 1860.89,
+    "40W": 1595.54
    },
-   "min_abs_dist": 5.37,
-   "prevClose": 2170.5,
-   "price": 2242.7,
+   "min_abs_dist": 3.08,
+   "prevClose": 2242.7,
+   "price": 2024.2,
    "slug": "kernex",
-   "spread": 32.51,
+   "spread": 30.9,
    "weeks": 314
   },
   "kingfa": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.33,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.63,
    "dist": {
-    "10W": 12.64,
-    "20W": 17.96,
-    "40W": 26.61
+    "10W": 10.27,
+    "20W": 15.2,
+    "40W": 23.49
    },
    "ema": {
-    "10W": 5351.93,
-    "20W": 5110.63,
-    "40W": 4761.34
+    "10W": 5323.12,
+    "20W": 5095.53,
+    "40W": 4753.6
    },
-   "min_abs_dist": 12.64,
-   "prevClose": 5949.5,
-   "price": 6028.5,
+   "min_abs_dist": 10.27,
+   "prevClose": 6028.5,
+   "price": 5870.0,
    "slug": "kingfa",
-   "spread": 12.4,
+   "spread": 11.98,
    "weeks": 314
   },
   "kirlpnu": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.52,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.19,
    "dist": {
-    "10W": -4.11,
-    "20W": -0.8,
-    "40W": 6.78
+    "10W": -3.17,
+    "20W": 0.26,
+    "40W": 7.98
    },
    "ema": {
-    "10W": 1571.35,
-    "20W": 1518.98,
-    "40W": 1411.16
+    "10W": 1574.6,
+    "20W": 1520.68,
+    "40W": 1412.03
    },
-   "min_abs_dist": 0.8,
-   "prevClose": 1499.0,
-   "price": 1506.8,
+   "min_abs_dist": 0.26,
+   "prevClose": 1506.8,
+   "price": 1524.7,
    "slug": "kirlpnu",
-   "spread": 11.35,
+   "spread": 11.51,
    "weeks": 173
   },
   "kpl": {
@@ -861,1346 +861,1346 @@
    "weeks": 17
   },
   "krishnadef": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -8.17,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.39,
    "dist": {
-    "10W": -10.13,
-    "20W": -6.96,
-    "40W": 0.92
+    "10W": -9.9,
+    "20W": -6.67,
+    "40W": 1.27
    },
    "ema": {
-    "10W": 1194.52,
-    "20W": 1153.8,
-    "40W": 1063.7
+    "10W": 1196.18,
+    "20W": 1154.78,
+    "40W": 1064.23
    },
-   "min_abs_dist": 0.92,
-   "prevClose": 1169.0,
-   "price": 1073.5,
+   "min_abs_dist": 1.27,
+   "prevClose": 1073.5,
+   "price": 1077.7,
    "slug": "krishnadef",
-   "spread": 12.3,
+   "spread": 12.4,
    "weeks": 226
   },
   "krn": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 4.99,
+   "asOf": "2026-08-14",
+   "dayChangePct": 5.0,
    "dist": {
-    "10W": 12.98,
-    "20W": 19.53,
-    "40W": 31.7
+    "10W": 17.42,
+    "20W": 24.8,
+    "40W": 37.84
    },
    "ema": {
-    "10W": 1237.75,
-    "20W": 1169.89,
-    "40W": 1061.82
+    "10W": 1250.46,
+    "20W": 1176.54,
+    "40W": 1065.23
    },
-   "min_abs_dist": 12.98,
-   "prevClose": 1331.9,
-   "price": 1398.4,
+   "min_abs_dist": 17.42,
+   "prevClose": 1398.4,
+   "price": 1468.3,
    "slug": "krn",
-   "spread": 16.57,
+   "spread": 17.39,
    "weeks": 98
   },
   "kshintl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.38,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.71,
    "dist": {
-    "10W": 16.04,
-    "20W": 32.22,
+    "10W": 18.51,
+    "20W": 35.34,
     "40W": null
    },
    "ema": {
-    "10W": 862.98,
-    "20W": 757.41,
+    "10W": 867.92,
+    "20W": 759.99,
     "40W": null
    },
-   "min_abs_dist": 16.04,
-   "prevClose": 997.65,
-   "price": 1001.45,
+   "min_abs_dist": 18.51,
+   "prevClose": 1001.45,
+   "price": 1028.6,
    "slug": "kshintl",
    "spread": null,
    "weeks": 34
   },
   "lloydsengg": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.36,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.89,
    "dist": {
-    "10W": 5.96,
-    "20W": 17.71,
-    "40W": 31.24
+    "10W": 8.43,
+    "20W": 20.72,
+    "40W": 34.79
    },
    "ema": {
-    "10W": 86.02,
-    "20W": 77.44,
-    "40W": 69.45
+    "10W": 86.26,
+    "20W": 77.48,
+    "40W": 69.39
    },
-   "min_abs_dist": 5.96,
-   "prevClose": 92.41,
-   "price": 91.15,
+   "min_abs_dist": 8.43,
+   "prevClose": 90.9,
+   "price": 93.53,
    "slug": "lloydsengg",
-   "spread": 23.86,
+   "spread": 24.32,
    "weeks": 314
   },
   "lumaxtech": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.54,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.92,
    "dist": {
-    "10W": 20.34,
-    "20W": 22.97,
-    "40W": 30.73
+    "10W": 22.14,
+    "20W": 25.05,
+    "40W": 33.08
    },
    "ema": {
-    "10W": 1651.51,
-    "20W": 1616.24,
-    "40W": 1520.32
+    "10W": 1658.46,
+    "20W": 1619.88,
+    "40W": 1522.18
    },
-   "min_abs_dist": 20.34,
-   "prevClose": 2039.3,
-   "price": 1987.5,
+   "min_abs_dist": 22.14,
+   "prevClose": 1987.5,
+   "price": 2025.7,
    "slug": "lumaxtech",
-   "spread": 8.63,
+   "spread": 8.95,
    "weeks": 314
   },
   "mahlog": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.23,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.12,
    "dist": {
-    "10W": 3.54,
-    "20W": 6.4,
-    "40W": 9.84
+    "10W": 3.43,
+    "20W": 6.28,
+    "40W": 9.71
    },
    "ema": {
-    "10W": 392.13,
-    "20W": 381.58,
-    "40W": 369.64
+    "10W": 392.04,
+    "20W": 381.53,
+    "40W": 369.61
    },
-   "min_abs_dist": 3.54,
-   "prevClose": 406.95,
-   "price": 406.0,
+   "min_abs_dist": 3.43,
+   "prevClose": 406.0,
+   "price": 405.5,
    "slug": "mahlog",
-   "spread": 6.09,
+   "spread": 6.07,
    "weeks": 314
   },
   "marksans": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.94,
+   "asOf": "2026-08-14",
+   "dayChangePct": 9.76,
    "dist": {
-    "10W": 15.59,
-    "20W": 25.72,
-    "40W": 36.46
+    "10W": 24.32,
+    "20W": 36.39,
+    "40W": 48.81
    },
    "ema": {
-    "10W": 262.47,
-    "20W": 241.33,
-    "40W": 222.34
+    "10W": 267.85,
+    "20W": 244.14,
+    "40W": 223.78
    },
-   "min_abs_dist": 15.59,
-   "prevClose": 312.6,
-   "price": 303.4,
+   "min_abs_dist": 24.32,
+   "prevClose": 303.4,
+   "price": 333.0,
    "slug": "marksans",
-   "spread": 18.05,
+   "spread": 19.69,
    "weeks": 314
   },
   "menonbe": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.39,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.15,
    "dist": {
-    "10W": 18.63,
-    "20W": 35.31,
-    "40W": 54.86
+    "10W": 16.94,
+    "20W": 33.04,
+    "40W": 51.98
    },
    "ema": {
-    "10W": 197.87,
-    "20W": 173.46,
-    "40W": 151.57
+    "10W": 196.42,
+    "20W": 172.64,
+    "40W": 151.13
    },
-   "min_abs_dist": 18.63,
-   "prevClose": 235.63,
-   "price": 234.72,
+   "min_abs_dist": 16.94,
+   "prevClose": 234.72,
+   "price": 229.68,
    "slug": "menonbe",
-   "spread": 30.54,
+   "spread": 29.96,
    "weeks": 314
   },
   "metropolis": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.1,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.33,
    "dist": {
-    "10W": 0.75,
-    "20W": 4.37,
-    "40W": 8.82
+    "10W": -1.17,
+    "20W": 2.18,
+    "40W": 6.42
    },
    "ema": {
-    "10W": 554.35,
-    "20W": 535.11,
-    "40W": 513.23
+    "10W": 551.98,
+    "20W": 533.88,
+    "40W": 512.59
    },
-   "min_abs_dist": 0.75,
-   "prevClose": 552.4,
-   "price": 558.5,
+   "min_abs_dist": 1.17,
+   "prevClose": 558.5,
+   "price": 545.5,
    "slug": "metropolis",
-   "spread": 8.01,
+   "spread": 7.68,
    "weeks": 314
   },
   "midhani": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 8.91,
+   "asOf": "2026-08-14",
+   "dayChangePct": -6.33,
    "dist": {
-    "10W": 6.71,
-    "20W": 10.29,
-    "40W": 14.93
+    "10W": 1.0,
+    "20W": 3.86,
+    "40W": 7.95
    },
    "ema": {
-    "10W": 416.86,
-    "20W": 403.34,
-    "40W": 387.07
+    "10W": 412.59,
+    "20W": 401.2,
+    "40W": 386.0
    },
-   "min_abs_dist": 6.71,
-   "prevClose": 408.45,
-   "price": 444.85,
+   "min_abs_dist": 1.0,
+   "prevClose": 444.85,
+   "price": 416.7,
    "slug": "midhani",
-   "spread": 7.7,
+   "spread": 6.89,
    "weeks": 314
   },
   "mindacorp": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -3.29,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.24,
    "dist": {
-    "10W": 4.86,
-    "20W": 10.92,
-    "40W": 17.73
+    "10W": 5.91,
+    "20W": 12.15,
+    "40W": 19.1
    },
    "ema": {
-    "10W": 679.03,
-    "20W": 641.94,
-    "40W": 604.81
+    "10W": 679.87,
+    "20W": 642.06,
+    "40W": 604.56
    },
-   "min_abs_dist": 4.86,
-   "prevClose": 736.3,
-   "price": 712.05,
+   "min_abs_dist": 5.91,
+   "prevClose": 711.25,
+   "price": 720.05,
    "slug": "mindacorp",
-   "spread": 12.27,
+   "spread": 12.46,
    "weeks": 314
   },
   "mtartech": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.72,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.46,
    "dist": {
-    "10W": 7.46,
-    "20W": 15.55,
-    "40W": 39.6
+    "10W": 5.33,
+    "20W": 13.01,
+    "40W": 36.39
    },
    "ema": {
-    "10W": 6731.55,
-    "20W": 6260.42,
-    "40W": 5182.03
+    "10W": 6699.19,
+    "20W": 6243.47,
+    "40W": 5173.35
    },
-   "min_abs_dist": 7.46,
-   "prevClose": 7111.5,
-   "price": 7234.0,
+   "min_abs_dist": 5.33,
+   "prevClose": 7234.0,
+   "price": 7056.0,
    "slug": "mtartech",
-   "spread": 29.9,
+   "spread": 29.49,
    "weeks": 283
   },
   "navinfluor": {
-   "asOf": "2026-08-12",
-   "dayChangePct": 2.46,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.71,
    "dist": {
-    "10W": 8.43,
-    "20W": 14.43,
-    "40W": 24.75
+    "10W": 7.16,
+    "20W": 12.94,
+    "40W": 23.04
    },
    "ema": {
-    "10W": 7707.04,
-    "20W": 7302.89,
-    "40W": 6698.7
+    "10W": 7684.95,
+    "20W": 7291.32,
+    "40W": 6692.77
    },
-   "min_abs_dist": 8.43,
-   "prevClose": 8156.0,
-   "price": 8356.5,
+   "min_abs_dist": 7.16,
+   "prevClose": 8294.0,
+   "price": 8235.0,
    "slug": "navinfluor",
-   "spread": 15.05,
+   "spread": 14.82,
    "weeks": 314
   },
   "navkarcorp": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.94,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.38,
    "dist": {
-    "10W": -2.96,
-    "20W": -2.14,
-    "40W": -2.9
+    "10W": -2.66,
+    "20W": -1.8,
+    "40W": -2.55
    },
    "ema": {
-    "10W": 102.14,
-    "20W": 101.27,
-    "40W": 102.07
+    "10W": 102.2,
+    "20W": 101.31,
+    "40W": 102.09
    },
-   "min_abs_dist": 2.14,
-   "prevClose": 100.05,
-   "price": 99.11,
+   "min_abs_dist": 1.8,
+   "prevClose": 99.11,
+   "price": 99.49,
    "slug": "navkarcorp",
-   "spread": 0.85,
+   "spread": 0.88,
    "weeks": 314
   },
   "nephroplus": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.48,
+   "asOf": "2026-08-14",
+   "dayChangePct": 3.08,
    "dist": {
-    "10W": 1.48,
-    "20W": 6.13,
+    "10W": 4.01,
+    "20W": 9.05,
     "40W": null
    },
    "ema": {
-    "10W": 666.03,
-    "20W": 636.88,
+    "10W": 669.81,
+    "20W": 638.87,
     "40W": null
    },
-   "min_abs_dist": 1.48,
-   "prevClose": 679.15,
-   "price": 675.9,
+   "min_abs_dist": 4.01,
+   "prevClose": 675.9,
+   "price": 696.7,
    "slug": "nephroplus",
    "spread": null,
    "weeks": 35
   },
   "nestleind": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.01,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.52,
    "dist": {
-    "10W": 3.05,
-    "20W": 6.46,
-    "40W": 11.37
+    "10W": 2.61,
+    "20W": 5.96,
+    "40W": 10.83
    },
    "ema": {
-    "10W": 1462.36,
-    "20W": 1415.49,
-    "40W": 1353.02
+    "10W": 1460.94,
+    "20W": 1414.74,
+    "40W": 1352.64
    },
-   "min_abs_dist": 3.05,
-   "prevClose": 1507.0,
-   "price": 1506.9,
+   "min_abs_dist": 2.61,
+   "prevClose": 1506.9,
+   "price": 1499.1,
    "slug": "nestleind",
-   "spread": 8.08,
+   "spread": 8.01,
    "weeks": 314
   },
   "netweb": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 7.1,
+   "asOf": "2026-08-14",
+   "dayChangePct": -3.35,
    "dist": {
-    "10W": 12.57,
-    "20W": 19.71,
-    "40W": 32.8
+    "10W": 9.55,
+    "20W": 16.14,
+    "40W": 28.63
    },
    "ema": {
-    "10W": 4602.28,
-    "20W": 4327.91,
-    "40W": 3901.25
+    "10W": 4570.68,
+    "20W": 4311.36,
+    "40W": 3892.77
    },
-   "min_abs_dist": 12.57,
-   "prevClose": 4837.4,
-   "price": 5181.0,
+   "min_abs_dist": 9.55,
+   "prevClose": 5181.0,
+   "price": 5007.2,
    "slug": "netweb",
-   "spread": 17.97,
+   "spread": 17.41,
    "weeks": 160
   },
   "neulandlab": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 3.1,
+   "asOf": "2026-08-14",
+   "dayChangePct": 3.6,
    "dist": {
-    "10W": 17.9,
-    "20W": 28.45,
-    "40W": 40.25
+    "10W": 18.24,
+    "20W": 28.91,
+    "40W": 40.83
    },
    "ema": {
-    "10W": 19683.01,
-    "20W": 18066.39,
-    "40W": 16546.76
+    "10W": 19722.91,
+    "20W": 18089.55,
+    "40W": 16559.29
    },
-   "min_abs_dist": 17.9,
+   "min_abs_dist": 18.24,
    "prevClose": 22510.0,
-   "price": 23207.0,
+   "price": 23320.0,
    "slug": "neulandlab",
-   "spread": 18.95,
+   "spread": 19.1,
    "weeks": 314
   },
   "nglfine": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.78,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.54,
    "dist": {
-    "10W": 8.8,
-    "20W": 19.73,
-    "40W": 39.19
+    "10W": 9.27,
+    "20W": 20.3,
+    "40W": 39.89
    },
    "ema": {
-    "10W": 3157.65,
-    "20W": 2869.49,
-    "40W": 2468.25
+    "10W": 3161.01,
+    "20W": 2871.25,
+    "40W": 2469.15
    },
-   "min_abs_dist": 8.8,
-   "prevClose": 3409.0,
-   "price": 3435.5,
+   "min_abs_dist": 9.27,
+   "prevClose": 3435.5,
+   "price": 3454.0,
    "slug": "nglfine",
-   "spread": 27.93,
+   "spread": 28.02,
    "weeks": 215
   },
   "nibe": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 3.34,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.26,
    "dist": {
-    "10W": 1.35,
-    "20W": 6.88,
-    "40W": 13.18
+    "10W": 1.13,
+    "20W": 6.63,
+    "40W": 12.9
    },
    "ema": {
-    "10W": 1474.12,
-    "20W": 1397.77,
-    "40W": 1320.01
+    "10W": 1473.41,
+    "20W": 1397.39,
+    "40W": 1319.81
    },
-   "min_abs_dist": 1.35,
-   "prevClose": 1445.7,
-   "price": 1494.0,
+   "min_abs_dist": 1.13,
+   "prevClose": 1494.0,
+   "price": 1490.1,
    "slug": "nibe",
-   "spread": 11.68,
+   "spread": 11.64,
    "weeks": 80
   },
   "nykaa": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.94,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.05,
    "dist": {
-    "10W": 4.88,
-    "20W": 11.07,
-    "40W": 19.6
+    "10W": 4.84,
+    "20W": 11.02,
+    "40W": 19.55
    },
    "ema": {
-    "10W": 315.76,
-    "20W": 298.16,
-    "40W": 276.88
+    "10W": 315.73,
+    "20W": 298.14,
+    "40W": 276.87
    },
-   "min_abs_dist": 4.88,
-   "prevClose": 328.05,
-   "price": 331.15,
+   "min_abs_dist": 4.84,
+   "prevClose": 331.15,
+   "price": 331.0,
    "slug": "nykaa",
-   "spread": 14.04,
+   "spread": 14.03,
    "weeks": 249
   },
   "paras": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 4.8,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.63,
    "dist": {
-    "10W": 11.53,
-    "20W": 24.84,
-    "40W": 42.91
+    "10W": 13.85,
+    "20W": 27.72,
+    "40W": 46.4
    },
    "ema": {
-    "10W": 1203.48,
-    "20W": 1075.14,
-    "40W": 939.21
+    "10W": 1209.89,
+    "20W": 1078.5,
+    "40W": 940.93
    },
-   "min_abs_dist": 11.53,
-   "prevClose": 1280.7,
-   "price": 1342.2,
+   "min_abs_dist": 13.85,
+   "prevClose": 1342.2,
+   "price": 1377.5,
    "slug": "paras",
-   "spread": 28.14,
+   "spread": 28.58,
    "weeks": 255
   },
   "parkhosps": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.74,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.09,
    "dist": {
-    "10W": 0.47,
-    "20W": 8.45,
+    "10W": 0.55,
+    "20W": 8.53,
     "40W": null
    },
    "ema": {
-    "10W": 279.77,
-    "20W": 259.21,
+    "10W": 279.82,
+    "20W": 259.23,
     "40W": null
    },
-   "min_abs_dist": 0.47,
-   "prevClose": 283.2,
-   "price": 281.1,
+   "min_abs_dist": 0.55,
+   "prevClose": 281.1,
+   "price": 281.35,
    "slug": "parkhosps",
    "spread": null,
    "weeks": 35
   },
   "polycab": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.09,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.61,
    "dist": {
-    "10W": 1.41,
-    "20W": 4.43,
-    "40W": 11.09
+    "10W": 0.9,
+    "20W": 3.85,
+    "40W": 10.44
    },
    "ema": {
-    "10W": 9168.14,
-    "20W": 8902.63,
-    "40W": 8368.97
+    "10W": 9157.78,
+    "20W": 8897.21,
+    "40W": 8366.19
    },
-   "min_abs_dist": 1.41,
-   "prevClose": 9289.0,
-   "price": 9297.0,
+   "min_abs_dist": 0.9,
+   "prevClose": 9297.0,
+   "price": 9240.0,
    "slug": "polycab",
-   "spread": 9.55,
+   "spread": 9.46,
    "weeks": 314
   },
   "precwire": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 10.98,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.2,
    "dist": {
-    "10W": 16.22,
-    "20W": 22.86,
-    "40W": 39.0
+    "10W": 14.2,
+    "20W": 20.47,
+    "40W": 36.14
    },
    "ema": {
-    "10W": 403.23,
-    "20W": 381.44,
-    "40W": 337.17
+    "10W": 401.36,
+    "20W": 380.46,
+    "40W": 336.67
    },
-   "min_abs_dist": 16.22,
-   "prevClose": 422.3,
-   "price": 468.65,
+   "min_abs_dist": 14.2,
+   "prevClose": 468.65,
+   "price": 458.35,
    "slug": "precwire",
-   "spread": 19.59,
+   "spread": 19.22,
    "weeks": 314
   },
   "pspproject": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.19,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.39,
    "dist": {
-    "10W": -3.7,
-    "20W": 1.33,
-    "40W": 7.87
+    "10W": -3.73,
+    "20W": 1.45,
+    "40W": 8.11
    },
    "ema": {
-    "10W": 954.17,
-    "20W": 906.79,
-    "40W": 851.85
+    "10W": 958.09,
+    "20W": 909.23,
+    "40W": 853.21
    },
-   "min_abs_dist": 1.33,
-   "prevClose": 908.0,
-   "price": 918.85,
+   "min_abs_dist": 1.45,
+   "prevClose": 918.85,
+   "price": 922.4,
    "slug": "pspproject",
-   "spread": 12.01,
+   "spread": 12.29,
    "weeks": 314
   },
   "rainbow": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.96,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.61,
    "dist": {
-    "10W": -0.24,
-    "20W": 3.74,
-    "40W": 6.65
+    "10W": 0.25,
+    "20W": 4.3,
+    "40W": 7.26
    },
    "ema": {
-    "10W": 1456.55,
-    "20W": 1400.67,
-    "40W": 1362.42
+    "10W": 1458.15,
+    "20W": 1401.51,
+    "40W": 1362.85
    },
-   "min_abs_dist": 0.24,
-   "prevClose": 1482.0,
-   "price": 1453.0,
+   "min_abs_dist": 0.25,
+   "prevClose": 1453.0,
+   "price": 1461.8,
    "slug": "rainbow",
-   "spread": 6.91,
+   "spread": 6.99,
    "weeks": 223
   },
   "rpel": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 7.72,
+   "asOf": "2026-08-14",
+   "dayChangePct": 3.25,
    "dist": {
-    "10W": 13.22,
-    "20W": 26.12,
-    "40W": 43.43
+    "10W": 16.12,
+    "20W": 29.71,
+    "40W": 47.75
    },
    "ema": {
-    "10W": 1226.61,
-    "20W": 1101.17,
-    "40W": 968.28
+    "10W": 1234.81,
+    "20W": 1105.47,
+    "40W": 970.48
    },
-   "min_abs_dist": 13.22,
-   "prevClose": 1289.3,
-   "price": 1388.8,
+   "min_abs_dist": 16.12,
+   "prevClose": 1388.8,
+   "price": 1433.9,
    "slug": "rpel",
-   "spread": 26.68,
+   "spread": 27.24,
    "weeks": 106
   },
   "rptech": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.97,
+   "asOf": "2026-08-14",
+   "dayChangePct": -4.1,
    "dist": {
-    "10W": 13.39,
-    "20W": 31.09,
-    "40W": 58.44
+    "10W": 9.67,
+    "20W": 26.36,
+    "40W": 52.42
    },
    "ema": {
-    "10W": 768.8,
-    "20W": 664.99,
-    "40W": 550.2
+    "10W": 760.54,
+    "20W": 660.07,
+    "40W": 547.2
    },
-   "min_abs_dist": 13.39,
-   "prevClose": 854.9,
-   "price": 871.75,
+   "min_abs_dist": 9.67,
+   "prevClose": 869.75,
+   "price": 834.05,
    "slug": "rptech",
-   "spread": 39.73,
+   "spread": 38.99,
    "weeks": 131
   },
   "rrkabel": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.6,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.71,
    "dist": {
-    "10W": 15.22,
-    "20W": 29.11,
-    "40W": 49.01
+    "10W": 13.66,
+    "20W": 27.17,
+    "40W": 46.64
    },
    "ema": {
-    "10W": 2459.73,
-    "20W": 2195.12,
-    "40W": 1902.05
+    "10W": 2450.89,
+    "20W": 2190.49,
+    "40W": 1899.68
    },
-   "min_abs_dist": 15.22,
-   "prevClose": 2789.6,
-   "price": 2834.2,
+   "min_abs_dist": 13.66,
+   "prevClose": 2834.2,
+   "price": 2785.6,
    "slug": "rrkabel",
-   "spread": 29.32,
+   "spread": 29.02,
    "weeks": 152
   },
   "rubicon": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.99,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.1,
    "dist": {
     "10W": 13.76,
-    "20W": 29.43,
-    "40W": 64.7
+    "20W": 29.39,
+    "40W": 64.62
    },
    "ema": {
-    "10W": 1424.62,
-    "20W": 1252.18,
-    "40W": 984.04
+    "10W": 1423.21,
+    "20W": 1251.31,
+    "40W": 983.55
    },
    "min_abs_dist": 13.76,
-   "prevClose": 1653.6,
-   "price": 1620.7,
+   "prevClose": 1620.7,
+   "price": 1619.1,
    "slug": "rubicon",
-   "spread": 44.77,
+   "spread": 44.7,
    "weeks": 44
   },
   "sakar": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.87,
+   "asOf": "2026-08-14",
+   "dayChangePct": -4.61,
    "dist": {
-    "10W": 8.66,
-    "20W": 20.32,
-    "40W": 42.24
+    "10W": 4.6,
+    "20W": 15.39,
+    "40W": 36.12
    },
    "ema": {
-    "10W": 845.09,
-    "20W": 763.19,
-    "40W": 645.59
+    "10W": 837.39,
+    "20W": 759.15,
+    "40W": 643.53
    },
-   "min_abs_dist": 8.66,
-   "prevClose": 935.8,
-   "price": 918.3,
+   "min_abs_dist": 4.6,
+   "prevClose": 918.3,
+   "price": 875.95,
    "slug": "sakar",
-   "spread": 30.9,
+   "spread": 30.12,
    "weeks": 314
   },
   "sanghvimov": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.75,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.28,
    "dist": {
-    "10W": 13.45,
-    "20W": 24.33,
-    "40W": 35.86
+    "10W": 11.31,
+    "20W": 22.06,
+    "40W": 33.51
    },
    "ema": {
-    "10W": 437.82,
-    "20W": 399.51,
-    "40W": 365.61
+    "10W": 439.37,
+    "20W": 400.66,
+    "40W": 366.3
    },
-   "min_abs_dist": 13.45,
+   "min_abs_dist": 11.31,
    "prevClose": 500.45,
-   "price": 496.7,
+   "price": 489.05,
    "slug": "sanghvimov",
-   "spread": 19.75,
+   "spread": 19.95,
    "weeks": 314
   },
   "sansera": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.38,
+   "asOf": "2026-08-14",
+   "dayChangePct": 3.66,
    "dist": {
-    "10W": 13.67,
-    "20W": 26.25,
-    "40W": 47.69
+    "10W": 16.95,
+    "20W": 30.3,
+    "40W": 52.69
    },
    "ema": {
-    "10W": 3330.68,
-    "20W": 2998.76,
-    "40W": 2563.5
+    "10W": 3355.88,
+    "20W": 3011.96,
+    "40W": 2570.26
    },
-   "min_abs_dist": 13.67,
-   "prevClose": 3878.3,
-   "price": 3786.0,
+   "min_abs_dist": 16.95,
+   "prevClose": 3786.0,
+   "price": 3924.6,
    "slug": "sansera",
-   "spread": 29.93,
+   "spread": 30.57,
    "weeks": 256
   },
   "sbcl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.75,
+   "asOf": "2026-08-14",
+   "dayChangePct": 3.12,
    "dist": {
-    "10W": 25.35,
-    "20W": 40.44,
-    "40W": 59.69
+    "10W": 28.35,
+    "20W": 44.22,
+    "40W": 64.27
    },
    "ema": {
-    "10W": 804.65,
-    "20W": 718.21,
-    "40W": 631.65
+    "10W": 810.37,
+    "20W": 721.21,
+    "40W": 633.18
    },
-   "min_abs_dist": 25.35,
-   "prevClose": 1026.65,
-   "price": 1008.65,
+   "min_abs_dist": 28.35,
+   "prevClose": 1008.65,
+   "price": 1040.1,
    "slug": "sbcl",
-   "spread": 27.39,
+   "spread": 27.98,
    "weeks": 269
   },
   "seamecltd": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.69,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.63,
    "dist": {
-    "10W": 3.68,
-    "20W": 5.68,
-    "40W": 13.26
+    "10W": 4.21,
+    "20W": 6.28,
+    "40W": 13.93
    },
    "ema": {
-    "10W": 1477.9,
-    "20W": 1449.89,
-    "40W": 1352.96
+    "10W": 1479.64,
+    "20W": 1450.81,
+    "40W": 1353.42
    },
-   "min_abs_dist": 3.68,
-   "prevClose": 1521.8,
-   "price": 1532.3,
+   "min_abs_dist": 4.21,
+   "prevClose": 1532.3,
+   "price": 1541.9,
    "slug": "seamecltd",
-   "spread": 9.23,
+   "spread": 9.33,
    "weeks": 314
   },
   "sedemac": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.32,
+   "asOf": "2026-08-14",
+   "dayChangePct": 3.04,
    "dist": {
-    "10W": 13.87,
-    "20W": 32.0,
+    "10W": 16.6,
+    "20W": 35.5,
     "40W": null
    },
    "ema": {
-    "10W": 2687.11,
-    "20W": 2318.04,
+    "10W": 2704.04,
+    "20W": 2326.91,
     "40W": null
    },
-   "min_abs_dist": 13.87,
-   "prevClose": 3050.0,
-   "price": 3059.8,
+   "min_abs_dist": 16.6,
+   "prevClose": 3059.8,
+   "price": 3152.9,
    "slug": "sedemac",
    "spread": null,
    "weeks": 23
   },
   "servotech": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.67,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.12,
    "dist": {
-    "10W": -9.47,
-    "20W": -9.52,
-    "40W": -12.02
+    "10W": -9.38,
+    "20W": -9.42,
+    "40W": -11.92
    },
    "ema": {
-    "10W": 91.33,
-    "20W": 91.38,
+    "10W": 91.35,
+    "20W": 91.39,
     "40W": 93.98
    },
-   "min_abs_dist": 9.47,
-   "prevClose": 83.24,
-   "price": 82.68,
+   "min_abs_dist": 9.38,
+   "prevClose": 82.68,
+   "price": 82.78,
    "slug": "servotech",
-   "spread": 2.9,
+   "spread": 2.89,
    "weeks": 314
   },
   "shadowfax": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.35,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.24,
    "dist": {
-    "10W": 10.23,
-    "20W": 26.09,
+    "10W": 11.32,
+    "20W": 27.46,
     "40W": null
    },
    "ema": {
-    "10W": 225.21,
-    "20W": 196.89,
+    "10W": 225.77,
+    "20W": 197.18,
     "40W": null
    },
-   "min_abs_dist": 10.23,
-   "prevClose": 247.39,
-   "price": 248.25,
+   "min_abs_dist": 11.32,
+   "prevClose": 248.25,
+   "price": 251.33,
    "slug": "shadowfax",
    "spread": null,
    "weeks": 29
   },
   "shilpamed": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.23,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.85,
    "dist": {
-    "10W": 25.7,
-    "20W": 43.22,
-    "40W": 65.35
+    "10W": 27.29,
+    "20W": 45.34,
+    "40W": 68.03
    },
    "ema": {
-    "10W": 642.04,
-    "20W": 563.5,
-    "40W": 488.09
+    "10W": 645.77,
+    "20W": 565.57,
+    "40W": 489.19
    },
-   "min_abs_dist": 25.7,
-   "prevClose": 805.2,
-   "price": 807.05,
+   "min_abs_dist": 27.29,
+   "prevClose": 807.05,
+   "price": 822.0,
    "slug": "shilpamed",
-   "spread": 31.54,
+   "spread": 32.01,
    "weeks": 314
   },
   "shyammetl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.8,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.14,
    "dist": {
-    "10W": -0.39,
-    "20W": 3.24,
-    "40W": 7.55
+    "10W": 1.34,
+    "20W": 5.22,
+    "40W": 9.72
    },
    "ema": {
-    "10W": 982.57,
-    "20W": 948.02,
-    "40W": 910.03
+    "10W": 986.37,
+    "20W": 950.01,
+    "40W": 911.05
    },
-   "min_abs_dist": 0.39,
-   "prevClose": 986.6,
-   "price": 978.7,
+   "min_abs_dist": 1.34,
+   "prevClose": 978.7,
+   "price": 999.6,
    "slug": "shyammetl",
-   "spread": 7.97,
+   "spread": 8.27,
    "weeks": 269
   },
   "sis": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.91,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.18,
    "dist": {
-    "10W": 2.58,
-    "20W": 8.31,
-    "40W": 15.51
+    "10W": 1.59,
+    "20W": 7.16,
+    "40W": 14.21
    },
    "ema": {
-    "10W": 423.85,
-    "20W": 401.44,
-    "40W": 376.43
+    "10W": 422.91,
+    "20W": 400.95,
+    "40W": 376.18
    },
-   "min_abs_dist": 2.58,
-   "prevClose": 438.8,
-   "price": 434.8,
+   "min_abs_dist": 1.59,
+   "prevClose": 434.8,
+   "price": 429.65,
    "slug": "sis",
-   "spread": 12.6,
+   "spread": 12.42,
    "weeks": 314
   },
   "sjs": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.3,
+   "asOf": "2026-08-14",
+   "dayChangePct": 5.3,
    "dist": {
-    "10W": 6.4,
-    "20W": 14.06,
-    "40W": 26.34
+    "10W": 10.9,
+    "20W": 19.42,
+    "40W": 32.61
    },
    "ema": {
-    "10W": 2260.41,
-    "20W": 2108.56,
-    "40W": 1903.57
+    "10W": 2283.6,
+    "20W": 2120.71,
+    "40W": 1909.79
    },
-   "min_abs_dist": 6.4,
-   "prevClose": 2436.8,
-   "price": 2405.0,
+   "min_abs_dist": 10.9,
+   "prevClose": 2405.0,
+   "price": 2532.5,
    "slug": "sjs",
-   "spread": 18.75,
+   "spread": 19.57,
    "weeks": 248
   },
   "skipper": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.91,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.87,
    "dist": {
-    "10W": 3.31,
-    "20W": 8.19,
-    "40W": 13.46
+    "10W": 0.15,
+    "20W": 4.54,
+    "40W": 9.45
    },
    "ema": {
-    "10W": 528.26,
-    "20W": 504.46,
-    "40W": 481.0
+    "10W": 524.56,
+    "20W": 502.52,
+    "40W": 480.01
    },
-   "min_abs_dist": 3.31,
+   "min_abs_dist": 0.15,
    "prevClose": 540.85,
-   "price": 545.75,
+   "price": 525.35,
    "slug": "skipper",
-   "spread": 9.83,
+   "spread": 9.28,
    "weeks": 314
   },
   "sobha": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.67,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.07,
    "dist": {
-    "10W": -2.87,
-    "20W": -3.34,
-    "40W": -4.52
+    "10W": -3.73,
+    "20W": -4.28,
+    "40W": -5.5
    },
    "ema": {
-    "10W": 1382.29,
-    "20W": 1388.99,
-    "40W": 1406.21
+    "10W": 1379.68,
+    "20W": 1387.62,
+    "40W": 1405.51
    },
-   "min_abs_dist": 2.87,
-   "prevClose": 1333.7,
-   "price": 1342.6,
+   "min_abs_dist": 3.73,
+   "prevClose": 1342.6,
+   "price": 1328.2,
    "slug": "sobha",
-   "spread": 1.73,
+   "spread": 1.87,
    "weeks": 314
   },
   "solarinds": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 8.51,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.75,
    "dist": {
-    "10W": 10.43,
-    "20W": 17.04,
-    "40W": 26.78
+    "10W": 8.64,
+    "20W": 15.05,
+    "40W": 24.58
    },
    "ema": {
-    "10W": 18404.0,
-    "20W": 17364.85,
-    "40W": 16031.19
+    "10W": 18380.6,
+    "20W": 17357.39,
+    "40W": 16028.79
    },
-   "min_abs_dist": 10.43,
-   "prevClose": 18730.0,
-   "price": 20324.0,
+   "min_abs_dist": 8.64,
+   "prevClose": 20324.0,
+   "price": 19969.0,
    "slug": "solarinds",
-   "spread": 14.8,
+   "spread": 14.67,
    "weeks": 314
   },
   "sotl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.01,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.53,
    "dist": {
-    "10W": 11.69,
-    "20W": 25.99,
-    "40W": 42.03
+    "10W": 13.93,
+    "20W": 28.78,
+    "40W": 45.37
    },
    "ema": {
-    "10W": 610.52,
-    "20W": 541.25,
-    "40W": 480.11
+    "10W": 613.66,
+    "20W": 542.89,
+    "40W": 480.95
    },
-   "min_abs_dist": 11.69,
-   "prevClose": 695.9,
-   "price": 681.9,
+   "min_abs_dist": 13.93,
+   "prevClose": 681.9,
+   "price": 699.15,
    "slug": "sotl",
-   "spread": 27.16,
+   "spread": 27.59,
    "weeks": 314
   },
   "southwest": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.91,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.37,
    "dist": {
-    "10W": -3.6,
-    "20W": -1.98,
-    "40W": 5.26
+    "10W": -4.69,
+    "20W": -3.2,
+    "40W": 3.89
    },
    "ema": {
-    "10W": 231.64,
-    "20W": 227.82,
-    "40W": 212.16
+    "10W": 231.08,
+    "20W": 227.53,
+    "40W": 212.01
    },
-   "min_abs_dist": 1.98,
-   "prevClose": 219.13,
-   "price": 223.31,
+   "min_abs_dist": 3.2,
+   "prevClose": 223.31,
+   "price": 220.25,
    "slug": "southwest",
-   "spread": 9.18,
+   "spread": 9.0,
    "weeks": 314
   },
   "srf": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.92,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.1,
    "dist": {
-    "10W": -2.48,
-    "20W": -2.83,
-    "40W": -4.02
+    "10W": -2.56,
+    "20W": -2.92,
+    "40W": -4.12
    },
    "ema": {
-    "10W": 2674.99,
-    "20W": 2684.54,
-    "40W": 2718.07
+    "10W": 2674.5,
+    "20W": 2684.29,
+    "40W": 2717.93
    },
-   "min_abs_dist": 2.48,
-   "prevClose": 2585.0,
-   "price": 2608.7,
+   "min_abs_dist": 2.56,
+   "prevClose": 2608.7,
+   "price": 2606.0,
    "slug": "srf",
-   "spread": 1.61,
+   "spread": 1.62,
    "weeks": 314
   },
   "sswl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.62,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.13,
    "dist": {
-    "10W": 13.17,
-    "20W": 23.8,
-    "40W": 33.19
+    "10W": 13.85,
+    "20W": 24.62,
+    "40W": 34.13
    },
    "ema": {
-    "10W": 274.41,
-    "20W": 250.85,
-    "40W": 233.17
+    "10W": 274.84,
+    "20W": 251.08,
+    "40W": 233.28
    },
-   "min_abs_dist": 13.17,
+   "min_abs_dist": 13.85,
    "prevClose": 312.5,
-   "price": 310.55,
+   "price": 312.9,
    "slug": "sswl",
-   "spread": 17.69,
+   "spread": 17.81,
    "weeks": 314
   },
   "stltech": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.51,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.97,
    "dist": {
-    "10W": 15.59,
-    "20W": 35.48,
-    "40W": 78.14
+    "10W": 13.78,
+    "20W": 33.14,
+    "40W": 74.92
    },
    "ema": {
-    "10W": 571.67,
-    "20W": 487.75,
-    "40W": 370.95
+    "10W": 569.3,
+    "20W": 486.51,
+    "40W": 370.31
    },
-   "min_abs_dist": 15.59,
-   "prevClose": 651.0,
-   "price": 660.8,
+   "min_abs_dist": 13.78,
+   "prevClose": 660.8,
+   "price": 647.75,
    "slug": "stltech",
-   "spread": 54.11,
+   "spread": 53.74,
    "weeks": 314
   },
   "supriya": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.11,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.69,
    "dist": {
-    "10W": -5.53,
-    "20W": -1.6,
-    "40W": 4.43
+    "10W": -7.64,
+    "20W": -4.01,
+    "40W": 1.76
    },
    "ema": {
-    "10W": 861.09,
-    "20W": 826.77,
-    "40W": 779.0
+    "10W": 857.12,
+    "20W": 824.69,
+    "40W": 777.93
    },
-   "min_abs_dist": 1.6,
-   "prevClose": 831.05,
-   "price": 813.5,
+   "min_abs_dist": 1.76,
+   "prevClose": 813.5,
+   "price": 791.65,
    "slug": "supriya",
-   "spread": 10.54,
+   "spread": 10.18,
    "weeks": 242
   },
   "syrma": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.38,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.17,
    "dist": {
-    "10W": 9.17,
-    "20W": 20.13,
-    "40W": 38.64
+    "10W": 9.02,
+    "20W": 19.95,
+    "40W": 38.42
    },
    "ema": {
-    "10W": 1344.46,
-    "20W": 1221.71,
-    "40W": 1058.61
+    "10W": 1344.01,
+    "20W": 1221.48,
+    "40W": 1058.49
    },
-   "min_abs_dist": 9.17,
-   "prevClose": 1473.3,
-   "price": 1467.7,
+   "min_abs_dist": 9.02,
+   "prevClose": 1467.7,
+   "price": 1465.2,
    "slug": "syrma",
-   "spread": 27.0,
+   "spread": 26.97,
    "weeks": 208
   },
   "tatva": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.29,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.45,
    "dist": {
-    "10W": 12.12,
-    "20W": 21.46,
-    "40W": 30.61
+    "10W": 12.52,
+    "20W": 21.94,
+    "40W": 31.16
    },
    "ema": {
-    "10W": 1524.81,
-    "20W": 1407.53,
-    "40W": 1308.92
+    "10W": 1526.21,
+    "20W": 1408.27,
+    "40W": 1309.29
    },
-   "min_abs_dist": 12.12,
-   "prevClose": 1732.0,
-   "price": 1709.6,
+   "min_abs_dist": 12.52,
+   "prevClose": 1709.6,
+   "price": 1717.3,
    "slug": "tatva",
-   "spread": 16.49,
+   "spread": 16.57,
    "weeks": 264
   },
   "tdpowersys": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 0.1,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.2,
    "dist": {
-    "10W": 20.58,
-    "20W": 28.63,
-    "40W": 46.94
+    "10W": 20.77,
+    "20W": 28.86,
+    "40W": 47.21
    },
    "ema": {
-    "10W": 1228.77,
-    "20W": 1151.81,
-    "40W": 1008.32
+    "10W": 1229.31,
+    "20W": 1152.1,
+    "40W": 1008.46
    },
-   "min_abs_dist": 20.58,
-   "prevClose": 1480.1,
-   "price": 1481.6,
+   "min_abs_dist": 20.77,
+   "prevClose": 1481.6,
+   "price": 1484.6,
    "slug": "tdpowersys",
-   "spread": 21.86,
+   "spread": 21.9,
    "weeks": 314
   },
   "thangamayl": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.09,
+   "asOf": "2026-08-14",
+   "dayChangePct": 2.98,
    "dist": {
-    "10W": -4.65,
-    "20W": 3.8,
-    "40W": 21.2
+    "10W": -2.31,
+    "20W": 6.58,
+    "40W": 24.59
    },
    "ema": {
-    "10W": 5526.85,
-    "20W": 5076.93,
-    "40W": 4348.08
+    "10W": 5555.4,
+    "20W": 5091.89,
+    "40W": 4355.74
    },
-   "min_abs_dist": 3.8,
-   "prevClose": 5328.0,
-   "price": 5270.0,
+   "min_abs_dist": 2.31,
+   "prevClose": 5270.0,
+   "price": 5427.0,
    "slug": "thangamayl",
-   "spread": 27.11,
+   "spread": 27.54,
    "weeks": 314
   },
   "timex": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -4.35,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.69,
    "dist": {
-    "10W": 4.49,
+    "10W": 2.24,
     "20W": null,
     "40W": null
    },
    "ema": {
-    "10W": 515.98,
+    "10W": 513.16,
     "20W": null,
     "40W": null
    },
-   "min_abs_dist": 4.49,
-   "prevClose": 563.65,
-   "price": 539.15,
+   "min_abs_dist": 2.24,
+   "prevClose": 539.15,
+   "price": 524.65,
    "slug": "timex",
    "spread": null,
    "weeks": 17
   },
   "uniparts": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.32,
+   "asOf": "2026-08-14",
+   "dayChangePct": -1.01,
    "dist": {
-    "10W": 16.51,
-    "20W": 28.53,
-    "40W": 45.56
+    "10W": 15.59,
+    "20W": 27.4,
+    "40W": 44.19
    },
    "ema": {
-    "10W": 707.48,
-    "20W": 641.31,
-    "40W": 566.31
+    "10W": 705.97,
+    "20W": 640.52,
+    "40W": 565.91
    },
-   "min_abs_dist": 16.51,
-   "prevClose": 813.55,
-   "price": 824.3,
+   "min_abs_dist": 15.59,
+   "prevClose": 824.3,
+   "price": 816.0,
    "slug": "uniparts",
-   "spread": 24.93,
+   "spread": 24.75,
    "weeks": 192
   },
   "venusrem": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 5.0,
+   "asOf": "2026-08-14",
+   "dayChangePct": 3.05,
    "dist": {
-    "10W": 8.33,
-    "20W": 21.37,
-    "40W": 48.87
+    "10W": 10.62,
+    "20W": 24.36,
+    "40W": 52.83
    },
    "ema": {
-    "10W": 1596.28,
-    "20W": 1424.77,
-    "40W": 1161.65
+    "10W": 1611.0,
+    "20W": 1433.07,
+    "40W": 1166.08
    },
-   "min_abs_dist": 8.33,
-   "prevClose": 1647.0,
-   "price": 1729.3,
+   "min_abs_dist": 10.62,
+   "prevClose": 1729.3,
+   "price": 1782.1,
    "slug": "venusrem",
-   "spread": 37.41,
+   "spread": 38.15,
    "weeks": 314
   },
   "vidyawires": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -5.0,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.45,
    "dist": {
-    "10W": -4.38,
-    "20W": 2.41,
+    "10W": -2.96,
+    "20W": 3.95,
     "40W": null
    },
    "ema": {
-    "10W": 92.21,
-    "20W": 86.1,
+    "10W": 92.18,
+    "20W": 86.05,
     "40W": null
    },
-   "min_abs_dist": 2.41,
-   "prevClose": 92.81,
-   "price": 88.17,
+   "min_abs_dist": 2.96,
+   "prevClose": 88.17,
+   "price": 89.45,
    "slug": "vidyawires",
    "spread": null,
    "weeks": 36
   },
   "vijaya": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.6,
+   "asOf": "2026-08-14",
+   "dayChangePct": -0.83,
    "dist": {
-    "10W": 9.9,
-    "20W": 16.47,
-    "40W": 25.79
+    "10W": 9.16,
+    "20W": 15.61,
+    "40W": 24.81
    },
    "ema": {
-    "10W": 1352.6,
-    "20W": 1276.3,
-    "40W": 1181.72
+    "10W": 1350.35,
+    "20W": 1275.12,
+    "40W": 1181.12
    },
-   "min_abs_dist": 9.9,
-   "prevClose": 1510.6,
-   "price": 1486.5,
+   "min_abs_dist": 9.16,
+   "prevClose": 1486.5,
+   "price": 1474.1,
    "slug": "vijaya",
-   "spread": 14.46,
+   "spread": 14.33,
    "weeks": 257
   },
   "vinyas": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -1.45,
+   "asOf": "2026-08-14",
+   "dayChangePct": -2.49,
    "dist": {
-    "10W": 3.45,
-    "20W": 7.91,
-    "40W": 13.86
+    "10W": 1.35,
+    "20W": 5.5,
+    "40W": 11.18
    },
    "ema": {
-    "10W": 1308.64,
-    "20W": 1254.54,
-    "40W": 1189.01
+    "10W": 1302.53,
+    "20W": 1251.33,
+    "40W": 1187.37
    },
-   "min_abs_dist": 3.45,
-   "prevClose": 1373.75,
-   "price": 1353.8,
+   "min_abs_dist": 1.35,
+   "prevClose": 1353.8,
+   "price": 1320.15,
    "slug": "vinyas",
-   "spread": 10.06,
+   "spread": 9.7,
    "weeks": 150
   },
   "viyash": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 1.35,
+   "asOf": "2026-08-14",
+   "dayChangePct": -4.0,
    "dist": {
-    "10W": 1.86,
-    "20W": 6.97,
-    "40W": 15.19
+    "10W": -1.49,
+    "20W": 3.12,
+    "40W": 10.83
    },
    "ema": {
-    "10W": 261.45,
-    "20W": 248.94,
-    "40W": 231.18
+    "10W": 259.51,
+    "20W": 247.92,
+    "40W": 230.66
    },
-   "min_abs_dist": 1.86,
-   "prevClose": 262.75,
-   "price": 266.3,
+   "min_abs_dist": 1.49,
+   "prevClose": 266.3,
+   "price": 255.65,
    "slug": "viyash",
-   "spread": 13.09,
+   "spread": 12.51,
    "weeks": 314
   },
   "vmarcind": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.46,
+   "asOf": "2026-08-14",
+   "dayChangePct": -5.94,
    "dist": {
-    "10W": -32.69,
-    "20W": -46.45,
-    "40W": -47.52
+    "10W": -36.29,
+    "20W": -49.51,
+    "40W": -50.57
    },
    "ema": {
-    "10W": 547.73,
-    "20W": 688.53,
-    "40W": 702.52
+    "10W": 544.31,
+    "20W": 686.81,
+    "40W": 701.65
    },
-   "min_abs_dist": 32.69,
-   "prevClose": 378.0,
-   "price": 368.7,
+   "min_abs_dist": 36.29,
+   "prevClose": 368.7,
+   "price": 346.8,
    "slug": "vmarcind",
-   "spread": 28.26,
+   "spread": 28.91,
    "weeks": 274
   },
   "wheels": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -0.47,
+   "asOf": "2026-08-14",
+   "dayChangePct": 5.56,
    "dist": {
-    "10W": -5.26,
-    "20W": -0.37,
-    "40W": 12.56
+    "10W": -0.58,
+    "20W": 5.05,
+    "40W": 18.97
    },
    "ema": {
-    "10W": 1428.75,
-    "20W": 1358.63,
-    "40W": 1202.58
+    "10W": 1443.92,
+    "20W": 1366.6,
+    "40W": 1206.68
    },
-   "min_abs_dist": 0.37,
+   "min_abs_dist": 0.58,
    "prevClose": 1360.0,
-   "price": 1353.6,
+   "price": 1435.6,
    "slug": "wheels",
-   "spread": 18.81,
+   "spread": 19.66,
    "weeks": 314
   },
   "wockpharma": {
-   "asOf": "2026-08-13",
-   "dayChangePct": 3.55,
+   "asOf": "2026-08-14",
+   "dayChangePct": 1.04,
    "dist": {
-    "10W": 1.25,
-    "20W": 7.76,
-    "40W": 16.9
+    "10W": 2.11,
+    "20W": 8.76,
+    "40W": 18.04
    },
    "ema": {
-    "10W": 1889.23,
-    "20W": 1775.12,
-    "40W": 1636.3
+    "10W": 1892.83,
+    "20W": 1777.01,
+    "40W": 1637.27
    },
-   "min_abs_dist": 1.25,
-   "prevClose": 1847.4,
-   "price": 1912.9,
+   "min_abs_dist": 2.11,
+   "prevClose": 1912.9,
+   "price": 1932.7,
    "slug": "wockpharma",
-   "spread": 15.46,
+   "spread": 15.61,
    "weeks": 314
   },
   "yatharth": {
-   "asOf": "2026-08-13",
-   "dayChangePct": -2.73,
+   "asOf": "2026-08-14",
+   "dayChangePct": 0.01,
    "dist": {
-    "10W": 1.05,
-    "20W": 4.44,
-    "40W": 10.76
+    "10W": 1.06,
+    "20W": 4.45,
+    "40W": 10.77
    },
    "ema": {
-    "10W": 836.31,
-    "20W": 809.19,
-    "40W": 763.02
+    "10W": 835.83,
+    "20W": 808.72,
+    "40W": 762.57
    },
-   "min_abs_dist": 1.05,
-   "prevClose": 868.85,
-   "price": 845.1,
+   "min_abs_dist": 1.06,
+   "prevClose": 844.6,
+   "price": 844.7,
    "slug": "yatharth",
    "spread": 9.61,
    "weeks": 158
   }
  },
  "source": "yf",
- "updatedAt": "2026-08-13T11:26+00:00"
+ "updatedAt": "2026-08-14T11:25+00:00"
 }
