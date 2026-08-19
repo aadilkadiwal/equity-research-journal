@@ -52,6 +52,30 @@
       ]
     },
     {
+      "slug": "bhel",
+      "name": "Bharat Heavy Electricals",
+      "tvCode": "BHEL",
+      "industry": "Power",
+      "marketCap": 151609.04,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Makes boilers and turbines for coal power plants, which India is ordering again. The record order book is finally turning into real sales and tripled profit - but at 87 times earnings on thin ~8% returns, it's priced for perfection.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bharat-heavy-electricals-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "India's state-owned builder of power-station boilers and turbines. The thermal super-cycle is real: a record order book covering about seven years of work, and a power segment that swung ₹1,073 cr into profit — its first June-quarter profit since FY19. But one Meja order was 79% of the quarter's inflow.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/bharat-heavy-electricals-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "polycab",
       "name": "Polycab India",
       "tvCode": "POLYCAB",
@@ -65,23 +89,6 @@
           "view": "Watch",
           "note": "Biggest wire and cable maker, with genuinely consistent management and a consumer arm that has become a real second engine. But growth is coming from higher copper prices rather than more units sold, exports have missed their target for years, and the stock is already over priced - no earning trigger for me as of now.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/polycab-india-ltd.pdf"
-        }
-      ]
-    },
-    {
-      "slug": "bhel",
-      "name": "Bharat Heavy Electricals",
-      "tvCode": "BHEL",
-      "industry": "Power",
-      "marketCap": 131294.92,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Concern",
-          "note": "Makes boilers and turbines for coal power plants, which India is ordering again. The record order book is finally turning into real sales and tripled profit - but at 87 times earnings on thin ~8% returns, it's priced for perfection.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bharat-heavy-electricals-ltd.pdf"
         }
       ]
     },
@@ -1117,6 +1124,30 @@
       ]
     },
     {
+      "slug": "rpel",
+      "name": "Raghav Productivity Enhancers",
+      "tvCode": "RPEL",
+      "industry": "Capital Goods",
+      "marketCap": 5809.13,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "World's top furnace-lining maker, debt-free with fat ~29% margins and steady market-share gains. New 29% capacity boost goes live around Oct 2026 for very little money. Worth watching for that.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/raghav-productivity-enhancers-ltd.pdf"
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "World's largest maker of the silica lining inside scrap-steel furnaces, a consumable every furnace rebuys. Volume, margin and exports are all rising together, operating margin 23% to 29.6%, plants ~94% full, 29% more capacity due October 2026. Management delivers what it says, but the value-add products promised since FY24 still earn nothing.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/raghav-productivity-enhancers-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "skipper",
       "name": "Skipper",
       "tvCode": "SKIPPER",
@@ -1358,23 +1389,6 @@
           "view": "Concern",
           "note": "World's second-biggest maker of the chemicals behind vehicle exhaust catalysts, and tighter Euro-7 rules are now turning into real orders across all four products. A new plant is approved because the existing one is nearly full. Management has a long habit of missing its own timelines, and the stock is very expensive.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/tatva-chintan-pharma-chem-ltd.pdf"
-        }
-      ]
-    },
-    {
-      "slug": "rpel",
-      "name": "Raghav Productivity Enhancers",
-      "tvCode": "RPEL",
-      "industry": "Capital Goods",
-      "marketCap": 3118.38,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Watch",
-          "note": "World's top furnace-lining maker, debt-free with fat ~29% margins and steady market-share gains. New 29% capacity boost goes live around Oct 2026 for very little money. Worth watching for that.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/raghav-productivity-enhancers-ltd.pdf"
         }
       ]
     },
@@ -1841,6 +1855,23 @@
           "view": "Concern",
           "note": "Makes electronics for defence and aerospace gear. A Rs 1,309 crore order book and 30% sales growth give a real runway, but cash stays stuck in working capital and the stock is richly priced.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vinyas-innovative-technologies-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "centenka",
+      "name": "Century Enka Ltd",
+      "tvCode": "CENTENKA",
+      "industry": "Integrated Textiles",
+      "marketCap": 1311.43,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Spins nylon yarn and tyre-cord fabric; profit is only the spread over Chinese-priced caprolactam. The record quarter is flattered by a ₹46 cr one-off — underlying margin is 7%, the floor of guidance — and the ₹103 cr car-tyre-fabric plant has sold nothing in nine quarters. Management is not consistent and I don't see much earning trigger.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/century-enka-ltd.pdf"
         }
       ]
     },
