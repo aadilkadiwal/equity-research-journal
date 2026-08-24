@@ -71,7 +71,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "India's state-owned builder of power-station boilers and turbines. The thermal super-cycle is real: a record order book covering about seven years of work, and a power segment that swung ₹1,073 cr into profit — its first June-quarter profit since FY19. But one Meja order was 79% of the quarter's inflow.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/bharat-heavy-electricals-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/bharat-heavy-electricals-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 40.29,
+              "qoq": -37.47
+            },
+            "opProfit": {
+              "yoy": 193.8,
+              "qoq": -71.26
+            },
+            "eps": {
+              "yoy": 182.44,
+              "qoq": -70.89
+            },
+            "pat": {
+              "yoy": 182.7,
+              "qoq": -70.81
+            }
+          }
         }
       ]
     },
@@ -88,7 +106,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Biggest wire and cable maker, with genuinely consistent management and a consumer arm that has become a real second engine. But growth is coming from higher copper prices rather than more units sold, exports have missed their target for years, and the stock is already over priced - no earning trigger for me as of now.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/polycab-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/polycab-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 39.01,
+              "qoq": -7.39
+            },
+            "opProfit": {
+              "yoy": 32.48,
+              "qoq": -2.16
+            },
+            "eps": {
+              "yoy": 32.36,
+              "qoq": 1.44
+            },
+            "pat": {
+              "yoy": 32.46,
+              "qoq": 1.5
+            }
+          }
         }
       ]
     },
@@ -139,7 +175,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Real engine is refrigerant gases, where global quota rules let it run plants flat out while prices stay firm, and management is unusually candid. The latest numbers are flattered by a war-driven windfall management says will fade, and the big new plant and the Chemours contract only start paying from FY28.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/srf-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/srf-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 31.81,
+              "qoq": 9.06
+            },
+            "opProfit": {
+              "yoy": 49.03,
+              "qoq": 20.58
+            },
+            "eps": {
+              "yoy": 75.58,
+              "qoq": 30.41
+            },
+            "pat": {
+              "yoy": 75.53,
+              "qoq": 28.4
+            }
+          }
         }
       ]
     },
@@ -224,7 +278,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Carbon maker steadily shifting from cheap grades to costly ones, which more than doubled its margins, and fresh capacity has restarted volume growth after two capped years. Promoters keep raising their stake. The battery-material bet earns nothing until FY28 and takes on China, and it adds a new venture almost every quarter.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/himadri-speciality-chemical-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/himadri-speciality-chemical-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 28.04,
+              "qoq": 11.19
+            },
+            "opProfit": {
+              "yoy": 17.51,
+              "qoq": 19.1
+            },
+            "eps": {
+              "yoy": 23.64,
+              "qoq": 14.32
+            },
+            "pat": {
+              "yoy": 26.33,
+              "qoq": 14.31
+            }
+          }
         }
       ]
     },
@@ -282,7 +354,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes optical fibre and cable end to end, one of few firms worldwide. Data centres went 1% to 21% in a quarter; the order book is ₹18,618 cr - 2.4 years of sales - anchored by a $1.1 bn hyperscaler deal to FY29, and it is net cash. But it is already turning orders away.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/sterlite-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/sterlite-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 87.44,
+              "qoq": 32.55
+            },
+            "opProfit": {
+              "yoy": 191.67,
+              "qoq": 97.44
+            },
+            "eps": {
+              "yoy": 1920.0,
+              "qoq": 233.88
+            },
+            "pat": {
+              "yoy": 1870.0,
+              "qoq": 366.6
+            }
+          }
         }
       ]
     },
@@ -306,7 +396,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes house and industrial wiring, 90% of sales. Cable volumes grew 25% against an industry at 10-12% and segment margin hit 9.9%, clearing the whole FY27 target in the first quarter with no inventory gain, on 28% return on capital and a self-funded ₹1,200 cr build. But 54% headline growth sits on 17% volume.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/rr-kabel-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/rr-kabel-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 53.9,
+              "qoq": 6.89
+            },
+            "opProfit": {
+              "yoy": 99.44,
+              "qoq": 8.22
+            },
+            "eps": {
+              "yoy": 128.75,
+              "qoq": 22.24
+            },
+            "pat": {
+              "yoy": 117.32,
+              "qoq": 16.1
+            }
+          }
         }
       ]
     },
@@ -324,6 +432,40 @@
           "view": "Concern",
           "note": "Steel sales keep growing fast but profit stayed flat four years while it kept building plants. Latest quarter finally shows profit jumping - a first real hint that spending pays off.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shyam-metalics-and-energy-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "deepakntr",
+      "name": "Deepak Nitrite",
+      "tvCode": "DEEPAKNTR",
+      "industry": "Bulk Chemicals",
+      "marketCap": 23428.23,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes phenol, acetone and specialty chemicals. It performed best while the foreign competitor's import duty was nil for the whole quarter; the duty was reapplied at quarter-end, so Q2 should be more profitable. Phenol output lifted by half for under ₹200 cr, promoter buying near ₹1,588. But 86% of segment profit is one spread, and polycarbonate slipped to FY29 at ₹11,500 cr from ₹5,000 cr.",
+          "growth": {
+            "sales": {
+              "yoy": 36.39,
+              "qoq": 21.57
+            },
+            "opProfit": {
+              "yoy": 184.97,
+              "qoq": 43.67
+            },
+            "eps": {
+              "yoy": 207.41,
+              "qoq": 57.05
+            },
+            "pat": {
+              "yoy": 207.5,
+              "qoq": 57.01
+            }
+          }
         }
       ]
     },
@@ -347,7 +489,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Solar panel and cell maker. Made-in-India cells have crossed half of sales now that local-content rules are in force, and that is the higher-margin half; a fully funded plant nearly doubles capacity by March 2027. Management gave its first-ever target this year and still has to prove it, and industry overcapacity is the real risk.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/emmvee-photovoltaic-power-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/emmvee-photovoltaic-power-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 51.34,
+              "qoq": -10.54
+            },
+            "opProfit": {
+              "yoy": 56.38,
+              "qoq": -4.03
+            },
+            "eps": {
+              "yoy": 73.73,
+              "qoq": -3.17
+            },
+            "pat": {
+              "yoy": 102.64,
+              "qoq": -3.08
+            }
+          }
         }
       ]
     },
@@ -551,7 +711,59 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Bengaluru housebuilder that owns its own construction arm. ₹20,553 cr of homes sold sits outside the profit account awaiting occupancy certificates, carrying 30%+ project margin against the 6% reported. That margin has been promised on five straight calls since Feb 2024, and collections grew 10% against pre-sales up 76%.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/sobha-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/sobha-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 50.03,
+              "qoq": -35.7
+            },
+            "opProfit": {
+              "yoy": 225.69,
+              "qoq": -48.98
+            },
+            "eps": {
+              "yoy": 274.8,
+              "qoq": -44.59
+            },
+            "pat": {
+              "yoy": 273.35,
+              "qoq": -44.63
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "splpetro",
+      "name": "Supreme Petrochem Ltd",
+      "tvCode": "SPLPETRO",
+      "industry": "Petrochemicals",
+      "marketCap": 14319.66,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Makes polystyrene, the everyday plastic in packaging and appliances. Earnings are not stable and this is not a better business - the numbers are good only because the Middle East war widened the raw-material spread, the normal $200 a tonne going past $300, while volume fell about 25% year-on-year. Polystyrene capacity going 300,000 to 380,000 tonnes. But the spread had already retraced by the call date, and management itself calls the margin 'an aberration'.",
+          "growth": {
+            "sales": {
+              "yoy": 22.08,
+              "qoq": 6.66
+            },
+            "opProfit": {
+              "yoy": 188.13,
+              "qoq": 30.53
+            },
+            "eps": {
+              "yoy": 192.33,
+              "qoq": 40.6
+            },
+            "pat": {
+              "yoy": 192.05,
+              "qoq": 38.9
+            }
+          }
         }
       ]
     },
@@ -626,7 +838,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Transformer maker in India's power-grid boom. Order book is at a record 1.5 years of sales, the high-voltage orders it long promised are finally landing, and its big new plant is only about a third full so there is plenty of room to grow. Management delivers, but the stock is expensive.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/atlanta-electricals-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/atlanta-electricals-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 47.99,
+              "qoq": -37.62
+            },
+            "opProfit": {
+              "yoy": 58.06,
+              "qoq": -48.45
+            },
+            "eps": {
+              "yoy": 40.0,
+              "qoq": -54.18
+            },
+            "pat": {
+              "yoy": 50.42,
+              "qoq": -54.2
+            }
+          }
         }
       ]
     },
@@ -660,7 +890,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "India's largest crane maker, debt-free with a third of its capacity idle, and margins are its one proven strength. But volumes fell last year, the 'double revenue' target was quietly re-dated, guidance has been withheld three quarters running, and the heavy-crane prize waits on a duty the government won't notify. No earning trigger visible.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/action-construction-equipment-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/action-construction-equipment-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 20.49,
+              "qoq": -23.68
+            },
+            "opProfit": {
+              "yoy": 27.0,
+              "qoq": -31.62
+            },
+            "eps": {
+              "yoy": 22.17,
+              "qoq": 7.73
+            },
+            "pat": {
+              "yoy": 22.28,
+              "qoq": 7.74
+            }
+          }
         }
       ]
     },
@@ -835,6 +1083,40 @@
       ]
     },
     {
+      "slug": "ttkprestig",
+      "name": "TTK Prestige",
+      "tvCode": "TTKPRESTIG",
+      "industry": "Consumer Electronics",
+      "marketCap": 9585.55,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "India's biggest pressure-cooker and kitchen-appliance brand. 400–450 new products in 18 months are lifting footfall, and management is targeting margin over volume: after five years of flat revenue and falling margin, revenue is finally breaking out with margin rising, so profit now grows faster than sales. ₹500 cr overhaul funded from ₹870 cr free cash, aiming at 13–14% from 11%. But profit is still 37% below FY22.",
+          "growth": {
+            "sales": {
+              "yoy": 33.57,
+              "qoq": 11.61
+            },
+            "opProfit": {
+              "yoy": 102.25,
+              "qoq": 21.95
+            },
+            "eps": {
+              "yoy": 123.2,
+              "qoq": 60.97
+            },
+            "pat": {
+              "yoy": 103.94,
+              "qoq": 43.0
+            }
+          }
+        }
+      ]
+    },
+    {
       "slug": "kirlpnu",
       "name": "Kirloskar Pneumatic Company",
       "tvCode": "KIRLPNU",
@@ -881,7 +1163,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Only large Indian maker of solar-panel glass, and import duties now locked in to 2029 have transformed its margins. A fully funded expansion lifts capacity 60% by March 2027, and the loss-making German unit is written off and gone. A long furnace shutdown falls due around FY28.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/borosil-renewables-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/borosil-renewables-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.1,
+              "qoq": -7.3
+            },
+            "opProfit": {
+              "yoy": 47.12,
+              "qoq": -5.66
+            },
+            "eps": {
+              "yoy": 130.53,
+              "qoq": -48.18
+            },
+            "pat": {
+              "yoy": 156.91,
+              "qoq": -48.1
+            }
+          }
         }
       ]
     },
@@ -950,6 +1250,40 @@
           "view": "Positive",
           "note": "A proven engine: buy hospitals cheaply near Delhi, fill beds, raise the bill per bed. Sales up 36%, heading to 5,000 beds. New premium Gurugram hospital opens 2027; management delivers.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/yatharth-hospital-and-trauma-care-services-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "gael",
+      "name": "Gujarat Ambuja Exports Ltd",
+      "tvCode": "GAEL",
+      "industry": "Food Products",
+      "marketCap": 7894.18,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "India's largest maize processor, milling corn into starch and sweeteners, it earns the crush spread. Growth came from raw-material prices getting cheaper while product prices stayed stable, not from strategy.",
+          "growth": {
+            "sales": {
+              "yoy": 23.47,
+              "qoq": 8.71
+            },
+            "opProfit": {
+              "yoy": 140.92,
+              "qoq": 19.01
+            },
+            "eps": {
+              "yoy": 171.13,
+              "qoq": 30.51
+            },
+            "pat": {
+              "yoy": 171.87,
+              "qoq": 31.14
+            }
+          }
         }
       ]
     },
@@ -1143,7 +1477,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "World's largest maker of the silica lining inside scrap-steel furnaces, a consumable every furnace rebuys. Volume, margin and exports are all rising together, operating margin 23% to 29.6%, plants ~94% full, 29% more capacity due October 2026. Management delivers what it says, but the value-add products promised since FY24 still earn nothing.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/raghav-productivity-enhancers-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/raghav-productivity-enhancers-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 48.72,
+              "qoq": 23.17
+            },
+            "opProfit": {
+              "yoy": 61.75,
+              "qoq": 21.23
+            },
+            "eps": {
+              "yoy": 67.72,
+              "qoq": 29.09
+            },
+            "pat": {
+              "yoy": 67.55,
+              "qoq": 29.09
+            }
+          }
         }
       ]
     },
@@ -1184,7 +1536,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes braided steel hoses plus the cooling skids that circulate coolant through AI data centres. Value-added assemblies are 63% of sales at 22-26% margins against 16-20% for plain hose, and the core plant is only 65% used. But every skid has gone to one Indian intermediary, with no order book.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/aeroflex-industries-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/aeroflex-industries-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 72.39,
+              "qoq": 15.53
+            },
+            "opProfit": {
+              "yoy": 116.34,
+              "qoq": 11.52
+            },
+            "eps": {
+              "yoy": 158.18,
+              "qoq": 6.77
+            },
+            "pat": {
+              "yoy": 162.06,
+              "qoq": 6.52
+            }
+          }
         }
       ]
     },
@@ -1218,7 +1588,25 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Electronics maker for aerospace and defence. A new CEO turned it around, the order book is at a record two years of sales and plants are only half full. The recovery has barely started after the same promise was broken three times, almost all sales are exports exposed to war disruption, and the stock is very expensive.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/cyient-dlm-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/cyient-dlm-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 34.25,
+              "qoq": 1.28
+            },
+            "opProfit": {
+              "yoy": 56.26,
+              "qoq": -9.1
+            },
+            "eps": {
+              "yoy": 118.09,
+              "qoq": -27.56
+            },
+            "pat": {
+              "yoy": 118.36,
+              "qoq": -27.41
+            }
+          }
         }
       ]
     },
@@ -1286,7 +1674,59 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Wheel maker finally earning more per wheel after years of pushing customers for price hikes, with exports turning up and a sold-out new plant coming. Profit has gone nowhere for four years while sales nearly doubled, interest eats nearly half of operating profit, and its own targets are routinely missed or quietly re-dated.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/steel-strips-wheels-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/steel-strips-wheels-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 27.22,
+              "qoq": 2.39
+            },
+            "opProfit": {
+              "yoy": 32.96,
+              "qoq": 8.7
+            },
+            "eps": {
+              "yoy": 43.08,
+              "qoq": 10.98
+            },
+            "pat": {
+              "yoy": 43.19,
+              "qoq": 10.95
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koltepatil",
+      "name": "Kolte Patil Developers Ltd",
+      "tvCode": "KOLTEPATIL",
+      "industry": "Real Estate Developer",
+      "marketCap": 4099.25,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Negative",
+          "note": "Pune-focused flat builder; Blackstone owns 40% with joint control after paying ₹329 a share, with ₹6,000 cr of Mumbai redevelopment lined up. But pre-sales are flat and volumes fell about 23% year-on-year - the good numbers come from Pune and Mumbai projects completing - management has not been consistent for four quarters, cancelling every concall.",
+          "growth": {
+            "sales": {
+              "yoy": 1016.49,
+              "qoq": 269.87
+            },
+            "opProfit": {
+              "yoy": 829.29,
+              "qoq": 3238.47
+            },
+            "eps": {
+              "yoy": 958.85,
+              "qoq": 1016.11
+            },
+            "pat": {
+              "yoy": 960.86,
+              "qoq": 1015.27
+            }
+          }
         }
       ]
     },
@@ -1303,7 +1743,25 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "New CEO turned chronic losses around by clearing debt, cutting idle warehouse space and dropping loss-making contracts. Those fixes are one-time and nearly finished, so growth must now come from volume and pricing; the Express arm still loses money with no deadline, and it leans heavily on the Mahindra group.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/mahindra-logistics-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/mahindra-logistics-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 23.29,
+              "qoq": 11.8
+            },
+            "opProfit": {
+              "yoy": 51.38,
+              "qoq": 2.75
+            },
+            "eps": {
+              "yoy": 334.86,
+              "qoq": 26.11
+            },
+            "pat": {
+              "yoy": 335.09,
+              "qoq": 25.76
+            }
+          }
         }
       ]
     },
@@ -1388,7 +1846,25 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "World's second-biggest maker of the chemicals behind vehicle exhaust catalysts, and tighter Euro-7 rules are now turning into real orders across all four products. A new plant is approved because the existing one is nearly full. Management has a long habit of missing its own timelines, and the stock is very expensive.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/tatva-chintan-pharma-chem-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/tatva-chintan-pharma-chem-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 42.96,
+              "qoq": 24.54
+            },
+            "opProfit": {
+              "yoy": 86.49,
+              "qoq": 14.82
+            },
+            "eps": {
+              "yoy": 140.49,
+              "qoq": 54.88
+            },
+            "pat": {
+              "yoy": 155.34,
+              "qoq": 64.53
+            }
+          }
         }
       ]
     },
@@ -1580,6 +2056,40 @@
       ]
     },
     {
+      "slug": "rajratan",
+      "name": "Rajratan Global Wire",
+      "tvCode": "RAJRATAN",
+      "industry": "Wires & Cables",
+      "marketCap": 2481.37,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Makes the steel bead wire inside tyres; the only maker in Thailand. The loss-making Chennai plant turned profitable and doubles to 60,000 tonnes, export growth is good with new countries adding, tyre share back to 42–43%, promoter buying near ₹455. But borrowing is high - interest swallows 26 paise of every operating rupee.",
+          "growth": {
+            "sales": {
+              "yoy": 29.14,
+              "qoq": 1.29
+            },
+            "opProfit": {
+              "yoy": 34.81,
+              "qoq": 45.84
+            },
+            "eps": {
+              "yoy": 69.92,
+              "qoq": 48.68
+            },
+            "pat": {
+              "yoy": 69.82,
+              "qoq": 48.8
+            }
+          }
+        }
+      ]
+    },
+    {
       "slug": "gandhar",
       "name": "Gandhar Oil Refinery (India) Ltd",
       "tvCode": "GANDHAR",
@@ -1592,7 +2102,25 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Blends base oil into pharma and cosmetic white oils plus transformer oil. The record profit is a war windfall - spread ₹28,145 a kilolitre against a normal ₹8,274 on volumes up just 8%. Indian plants are 97% full with no capex announced, and working capital has stretched 47 to 91 days.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/gandhar-oil-refinery-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/gandhar-oil-refinery-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 91.81,
+              "qoq": 58.4
+            },
+            "opProfit": {
+              "yoy": 512.1,
+              "qoq": 342.68
+            },
+            "eps": {
+              "yoy": 633.21,
+              "qoq": 372.36
+            },
+            "pat": {
+              "yoy": 633.09,
+              "qoq": 372.69
+            }
+          }
         }
       ]
     },
@@ -1609,7 +2137,25 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Assembles solar inverters, panels and EV chargers. No earning trigger visible and management is not consistent. The story has rotated EV to solar to battery storage, operating cash flow has been negative four years running, borrowings tripled to ₹198 cr, and foreign holding has gone from 8.9% to 0.05%.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/servotech-power-systems-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/servotech-power-systems-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 57.81,
+              "qoq": -0.71
+            },
+            "opProfit": {
+              "yoy": 96.35,
+              "qoq": -9.28
+            },
+            "eps": {
+              "yoy": 78.26,
+              "qoq": -24.07
+            },
+            "pat": {
+              "yoy": 74.62,
+              "qoq": -25.49
+            }
+          }
         }
       ]
     },
@@ -1626,7 +2172,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Power-cable maker riding India's grid spending, with a better product mix and its first US shipment done. Units sold are barely growing - the headline is mostly metal prices - the order book has stalled because buyers won't lock high prices, and the new plant is already 15 months late.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/dynamic-cables-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/dynamic-cables-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 33.22,
+              "qoq": -1.79
+            },
+            "opProfit": {
+              "yoy": 41.05,
+              "qoq": 1.2
+            },
+            "eps": {
+              "yoy": 37.33,
+              "qoq": 3.21
+            },
+            "pat": {
+              "yoy": 37.01,
+              "qoq": 3.23
+            }
+          }
         }
       ]
     },
@@ -1735,7 +2299,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes the heat-proof lining rammed into steel furnaces - a consumable, not a one-off sale. Premium SGB grade went 15% to 50% of revenue in one quarter, and a funded plant more than doubles capacity from late September. But four targets were trimmed in a single quarter and the cash cycle runs 184 days.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/monolithisch-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/monolithisch-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 63.85,
+              "qoq": 16.09
+            },
+            "opProfit": {
+              "yoy": 98.94,
+              "qoq": 14.8
+            },
+            "eps": {
+              "yoy": 135.03,
+              "qoq": 24.13
+            },
+            "pat": {
+              "yoy": 134.73,
+              "qoq": 24.17
+            }
+          }
         }
       ]
     },
@@ -1825,6 +2407,40 @@
       ]
     },
     {
+      "slug": "wendt",
+      "name": "Wendt India",
+      "tvCode": "WENDT",
+      "industry": "Tools & Fasteners",
+      "marketCap": 1614.9,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Makes diamond and boron-nitride grinding wheels and tools. Machine-tool division tripled in Q1 FY27, largely because finished machines left unshipped at March-end finally cleared; the solar-glass grinding-wheel line is built and peripheral-grinding technology transfer is complete. But management is not consistent - sales flat three years, its 3M-owned co-promoter sold out, and the chairman refuses quarterly calls.",
+          "growth": {
+            "sales": {
+              "yoy": 36.63,
+              "qoq": 6.74
+            },
+            "opProfit": {
+              "yoy": 51.1,
+              "qoq": 2.23
+            },
+            "eps": {
+              "yoy": 63.49,
+              "qoq": 21.41
+            },
+            "pat": {
+              "yoy": 63.49,
+              "qoq": 21.41
+            }
+          }
+        }
+      ]
+    },
+    {
       "slug": "navkarcorp",
       "name": "Navkar Corporation",
       "tvCode": "NAVKARCORP",
@@ -1837,7 +2453,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Container yards near Mumbai port, loss-making until JSW took over and fixed it. A third of capacity is still idle so profit keeps climbing as it fills, helped by a fast-growing rail fleet and cheap rail-land terminals. The stock is pricey.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/navkar-corporation-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/navkar-corporation-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 37.77,
+              "qoq": -4.99
+            },
+            "opProfit": {
+              "yoy": 62.05,
+              "qoq": -16.82
+            },
+            "eps": {
+              "yoy": 412.5,
+              "qoq": -11.83
+            },
+            "pat": {
+              "yoy": 401.22,
+              "qoq": -12.16
+            }
+          }
         }
       ]
     },
@@ -1859,6 +2493,40 @@
       ]
     },
     {
+      "slug": "vidhiing",
+      "name": "Vidhi Specialty Food Ingredients Ltd",
+      "tvCode": "VIDHIING",
+      "industry": "Pigments",
+      "marketCap": 1500.61,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Makes synthetic food colours; 95% exported, six US-FDA approved. Roha runs full but Dahej only 65–70%, and two pilot plants for pharma coatings and cosmetic pigments commission mid-FY28 on ₹75–85 cr of self-funded capex; manufacturing earns 24.7%. But revenue outgrew profit because the low-margin trading business they spent three years exiting has restarted.",
+          "growth": {
+            "sales": {
+              "yoy": 66.42,
+              "qoq": 19.24
+            },
+            "opProfit": {
+              "yoy": 26.68,
+              "qoq": 26.07
+            },
+            "eps": {
+              "yoy": 34.51,
+              "qoq": 28.95
+            },
+            "pat": {
+              "yoy": 34.67,
+              "qoq": 28.89
+            }
+          }
+        }
+      ]
+    },
+    {
       "slug": "centenka",
       "name": "Century Enka Ltd",
       "tvCode": "CENTENKA",
@@ -1871,7 +2539,25 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Spins nylon yarn and tyre-cord fabric; profit is only the spread over Chinese-priced caprolactam. The record quarter is flattered by a ₹46 cr one-off — underlying margin is 7%, the floor of guidance — and the ₹103 cr car-tyre-fabric plant has sold nothing in nine quarters. Management is not consistent and I don't see much earning trigger.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/century-enka-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/century-enka-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 38.04,
+              "qoq": 14.63
+            },
+            "opProfit": {
+              "yoy": 331.02,
+              "qoq": 54.75
+            },
+            "eps": {
+              "yoy": 299.72,
+              "qoq": 53.67
+            },
+            "pat": {
+              "yoy": 299.41,
+              "qoq": 59.0
+            }
+          }
         }
       ]
     },
@@ -1889,6 +2575,40 @@
           "view": "Positive",
           "note": "Cancer-drug factory is the engine: sales jumped 42%, profit 67%, and the plant is paid-for and under 30% full. Watch: the big Europe export dream keeps slipping.",
           "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sakar-healthcare-ltd.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "avtnpl",
+      "name": "AVT Natural Products Ltd",
+      "tvCode": "AVTNPL",
+      "industry": "Food Products",
+      "marketCap": 1253.25,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Extracts colour and flavour from marigold, spices and tea for global food brands. Most revenue is marigold extract and the crop recovered on a good monsoon; the US lifted its 50% tariff and other verticals are also doing well, animal nutrition up 60% two years running. June is normally the weakest quarter and it still performed. But exports are 93% of sales, top five customers over 80%, and two years' ₹92 cr profit came with negative ₹43 cr operating cash.",
+          "growth": {
+            "sales": {
+              "yoy": 82.16,
+              "qoq": 6.5
+            },
+            "opProfit": {
+              "yoy": 151.26,
+              "qoq": 11.94
+            },
+            "eps": {
+              "yoy": 155.0,
+              "qoq": 40.69
+            },
+            "pat": {
+              "yoy": 156.6,
+              "qoq": 41.24
+            }
+          }
         }
       ]
     },
@@ -2007,7 +2727,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Engine-bearings maker breaking into the US - a recent trip brought enquiries and confidentiality deals from big global auto names - and it can nearly double sales on existing plants with very little spending. Those are enquiries, not orders yet, management often misses its own targets, and railway brakes keep getting delayed.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/menon-bearings-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/menon-bearings-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 36.57,
+              "qoq": 5.29
+            },
+            "opProfit": {
+              "yoy": 55.8,
+              "qoq": -6.85
+            },
+            "eps": {
+              "yoy": 68.0,
+              "qoq": 2.44
+            },
+            "pat": {
+              "yoy": 67.38,
+              "qoq": 2.39
+            }
+          }
         }
       ]
     },
@@ -2041,7 +2779,25 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Makes dye intermediates. Exports tripled to ₹304 cr, but 74% goes to China - the one country management told the call was no threat. One earnings call in its entire listed history, then nine months of silence through an oleum leak, a plant shutdown, a rating watch and a rare-earth shell company.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/bhageria-industries-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/bhageria-industries-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 79.76,
+              "qoq": 6.47
+            },
+            "opProfit": {
+              "yoy": 119.51,
+              "qoq": 28.36
+            },
+            "eps": {
+              "yoy": 199.27,
+              "qoq": 154.8
+            },
+            "pat": {
+              "yoy": 199.75,
+              "qoq": 154.89
+            }
+          }
         }
       ]
     },
@@ -2058,7 +2814,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Drills and surveys ground for miners. Order book has more than doubled to about 3 years of sales as the government auctions hundreds of coal and mineral blocks, and its fixed-cost rig model means extra work drops straight to profit. Two clients are 60% of the book, every rig is already running full, and its own coal mine keeps slipping.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/south-west-pinnacle-exploration-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/south-west-pinnacle-exploration-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 53.36,
+              "qoq": -20.62
+            },
+            "opProfit": {
+              "yoy": 157.69,
+              "qoq": -26.83
+            },
+            "eps": {
+              "yoy": 291.25,
+              "qoq": -28.38
+            },
+            "pat": {
+              "yoy": 289.17,
+              "qoq": -28.43
+            }
+          }
         }
       ]
     }
