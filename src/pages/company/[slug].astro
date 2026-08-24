@@ -30,6 +30,24 @@ const fresh = e.quarter === newestQ;
 const symbol = c.tvCode ? `NSE:${c.tvCode}` : null;
 const report = /^https?:\/\//i.test(e.reportUrl || '') ? e.reportUrl : null;
 
+// Peer counts for the Explore panel. Every link lands on the list page with the
+// matching filter already applied, which is what makes the company page an entry
+// point rather than a dead end.
+const covered = data.companies.filter((x) => (x.quarters || []).length && x.slug !== c.slug)
+  .map((x) => ({ x, e: latestEntry(x) }))
+  .filter((r) => r.e);
+// Counts include this company, because that is what the link's destination shows.
+// A group that is the whole book (every company is Tier 1 today) is not a useful
+// link, so it is left out.
+const totalCovered = covered.length + 1;
+const peerCount = (n) => (n > 1 && n < totalCovered ? n : 0);
+const peers = {
+  industry: peerCount(c.industry ? covered.filter((r) => r.x.industry === c.industry).length + 1 : 0),
+  tier: peerCount(e.tier ? covered.filter((r) => (r.e.tier || r.x.tier) === e.tier).length + 1 : 0),
+  view: peerCount(e.view ? covered.filter((r) => r.e.view === e.view).length + 1 : 0),
+};
+const tierNum = (e.tier || '').replace(/\D/g, '');
+
 const title = `${c.name} — ${e.view || 'Unrated'} (${e.quarter}) · Aadil Kadiwal`;
 const description = (e.note || `View and quarter history for ${c.name}.`).slice(0, 180);
 ---
@@ -38,21 +56,24 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
     <a class="link-chip" href="/">← All companies</a>
     <span class="spacer"></span>
     <span class="dt-prevnext">
-      {prev && <a class="ilink" href={`/company/${prev.slug}/`}>‹ {prev.name}</a>}
-      {next && <a class="ilink" href={`/company/${next.slug}/`}>{next.name} ›</a>}
+      <span class="pn-lab">By market cap</span>
+      {prev && <a class="pn" href={`/company/${prev.slug}/`} rel="prev">‹ {prev.name}</a>}
+      {next && <a class="pn" href={`/company/${next.slug}/`} rel="next">{next.name} ›</a>}
     </span>
   </div>
 
   <div class="dt-head">
     <div class="dt-badges">
       <span class={`badge view-${vs}`}><span class="gly">{VIEW_GLYPH[e.view] || ''}</span>{e.view || 'Unrated'}</span>
-      {e.tier && <span class="badge tier">{e.tier}</span>}
+      {e.tier && (tierNum
+        ? <a class="badge tier" href={`/?tier=${tierNum}`} title={`All Tier ${tierNum} companies`}>{e.tier}</a>
+        : <span class="badge tier">{e.tier}</span>)}
       <span class={`row-view-q${fresh ? ' fresh' : ''}`}>{e.quarter}</span>
       {flip && <span class="flip-chip">↕ from {flip}</span>}
     </div>
     <h1 class="dt-title">{c.name}{symbol && <span class="dt-sym">{symbol}</span>}</h1>
     <div class="dt-sub">
-      {c.industry}{c.marketCap != null && <> · <b>{formatMcap(c.marketCap)}</b> market cap</>}
+      {c.industry && <a class="dt-ind" href={`/?industry=${encodeURIComponent(c.industry)}`}>{c.industry}</a>}{c.marketCap != null && <> · <b>{formatMcap(c.marketCap)}</b> market cap</>}
       {' '}· covered for <b>{chrono.length} quarter{chrono.length > 1 ? 's' : ''}</b> since {chrono[0].quarter}
     </div>
   </div>
@@ -63,6 +84,16 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
       <h2 class="section-title">Current view <span class="st-tag">{e.quarter}</span></h2>
       <p class="note-full lead">{e.note || 'No note recorded for this quarter.'}</p>
     </section>
+
+    {report && (
+      <section class="panel dt-report">
+        <div class="rp-body">
+          <p class="rp-k">AI concall report · {e.quarter}</p>
+          <p class="rp-d">The full earnings-call read behind this view — what management promised, what they delivered, and the earning trigger.</p>
+        </div>
+        <a class="btn primary rp-btn" href={report} target="_blank" rel="noopener">✨ Read the report ↗</a>
+      </section>
+    )}
 
     <div class="dt-growth" set:html={growthMatrixHTML(e)}></div>
 
@@ -80,21 +111,35 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
       <section class="panel">
         <h2 class="section-title">Go deeper</h2>
         <div class="aside-links">
-          {report && <a class="link-chip primary" href={report} target="_blank" rel="noopener">✨ AI concall report — {e.quarter}</a>}
           {symbol && <a class="link-chip" href={`https://www.tradingview.com/symbols/${encodeURIComponent(symbol)}/`} target="_blank" rel="noopener">📈 TradingView chart ↗</a>}
           {c.tvCode && <a class="link-chip" href={`https://www.screener.in/company/${encodeURIComponent(c.tvCode)}/`} target="_blank" rel="noopener">📊 Screener.in ↗</a>}
         </div>
       </section>
 
+      <!-- Was "At a glance", which restated industry / market cap / tier /
+           quarters — all four already in the header two inches above. This panel
+           carries what is not stated anywhere else: how the view has moved, and
+           the way back into the rest of the book. -->
       <section class="panel">
-        <h2 class="section-title">At a glance</h2>
-        <dl style="margin:0">
-          {c.industry && <div class="kv"><dt>Industry</dt><dd>{c.industry}</dd></div>}
-          {c.marketCap != null && <div class="kv"><dt>Market cap</dt><dd>{formatMcap(c.marketCap)}</dd></div>}
-          {e.tier && <div class="kv"><dt>Tier</dt><dd>{e.tier}</dd></div>}
-          <div class="kv"><dt>Quarters covered</dt><dd>{chrono.length}</dd></div>
-          <div class="kv"><dt>First covered</dt><dd>{chrono[0].quarter}</dd></div>
-        </dl>
+        <h2 class="section-title">Explore</h2>
+        {chrono.length > 1 && (
+          <div class="vtrail">
+            {chrono.map((q) => (
+              <span class={`vt-step view-${(q.view || 'unrated').toLowerCase()}`}>
+                <span class="vt-q">{q.quarter}</span>
+                <span class="vt-v"><span class="gly">{VIEW_GLYPH[q.view] || ''}</span>{q.view || 'Unrated'}</span>
+              </span>
+            ))}
+          </div>
+        )}
+        <div class="aside-links">
+          {c.industry && peers.industry > 0 && (
+            <a class="link-chip" href={`/?industry=${encodeURIComponent(c.industry)}`}>{c.industry} · {peers.industry} covered →</a>
+          )}
+          {tierNum && peers.tier > 0 && <a class="link-chip" href={`/?tier=${tierNum}`}>{e.tier} · {peers.tier} covered →</a>}
+          {e.view && peers.view > 0 && <a class="link-chip" href={`/?view=${encodeURIComponent(e.view)}`}>Rated {e.view} · {peers.view} covered →</a>}
+        </div>
+        <p class="ex-foot">Covered for {chrono.length} quarter{chrono.length > 1 ? 's' : ''} since {chrono[0].quarter}.</p>
       </section>
     </aside>
   </div>

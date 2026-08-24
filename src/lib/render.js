@@ -128,16 +128,24 @@ export function rowHTML(c, e, newestQ) {
           <span class="row-view-q${fresh}">${esc(e.quarter || '')}</span>
         </div>
         <div class="row-id">
-          <div class="row-name"><span class="row-nm" role="button" tabindex="0" title="Copy link to this company">${esc(c.name)}</span>${c.tvCode ? ` <span class="row-sym">${esc(c.tvCode)}</span>` : ''}${flip ? ` <span class="flip-chip">↕ from ${esc(flip)}</span>` : ''}</div>
+          <div class="row-name"><a class="row-nm" href="/company/${esc(c.slug)}/">${esc(c.name)}</a>${c.tvCode ? ` <span class="row-sym">${esc(c.tvCode)}</span>` : ''}${flip ? ` <span class="flip-chip">↕ from ${esc(flip)}</span>` : ''}</div>
           <div class="row-submeta">${[c.industry].filter(Boolean).map(esc).join(' · ')}${c.marketCap != null ? `${c.industry ? ' · ' : ''}<span class="row-cap">${esc(formatMcap(c.marketCap))}</span>` : ''}</div>
           <div class="row-note preview${e.note ? '' : ' empty'}">${esc(e.note || 'No note this quarter.')}</div>
           ${emaPillsHTML(c)}
         </div>
+        <!-- Two zones, never one wrapping row: outbound links left, the two
+             card-level actions right. Footer height is then the same on every
+             card whether or not it has a report. -->
         <div class="row-actions">
-          ${report ? `<a class="link-chip primary" href="${esc(report)}" target="_blank" rel="noopener">✨ AI report</a>` : ''}
-          ${symbol ? `<a class="ilink" href="https://www.tradingview.com/symbols/${encodeURIComponent(symbol)}/" target="_blank" rel="noopener">Chart ↗</a>` : ''}
-          ${c.tvCode ? `<a class="ilink" href="https://www.screener.in/company/${encodeURIComponent(c.tvCode)}/" target="_blank" rel="noopener">Screener ↗</a>` : ''}
-          <a class="row-more" href="/company/${esc(c.slug)}/">Full note →</a>
+          <span class="ra-links">
+            ${report ? `<a class="link-chip primary" href="${esc(report)}" target="_blank" rel="noopener">✨ AI report</a>` : ''}
+            ${symbol ? `<a class="ilink" href="https://www.tradingview.com/symbols/${encodeURIComponent(symbol)}/" target="_blank" rel="noopener">Chart<span class="ext"> ↗</span></a>` : ''}
+            ${c.tvCode ? `<a class="ilink" href="https://www.screener.in/company/${encodeURIComponent(c.tvCode)}/" target="_blank" rel="noopener">Screener<span class="ext"> ↗</span></a>` : ''}
+          </span>
+          <span class="ra-own">
+            <button class="row-copy" type="button" data-copy="${esc(c.slug)}" title="Copy link to this company" aria-label="Copy link to ${esc(c.name)}">🔗</button>
+            <a class="row-more" href="/company/${esc(c.slug)}/">Full note →</a>
+          </span>
         </div>
       </div>
     </div>`;
@@ -161,29 +169,86 @@ export function tableRowHTML(c, e, newestQ) {
     const up = r.dayChangePct >= 0;
     return `<span class="t-chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'}${Math.abs(r.dayChangePct).toFixed(2)}%</span>`;
   })();
+  // The note is what this site has that a screener does not, so Table density
+  // carries its first line too — clamped, with the full text on hover.
+  const note = e.note ? `<span class="t-th" title="${esc(e.note)}">${esc(e.note)}</span>` : '<span class="t-th empty">—</span>';
   return `<tr class="view-${vs}" id="c-${esc(c.slug)}" data-slug="${esc(c.slug)}">
       <td class="tv"><span class="t-view view-${vs}"><span class="gly">${VIEW_GLYPH[e.view] || ''}</span><span class="t-vw">${esc(e.view || 'Unrated')}</span></span></td>
-      <td><span class="t-nm">${esc(c.name)}</span>${c.tvCode ? `<span class="t-sym">${esc(c.tvCode)}</span>` : ''}</td>
+      <td><a class="t-nm" href="/company/${esc(c.slug)}/">${esc(c.name)}</a>${c.tvCode ? `<span class="t-sym">${esc(c.tvCode)}</span>` : ''}</td>
+      <td class="col-thesis">${note}</td>
       <td><span class="t-q${fresh}">${esc(e.quarter || '')}</span></td>
-      <td class="col-opt"><span class="t-tier">${esc(e.tier || c.tier || '')}</span></td>
-      <td class="col-opt"><span class="t-ind">${esc(c.industry || '')}</span></td>
+      <td class="col-tier"><span class="t-tier">${esc(e.tier || c.tier || '')}</span></td>
+      <td class="col-ind"><span class="t-ind">${esc(c.industry || '')}</span></td>
       <td class="r"><span class="t-cap">${esc(formatMcap(c.marketCap))}</span></td>
       <td class="r">${r.price != null ? `<span class="t-px">${fmtINR(r.price)}</span>${chg}` : '—'}</td>
       ${dist('10W')}${dist('20W')}${dist('40W')}
-      <td class="r"><a class="t-go" href="/company/${esc(c.slug)}/" aria-label="Open ${esc(c.name)}">→</a></td>
     </tr>`;
 }
 
-export function tableHTML(rows) {
+// Sortable columns. `key` matches the sort keys in index.astro's apply(), so a
+// header click and the Sort dropdown drive the same state.
+const TH = [
+  ['view', 'View', ''],
+  ['name', 'Company', ''],
+  [null, 'Thesis', 'col-thesis'],
+  ['quarter', 'Quarter', ''],
+  ['tier', 'Tier', 'col-tier'],
+  [null, 'Industry', 'col-ind'],
+  ['mcap', 'Mkt cap', 'r'],
+  ['price', 'Price', 'r'],
+  ['d10', '10W', 'r'],
+  ['d20', '20W', 'r'],
+  ['d40', '40W', 'r'],
+];
+
+// `sort` = { key, dir } so the active column can show its direction arrow.
+export function tableHTML(rows, sort) {
+  const s = sort || {};
+  const head = TH.map(([key, label, cls]) => {
+    const classes = [cls, key ? 'sortable' : '', key && key === s.key ? 'sorted' : ''].filter(Boolean).join(' ');
+    const attrs = key ? ` data-sort="${key}" aria-sort="${key === s.key ? (s.dir === 'asc' ? 'ascending' : 'descending') : 'none'}"` : '';
+    const arrow = key && key === s.key ? `<span class="th-dir" aria-hidden="true">${s.dir === 'asc' ? '▲' : '▼'}</span>` : '';
+    return `<th${classes ? ` class="${classes}"` : ''}${attrs}>${key ? `<button type="button" class="th-btn">${label}${arrow}</button>` : label}</th>`;
+  }).join('');
   return `<div class="tblwrap"><table class="tbl">
-      <thead><tr>
-        <th>View</th><th>Company</th><th>Quarter</th>
-        <th class="col-opt">Tier</th><th class="col-opt">Industry</th>
-        <th class="r">Mkt cap</th><th class="r">Price</th>
-        <th class="r">10W</th><th class="r">20W</th><th class="r">40W</th><th></th>
-      </tr></thead>
+      <thead><tr>${head}</tr></thead>
       <tbody>${rows}</tbody>
     </table></div>`;
+}
+
+// ---- Compact rows: table density on a phone ----
+// The 11-column table needs a sideways swipe per row at 390px, which makes it
+// carry less than a card. One line per company instead: view, name, price, and
+// the EMA the price is closest to — no horizontal scroll.
+export function compactRowHTML(c, e, newestQ) {
+  const vs = vslug(e.view);
+  const fresh = newestQ && e.quarter === newestQ ? ' fresh' : '';
+  const r = c.ema || {};
+  let near = '';
+  if (r.dist) {
+    const best = ['10W', '20W', '40W']
+      .filter((w) => r.dist[w] != null)
+      .sort((a, b) => Math.abs(r.dist[a]) - Math.abs(r.dist[b]))[0];
+    if (best) {
+      const d = r.dist[best], up = d >= 0;
+      near = `<span class="c-ema ${up ? 'up' : 'down'}">${best} ${up ? '▲' : '▼'}${Math.abs(d).toFixed(1)}%</span>`;
+    }
+  }
+  return `<div class="crow view-${vs}" id="c-${esc(c.slug)}" data-slug="${esc(c.slug)}">
+      <span class="c-gly" aria-hidden="true">${VIEW_GLYPH[e.view] || ''}</span>
+      <span class="c-id">
+        <a class="c-nm" href="/company/${esc(c.slug)}/">${esc(c.name)}</a>
+        <span class="c-sub"><span class="c-q${fresh}">${esc(e.quarter || '')}</span>${e.tier ? ` · ${esc(e.tier)}` : ''}</span>
+      </span>
+      <span class="c-num">
+        ${r.price != null ? `<span class="c-px">${fmtINR(r.price)}</span>` : ''}
+        ${near}
+      </span>
+    </div>`;
+}
+
+export function compactListHTML(rows) {
+  return `<div class="clist">${rows}</div>`;
 }
 
 // First paint, ordered to match the client's default "Sort: View" so nothing
@@ -282,22 +347,30 @@ export function growthMatrixHTML(e) {
       <div class="g-none">Growth figures are not recorded for this quarter. They start from the first quarter you enter them.</div>
     </section>`;
   }
+  // YoY carries the colour because YoY is what the Tier is read from. QoQ stays
+  // muted: for most Indian companies the March quarter is seasonally the
+  // largest, so a June-quarter sequential fall is a calendar effect, not news.
   const rows = GROWTH_ROWS.map(([key, label, , tierRow]) => {
     const v = g[key] || {};
-    const cell = (n) => (n == null
+    const yoyCell = (n) => (n == null
       ? '<td><span class="v flat-n">—</span></td>'
       : `<td><span class="v ${sgn(n)}"><span class="arw">${arw(n)}</span> ${pct(n)}</span></td>`);
-    return `<tr${tierRow ? ' class="hi"' : ''}><th class="m">${label}</th>${cell(v.yoy)}${cell(v.qoq)}</tr>`;
+    const qoqCell = (n) => (n == null
+      ? '<td class="qoq"><span class="v flat-n">—</span></td>'
+      : `<td class="qoq"><span class="v seq">${pct(n)}</span></td>`);
+    return `<tr${tierRow ? ' class="hi"' : ''}><th class="m">${label}</th>${yoyCell(v.yoy)}${qoqCell(v.qoq)}</tr>`;
   }).join('');
   return `<section class="panel dt-growth">${head}
       <div class="gm-wrap"><table class="gmatrix">
         <thead><tr><th class="m">Metric</th>
           <th>YoY<span class="gm-vs">vs ${esc(yoyQuarterLabel(e.quarter) || '—')}</span></th>
-          <th>QoQ<span class="gm-vs">vs ${esc(prevQuarterLabel(e.quarter) || '—')}</span></th>
+          <th class="qoq">QoQ<span class="gm-vs"><span class="gm-seq">sequential, </span>vs ${esc(prevQuarterLabel(e.quarter) || '—')}</span></th>
         </tr></thead>
         <tbody>${rows}</tbody>
       </table></div>
       ${tierFootnote(g)}
+      <p class="gm-foot seq-foot"><b>QoQ is sequential, not a trend.</b> For most Indian companies the March quarter is
+        seasonally the largest, so a June-quarter fall against it is a calendar effect. Only the YoY column feeds the Tier.</p>
     </section>`;
 }
 
@@ -309,7 +382,8 @@ function growthTilesHTML(e) {
   const tiles = GROWTH_ROWS.map(([key, , short]) => {
     const v = (e.growth || {})[key] || {};
     const cls = v.yoy == null ? '' : v.yoy >= 0 ? 'up' : 'down';
-    const row = (n, k, sub) => (n == null ? '' : `<div class="g-row${sub ? ' sub' : ''}"><span class="gp ${sgn(n)}">${sub ? '' : `<span class="arw">${arw(n)}</span>`}${pct(n)}</span><span class="gk">${k}</span></div>`);
+    // Same rule as the matrix: the YoY line is coloured, the sequential line is not.
+    const row = (n, k, sub) => (n == null ? '' : `<div class="g-row${sub ? ' sub' : ''}"><span class="gp ${sub ? 'seq' : sgn(n)}">${sub ? '' : `<span class="arw">${arw(n)}</span>`}${pct(n)}</span><span class="gk">${k}</span></div>`);
     return `<div class="g-tile ${cls}"><div class="gl">${short}</div>${row(v.yoy, 'YoY', false)}${row(v.qoq, 'QoQ', true)}</div>`;
   }).join('');
   return `<div class="tl-g">${tiles}</div>`;
