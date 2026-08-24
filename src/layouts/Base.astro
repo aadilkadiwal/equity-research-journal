@@ -45,6 +45,9 @@ const ogImage = site ? new URL('/og.png', site).href : '/og.png';
     </script>
   </head>
   <body>
+    <!-- First focusable thing on every page: without it a keyboard or
+         screen-reader user tabs the whole header before reaching any content. -->
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="inner">
         <a class="brand" href="/">
@@ -60,7 +63,7 @@ const ogImage = site ? new URL('/og.png', site).href : '/og.png';
       </div>
     </header>
 
-    <main class="container">
+    <main class="container" id="main" tabindex="-1">
       <slot />
     </main>
 
