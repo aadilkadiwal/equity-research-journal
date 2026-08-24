@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import data from '../data/companies.json';
 import emas from '../data/emas.json';
-import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterChanges, quarterBuckets, newestQuarter, newlyCovered } from '../lib/render.js';
+import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterBuckets, newestQuarter, digestCounts } from '../lib/render.js';
 
 // Attach the weekly-EMA record (10/20/40W + % distance) to each company by slug.
 // Refreshed daily by .github/workflows/refresh-emas.yml; absent entries just
@@ -25,89 +25,95 @@ const VIEW_MEANING = {
 };
 
 const counts = viewCounts(companies);
-const totalRated = VIEW_ORDER.reduce((s, v) => s + counts[v], 0);
 const newestQ = newestQuarter(companies);
-const changes = quarterChanges(companies);
-const upgrades = changes.filter((c) => c.dir === 'up');
-const downgrades = changes.filter((c) => c.dir === 'down');
-const fresh = newlyCovered(companies, newestQ);
-// SSR only the first page (desktop page size); the client paginates the rest on
-// load. Trims first-paint HTML and removes the all-rows→page-1 reflow. Trade-off:
-// no-JS visitors see the first 24 rows only.
+// Every company lands in exactly one digest bucket, so the five counts partition
+// the book and each can drive a filter.
+const dg = digestCounts(companies);
 const initialRows = initialListHTML(companies, 24);
 ---
 <Base title="Aadil Kadiwal · Equity Research & Views">
-  <section class="hero">
-    <h1 class="hero-title">Equity Research &amp; Views</h1>
-  </section>
+  <!-- Title and legend share one line on desktop; stacked they cost 161px of
+       every visit for information that fits in 52. -->
+  <div class="topbar">
+    <section class="hero">
+      <h1 class="hero-title">Equity Research &amp; Views</h1>
+    </section>
 
-  <!-- Summary bar + view legend -->
-  <section class="view-summary" aria-label="View distribution across all companies">
-    <div class="vs-bar">
-      {VIEW_ORDER.filter((v) => counts[v] > 0).map((v) => (
-        <span class={`vs-seg view-${v.toLowerCase()}`} style={`flex:${counts[v]}`} title={`${v}: ${counts[v]}`}></span>
-      ))}
-    </div>
-    <div class="vs-legend">
-      {VIEW_ORDER.map((v) => (
-        <span class="vs-item">
-          <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>
-          <b>{v}</b> <span class="vs-meaning">{VIEW_MEANING[v]}</span> <span class="vs-n">{counts[v]}</span>
-        </span>
-      ))}
-    </div>
-  </section>
-
-  {(changes.length > 0 || fresh.length > 0) && (
-    <details class="qoq">
-      <summary>
-        What changed in <b>{newestQ}</b> — <b class="up">↑ {upgrades.length} upgraded</b> · <b class="down">↓ {downgrades.length} downgraded</b>
-        {fresh.length > 0 && <> · <b class="new">+ {fresh.length} newly covered</b></>}
-      </summary>
-      <div class="qoq-body">
-        {upgrades.length > 0 && (
-          <div class="qoq-col">
-            <h4 class="up">Upgraded</h4>
-            {upgrades.map((c) => (
-              <a class="qoq-item" href={`#c-${c.slug}`}>{c.name} <span class="qoq-move">{c.from} → {c.to}</span></a>
-            ))}
-          </div>
-        )}
-        {downgrades.length > 0 && (
-          <div class="qoq-col">
-            <h4 class="down">Downgraded</h4>
-            {downgrades.map((c) => (
-              <a class="qoq-item" href={`#c-${c.slug}`}>{c.name} <span class="qoq-move">{c.from} → {c.to}</span></a>
-            ))}
-          </div>
-        )}
-        {fresh.length > 0 && (
-          <div class="qoq-col">
-            <h4 class="new">Newly covered</h4>
-            {fresh.map((c) => (
-              <a class="qoq-item" href={`#c-${c.slug}`}>{c.name} <span class="qoq-move">{c.view}</span></a>
-            ))}
-          </div>
-        )}
+    <section class="view-summary" aria-label="View distribution across all companies">
+      <div class="vs-bar">
+        {VIEW_ORDER.filter((v) => counts[v] > 0).map((v) => (
+          <span class={`vs-seg view-${v.toLowerCase()}`} style={`flex:${counts[v]}`} title={`${v}: ${counts[v]}`}></span>
+        ))}
       </div>
-    </details>
-  )}
+      <div class="vs-legend">
+        {VIEW_ORDER.map((v) => (
+          <span class="vs-item">
+            <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>
+            <b>{v}</b> <span class="vs-meaning">{VIEW_MEANING[v]}</span> <span class="vs-n">{counts[v]}</span>
+          </span>
+        ))}
+      </div>
+      <!-- On a phone the meanings move behind the ⓘ and the counts stay: 85px → 22px. -->
+      <div class="vs-compact">
+        {VIEW_ORDER.map((v) => (
+          <span class={`vsc view-${v.toLowerCase()}`}><span class="gly">{VIEW_GLYPH[v]}</span>{counts[v]}</span>
+        ))}
+        <button class="vsc-i" id="vs-info" title="Positive = looks promising · Watch = keep an eye on · Concern = be cautious · Negative = avoid for now">i</button>
+      </div>
+    </section>
+  </div>
 
-  <div class="toolbar">
-    <div class="tb-find">
+  <!-- Counts only. Pressing a pill filters the list, which shows those companies
+       as full cards or rows — better than a cramped column of names. A <details>
+       could not do this: a <summary> swallows clicks on its own children. -->
+  <section class="digest" aria-label={`What changed in ${newestQ}`}>
+    <div class="dg-bar">
+      <span class="dg-title">What changed in <b>{newestQ}</b></span>
+      <div class="dg-pills" id="dg-pills">
+        <button class="qp up" data-change="up" aria-pressed="false"><span class="n">{dg.up}</span>↑ upgraded</button>
+        <button class="qp down" data-change="down" aria-pressed="false" aria-disabled={dg.down === 0 ? 'true' : 'false'}><span class="n">{dg.down}</span>↓ downgraded</button>
+        <button class="qp new" data-change="new" aria-pressed="false"><span class="n">{dg.new}</span>+ newly covered</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- One toolbar at every width: a row that is always visible, and one panel
+       behind Filters. Replaces the old two-row desktop toolbar. -->
+  <div class="tbar-wrap">
+    <div class="tbar">
       <input class="search" id="search" type="search" placeholder="Search company name or symbol…" autocomplete="off" />
-      <select id="industry" aria-label="Filter by industry" data-dd="Search industry…">
-        <option value="">All industries</option>
-        {industries.map((s) => <option value={s}>{s}</option>)}
-      </select>
-      <select id="quarter" aria-label="Filter by quarter" data-dd>
-        <option value="" data-count={String(companies.length)}>All Quarter</option>
-        {quarters.map((q) => <option value={q.quarter} data-count={String(q.count)}>{q.quarter}</option>)}
-      </select>
-      <select id="tier" aria-label="Filter by tier" data-dd data-note="tier-note-tpl">
-        <option value="">All tiers</option>
-        {tiers.map((t) => <option value={t}>{t}</option>)}
-      </select>
+      <button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="tpanel">Filters<span class="fbtn-n" id="fbtn-n" hidden></span><span class="cv">▾</span></button>
+      <span class="dens">
+        <span class="segmented" role="tablist" aria-label="Density">
+          <button class="seg" data-density="cards" aria-selected="true"><span class="ic">▦</span>Cards</button>
+          <button class="seg" data-density="table" aria-selected="false"><span class="ic">☰</span>Table</button>
+        </span>
+      </span>
+      <button class="btn ghost" id="export" title="Download the filtered list as an NSE:SYMBOL watchlist">⬇ Watchlist</button>
+    </div>
+
+    <div class="tpanel" id="tpanel" hidden>
+      <p class="tp-lab">Narrow by</p>
+      <div class="tp-grid">
+        <select id="industry" aria-label="Filter by industry" data-dd="Search industry…">
+          <option value="">All industries</option>
+          {industries.map((s) => <option value={s}>{s}</option>)}
+        </select>
+        <select id="quarter" aria-label="Filter by quarter" data-dd>
+          <option value="" data-count={String(companies.length)}>All Quarter</option>
+          {quarters.map((q) => <option value={q.quarter} data-count={String(q.count)}>{q.quarter}</option>)}
+        </select>
+        <select id="tier" aria-label="Filter by tier" data-dd data-note="tier-note-tpl">
+          <option value="">All tiers</option>
+          {tiers.map((t) => <option value={t}>{t}</option>)}
+        </select>
+        <select class="sort" id="sort" aria-label="Sort by" data-dd>
+          <option value="view" selected>Sort: View · newest first</option>
+          <option value="mcap">Sort: Market cap</option>
+          <option value="name">Sort: Name A–Z</option>
+          <option value="tier">Sort: Tier</option>
+        </select>
+      </div>
       <template id="tier-note-tpl">
         <div class="dd-note">
           <b>Tier</b> = the weaker of YoY Sales &amp; PAT growth
@@ -119,37 +125,51 @@ const initialRows = initialListHTML(companies, 24);
           </ul>
         </div>
       </template>
-      <select class="sort" id="sort" aria-label="Sort by" data-dd>
-        <option value="view" selected>Sort: View · newest first</option>
-        <option value="mcap">Sort: Market cap</option>
-        <option value="name">Sort: Name A–Z</option>
-        <option value="tier">Sort: Tier</option>
-      </select>
-      <button class="btn ghost" id="export" title="Download the filtered list as an NSE:SYMBOL watchlist">⬇ Watchlist</button>
-    </div>
 
-    <div class="filter-row">
-      <div class="chips" id="view-chips">
-        {VIEW_ORDER.map((v) => (
-          <button class="chip" data-view={v} aria-pressed="false">
-            <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>{v}<span class="n" data-count></span>
-          </button>
-        ))}
+      <div class="tp-two">
+        <div>
+          <p class="tp-lab">View</p>
+          <div class="chips" id="view-chips">
+            {VIEW_ORDER.map((v) => (
+              <button class="chip" data-view={v} aria-pressed="false">
+                <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>{v}<span class="n" data-count></span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p class="tp-lab">Near an EMA (≤2%)</p>
+          <div class="ema-tools" id="ema-tools">
+            <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of the 10-week EMA">10W</button>
+            <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of the 20-week EMA">20W</button>
+            <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of the 40-week EMA">40W</button>
+            <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤5% apart)">⇉ Converging EMAs</button>
+          </div>
+        </div>
       </div>
 
-      <div class="ema-tools" id="ema-tools">
-        <span class="ema-lab">Near an EMA (≤2%)</span>
-        <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of the 10-week EMA">10W</button>
-        <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of the 20-week EMA">20W</button>
-        <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of the 40-week EMA">40W</button>
-        <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤5% apart)">⇉ Converging EMAs</button>
+      <div class="tp-foot">
+        <button class="btn ghost tp-mob" id="export-m">⬇ Watchlist</button>
+        <button class="token-reset" id="reset-panel">↺ Reset all</button>
       </div>
     </div>
   </div>
 
   <div class="active-filters" id="active-filters"></div>
-  <p class="count" id="count"></p>
+  <!-- The results line hosts the density switch on a phone, where the toolbar
+       row has no space for it: ~4px instead of ~40. -->
+  <div class="count-row">
+    <p class="count" id="count"></p>
+    <span class="dens">
+      <span class="segmented" role="tablist" aria-label="Density">
+        <button class="seg" data-density="cards" aria-selected="true"><span class="ic">▦</span>Cards</button>
+        <button class="seg" data-density="table" aria-selected="false"><span class="ic">☰</span>Table</button>
+      </span>
+    </span>
+  </div>
+
   <div class="list" id="list" set:html={initialRows}></div>
+  <div id="tblhost"></div>
   <div class="empty-state" id="empty" style="display:none">
     No companies match your filters. <button class="btn ghost" id="clear-empty">↺ Reset</button>
   </div>
@@ -159,7 +179,7 @@ const initialRows = initialListHTML(companies, 24);
 </Base>
 
 <script>
-  import { rowHTML, latestEntry, newestQuarter, VIEW_ORDER, VIEW_GLYPH, viewRank, esc } from '../lib/render.js';
+  import { rowHTML, tableRowHTML, tableHTML, latestEntry, newestQuarter, changeClass, VIEW_GLYPH, viewRank, esc } from '../lib/render.js';
   import { quarterKey } from '../lib/format.js';
 
   const DATA = JSON.parse(document.getElementById('dataset').textContent);
@@ -177,14 +197,24 @@ const initialRows = initialListHTML(companies, 24);
   const exportBtn = document.getElementById('export');
   const activeFiltersEl = document.getElementById('active-filters');
   const pagerEl = document.getElementById('pager');
+  const tblHost = document.getElementById('tblhost');
+  const pillsEl = document.getElementById('dg-pills');
+  const fbtn = document.getElementById('fbtn');
+  const fbtnN = document.getElementById('fbtn-n');
+  const tpanel = document.getElementById('tpanel');
 
   const emaToolsEl = document.getElementById('ema-tools');
   const activeViews = new Set();
   const activeEma = new Set();
-  // Fewer per page on phones (1-column grid) than on desktop (2-column).
-  // Breakpoint matches the CSS where .list collapses to a single column.
+  // Which digest bucket is filtering, if any. Single-select: the five buckets
+  // partition the book, so combining them would always give an empty set.
+  let activeChange = null;
+  // Cards are tall, so phones get half as many. Table rows are the same height
+  // everywhere, so 50 holds at both widths.
   const mqMobile = window.matchMedia('(max-width: 640px)');
-  let PAGE_SIZE = mqMobile.matches ? 12 : 24;
+  let density = document.documentElement.getAttribute('data-density') === 'table' ? 'table' : 'cards';
+  const pageSize = () => (density === 'table' ? 50 : (mqMobile.matches ? 12 : 24));
+  let PAGE_SIZE = pageSize();
   let currentPage = 1;
   let lastVisible = [];
 
@@ -223,6 +253,7 @@ const initialRows = initialListHTML(companies, 24);
       // Match the tier shown on the card (latest quarter), not the company field.
       if (tier && (c._latest.tier || c.tier) !== tier) return false;
       if (industry && c.industry !== industry) return false;
+      if (activeChange && changeClass(c, NEWEST_Q) !== activeChange) return false;
       return true;
     });
 
@@ -269,15 +300,29 @@ const initialRows = initialListHTML(companies, 24);
     renderActiveFilters(term, quarter, tier, industry);
   }
 
+  const CHANGE_LABEL = { up: 'upgraded', down: 'downgraded', new: 'newly covered' };
+
   function renderPage() {
     const total = lastVisible.length;
+    PAGE_SIZE = pageSize();
     const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
     if (currentPage > pages) currentPage = pages;
     const start = (currentPage - 1) * PAGE_SIZE;
     const slice = lastVisible.slice(start, start + PAGE_SIZE);
-    listEl.innerHTML = slice.map((c) => rowHTML(c, c._latest || latestEntry(c), NEWEST_Q)).join('');
+    const entry = (c) => c._latest || latestEntry(c);
+    if (density === 'table') {
+      tblHost.innerHTML = tableHTML(slice.map((c) => tableRowHTML(c, entry(c), NEWEST_Q)).join(''));
+      listEl.innerHTML = '';
+    } else {
+      listEl.innerHTML = slice.map((c) => rowHTML(c, entry(c), NEWEST_Q)).join('');
+      tblHost.innerHTML = '';
+    }
     emptyEl.style.display = total === 0 ? '' : 'none';
-    countEl.textContent = total === 0 ? `0 companies` : `Showing ${start + 1}–${start + slice.length} of ${total}`;
+    // The bucket name lands here rather than in the pill, where it would be long.
+    const suffix = activeChange ? ` · ${CHANGE_LABEL[activeChange]}` : '';
+    countEl.innerHTML = total === 0
+      ? '0 companies'
+      : `Showing <b>${start + 1}–${start + slice.length}</b> of <b>${total}</b>${suffix}`;
     renderPagination(pages);
   }
 
@@ -297,6 +342,7 @@ const initialRows = initialListHTML(companies, 24);
       html += p === '…' ? `<span class="pg-gap">…</span>` : `<button class="pg-btn pg-num${p === currentPage ? ' active' : ''}" data-pg="${p}">${p}</button>`;
     }
     html += `<button class="pg-btn" data-pg="next" ${currentPage === pages ? 'disabled' : ''}>Next ›</button>`;
+    html += `<span class="pg-size">${PAGE_SIZE} per page</span>`;
     pagerEl.innerHTML = html;
   }
 
@@ -305,7 +351,7 @@ const initialRows = initialListHTML(companies, 24);
     if (p === 'prev') p = currentPage - 1; else if (p === 'next') p = currentPage + 1; else p = parseInt(p, 10);
     currentPage = Math.min(Math.max(1, p), pages);
     renderPage();
-    document.querySelector('.toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('.tbar-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function renderActiveFilters(term, quarter, tier, industry) {
@@ -317,11 +363,18 @@ const initialRows = initialListHTML(companies, 24);
     [...activeViews].forEach((v) => tokens.push({ type: 'view', val: v, label: v, cls: `view-${v.toLowerCase()}`, gly: VIEW_GLYPH[v] }));
     if (tier) tokens.push({ type: 'tier', cat: 'Tier', label: tier.replace(/^Tier\s*/i, '') });
     if (industry) tokens.push({ type: 'industry', cat: 'Industry', label: industry });
+    if (activeChange) tokens.push({ type: 'change', val: activeChange, cat: 'Changed', label: CHANGE_LABEL[activeChange] });
     const emaShort = { near10: 'Near 10W', near20: 'Near 20W', near40: 'Near 40W', converge: 'Converging' };
     [...activeEma].forEach((k) => tokens.push({ type: 'ema', val: k, cat: 'EMA', label: emaShort[k] }));
     // "Dirty" = any filter OR a non-default sort — so Reset also surfaces when
     // only the sort was changed (Reset returns sort to View too).
     const dirty = tokens.length || sortEl.value !== 'view';
+    // The button carries a count so a collapsed panel never hides that filters
+    // are on. Search and the digest bucket live outside the panel, so they don't.
+    const inPanel = tokens.filter((t) => t.type !== 'search' && t.type !== 'change').length
+      + (sortEl.value !== 'view' ? 1 : 0);
+    fbtnN.hidden = inPanel === 0;
+    fbtnN.textContent = String(inPanel);
     if (!dirty) { activeFiltersEl.innerHTML = ''; return; }
     const chip = (t) => {
       const lead = t.gly ? `<span class="tk-gly">${t.gly}</span>`
@@ -340,6 +393,8 @@ const initialRows = initialListHTML(companies, 24);
     sortEl.value = 'view';                    // back to the default sort
     activeViews.clear();
     activeEma.clear();
+    activeChange = null;
+    pillsEl.querySelectorAll('.qp').forEach((p) => p.setAttribute('aria-pressed', 'false'));
     chipsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
     emaToolsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
     dropdowns.forEach((d) => d.repaint());   // resync custom-dropdown labels to the reset <select>s
@@ -362,6 +417,13 @@ const initialRows = initialListHTML(companies, 24);
     return true;
   }
   function handleHash() {
+    const ch = /^#changed=(up|down|new)$/.exec(location.hash);
+    if (ch) {
+      activeChange = ch[1];
+      pillsEl.querySelectorAll('.qp').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.change === activeChange)));
+      apply();
+      return;
+    }
     const m = /^#c-(.+)$/.exec(location.hash);
     if (!m) return;
     const slug = decodeURIComponent(m[1]);
@@ -411,10 +473,42 @@ const initialRows = initialListHTML(companies, 24);
     else if (type === 'industry') { industryEl.value = ''; industryEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'view') { activeViews.delete(val); chipsEl.querySelector(`.chip[data-view="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
     else if (type === 'ema') { activeEma.delete(val); emaToolsEl.querySelector(`.chip[data-ema="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
+    else if (type === 'change') { activeChange = null; pillsEl.querySelectorAll('.qp').forEach((p) => p.setAttribute('aria-pressed', 'false')); }
     apply();
   });
 
   document.getElementById('clear-empty').addEventListener('click', clearAll);
+  document.getElementById('reset-panel').addEventListener('click', clearAll);
+  document.getElementById('export-m').addEventListener('click', () => exportBtn.click());
+
+  fbtn.addEventListener('click', () => {
+    const open = tpanel.hasAttribute('hidden');
+    tpanel.toggleAttribute('hidden', !open);
+    fbtn.setAttribute('aria-expanded', String(open));
+  });
+
+  pillsEl.addEventListener('click', (e) => {
+    const p = e.target.closest('.qp');
+    if (!p || p.getAttribute('aria-disabled') === 'true') return;
+    const k = p.dataset.change;
+    activeChange = activeChange === k ? null : k;
+    pillsEl.querySelectorAll('.qp').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.change === activeChange)));
+    // Shareable: "#changed=stale" is a link to everything you have not revisited.
+    history.replaceState(null, '', activeChange ? `#changed=${activeChange}` : location.pathname);
+    apply();
+  });
+
+  // Both copies of the switch (toolbar on desktop, results line on a phone)
+  // drive one piece of state, stored the way the theme is.
+  function setDensity(d) {
+    density = d === 'table' ? 'table' : 'cards';
+    document.documentElement.setAttribute('data-density', density);
+    try { localStorage.setItem('density', density); } catch (err) {}
+    document.querySelectorAll('.dens .seg').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.density === density)));
+    currentPage = 1;
+    renderPage();
+  }
+  document.querySelectorAll('.dens .seg').forEach((b) => b.addEventListener('click', () => setDensity(b.dataset.density)));
 
   pagerEl.addEventListener('click', (e) => {
     const btn = e.target.closest('.pg-btn');
@@ -422,24 +516,24 @@ const initialRows = initialListHTML(companies, 24);
   });
 
   listEl.addEventListener('click', (e) => {
-    const t = e.target.closest('.older-toggle');
-    if (t) {
-      const box = t.nextElementSibling;
-      const open = box.hasAttribute('hidden');
-      box.toggleAttribute('hidden', !open);
-      t.setAttribute('aria-expanded', String(open));
-      // Only the caret changes — the label was fixed at render time, so it can't
-      // drift out of sync with what's actually inside.
-      t.querySelector('.caret').textContent = open ? '▾' : '▸';
-      return;
-    }
     const nm = e.target.closest('.row-nm');
     if (nm) {
       const slug = nm.closest('.row').dataset.slug;
       history.replaceState(null, '', '#c-' + slug);
       flashRow(slug);
       if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(() => toast('Link copied')).catch(() => {});
+      return;
     }
+    // Anywhere else on the card opens the company page. The explicit
+    // "Full note →" link keeps this reachable without JS and by keyboard.
+    if (e.target.closest('a')) return;
+    const row = e.target.closest('.row');
+    if (row && row.dataset.slug) location.href = `/company/${row.dataset.slug}/`;
+  });
+  tblHost.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    const tr = e.target.closest('tr[data-slug]');
+    if (tr) location.href = `/company/${tr.dataset.slug}/`;
   });
   listEl.addEventListener('keydown', (e) => {
     if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.row-nm')) { e.preventDefault(); e.target.closest('.row-nm').click(); }
@@ -542,12 +636,17 @@ const initialRows = initialListHTML(companies, 24);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') dropdowns.forEach((d) => d.close()); });
 
   // Re-paginate if the viewport crosses the mobile/desktop breakpoint.
-  mqMobile.addEventListener('change', () => {
-    PAGE_SIZE = mqMobile.matches ? 12 : 24;
-    currentPage = 1;
-    renderPage();
-  });
+  mqMobile.addEventListener('change', () => { currentPage = 1; renderPage(); });
 
+  // At 390px the descriptive placeholder truncates mid-word ("Search company nan").
+  const syncPlaceholder = () => {
+    searchEl.placeholder = mqMobile.matches ? 'Search company…' : 'Search company name or symbol…';
+  };
+  mqMobile.addEventListener('change', syncPlaceholder);
+  syncPlaceholder();
+
+  // Sync both switches to whatever was restored before paint.
+  document.querySelectorAll('.dens .seg').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.density === density)));
   apply();
   handleHash();
   window.addEventListener('hashchange', handleHash);

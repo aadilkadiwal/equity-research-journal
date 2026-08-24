@@ -1,7 +1,7 @@
 // Shared row rendering — used both at build time (SSR in index.astro) and on the
 // client (filter/sort/paginate). Keeping it in one place means the server-rendered
 // HTML and the client-rendered HTML are always identical.
-import { formatMcap, quarterKey } from './format.js';
+import { formatMcap, quarterKey, prevQuarterLabel, yoyQuarterLabel } from './format.js';
 
 export const VIEW_ORDER = ['Positive', 'Watch', 'Concern', 'Negative'];
 export const VIEW_GLYPH = { Positive: '▲', Watch: '●', Concern: '◆', Negative: '▼' };
@@ -62,7 +62,30 @@ const fmtDate = (iso) => {
 // Weekly-EMA trend panel. Renders only when EMA data (c.ema) is present, so
 // companies without price data (or the first paint before data exists) are
 // unaffected. Tiles are green when price is above the EMA, red when below.
-function emaPanelHTML(c) {
+// Compact variant for the list card: the EMA's rupee value is reference, not
+// signal — it lives on the company page. The pill carries the distance and its
+// sign, which is what the screening chips key off and what you scan for.
+function emaPillsHTML(c) {
+  const r = c.ema;
+  if (!r || !r.dist) return '';
+  const pills = ['10W', '20W', '40W'].map((w) => {
+    const d = r.dist[w];
+    if (d == null) return '';
+    const above = d >= 0;
+    return `<span class="ema-pill ${above ? 'above' : 'below'}">${w} <b>${above ? '▲' : '▼'}${Math.abs(d).toFixed(1)}%</b></span>`;
+  }).join('');
+  if (!pills) return '';
+  const chg = (r.dayChangePct == null) ? '' : (() => {
+    const up = r.dayChangePct >= 0;
+    return `<span class="ema-chg ${up ? 'up' : 'down'}"><span class="arw">${up ? '▲' : '▼'}</span>${Math.abs(r.dayChangePct).toFixed(2)}%</span>`;
+  })();
+  return `<div class="ema compact">
+        <div class="ema-head"><span class="ema-k">Price</span><span class="ema-price">${fmtINR(r.price)}</span>${chg}${r.asOf ? `<span class="ema-tag">${fmtDate(r.asOf)}</span>` : ''}</div>
+        <div class="ema-pills">${pills}</div>
+      </div>`;
+}
+
+export function emaPanelHTML(c) {
   const r = c.ema;
   if (!r || !r.ema) return '';
   const tiles = ['10W', '20W', '40W'].map((w) => {
@@ -88,47 +111,14 @@ function emaPanelHTML(c) {
       </div>`;
 }
 
-// One superseded quarter inside the "Earlier quarters" panel. Deliberately not
-// a card: a 2px left rule in the view colour carries the same signal the old
-// nested .entry did, without a second border/background inside the row card.
-function olderItemHTML(h) {
-  const hr = safeHttpUrl(h.reportUrl);
-  return `<div class="older-item view-${vslug(h.view)}">
-      <div class="older-top">
-        <span class="older-q">${esc(h.quarter)}</span>
-        ${h.view ? `<span class="older-view view-${vslug(h.view)}"><span class="gly">${VIEW_GLYPH[h.view] || ''}</span>${esc(h.view)}</span>` : ''}
-        ${h.tier ? `<span class="badge tier">${esc(h.tier)}</span>` : ''}
-        ${hr ? `<a class="ilink" href="${esc(hr)}" target="_blank" rel="noopener">✨ AI report ↗</a>` : ''}
-      </div>
-      <div class="older-note">${esc(h.note || '—')}</div>
-    </div>`;
-}
-
-// Collapsed disclosure for superseded quarters. Named by content rather than a
-// bare count — "(1)" said nothing, while "3 earlier quarters" says how much is
-// behind the click. The label is fixed at render time and the caret lives in its
-// own span, so toggling never rewrites (and never desyncs) the text.
-function olderPanelHTML(older) {
-  if (!older.length) return '';
-  const label = older.length === 1 ? 'Earlier quarter' : `${older.length} earlier quarters`;
-  return `<button class="older-toggle" aria-expanded="false"><span class="caret">▸</span>${label}</button>
-      <div class="older" hidden>${older.map(olderItemHTML).join('')}</div>`;
-}
-
 export function rowHTML(c, e, newestQ) {
   const vs = vslug(e.view);
   const symbol = c.tvCode ? `NSE:${c.tvCode}` : null;
-  const report = safeHttpUrl(e.reportUrl); // this quarter's report
-  // Sort the timeline once (oldest→newest); derive both the "flip" and the
-  // "older" list from it instead of sorting twice.
+  const report = safeHttpUrl(e.reportUrl);
   const chrono = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
   const ci = chrono.findIndex((x) => x.quarter === e.quarter);
   const prev = ci > 0 ? chrono[ci - 1] : null;
   const flip = prev && prev.view && e.view && prev.view !== e.view ? prev.view : null;
-  // Strictly older than the rendered entry, newest first. Slicing by position
-  // (rather than filtering out the current quarter) keeps a future quarter from
-  // ever showing up as history if a card is rendered at a non-latest entry.
-  const older = chrono.slice(0, ci).reverse();
   const fresh = newestQ && e.quarter === newestQ ? ' fresh' : '';
   return `<div class="row view-${vs}" id="c-${esc(c.slug)}" data-slug="${esc(c.slug)}">
       <div class="row-head">
@@ -140,17 +130,60 @@ export function rowHTML(c, e, newestQ) {
         <div class="row-id">
           <div class="row-name"><span class="row-nm" role="button" tabindex="0" title="Copy link to this company">${esc(c.name)}</span>${c.tvCode ? ` <span class="row-sym">${esc(c.tvCode)}</span>` : ''}${flip ? ` <span class="flip-chip">↕ from ${esc(flip)}</span>` : ''}</div>
           <div class="row-submeta">${[c.industry].filter(Boolean).map(esc).join(' · ')}${c.marketCap != null ? `${c.industry ? ' · ' : ''}<span class="row-cap">${esc(formatMcap(c.marketCap))}</span>` : ''}</div>
-          ${emaPanelHTML(c)}
-          <div class="row-note${e.note ? '' : ' empty'}">${esc(e.note || 'No note this quarter.')}</div>
-          ${olderPanelHTML(older)}
+          <div class="row-note preview${e.note ? '' : ' empty'}">${esc(e.note || 'No note this quarter.')}</div>
+          ${emaPillsHTML(c)}
         </div>
         <div class="row-actions">
           ${report ? `<a class="link-chip primary" href="${esc(report)}" target="_blank" rel="noopener">✨ AI report</a>` : ''}
           ${symbol ? `<a class="ilink" href="https://www.tradingview.com/symbols/${encodeURIComponent(symbol)}/" target="_blank" rel="noopener">Chart ↗</a>` : ''}
           ${c.tvCode ? `<a class="ilink" href="https://www.screener.in/company/${encodeURIComponent(c.tvCode)}/" target="_blank" rel="noopener">Screener ↗</a>` : ''}
+          <a class="row-more" href="/company/${esc(c.slug)}/">Full note →</a>
         </div>
       </div>
     </div>`;
+}
+
+// ---- Table density: one line per company ----
+// Same information, no boxes. The quarter is a column here because it is the
+// field that says whether you are reading current thinking or something months
+// old — newest takes the accent pill, older stays muted.
+export function tableRowHTML(c, e, newestQ) {
+  const vs = vslug(e.view);
+  const fresh = newestQ && e.quarter === newestQ ? ' fresh' : '';
+  const r = c.ema || {};
+  const dist = (w) => {
+    const d = r.dist ? r.dist[w] : null;
+    if (d == null) return '<td class="r">—</td>';
+    const up = d >= 0;
+    return `<td class="r"><span class="t-e ${up ? 'up' : 'down'}">${up ? '▲' : '▼'}${Math.abs(d).toFixed(1)}%</span></td>`;
+  };
+  const chg = (r.dayChangePct == null) ? '' : (() => {
+    const up = r.dayChangePct >= 0;
+    return `<span class="t-chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'}${Math.abs(r.dayChangePct).toFixed(2)}%</span>`;
+  })();
+  return `<tr class="view-${vs}" id="c-${esc(c.slug)}" data-slug="${esc(c.slug)}">
+      <td class="tv"><span class="t-view view-${vs}"><span class="gly">${VIEW_GLYPH[e.view] || ''}</span><span class="t-vw">${esc(e.view || 'Unrated')}</span></span></td>
+      <td><span class="t-nm">${esc(c.name)}</span>${c.tvCode ? `<span class="t-sym">${esc(c.tvCode)}</span>` : ''}</td>
+      <td><span class="t-q${fresh}">${esc(e.quarter || '')}</span></td>
+      <td class="col-opt"><span class="t-tier">${esc(e.tier || c.tier || '')}</span></td>
+      <td class="col-opt"><span class="t-ind">${esc(c.industry || '')}</span></td>
+      <td class="r"><span class="t-cap">${esc(formatMcap(c.marketCap))}</span></td>
+      <td class="r">${r.price != null ? `<span class="t-px">${fmtINR(r.price)}</span>${chg}` : '—'}</td>
+      ${dist('10W')}${dist('20W')}${dist('40W')}
+      <td class="r"><a class="t-go" href="/company/${esc(c.slug)}/" aria-label="Open ${esc(c.name)}">→</a></td>
+    </tr>`;
+}
+
+export function tableHTML(rows) {
+  return `<div class="tblwrap"><table class="tbl">
+      <thead><tr>
+        <th>View</th><th>Company</th><th>Quarter</th>
+        <th class="col-opt">Tier</th><th class="col-opt">Industry</th>
+        <th class="r">Mkt cap</th><th class="r">Price</th>
+        <th class="r">10W</th><th class="r">20W</th><th class="r">40W</th><th></th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
 }
 
 // First paint, ordered to match the client's default "Sort: View" so nothing
@@ -182,29 +215,134 @@ export function viewCounts(companies) {
   return counts;
 }
 
-// Companies whose first-ever view landed in `newestQ`. quarterChanges() can't
-// see these (it needs two quarters to compare), so without this the summary
-// reads as a quiet quarter even when most of the work was new coverage.
-export function newlyCovered(companies, newestQ) {
-  if (!newestQ) return [];
-  return companies
-    .filter((c) => (c.quarters || []).length === 1 && c.quarters[0].quarter === newestQ)
-    .map((c) => ({ name: c.name, slug: c.slug, view: c.quarters[0].view }));
+/* ============================================================
+   The "what changed" digest — counts only
+   The old version needed two adjacent quarters AND a differing view before it
+   could say anything, which left the largest fact unreported: most of the book
+   has not been revisited. Every company now lands in exactly one bucket, so the
+   five counts partition the list and each one can drive a filter.
+   ============================================================ */
+export function changeClass(c, newestQ) {
+  const qs = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
+  if (!qs.length) return null;
+  const cur = qs[qs.length - 1];
+  if (cur.quarter !== newestQ) return 'stale';
+  if (qs.length === 1) return 'new';
+  const prev = qs[qs.length - 2];
+  if (!prev.view || !cur.view || prev.view === cur.view) return 'same';
+  return viewRank(cur.view) < viewRank(prev.view) ? 'up' : 'down';
 }
 
-// Quarter-over-quarter changes: latest vs previous quarter per company.
-export function quarterChanges(companies) {
-  const out = [];
+export function digestCounts(companies) {
+  const newestQ = newestQuarter(companies);
+  const out = { quarter: newestQ, up: 0, down: 0, new: 0, same: 0, stale: 0, oldestStale: null };
   for (const c of companies) {
-    const qs = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
-    if (qs.length < 2) continue;
-    const cur = qs[qs.length - 1], prev = qs[qs.length - 2];
-    if (!cur.view || !prev.view || cur.view === prev.view) continue;
-    out.push({
-      name: c.name, slug: c.slug, from: prev.view, to: cur.view,
-      quarter: cur.quarter,
-      dir: viewRank(cur.view) < viewRank(prev.view) ? 'up' : 'down',
-    });
+    const k = changeClass(c, newestQ);
+    if (!k) continue;
+    out[k]++;
+    if (k === 'stale') {
+      const e = latestEntry(c);
+      if (e && (!out.oldestStale || quarterKey(e.quarter) < quarterKey(out.oldestStale))) out.oldestStale = e.quarter;
+    }
   }
   return out;
+}
+
+/* ============================================================
+   Company page components
+   ============================================================ */
+const GROWTH_ROWS = [
+  ['sales', 'Sales', 'SALES', true],
+  ['opProfit', 'Operating profit', 'OP PROFIT', false],
+  ['eps', 'EPS', 'EPS', false],
+  ['pat', 'PAT', 'PAT', true],
+];
+// A true minus sign, and one decimal — matches the EMA panel's number style.
+const pct = (v) => `${v < 0 ? '−' : '+'}${Math.abs(v).toFixed(1)}%`;
+const sgn = (v) => (v == null ? 'flat-n' : v >= 0 ? 'up-n' : 'down-n');
+const arw = (v) => (v >= 0 ? '▲' : '▼');
+const hasGrowth = (e) => !!(e && e.growth && GROWTH_ROWS.some(([k]) => e.growth[k] && (e.growth[k].yoy != null || e.growth[k].qoq != null)));
+
+// The Tier rule, shown instead of asserted: the weaker of YoY Sales and YoY PAT.
+function tierFootnote(g) {
+  const s = g.sales && g.sales.yoy, p = g.pat && g.pat.yoy;
+  if (s == null || p == null) return '';
+  const weaker = Math.min(s, p);
+  const which = s <= p ? 'Sales' : 'PAT';
+  const band = weaker >= 20 ? ['Tier 1', '≥ 20%'] : weaker >= 15 ? ['Tier 2', '≥ 15%'] : weaker >= 10 ? ['Tier 3', '≥ 10%'] : ['Tier 4', 'under 10%'];
+  return `<p class="gm-foot"><b>Tinted rows drive the Tier.</b> Tier = the weaker of YoY Sales and YoY PAT growth.
+      Here the weaker is ${which} at ${pct(weaker)}, which is ${band[1]} → <b>${band[0]}</b>.</p>`;
+}
+
+export function growthMatrixHTML(e) {
+  const g = (e && e.growth) || {};
+  const head = `<h2 class="section-title">Growth <span class="st-tag">${esc(e.quarter)}</span></h2>`;
+  if (!hasGrowth(e)) {
+    return `<section class="panel dt-growth">${head}
+      <div class="g-none">Growth figures are not recorded for this quarter. They start from the first quarter you enter them.</div>
+    </section>`;
+  }
+  const rows = GROWTH_ROWS.map(([key, label, , tierRow]) => {
+    const v = g[key] || {};
+    const cell = (n) => (n == null
+      ? '<td><span class="v flat-n">—</span></td>'
+      : `<td><span class="v ${sgn(n)}"><span class="arw">${arw(n)}</span> ${pct(n)}</span></td>`);
+    return `<tr${tierRow ? ' class="hi"' : ''}><th class="m">${label}</th>${cell(v.yoy)}${cell(v.qoq)}</tr>`;
+  }).join('');
+  return `<section class="panel dt-growth">${head}
+      <div class="gm-wrap"><table class="gmatrix">
+        <thead><tr><th class="m">Metric</th>
+          <th>YoY<span class="gm-vs">vs ${esc(yoyQuarterLabel(e.quarter) || '—')}</span></th>
+          <th>QoQ<span class="gm-vs">vs ${esc(prevQuarterLabel(e.quarter) || '—')}</span></th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+      ${tierFootnote(g)}
+    </section>`;
+}
+
+// Four tiles, always in the same column order, so reading the first column down
+// the rail gives you Sales YoY quarter by quarter. That alignment is the trend
+// view — it needs no chart.
+function growthTilesHTML(e) {
+  if (!hasGrowth(e)) return '<div class="tl-none">Growth figures not recorded for this quarter.</div>';
+  const tiles = GROWTH_ROWS.map(([key, , short]) => {
+    const v = (e.growth || {})[key] || {};
+    const cls = v.yoy == null ? '' : v.yoy >= 0 ? 'up' : 'down';
+    const row = (n, k, sub) => (n == null ? '' : `<div class="g-row${sub ? ' sub' : ''}"><span class="gp ${sgn(n)}">${sub ? '' : `<span class="arw">${arw(n)}</span>`}${pct(n)}</span><span class="gk">${k}</span></div>`);
+    return `<div class="g-tile ${cls}"><div class="gl">${short}</div>${row(v.yoy, 'YoY', false)}${row(v.qoq, 'QoQ', true)}</div>`;
+  }).join('');
+  return `<div class="tl-g">${tiles}</div>`;
+}
+
+// Earlier quarters as a rail: one line, one ring per quarter in that quarter's
+// view colour, so the trajectory of the views reads by scanning the rings. No
+// boxes — the rail supplies the structure the old nested cards were doing.
+export function timelineHTML(c, currentQuarter) {
+  const chrono = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
+  const ci = chrono.findIndex((x) => x.quarter === currentQuarter);
+  const older = chrono.slice(0, ci < 0 ? chrono.length : ci);
+  if (!older.length) return '';
+  const items = [...older].reverse().map((h) => {
+    const idx = chrono.findIndex((x) => x.quarter === h.quarter);
+    const before = idx > 0 ? chrono[idx - 1] : null;
+    const flip = before && before.view && h.view && before.view !== h.view ? before.view : null;
+    const hr = safeHttpUrl(h.reportUrl);
+    const vs = vslug(h.view);
+    return `<div class="tl-item view-${vs}">
+        <div class="tl-top">
+          <span class="tl-q">${esc(h.quarter)}</span>
+          ${h.view ? `<span class="tl-view view-${vs}"><span class="gly">${VIEW_GLYPH[h.view] || ''}</span>${esc(h.view)}</span>` : ''}
+          ${h.tier ? `<span class="badge tier">${esc(h.tier)}</span>` : ''}
+          ${flip ? `<span class="flip-chip">↕ from ${esc(flip)}</span>` : ''}
+          ${hr ? `<a class="ilink tl-rep" href="${esc(hr)}" target="_blank" rel="noopener">✨ AI report ↗</a>` : ''}
+        </div>
+        <div class="tl-note">${esc(h.note || '—')}</div>
+        ${growthTilesHTML(h)}
+      </div>`;
+  }).join('');
+  return `<section class="panel dt-hist">
+      <h2 class="section-title">Earlier quarters <span class="st-tag">${older.length}</span></h2>
+      <div class="qtl">${items}</div>
+    </section>`;
 }

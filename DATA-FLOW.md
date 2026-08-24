@@ -16,19 +16,42 @@ Report links are resolved automatically when you upload via `/admin`.
 
 ### 1. Study & record your views — the Excel sheet
 Update your research workbook (e.g. `Research Stock 2026.xlsx`) for the new
-results season. Columns used by the importer:
+results season. Columns are matched **by header name** (either spelling works), so
+moving them around the sheet is safe:
 
-| Column | Meaning |
-|---|---|
-| `CompanyName` | Company name |
-| `Industry` | Sector |
-| `MarketCap` | ₹ crore |
-| `Tier` | Tier 1–4 (weaker of YoY Sales & PAT growth) |
-| `View` | **View** — Positive / Watch / Concern / Negative |
-| `Note` | **The note** (plain-English take) |
-| `TradingView Code` | Symbol (for Chart/Screener links) |
+Names and order below are taken from the workbook itself, so the `/admin`
+template is a mirror of the sheet you maintain:
 
-Only rows that have a View/Note become companies on the site.
+| # | Column | Meaning |
+|---|---|---|
+| 1 | `Industry` | Sector |
+| 2 | `Company Name` | Company name |
+| 3–10 | *growth columns* | see below |
+| 11 | `Market Cap` | ₹ crore (text like `9,171.02` is fine) |
+| 12 | `Tier` | Tier 1–4 (weaker of YoY Sales & PAT growth) |
+| 13 | `TradingView Code` | Symbol (for Chart/Screener links) |
+| 14 | `View` | **View** — Positive / Watch / Concern / Negative |
+| 15 | `Note` | **The note** (plain-English take) |
+
+The older template spellings (`CompanyName`, `MarketCap`) are still accepted, so
+sheets downloaded before this change keep importing.
+
+Columns 3–10 are the eight **optional** growth columns, percentages
+(`24.1` = +24.1%):
+
+| Column | | Column | |
+|---|---|---|---|
+| `YoY Sales Growth` | `QoQ Sales Growth` | `YoY EPS Growth` | `QoQ EPS Growth` |
+| `YoY Op Profit Growth` | `QoQ Op Profit Growth` | `YoY PAT Growth` | `QoQ PAT Growth` |
+
+A blank cell means **not recorded** — never zero. A metric with both cells empty is
+omitted, and the company page says so rather than showing a misleading 0%.
+
+Only rows that have a View/Note become companies on the site. The `/admin`
+template (`npm run template`) ships all 15 in this order. It omits the workbook's
+`Halal`, `Wrap Suggestion`, `Chart Setup` and `Q1…  Concall` columns, which the
+site does not read — so `View`/`Note` sit at 14–15 in the template but 18–19 in
+the workbook. Uploading the raw sheet works either way.
 
 ### 2. Generate the AI concall reports
 Run the **concall-tracker** skill for the season's companies. It asks which

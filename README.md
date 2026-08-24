@@ -56,8 +56,13 @@ The importer **merges**: it upserts each company and adds that quarter's note to
 company's timeline, keeping earlier quarters. Re-running the same quarter replaces
 just that quarter's entry.
 
-Column mapping (source sheet): `CompanyName`=1, `Industry`=2, `MarketCap`=3, `Tier`=4,
-`TradingView Code`=14, `View`=17, `Note`=18.
+Columns are matched **by header name**, not position, so the sheet's layout can move
+without breaking the import. Canonical names and order come from the research
+workbook itself (`Industry`, `Company Name`, the eight growth columns, `Market Cap`,
+`Tier`, `TradingView Code`, `View`, `Note`) and the `/admin` template mirrors them;
+the older spellings (`CompanyName`, `MarketCap`) still work. The eight growth
+columns are optional — a sheet without them imports fine and the site shows
+"not recorded" rather than zero.
 
 ### AI report links
 

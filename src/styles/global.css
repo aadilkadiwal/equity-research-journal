@@ -112,7 +112,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* Controls */
-.controls { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; margin: var(--sp-4) 0 var(--sp-2); }
+
 /* shared control sizing so search / selects / buttons line up */
 .search, select, .btn {
   height: 40px; border-radius: var(--r-sm); border: 1px solid var(--border);
@@ -205,39 +205,20 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   user-select: none;
 }
 .chip[aria-pressed="true"] { color: var(--text); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-.chip .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
 
 .count { color: var(--muted); font-size: var(--fs-secondary); margin: var(--sp-1) 0 var(--sp-4); font-variant-numeric: tabular-nums; }
 
 /* Card grid (legacy — kept for reuse) */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--sp-3); }
-.card {
-  display: block; background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-md); padding: var(--sp-4) var(--sp-4) var(--sp-4) var(--sp-5); box-shadow: var(--shadow);
-  position: relative; overflow: hidden; color: var(--text); cursor: pointer;
-}
-.card:hover { text-decoration: none; border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); transform: translateY(-1px); transition: transform .1s ease; }
-.card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--bar, var(--view-unrated-bar)); }
-.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-2); }
-.card-name { font-weight: 700; font-size: var(--fs-body); line-height: var(--lh-heading); }
-.card-code { color: var(--muted); font-size: var(--fs-label); font-weight: 600; letter-spacing: .3px; margin-top: var(--sp-1); }
-.card-metaline { color: var(--muted); font-size: var(--fs-label); margin: var(--sp-2) 0; font-variant-numeric: tabular-nums; }
-.card-remark { color: var(--text); font-size: var(--fs-body); line-height: var(--lh-body); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.card-remark.empty { color: var(--muted); font-style: italic; opacity: .8; }
-.card.view-positive { background: color-mix(in srgb, var(--view-positive-bar) 5%, var(--surface)); }
-.card.view-watch    { background: color-mix(in srgb, var(--view-watch-bar) 5%, var(--surface)); }
-.card.view-concern  { background: color-mix(in srgb, var(--view-concern-bar) 5%, var(--surface)); }
-.card.view-negative { background: color-mix(in srgb, var(--view-negative-bar) 5%, var(--surface)); }
 
 /* Badges */
 .badge { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-label); line-height: var(--lh-label); font-weight: 700; padding: 3px 9px; border-radius: var(--r-pill); white-space: nowrap; }
 .badge.tier { background: var(--surface-2); color: var(--muted); }
-.badge.mcap { background: var(--surface-2); color: var(--muted); font-variant-numeric: tabular-nums; }
+
 .badge.view-positive { background: var(--view-positive-bg); color: var(--view-positive-fg); }
-.badge.view-watch    { background: var(--view-watch-bg);    color: var(--view-watch-fg); }
-.badge.view-concern  { background: var(--view-concern-bg);  color: var(--view-concern-fg); }
+.badge.view-watch { background: var(--view-watch-bg);    color: var(--view-watch-fg); }
+.badge.view-concern { background: var(--view-concern-bg);  color: var(--view-concern-fg); }
 .badge.view-negative { background: var(--view-negative-bg); color: var(--view-negative-fg); }
-.badge.view-unrated  { background: var(--view-unrated-bg);  color: var(--view-unrated-fg); }
+.badge.view-unrated { background: var(--view-unrated-bg);  color: var(--view-unrated-fg); }
 
 .empty-state { text-align: center; color: var(--muted); padding: var(--sp-10) var(--sp-4); }
 
@@ -259,73 +240,23 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .disclaimer { line-height: var(--lh-body); }
 
 /* ---------- Company detail (legacy) ---------- */
-.back { display: inline-block; margin: var(--sp-4) 0 var(--sp-2); font-size: var(--fs-secondary); }
-.detail-head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--sp-3); margin-bottom: var(--sp-2); }
-.detail-head h1 { margin: 0; font-size: var(--fs-title); }
-.detail-sub { color: var(--muted); font-size: var(--fs-secondary); margin-top: var(--sp-1); }
-.detail-meta { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-3) 0 var(--sp-5); }
-.tv-widget { border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; background: var(--surface); margin-bottom: var(--sp-6); min-height: 200px; }
-.section-title { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 0 0 var(--sp-3); }
 
-.timeline { display: flex; flex-direction: column; gap: var(--sp-3); }
-.entry { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); position: relative; }
-.entry::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: var(--r-md) 0 0 var(--r-md); background: var(--bar, var(--view-unrated-bar)); }
-.entry-top { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-2); }
-.entry-q { font-weight: 700; font-size: var(--fs-body); }
-.entry-note { color: var(--text); font-size: var(--fs-secondary); line-height: var(--lh-body); }
-.entry-flip { font-size: var(--fs-label); font-weight: 700; color: var(--view-concern-fg); background: var(--view-concern-bg); padding: 3px 8px; border-radius: var(--r-pill); }
-.ext-links { display: flex; gap: var(--sp-3); flex-wrap: wrap; margin-top: var(--sp-5); }
+.section-title { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 0 0 var(--sp-3); }
 
 /* View-colour bar driver */
 .view-positive { --bar: var(--view-positive-bar); }
-.view-watch    { --bar: var(--view-watch-bar); }
-.view-concern  { --bar: var(--view-concern-bar); }
+.view-watch { --bar: var(--view-watch-bar); }
+.view-concern { --bar: var(--view-concern-bar); }
 .view-negative { --bar: var(--view-negative-bar); }
 
 /* Chip counts */
 .chip .n { opacity: .7; margin-left: 5px; font-variant-numeric: tabular-nums; }
 
 /* Quarter label */
-.quarter-wrap { display: inline-flex; align-items: center; gap: var(--sp-2); }
-.quarter-wrap label { font-size: var(--fs-label); color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
 
 /* Tier info popover */
-.info { position: relative; display: inline-block; }
-.info-btn {
-  border: 1px solid var(--border); background: var(--surface-2); color: var(--muted);
-  border-radius: var(--r-pill); padding: var(--sp-2) var(--sp-3); font-size: var(--fs-label); font-weight: 600; cursor: pointer; font-family: inherit;
-}
-.info-btn:hover { border-color: var(--accent); color: var(--text); }
-.info-btn.icon { width: 40px; height: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center; font-size: var(--fs-secondary); }
-.info-pop {
-  position: absolute; z-index: 40; top: calc(100% + 8px); left: 0; right: auto; width: min(340px, 86vw);
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md);
-  box-shadow: 0 8px 30px rgba(16,24,40,.18); padding: var(--sp-4); font-size: var(--fs-secondary); color: var(--text);
-}
-.info-pop[hidden] { display: none; }
-.info-pop h4 { margin: 0 0 var(--sp-2); font-size: var(--fs-secondary); }
-.info-pop ul { margin: var(--sp-2) 0 0; padding-left: var(--sp-5); }
-.info-pop li { margin: var(--sp-1) 0; color: var(--muted); }
-.info-pop b { color: var(--text); }
 
 /* ---------- Modal (legacy) ---------- */
-.modal-overlay {
-  position: fixed; inset: 0; z-index: 100; background: rgba(10, 14, 20, .55);
-  display: flex; align-items: flex-start; justify-content: center; padding: 5vh var(--sp-4) var(--sp-4);
-  overflow-y: auto; backdrop-filter: blur(2px);
-}
-.modal-overlay[hidden] { display: none; }
-.modal {
-  position: relative; background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-lg); width: 100%; max-width: 640px; box-shadow: 0 20px 60px rgba(0,0,0,.35);
-  padding: var(--sp-6);
-}
-.modal-close {
-  position: absolute; top: var(--sp-3); right: var(--sp-3); width: 36px; height: 36px; border-radius: var(--r-sm);
-  border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
-  font-size: var(--fs-body); cursor: pointer;
-}
-.modal-close:hover { border-color: var(--accent); }
 
 /* ---------- Card grid ---------- */
 .list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); align-items: stretch; }
@@ -336,8 +267,8 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 .row:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
 .row.view-positive { background: color-mix(in srgb, var(--view-positive-bar) 4%, var(--surface)); }
-.row.view-watch    { background: color-mix(in srgb, var(--view-watch-bar) 4%, var(--surface)); }
-.row.view-concern  { background: color-mix(in srgb, var(--view-concern-bar) 4%, var(--surface)); }
+.row.view-watch { background: color-mix(in srgb, var(--view-watch-bar) 4%, var(--surface)); }
+.row.view-concern { background: color-mix(in srgb, var(--view-concern-bar) 4%, var(--surface)); }
 .row.view-negative { background: color-mix(in srgb, var(--view-negative-bar) 4%, var(--surface)); }
 
 /* card internals: badges+mcap row | name/meta/note | actions footer (pinned bottom) */
@@ -378,45 +309,6 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   padding: 2px 8px; border-radius: var(--r-pill); margin-left: var(--sp-2); letter-spacing: .2px;
 }
 
-/* ---------- Earlier quarters (superseded views) ----------
-   Named by content rather than a bare count. Each superseded quarter is boxed
-   the way the parent card is — view-tinted background, border in the same view
-   colour — so the history reads as a stack of past cards. Dashed top rule on the
-   toggle so it doesn't echo the solid one above .row-actions a few pixels below. */
-.older-toggle {
-  margin: var(--sp-3) 0 0; padding: var(--sp-3) 0 0; width: 100%;
-  background: transparent; border: 0; border-top: 1px dashed var(--border);
-  display: flex; align-items: center; gap: 6px; cursor: pointer; text-align: left;
-  font-family: inherit; font-size: var(--fs-label); font-weight: 700;
-  text-transform: uppercase; letter-spacing: .5px; color: var(--muted);
-}
-.older-toggle:hover { color: var(--accent); }
-/* Caret runs larger than the label it sits next to — it's the affordance that
-   says "this opens", and at 10px it disappeared against the uppercase text. */
-.older-toggle .caret { font-size: 16px; line-height: 1; opacity: .9; }
-.older { margin: var(--sp-2) 0 0; display: flex; flex-direction: column; gap: var(--sp-3); }
-.older[hidden] { display: none; }
-/* Tinted a touch harder than .row (8% vs 4%) — these sit on an already-tinted
-   card, so the parent's mix would read as no fill at all. */
-.older-item {
-  padding: var(--sp-3); border-radius: var(--r-sm);
-  border: 1px solid color-mix(in srgb, var(--bar, var(--view-unrated-bar)) 45%, var(--border));
-  background: color-mix(in srgb, var(--bar, var(--view-unrated-bar)) 8%, var(--surface));
-}
-.older-top { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
-.older-q { font-weight: 700; font-size: var(--fs-label); font-variant-numeric: tabular-nums; }
-.older-view { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-label); font-weight: 700; }
-.older-view .gly { font-size: 10px; }
-.older-view.view-positive { color: var(--view-positive-fg); }
-.older-view.view-watch    { color: var(--view-watch-fg); }
-.older-view.view-concern  { color: var(--view-concern-fg); }
-.older-view.view-negative { color: var(--view-negative-fg); }
-.older-note { color: var(--muted); font-size: var(--fs-label); line-height: 1.5; margin-top: 3px; }
-
-.small-note { color: var(--text); font-size: var(--fs-secondary); line-height: var(--lh-body); margin-top: var(--sp-2); }
-.qtop { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
-.qlab { font-weight: 700; font-size: var(--fs-secondary); }
-
 @media (max-width: 640px) {
   .list { grid-template-columns: 1fr; }
 }
@@ -424,31 +316,17 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 /* ---------- Hero ---------- */
 .hero { margin: var(--sp-6) 0 var(--sp-2); }
 .hero-title { margin: 0; font-size: clamp(22px, 4.5vw, var(--fs-title)); line-height: var(--lh-tight); letter-spacing: -.02em; }
-.hero-sub { margin: var(--sp-1) 0 0; color: var(--muted); font-size: var(--fs-secondary); }
 
 /* ---------- Toolbar ---------- */
 /* Grouped filter panel — one boxed home for search, sort, and all filters. */
-.toolbar { display: flex; flex-direction: column; gap: var(--sp-3); margin: var(--sp-4) 0 var(--sp-3);
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg, 14px); padding: var(--sp-3) var(--sp-4); }
+
 /* zone 1: find + period */
-.tb-find { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
-.tb-find .search { flex: 1 1 320px; }
+
 /* zone 3: period + refine filters */
-.tb-refine { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
-.tb-group { display: inline-flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
-.tb-spacer { flex: 1 1 auto; min-width: var(--sp-4); }
+
 .sort { min-width: 150px; }
 .btn.ghost { background: transparent; color: var(--muted); }
 .btn.ghost:hover { color: var(--text); border-color: var(--accent); }
-
-@media (min-width: 760px) {
-  .toolbar {
-    position: sticky; top: var(--header-h); z-index: 15;
-    background: color-mix(in srgb, var(--surface) 94%, transparent);
-    backdrop-filter: blur(8px);
-    padding: var(--sp-3) var(--sp-4); margin: 0 0 var(--sp-3);
-  }
-}
 
 /* Segmented quarter control */
 .segmented { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 3px; gap: 2px; }
@@ -478,8 +356,8 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .token .x:hover { background: var(--view-negative-bar); color: #fff; }
 /* Colour-coded by filter type — views take their semantic colour, EMA the brand accent. */
 .token.view-positive { border-color: color-mix(in srgb, var(--view-positive-bar) 55%, var(--border)); background: color-mix(in srgb, var(--view-positive-bar) 10%, var(--surface)); color: var(--view-positive-fg); }
-.token.view-watch    { border-color: color-mix(in srgb, var(--view-watch-bar) 55%, var(--border));    background: color-mix(in srgb, var(--view-watch-bar) 10%, var(--surface));    color: var(--view-watch-fg); }
-.token.view-concern  { border-color: color-mix(in srgb, var(--view-concern-bar) 55%, var(--border));  background: color-mix(in srgb, var(--view-concern-bar) 10%, var(--surface));  color: var(--view-concern-fg); }
+.token.view-watch { border-color: color-mix(in srgb, var(--view-watch-bar) 55%, var(--border));    background: color-mix(in srgb, var(--view-watch-bar) 10%, var(--surface));    color: var(--view-watch-fg); }
+.token.view-concern { border-color: color-mix(in srgb, var(--view-concern-bar) 55%, var(--border));  background: color-mix(in srgb, var(--view-concern-bar) 10%, var(--surface));  color: var(--view-concern-fg); }
 .token.view-negative { border-color: color-mix(in srgb, var(--view-negative-bar) 55%, var(--border)); background: color-mix(in srgb, var(--view-negative-bar) 10%, var(--surface)); color: var(--view-negative-fg); }
 .token[class*="view-"] .tk-gly { color: currentColor; }
 .token.token-ema { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
@@ -494,31 +372,27 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 
 /* Focus visibility */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--r-sm); }
-.card:focus-visible, .row:focus-visible { outline-offset: 3px; }
+.row:focus-visible { outline-offset: 3px; }
 
 /* Modal entrance */
 @keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes modalIn { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
-.modal-overlay:not([hidden]) { animation: overlayIn .14s ease; }
-.modal-overlay:not([hidden]) .modal { animation: modalIn .18s cubic-bezier(.2,.7,.3,1); }
-.modal-hint { text-align: center; color: var(--muted); font-size: var(--fs-label); margin-top: var(--sp-4); }
-.modal-hint kbd { background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; font-size: 11px; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
 @media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; }
-  .detail-head h1 { font-size: 20px; }
+  
+  
   .segmented { flex: 1; overflow-x: auto; }
-  .quarter-wrap { flex: 1 1 100%; }
-  .tb-spacer { display: none; }
-  .tb-find .search, .tb-find .dd { flex: 1 1 100%; }
+  
+  
+  
   .dd-trigger { width: 100%; min-width: 0; max-width: none; }
   .dd-menu { max-width: 100%; }
-  .modal { padding: var(--sp-4); border-radius: var(--r-md); }
-  .modal-overlay { padding: 2vh var(--sp-2) var(--sp-2); }
+  
+  
 }
 
 /* ---------- View summary bar + legend ---------- */
@@ -533,23 +407,6 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .vs-item b { color: var(--text); font-weight: 700; }
 .vs-item .gly { font-size: 10px; margin-right: 4px; }
 .vs-n { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 700; margin-left: 4px; }
-
-/* ---------- Quarter-over-quarter digest ---------- */
-.qoq { border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface); margin: var(--sp-3) 0; box-shadow: var(--shadow); }
-.qoq > summary { cursor: pointer; padding: 12px 16px; font-size: var(--fs-secondary); font-weight: 600; list-style: none; }
-.qoq > summary::-webkit-details-marker { display: none; }
-.qoq > summary::before { content: '▸ '; color: var(--muted); }
-.qoq[open] > summary::before { content: '▾ '; }
-.qoq .up { color: var(--view-positive-fg); }
-.qoq .down { color: var(--view-negative-fg); }
-.qoq .new { color: var(--accent); }
-.qoq-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; padding: 4px 16px 16px; }
-.qoq-col h4 { margin: 0 0 6px; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .4px; }
-.qoq-item { display: block; padding: 5px 0; font-size: var(--fs-secondary); color: var(--text); }
-.qoq-item:hover { text-decoration: none; color: var(--accent); }
-.qoq-move { color: var(--muted); font-size: var(--fs-label); }
-@media (max-width: 560px) { .qoq-body { grid-template-columns: 1fr; } }
-
 
 /* ---------- Deep-link: clickable name + flash ---------- */
 .row-nm { cursor: pointer; }
@@ -596,9 +453,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .ema-tools { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin: 0 0 var(--sp-2); }
 /* View chips and EMA filters share one row: views left, EMA filters right, so
    the horizontal space is used instead of two half-empty rows. Wraps on mobile. */
-.filter-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-5); }
-.filter-row .chips, .filter-row .ema-tools { margin: 0; }
-.ema-tools .ema-lab { font-size: var(--fs-label); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; margin-right: var(--sp-1); }
+
 .chip[data-ema][aria-pressed="true"] { color: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 /* footer about */
 .footer-about { margin-bottom: 16px; }
@@ -606,3 +461,500 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .footer-about p { margin: 0; line-height: var(--lh-body); }
 .footer-about em { font-style: normal; color: var(--text); font-weight: 600; }
 
+/* ============================================================
+   REDESIGN — company detail page, density, unified toolbar, digest
+   ============================================================ */
+
+/* ---------- 1. Growth strip (LIST CARD) ----------
+   Two tiles only — Sales and PAT — because the card's job is triage.
+   All four metrics live on the detail page. Mirrors .ema exactly:
+   dashed top rule, uppercase label, tinted tiles. */
+
+.g-tile { border: 1px solid var(--border); border-radius: var(--r-sm); padding: 7px 9px; background: var(--surface); min-width: 0; }
+.g-tile .gl { font-size: 11px; font-weight: 800; color: var(--muted); letter-spacing: .3px; white-space: nowrap; }
+.g-row { display: flex; align-items: baseline; gap: 5px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+.g-row .gp { font-size: var(--fs-secondary); font-weight: 800; letter-spacing: -.01em; }
+.g-row .gk { font-size: 10px; font-weight: 800; color: var(--muted); letter-spacing: .04em; }
+.g-row.sub .gp { font-size: var(--fs-label); font-weight: 700; }
+.g-tile.up { border-color: color-mix(in srgb, var(--view-positive-bar) 40%, var(--border)); background: color-mix(in srgb, var(--view-positive-bar) 6%, var(--surface)); }
+.g-tile.down { border-color: color-mix(in srgb, var(--view-negative-bar) 40%, var(--border)); background: color-mix(in srgb, var(--view-negative-bar) 6%, var(--surface)); }
+.up-n { color: var(--view-positive-fg); }
+.down-n { color: var(--view-negative-fg); }
+.flat-n { color: var(--muted); }
+.arw { font-size: 9px; }
+
+/* Note preview — one line, clamped. Replaces today's full inline note. */
+.row-note.preview { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: var(--muted); }
+.row-more { font-size: var(--fs-label); font-weight: 700; color: var(--accent); white-space: nowrap; margin-left: auto; }
+
+/* Growth not recorded yet — the state EVERY card is in today. */
+.g-none { margin-top: var(--sp-2); border: 1px dashed var(--border); border-radius: var(--r-sm);
+  padding: 7px 10px; color: var(--muted); font-size: var(--fs-label); background: var(--surface); }
+
+/* ---------- 2. Growth matrix (DETAIL PAGE) ----------
+   All four metrics x YoY/QoQ. A real table: metric names read down one
+   column, so you compare Sales-to-PAT vertically and YoY-to-QoQ across. */
+.gmatrix { width: 100%; border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
+.gmatrix th, .gmatrix td { text-align: right; padding: 10px var(--sp-3); border-bottom: 1px solid var(--border); }
+.gmatrix thead th { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 800; border-bottom: 1px solid var(--border); padding-bottom: var(--sp-2); }
+.gmatrix th.m { text-align: left; font-weight: 700; font-size: var(--fs-secondary); color: var(--text); }
+.gmatrix tbody tr:last-child th, .gmatrix tbody tr:last-child td { border-bottom: 0; }
+.gmatrix td .v { font-size: var(--fs-body); font-weight: 800; letter-spacing: -.01em; }
+
+.gmatrix tbody tr.hi th.m, .gmatrix tbody tr.hi td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.gm-foot { color: var(--muted); font-size: var(--fs-label); margin: var(--sp-3) 0 0; line-height: 1.5; }
+
+/* Panel — the shared container for detail-page sections. */
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--shadow); padding: var(--sp-4) var(--sp-5); margin-bottom: var(--sp-4); }
+.panel > .section-title { display: flex; align-items: baseline; gap: var(--sp-2); }
+.panel > .section-title .st-tag { margin-left: auto; text-transform: none; letter-spacing: 0; font-weight: 700; color: var(--accent); }
+
+/* ---------- 3. Detail page shell ---------- */
+.dt-nav { display: flex; align-items: center; gap: var(--sp-3); margin: var(--sp-5) 0 var(--sp-4); flex-wrap: wrap; }
+.dt-nav .spacer { flex: 1; }
+.dt-prevnext { display: inline-flex; gap: var(--sp-2); }
+.dt-head { margin-bottom: var(--sp-4); }
+.dt-badges { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-2); }
+.dt-title { margin: 0; font-size: clamp(22px, 3.4vw, 32px); line-height: var(--lh-tight); letter-spacing: -.02em; }
+.dt-sym { color: var(--muted); font-size: var(--fs-secondary); font-weight: 700; letter-spacing: .4px; margin-left: var(--sp-3); vertical-align: middle; }
+.dt-sub { color: var(--muted); font-size: var(--fs-secondary); margin-top: var(--sp-2); font-variant-numeric: tabular-nums; }
+.dt-sub b { color: var(--text); }
+
+/* Two independent columns. An aside that SPANS the main column's rows forces
+   the grid to stretch those rows to the aside's height, which opened ~130px
+   gaps between the note, growth and history panels. */
+.dt-grid { display: grid; grid-template-columns: minmax(0, 1fr) 336px; gap: var(--sp-5); align-items: start; }
+.dt-main { min-width: 0; }
+.dt-side { position: sticky; top: calc(var(--header-h) + var(--sp-4)); }
+
+.note-full { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--text); margin: 0; }
+.note-full.lead { font-size: 17px; }
+
+/* Aside blocks */
+.aside-links { display: flex; flex-direction: column; gap: var(--sp-2); }
+.aside-links .link-chip { justify-content: center; padding: 9px var(--sp-3); font-size: var(--fs-secondary); }
+.kv { display: flex; justify-content: space-between; gap: var(--sp-3); padding: 7px 0; border-bottom: 1px solid var(--border); font-size: var(--fs-secondary); }
+.kv:last-child { border-bottom: 0; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- 4. Earlier quarters — rail timeline (detail page) ----------
+   The old version boxed every past quarter in its own view-tinted card, which
+   put a second bordered surface inside an already-bordered panel and made three
+   quarters read as three competing cards. A rail carries the chronology
+   instead: one line, one dot per quarter in that quarter's view colour, so the
+   view trajectory is legible by scanning the dots. No box, no tint, no nesting. */
+.qtl { position: relative; margin: 0; padding-left: 30px; display: flex; flex-direction: column; gap: var(--sp-6); }
+.qtl::before { content: ""; position: absolute; left: 7px; top: 9px; bottom: 9px; width: 2px;
+  background: var(--border); border-radius: 2px; }
+.tl-item { position: relative; }
+/* Dot: hollow ring in the view colour — a filled dot at this size reads as a
+   bullet, a ring reads as a station on a line. */
+.tl-item::before { content: ""; position: absolute; left: -30px; top: 3px; width: 16px; height: 16px;
+  border-radius: 50%; background: var(--surface); box-sizing: border-box;
+  border: 3px solid var(--bar, var(--view-unrated-bar)); }
+.tl-top { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+.tl-q { font-weight: 800; font-size: 15px; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.tl-view { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-label); font-weight: 800; }
+.tl-view .gly { font-size: 10px; }
+.tl-view.view-positive { color: var(--view-positive-fg); }
+.tl-view.view-watch { color: var(--view-watch-fg); }
+.tl-view.view-concern { color: var(--view-concern-fg); }
+.tl-view.view-negative { color: var(--view-negative-fg); }
+.tl-rep { margin-left: auto; }
+.tl-note { color: var(--text); font-size: var(--fs-secondary); line-height: var(--lh-body); margin-top: var(--sp-2); }
+/* Four metrics across, one column per metric, in the SAME order in every
+   entry — so reading straight down the first column gives you Sales YoY
+   quarter by quarter. That column alignment is the trend view; it needs no
+   separate chart. */
+.tl-g { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); margin-top: var(--sp-3); }
+.tl-none { margin-top: var(--sp-3); border: 1px dashed var(--border); border-radius: var(--r-sm);
+  padding: 8px 11px; color: var(--muted); font-size: var(--fs-label); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  /* display:contents promotes the main column's children to grid items, so the
+     reading order can interleave the sidebar: note -> growth -> price/links -> history. */
+  .dt-grid { grid-template-columns: 1fr; gap: var(--sp-4); }
+  .dt-main { display: contents; }
+  .dt-note { order: 1; }
+  .dt-growth { order: 2; }
+  .dt-side { order: 3; position: static; }
+  .dt-hist { order: 4; }
+}
+@media (max-width: 640px) {
+  .tl-g { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qtl { padding-left: 24px; gap: var(--sp-5); }
+  .tl-item::before { left: -24px; width: 13px; height: 13px; border-width: 3px; }
+  .qtl::before { left: 5.5px; }
+  .g-tile { padding: 7px 8px; }
+  .gmatrix th, .gmatrix td { padding: 9px var(--sp-2); }
+  .gmatrix td .v { font-size: var(--fs-secondary); }
+  .dt-sym { display: block; margin: var(--sp-1) 0 0; }
+}
+
+/* ============================================================
+   5. MOBILE CHROME — collapsing the pre-list controls
+   Problem: at 390px the toolbar alone is ~485px tall (search + four
+   full-width dropdowns + export + eight chips), and with the hero, the
+   legend and the digest above it the first company card lands ~844px down.
+   A whole phone screen of controls before a single result.
+   Fix: everything below is mobile-only. Desktop is untouched.
+   ============================================================ */
+.vs-compact { display: none; }
+
+@media (max-width: 640px) {
+  /* --- 1. the legend loses its prose, keeps its counts (85px -> 22px) --- */
+  .vs-legend { display: none; }
+  .vs-compact { display: flex; align-items: center; gap: 6px; margin-top: 9px; }
+  .vsc { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: var(--r-pill);
+    font-size: var(--fs-label); font-weight: 800; font-variant-numeric: tabular-nums; }
+  .vsc .gly { font-size: 9px; }
+  .vsc.view-positive { background: var(--view-positive-bg); color: var(--view-positive-fg); }
+  .vsc.view-watch { background: var(--view-watch-bg);    color: var(--view-watch-fg); }
+  .vsc.view-concern { background: var(--view-concern-bg);  color: var(--view-concern-fg); }
+  .vsc.view-negative { background: var(--view-negative-bg); color: var(--view-negative-fg); }
+  .vsc-i { margin-left: auto; border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+    width: 24px; height: 24px; border-radius: 50%; font-size: 12px; cursor: pointer; font-family: inherit;
+    display: inline-flex; align-items: center; justify-content: center; }
+
+  /* --- 2. the digest summary stops wrapping to two lines --- */
+  
+  
+  
+
+  /* --- 3. the desktop toolbar gives way to one sticky row (485px -> 40px) --- */
+  
+  
+  
+  
+  /* Open, or filters active, both read as "there is state here" — the same
+     inset-ring treatment the view chips already use for pressed. */
+  
+  
+
+  /* --- 4. the panel: same controls, two-up, only when asked for --- */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  /* --- 5. reclaim the rest --- */
+  .hero { margin: var(--sp-4) 0 var(--sp-1); }
+  .count { margin: var(--sp-1) 0 var(--sp-3); }
+}
+
+/* ============================================================
+   6. DENSITY — fitting more companies on the first screen
+   Baseline: 2 fixed columns, a ~110px EMA panel per card and ~330px of
+   chrome above the list = 2 companies visible on a 1440x900 laptop.
+   ============================================================ */
+
+/* --- 6a. the grid follows the window instead of being fixed at two --- */
+/* 400px is the narrowest a card stays comfortable at: the longest symbol +
+   name pair still fits two lines and the three EMA pills stay on one row.
+   1400px content -> 3 columns; a 1920 monitor -> 4; a tablet -> 2; phone -> 1. */
+/* min(400px, 100%) matters: a bare minmax(400px, 1fr) forces a 400px track even
+   when the container is only 358px wide, so the card overflowed the phone
+   viewport by 34px and clipped every row. Clamping the minimum to the container
+   keeps one full-width column below 400px. */
+.list { grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr)); }
+
+/* --- 6b. compact EMA: pills instead of tiles (110px -> 58px) ---
+   The rupee value of each EMA is reference, not signal — it moves to the
+   company page. What you actually scan for is the distance and its sign,
+   which is all the pill carries. */
+.ema.compact { margin-top: var(--sp-2); padding-top: var(--sp-2); }
+.ema.compact .ema-price { font-size: var(--fs-body); }
+.ema-pills { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.ema-pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px;
+  border: 1px solid var(--border); border-radius: var(--r-pill); background: var(--surface);
+  font-size: 11px; font-weight: 800; color: var(--muted); letter-spacing: .02em;
+  font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ema-pill.above { border-color: color-mix(in srgb, var(--view-positive-bar) 42%, var(--border));
+  background: color-mix(in srgb, var(--view-positive-bar) 8%, var(--surface)); }
+.ema-pill.above b { color: var(--view-positive-fg); }
+.ema-pill.below { border-color: color-mix(in srgb, var(--view-negative-bar) 42%, var(--border));
+  background: color-mix(in srgb, var(--view-negative-bar) 8%, var(--surface)); }
+.ema-pill.below b { color: var(--view-negative-fg); }
+
+/* --- 6c. title and legend share one line on desktop (161px -> 52px) --- */
+.topbar { display: block; }
+@media (min-width: 900px) {
+  .topbar { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-8);
+    margin: var(--sp-5) 0 var(--sp-2); }
+  .topbar .hero { margin: 0; flex: 0 0 auto; }
+  .topbar .view-summary { margin: 0; flex: 0 1 640px; min-width: 0; }
+  .topbar .vs-legend { margin-top: 8px; gap: 4px 16px; }
+}
+
+/* --- 6d. the density switch, reusing the existing .segmented component --- */
+.dens { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.dens .segmented { flex: none; }
+.dens .seg { display: inline-flex; align-items: center; gap: 5px; }
+.dens .seg .ic { font-size: 12px; line-height: 1; }
+
+/* --- 6e. table density: one line per company (~44px a row) --- */
+.tblwrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--surface); box-shadow: var(--shadow); }
+.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-secondary);
+  font-variant-numeric: tabular-nums; }
+.tbl thead th { position: sticky; top: 0; z-index: 2; background: var(--surface-2);
+  text-align: left; padding: 9px var(--sp-3); font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .07em; color: var(--muted);
+  border-bottom: 1px solid var(--border); white-space: nowrap; }
+.tbl th.r, .tbl td.r { text-align: right; }
+.tbl tbody td { padding: 7px var(--sp-3); border-bottom: 1px solid var(--border); white-space: nowrap; }
+.tbl tbody tr:last-child td { border-bottom: 0; }
+.tbl tbody tr:hover td { background: color-mix(in srgb, var(--accent) 4%, var(--surface)); }
+/* The view colour stays the only coloured element, carried as a 3px edge —
+   the same job the card's left rule does. */
+.tbl td.tv { box-shadow: inset 3px 0 0 var(--bar, var(--view-unrated-bar)); }
+.tbl .t-view { display: inline-flex; align-items: center; gap: 5px; font-size: var(--fs-label); font-weight: 800; }
+.tbl .t-view.view-positive { color: var(--view-positive-fg); }
+.tbl .t-view.view-watch { color: var(--view-watch-fg); }
+.tbl .t-view.view-concern { color: var(--view-concern-fg); }
+.tbl .t-view.view-negative { color: var(--view-negative-fg); }
+.tbl .t-nm { font-weight: 700; }
+.tbl .t-sym { color: var(--muted); font-size: var(--fs-label); font-weight: 700; letter-spacing: .3px; margin-left: 6px; }
+.tbl .t-ind, .tbl .t-tier { color: var(--muted); font-size: var(--fs-label); }
+.tbl .t-cap { font-weight: 700; }
+.tbl .t-px { font-weight: 700; }
+.tbl .t-chg { font-size: var(--fs-label); font-weight: 800; margin-left: 5px; }
+.tbl .t-chg.up { color: var(--view-positive-fg); }
+.tbl .t-chg.down { color: var(--view-negative-fg); }
+.tbl .t-e { font-size: var(--fs-label); font-weight: 800; }
+.tbl .t-e.up { color: var(--view-positive-fg); }
+.tbl .t-e.down { color: var(--view-negative-fg); }
+.tbl .t-go { color: var(--accent); font-weight: 800; font-size: var(--fs-label); }
+@media (max-width: 900px) { .tbl .col-opt { display: none; } }
+
+/* --- 6f. keep the toolbar on one row at 1400px ---
+   With the density switch added, the controls overflowed and Watchlist
+   dropped to a second row — 50px of empty toolbar. Tighter gaps and a
+   shorter sort label bring it back to one line. */
+@media (min-width: 1100px) {
+  
+  
+  
+  
+  /* the legend fits its four items on one line instead of wrapping to two */
+  .topbar .view-summary { flex: 0 1 720px; }
+}
+
+/* ============================================================
+   7. ONE TOOLBAR, EVERY BREAKPOINT
+   The mobile fix and the desktop toolbar were two components doing the
+   same job. This is one: a single row that is always visible, and one
+   panel behind a Filters button. Desktop and mobile differ only in how
+   the panel lays its controls out — 4-up vs 2-up.
+   Net effect on desktop: the toolbar drops from two rows (~130px) to one
+   (~64px), and .toolbar / .tb-find / .filter-row / .mtb / .mfilters
+   collapse into .tbar / .tpanel.
+   ============================================================ */
+.tbar-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg);
+  padding: var(--sp-3) var(--sp-4); margin: var(--sp-3) 0; box-shadow: var(--shadow); }
+.tbar { display: flex; gap: var(--sp-3); align-items: center; }
+.tbar .search { flex: 1 1 auto; min-width: 0; }
+.fbtn { flex: none; height: 40px; padding: 0 var(--sp-4); cursor: pointer;
+  border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--surface); color: var(--text);
+  font-family: inherit; font-size: var(--fs-secondary); font-weight: 700;
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.fbtn:hover { border-color: var(--accent); }
+.fbtn[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.fbtn .cv { font-size: 10px; opacity: .8; transition: transform .12s ease; }
+.fbtn[aria-expanded="true"] .cv { transform: rotate(180deg); }
+.fbtn-n { min-width: 18px; height: 18px; padding: 0 5px; border-radius: var(--r-pill);
+  background: var(--accent); color: #fff; font-size: 10px; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center; font-variant-numeric: tabular-nums; }
+
+.tpanel { margin-top: var(--sp-3); padding-top: var(--sp-4); border-top: 1px solid var(--border); }
+.tpanel[hidden] { display: none; }
+.tp-lab { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--muted); margin: 0 0 var(--sp-2); }
+
+/* 4 across on desktop, 2 on a phone — the only difference between breakpoints */
+.tp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); }
+.tp-grid .dd { display: flex; }
+.tp-grid .dd-trigger { width: 100%; min-width: 0; max-width: none; }
+
+.tp-foot { display: flex; gap: var(--sp-2); align-items: center;
+  margin-top: var(--sp-4); padding-top: var(--sp-3); border-top: 1px solid var(--border); }
+.tp-foot .token-reset { margin-left: auto; }
+
+@media (min-width: 760px) {
+  .tbar-wrap { position: sticky; top: var(--header-h); z-index: 15;
+    background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(8px); margin: 0 0 var(--sp-3); }
+}
+@media (max-width: 760px) {
+  .tp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  
+  .tbar-wrap { position: sticky; top: var(--header-h); z-index: 16;
+    background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(8px); }
+  .tbar .dens { display: none; }          /* density switch moves into the panel on a phone */
+  .tbar .btn.ghost { display: none; }      /* so does the export button */
+  
+}
+@media (min-width: 761px) {
+  .tpanel .tp-mob { display: none; }       /* the phone-only copies of those two */
+}
+
+/* View and EMA groups sit side by side on desktop — stacked they left a
+   1000px-wide panel two-thirds empty and cost ~110px of height. */
+.tp-two { display: grid; grid-template-columns: max-content max-content;
+  gap: var(--sp-4) var(--sp-8); margin-top: var(--sp-4); }
+@media (max-width: 760px) { .tp-two { grid-template-columns: 1fr; gap: var(--sp-3); } }
+.tp-two .tp-lab { margin-bottom: var(--sp-2); }
+.tpanel .tp-foot { margin-top: var(--sp-3); padding-top: var(--sp-3); }
+
+/* ============================================================
+   8. DENSITY ON A PHONE, AND A PHONE-READABLE TABLE
+   ============================================================ */
+
+/* --- 8a. the Cards/Table switch reaches the phone via the results line ---
+   The bar has no room for it at 390px, but the results count already occupies
+   a row there. Putting the switch at the right of that row costs ~4px, not 40. */
+.count-row { display: flex; align-items: center; gap: var(--sp-3); margin: var(--sp-1) 0 var(--sp-3); }
+.count-row .count { margin: 0; }
+.count-row .dens { margin-left: auto; }
+@media (min-width: 761px) { .count-row .dens { display: none; } }  /* desktop keeps it in the bar */
+
+/* --- 8b. table on a phone: scroll sideways, but never lose the company ---
+   Tier and Industry drop out, the view label reduces to its glyph, and the
+   glyph + name freeze to the left edge so the row you are reading stays
+   identified while price and the three EMAs scroll past. */
+@media (max-width: 900px) {
+  .tbl .t-vw { display: none; }
+  .tbl thead th:nth-child(1), .tbl tbody td:nth-child(1) { position: sticky; left: 0; z-index: 2; }
+  .tbl thead th:nth-child(2), .tbl tbody td:nth-child(2) { position: sticky; left: 34px; z-index: 2; }
+  .tbl tbody td:nth-child(1), .tbl tbody td:nth-child(2) { background: var(--surface); }
+  .tbl thead th:nth-child(1), .tbl thead th:nth-child(2) { z-index: 4; background: var(--surface-2); }
+  .tbl tbody td:nth-child(2) { box-shadow: 1px 0 0 var(--border); }
+  .tbl tbody td:nth-child(1) { box-shadow: inset 3px 0 0 var(--bar, var(--view-unrated-bar)); padding-right: 0; }
+  .tbl thead th:nth-child(1) { padding-right: 0; }
+  .tbl .t-nm { font-size: var(--fs-label); }
+  .tbl .t-sym { display: none; }
+  .tbl tbody td, .tbl thead th { padding: 7px var(--sp-2); }
+}
+
+/* --- 8c. page-size note next to the pager --- */
+.pg-size { font-size: var(--fs-label); color: var(--muted); font-weight: 700; margin-left: var(--sp-3); }
+
+/* ============================================================
+   9. THE "WHAT CHANGED" DIGEST, REBUILT
+   Was: a <details> with three flat name lists, silent about anything it
+   could not compute from two adjacent quarters. On the real data that
+   silence hid the biggest number on the page — 92 of 118 companies have
+   not been revisited since Q4 2026.
+   Now: a header line, a row of count pills that FILTER the list, the
+   lists themselves behind one disclosure, and the stale queue on its own
+   full-width strip because it is a to-do list, not a change.
+   <details>/<summary> had to go: a <summary> swallows clicks, so the
+   pills inside it could never have been buttons.
+   ============================================================ */
+.digest { border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface);
+  margin: var(--sp-3) 0; box-shadow: var(--shadow); }
+
+.dg-title { font-size: var(--fs-label); font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+.dg-title b { color: var(--text); }
+
+/* count pills — buttons, not text */
+.dg-pills { display: flex; flex-wrap: wrap; gap: var(--sp-2); padding: var(--sp-2) var(--sp-4) var(--sp-3); }
+.qp { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-family: inherit;
+  border: 1px solid var(--border); background: var(--surface); border-radius: var(--r-pill);
+  padding: 5px 12px; font-size: var(--fs-secondary); font-weight: 700; color: var(--text);
+  font-variant-numeric: tabular-nums; white-space: nowrap; }
+.qp .n { font-weight: 800; }
+.qp:hover { border-color: var(--accent); }
+.qp[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.qp.up .n { color: var(--view-positive-fg); }
+.qp.down .n { color: var(--view-negative-fg); }
+.qp.new .n { color: var(--accent); }
+
+/* dashed = pending work, not a rating. Deliberately no view colour: this is
+   the one pill that must not read as an opinion. */
+
+.qp[aria-disabled="true"] { opacity: .45; cursor: default; }
+.qp[aria-disabled="true"]:hover { border-color: var(--border); }
+
+/* the move, as two coloured view chips — lists are ordered by how far the
+   view travelled, so a two-step jump sits above six one-step ones */
+
+/* the stale queue: full width, its own rule, because it is not a "change" */
+
+/* phone: one swipeable row of pills keeps this at ~62px instead of ~120px */
+@media (max-width: 640px) {
+  .dg-pills { flex-wrap: nowrap; overflow-x: auto; padding-bottom: var(--sp-3); }
+  
+  
+}
+
+/* ============================================================
+   10. DIGEST: COUNTS ONLY
+   The name lists were duplicating work the pills now do — press a pill
+   and the list itself shows those companies as full cards or rows, which
+   beats a cramped column of names. So the lists and the disclosure go,
+   and the digest becomes one row: the quarter, then the counts.
+   630px expanded / 100px collapsed  ->  a single ~56px row, always.
+   ============================================================ */
+.dg-bar { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-2) var(--sp-4);
+  padding: var(--sp-3) var(--sp-4); }
+.dg-bar .dg-title { flex: 0 0 auto; }
+.dg-bar .dg-pills { padding: 0; gap: var(--sp-2); }
+@media (max-width: 760px) {
+  .dg-bar { gap: var(--sp-2); padding: var(--sp-3) 0; }
+  .dg-bar .dg-title { flex: 1 1 100%; padding: 0 var(--sp-4); }
+  .dg-bar .dg-pills { flex: 1 1 100%; flex-wrap: nowrap; overflow-x: auto; padding: 0 var(--sp-4); }
+}
+
+/* ---- Quarter column in the table ----
+   The table showed everything except which quarter the view came from —
+   the one field that says whether you are looking at current thinking or
+   something nine months old. Newest quarter takes the same accent pill the
+   card uses; anything older stays muted, so a column of grey quarters reads
+   as "this needs revisiting" at a glance. */
+.tbl .t-q { font-size: var(--fs-label); font-weight: 700; color: var(--muted);
+  font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tbl .t-q.fresh { color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, transparent);
+  padding: 2px 8px; border-radius: var(--r-pill); font-weight: 800; }
+
+/* Which density is showing is decided before first paint (Base.astro reads
+   localStorage alongside the theme), so switching never flashes the wrong one. */
+:root[data-density="table"] #list { display: none; }
+:root[data-density="table"] #pager-cards { display: none; }
+:root:not([data-density="table"]) #tblhost { display: none; }
+
+/* The quarter chip inherits margin-left:auto from .row-view-q (the list card,
+   where it belongs at the far right). In the detail header it must sit beside
+   the tier badge, not float to the opposite end of the line. */
+.dt-badges .row-view-q, .dt-badges .flip-chip { margin-left: 0; }
+
+/* [hidden] is display:none at UA-stylesheet strength, so any component of ours
+   that sets an explicit display would otherwise ignore it. */
+.fbtn-n[hidden] { display: none; }
+
+/* At 1440px the ten columns' natural widths just exceed the container, which
+   pushed the last column out of view. Tighter cells, and the company name
+   truncates rather than forcing the table wider than its box. */
+@media (min-width: 901px) {
+  .tbl thead th, .tbl tbody td { padding-left: 10px; padding-right: 10px; }
+  .tbl tbody td:nth-child(2) { max-width: 300px; overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* Matrix header: the comparison base sits on its own line, so the column is
+   sized by "+24.1%" rather than by "vs Q1 2026" — that difference alone pushed
+   the page past 390px on a phone. Without it the header reads "YOYVS Q1 2026". */
+.gm-vs { display: block; font-weight: 600; text-transform: none; letter-spacing: 0; opacity: .85; margin-top: 2px; }
+.gm-wrap { overflow-x: auto; }
+.gmatrix { min-width: 0; }
+@media (max-width: 480px) {
+  .container { padding: 0 var(--sp-4); }
+  .gmatrix th.m { font-size: var(--fs-label); }
+}

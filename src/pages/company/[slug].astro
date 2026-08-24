@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import data from '../../data/companies.json';
+import emas from '../../data/emas.json';
+import { VIEW_GLYPH, latestEntry, newestQuarter, emaPanelHTML, growthMatrixHTML, timelineHTML, esc } from '../../lib/render.js';
+import { formatMcap, quarterKey } from '../../lib/format.js';
+
+// One pre-rendered page per studied company. Ordered by market cap so the
+// prev/next links are stable — they must not depend on whatever filters the
+// visitor had applied on the list.
+export function getStaticPaths() {
+  const all = [...data.companies]
+    .filter((c) => (c.quarters || []).length)
+    .sort((a, b) => (b.marketCap || 0) - (a.marketCap || 0));
+  return all.map((c, i) => ({
+    params: { slug: c.slug },
+    props: { company: c, prev: all[i - 1] || null, next: all[i + 1] || null },
+  }));
+}
+
+const { company, prev, next } = Astro.props;
+const c = { ...company, ema: (emas.companies || {})[company.slug] || null };
+const e = latestEntry(c);
+const newestQ = newestQuarter(data.companies);
+const chrono = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
+const prevEntry = chrono.length > 1 ? chrono[chrono.length - 2] : null;
+const flip = prevEntry && prevEntry.view && e.view && prevEntry.view !== e.view ? prevEntry.view : null;
+const vs = (e.view || 'unrated').toLowerCase();
+const fresh = e.quarter === newestQ;
+const symbol = c.tvCode ? `NSE:${c.tvCode}` : null;
+const report = /^https?:\/\//i.test(e.reportUrl || '') ? e.reportUrl : null;
+
+const title = `${c.name} — ${e.view || 'Unrated'} (${e.quarter}) · Aadil Kadiwal`;
+const description = (e.note || `View and quarter history for ${c.name}.`).slice(0, 180);
+---
+<Base title={title} description={description}>
+  <div class="dt-nav">
+    <a class="link-chip" href="/">← All companies</a>
+    <span class="spacer"></span>
+    <span class="dt-prevnext">
+      {prev && <a class="ilink" href={`/company/${prev.slug}/`}>‹ {prev.name}</a>}
+      {next && <a class="ilink" href={`/company/${next.slug}/`}>{next.name} ›</a>}
+    </span>
+  </div>
+
+  <div class="dt-head">
+    <div class="dt-badges">
+      <span class={`badge view-${vs}`}><span class="gly">{VIEW_GLYPH[e.view] || ''}</span>{e.view || 'Unrated'}</span>
+      {e.tier && <span class="badge tier">{e.tier}</span>}
+      <span class={`row-view-q${fresh ? ' fresh' : ''}`}>{e.quarter}</span>
+      {flip && <span class="flip-chip">↕ from {flip}</span>}
+    </div>
+    <h1 class="dt-title">{c.name}{symbol && <span class="dt-sym">{symbol}</span>}</h1>
+    <div class="dt-sub">
+      {c.industry}{c.marketCap != null && <> · <b>{formatMcap(c.marketCap)}</b> market cap</>}
+      {' '}· covered for <b>{chrono.length} quarter{chrono.length > 1 ? 's' : ''}</b> since {chrono[0].quarter}
+    </div>
+  </div>
+
+  <div class="dt-grid">
+    <div class="dt-main">
+    <section class="panel dt-note">
+      <h2 class="section-title">Current view <span class="st-tag">{e.quarter}</span></h2>
+      <p class="note-full lead">{e.note || 'No note recorded for this quarter.'}</p>
+    </section>
+
+    <div class="dt-growth" set:html={growthMatrixHTML(e)}></div>
+
+    <div class="dt-hist" set:html={timelineHTML(c, e.quarter)}></div>
+    </div>
+
+    <aside class="dt-side">
+      {c.ema && c.ema.ema && (
+        <section class="panel">
+          <h2 class="section-title">Price &amp; weekly trend</h2>
+          <div set:html={emaPanelHTML(c)}></div>
+        </section>
+      )}
+
+      <section class="panel">
+        <h2 class="section-title">Go deeper</h2>
+        <div class="aside-links">
+          {report && <a class="link-chip primary" href={report} target="_blank" rel="noopener">✨ AI concall report — {e.quarter}</a>}
+          {symbol && <a class="link-chip" href={`https://www.tradingview.com/symbols/${encodeURIComponent(symbol)}/`} target="_blank" rel="noopener">📈 TradingView chart ↗</a>}
+          {c.tvCode && <a class="link-chip" href={`https://www.screener.in/company/${encodeURIComponent(c.tvCode)}/`} target="_blank" rel="noopener">📊 Screener.in ↗</a>}
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">At a glance</h2>
+        <dl style="margin:0">
+          {c.industry && <div class="kv"><dt>Industry</dt><dd>{c.industry}</dd></div>}
+          {c.marketCap != null && <div class="kv"><dt>Market cap</dt><dd>{formatMcap(c.marketCap)}</dd></div>}
+          {e.tier && <div class="kv"><dt>Tier</dt><dd>{e.tier}</dd></div>}
+          <div class="kv"><dt>Quarters covered</dt><dd>{chrono.length}</dd></div>
+          <div class="kv"><dt>First covered</dt><dd>{chrono[0].quarter}</dd></div>
+        </dl>
+      </section>
+    </aside>
+  </div>
+</Base>
