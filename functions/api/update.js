@@ -1,6 +1,6 @@
 import { currentUser } from '../_lib/session.js';
 import { getFile, putFile } from '../_lib/github.js';
-import { mergeRows, REQUIRED_COLUMNS } from '../_lib/merge.js';
+import { mergeRows, REQUIRED_COLUMNS, missingColumns } from '../_lib/merge.js';
 import { linkReports } from '../_lib/linkReports.js';
 import { json } from '../_lib/http.js';
 
@@ -44,7 +44,9 @@ export async function onRequest({ request, env }) {
 
   // Validate headers up front — a column-name mismatch must fail loudly, not
   // silently skip every row. See /research-sheet-template.xlsx for the shape.
-  const missing = REQUIRED_COLUMNS.filter((c) => !headers.includes(c));
+  // alias-aware: 'Company Name' satisfies 'CompanyName', so the raw research
+  // workbook uploads as readily as the downloaded template.
+  const missing = missingColumns(headers);
   if (missing.length) {
     return json({
       error: `Sheet is missing required column(s): ${missing.join(', ')}. ` +
