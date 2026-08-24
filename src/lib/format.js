@@ -19,3 +19,23 @@ export function formatMcap(cr) {
   }
   return `₹${Math.round(cr).toLocaleString('en-IN')} Cr`;
 }
+
+// "Q1 2027" -> "Q4 2026" (the immediately preceding quarter).
+export function prevQuarterLabel(label) {
+  const m = /Q(\d)\s*(?:FY\s*)?(\d{2,4})/i.exec(label || '');
+  if (!m) return null;
+  let q = parseInt(m[1], 10), y = parseInt(m[2], 10);
+  if (y < 100) y += y < 70 ? 2000 : 1900;
+  q -= 1;
+  if (q === 0) { q = 4; y -= 1; }
+  return `Q${q} ${y}`;
+}
+
+// "Q1 2027" -> "Q1 2026" (same quarter, one year back — the YoY base).
+export function yoyQuarterLabel(label) {
+  const m = /Q(\d)\s*(?:FY\s*)?(\d{2,4})/i.exec(label || '');
+  if (!m) return null;
+  let y = parseInt(m[2], 10);
+  if (y < 100) y += y < 70 ? 2000 : 1900;
+  return `Q${m[1]} ${y - 1}`;
+}

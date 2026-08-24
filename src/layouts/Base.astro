@@ -38,6 +38,8 @@ const ogImage = site ? new URL('/og.png', site).href : '/og.png';
         try {
           var t = localStorage.getItem('theme');
           if (t) document.documentElement.setAttribute('data-theme', t);
+          var d = localStorage.getItem('density');
+          if (d) document.documentElement.setAttribute('data-density', d);
         } catch (e) {}
       })();
     </script>
