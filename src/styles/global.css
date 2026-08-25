@@ -974,12 +974,13 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   .tpanel .tp-mob { display: none; }       /* the phone-only copies of those two */
 }
 
-/* View and EMA groups sit side by side on desktop — stacked they left a
-   1000px-wide panel two-thirds empty and cost ~110px of height. */
-.tp-two { display: grid; grid-template-columns: max-content max-content max-content;
-  gap: var(--sp-4) var(--sp-8); margin-top: var(--sp-4); }
-@media (max-width: 760px) { .tp-two { grid-template-columns: 1fr; gap: var(--sp-3); } }
-@media (max-width: 1099px) { .tp-two { grid-template-columns: max-content max-content; } }
+/* Flex-wrap, not `max-content` grid columns: those sized each column to an
+   unwrapped chip row (493px + 347px), pushing this panel to 853px inside a
+   356px phone and scrolling the whole PAGE sideways. Shrinking is wanted here —
+   the chip rows wrap on their own. */
+.tp-two { display: flex; flex-wrap: wrap; gap: var(--sp-4) var(--sp-8); margin-top: var(--sp-4); }
+.tp-two > * { min-width: 0; }
+@media (max-width: 760px) { .tp-two { gap: var(--sp-3); } .tp-two > * { flex: 1 1 100%; } }
 .tp-sort .dd { display: flex; }
 .tp-sort .dd-trigger { min-width: 210px; }
 @media (max-width: 760px) { .tp-sort .dd-trigger { width: 100%; min-width: 0; } }
