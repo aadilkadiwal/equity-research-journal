@@ -30,15 +30,11 @@ const fresh = e.quarter === newestQ;
 const symbol = c.tvCode ? `NSE:${c.tvCode}` : null;
 const report = /^https?:\/\//i.test(e.reportUrl || '') ? e.reportUrl : null;
 
-// Peer counts for the Explore panel. Every link lands on the list page with the
-// matching filter already applied, which is what makes the company page an entry
-// point rather than a dead end.
 const covered = data.companies.filter((x) => (x.quarters || []).length && x.slug !== c.slug)
   .map((x) => ({ x, e: latestEntry(x) }))
   .filter((r) => r.e);
-// Counts include this company, because that is what the link's destination shows.
-// A group that is the whole book (every company is Tier 1 today) is not a useful
-// link, so it is left out.
+// Counts include this company — that is what the link's destination shows. A group
+// that is the whole book (today: every company is Tier 1) is dropped.
 const totalCovered = covered.length + 1;
 const peerCount = (n) => (n > 1 && n < totalCovered ? n : 0);
 const peers = {
@@ -116,10 +112,6 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
         </div>
       </section>
 
-      <!-- Was "At a glance", which restated industry / market cap / tier /
-           quarters — all four already in the header two inches above. This panel
-           carries what is not stated anywhere else: how the view has moved, and
-           the way back into the rest of the book. -->
       <section class="panel">
         <h2 class="section-title">Explore</h2>
         {chrono.length > 1 && (
