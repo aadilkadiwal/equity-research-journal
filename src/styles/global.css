@@ -87,7 +87,6 @@ a:hover { text-decoration: underline; }
 
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--sp-6); }
 
-/* Skip link — off-screen until focused, then it sits over the sticky header. */
 .skip-link {
   position: fixed; top: 8px; left: 8px; z-index: 100;
   transform: translateY(-200%); transition: transform .12s ease;
@@ -298,9 +297,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .row-sym { color: var(--muted); font-size: var(--fs-label); font-weight: 700; letter-spacing: .4px; margin-left: var(--sp-2); }
 .row-submeta { color: var(--muted); font-size: var(--fs-label); margin-top: var(--sp-1); font-variant-numeric: tabular-nums; }
 .row-cap { font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
-/* Links left, the card's own actions right — a grid, not a wrapping flex row,
-   so "Full note →" never drops to a second line and every footer is one row
-   whether or not the card has a report. */
+/* Grid, not a wrapping flex row, so "Full note →" never drops to a second line. */
 .row-actions {
   display: grid; grid-template-columns: 1fr auto; gap: var(--sp-2) var(--sp-3); align-items: center;
   margin-top: auto; padding-top: var(--sp-3); border-top: 1px solid var(--border);
@@ -330,13 +327,12 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   border-color: color-mix(in srgb, var(--accent) 34%, var(--border)); color: var(--accent);
 }
 .ilink { font-size: var(--fs-label); font-weight: 600; color: var(--muted); }
-/* Every footer control is one fixed height, so a card with an AI report chip
-   (whose emoji stretches the line box) is exactly as tall as one without. */
+/* One fixed height for every control: the report chip's emoji stretches its line
+   box, which otherwise made those cards 1px taller than the rest. */
 .row-actions .ilink, .row-actions .link-chip, .row-actions .row-more {
   height: 30px; display: inline-flex; align-items: center; line-height: 1;
 }
-/* Pointer-less devices get a real 44px target: these sit inside a card that is
-   itself tappable, so a near miss used to navigate instead of following the link. */
+/* These sit inside a card that is itself tappable, so a near miss navigates. */
 @media (hover: none) {
   .row-actions .ilink, .row-actions .link-chip, .row-actions .row-more { height: 44px; }
 }
@@ -447,7 +443,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .vs-item .gly { font-size: 10px; margin-right: 4px; }
 .vs-n { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 700; margin-left: 4px; }
 
-/* The ⓘ popover: the compact legend's meanings, reachable by tap. */
+
 .view-summary { position: relative; }
 .vs-tip {
   position: absolute; z-index: 70; right: 0; top: calc(100% + 8px);
@@ -466,11 +462,9 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 /* ---------- Deep-link: clickable name + flash ---------- */
 .row-nm { color: inherit; }
 .row-nm:hover { text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
-/* The card is one click target, so it takes the focus ring on behalf of the
-   name link inside it — the click and keyboard paths now look the same. */
+/* The card is one click target, so it takes the ring for the name link inside it. */
 .row:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 24%, transparent); }
 .row-nm:focus-visible { outline: none; }
-/* Copy-link: quiet until the card is hovered or focused, always there on touch. */
 .row-copy {
   border: 1px solid transparent; background: transparent; color: var(--muted);
   font-family: inherit; font-size: 13px; line-height: 1; cursor: pointer;
@@ -572,9 +566,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .gmatrix td .v { font-size: var(--fs-body); font-weight: 800; letter-spacing: -.01em; }
 
 .gmatrix tbody tr.hi th.m, .gmatrix tbody tr.hi td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
-/* QoQ is sequential: for most Indian companies the March quarter is seasonally
-   the largest, so a June-quarter fall against it is a calendar effect, not news.
-   Colour stays with YoY, which is also the column the Tier is read from. */
+/* Colour stays with YoY: a June-quarter QoQ fall is seasonal, not news. */
 .gmatrix .qoq { color: var(--muted); }
 .gmatrix td.qoq .v.seq { color: var(--muted); font-weight: 700; }
 .g-row .gp.seq { color: var(--muted); }
@@ -585,8 +577,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .panel > .section-title { display: flex; align-items: baseline; gap: var(--sp-2); }
 .panel > .section-title .st-tag { margin-left: auto; text-transform: none; letter-spacing: 0; font-weight: 700; color: var(--accent); }
 
-/* The AI concall report was a link in the right rail, below the fold on a
-   phone, while the main column had ~500px of empty space at 1440px. */
+
 .dt-report { display: flex; align-items: center; gap: var(--sp-4);
   background: color-mix(in srgb, var(--accent) 6%, var(--surface));
   border-color: color-mix(in srgb, var(--accent) 28%, var(--border)); }
@@ -604,22 +595,20 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .dt-nav { display: flex; align-items: center; gap: var(--sp-3); margin: var(--sp-5) 0 var(--sp-4); flex-wrap: wrap; }
 .dt-nav .spacer { flex: 1; }
 .dt-prevnext { display: inline-flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
-/* Says what the order is — the pair are market-cap neighbours, which nothing on
-   the page used to explain — and gives the links a real target. */
+
 .pn-lab { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 .pn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 var(--sp-2);
   font-size: var(--fs-label); font-weight: 700; color: var(--muted); border-radius: var(--r-sm);
   max-width: 44vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pn:hover { color: var(--accent); background: var(--surface-2); text-decoration: none; }
 
-/* Industry / tier as routes back into the filtered list. */
+
 .dt-ind { color: var(--muted); text-decoration: underline; text-decoration-color: var(--border);
   text-underline-offset: 3px; }
 .dt-ind:hover { color: var(--accent); }
 a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--surface-2)); color: var(--accent); text-decoration: none; }
 
-/* Explore panel: what the header does NOT already say — how the view has moved,
-   and the way back into the rest of the book. */
+
 .vtrail { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--sp-3); }
 .vt-step { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3);
   font-size: var(--fs-label); padding-left: 10px; border-left: 3px solid var(--bar, var(--view-unrated-bar)); }
@@ -820,12 +809,10 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
 .dens .seg .ic { font-size: 12px; line-height: 1; }
 
 /* --- 6e. table density: one line per company (~44px a row) --- */
-/* `overflow-x: auto` on the wrapper makes IT the scroll container, and a sticky
-   <thead> inside a container that never scrolls vertically just rides away with
-   the page — which is why the header never stuck. Above 900px the fix is to make
-   the table always fit instead: table-layout: fixed at width 100%, with one
-   column dropping out at each step down. Below 900px the wrapper scrolls
-   sideways as before, with the view + name columns frozen. */
+/* `overflow-x: auto` makes the wrapper the scroll container, and a sticky <thead>
+   inside a container that never scrolls vertically rides away with the page. So
+   above 900px the table is made to always fit instead (fixed layout, one column
+   dropped per step down); below 900px the wrapper scrolls sideways as before. */
 .tblwrap { border: 1px solid var(--border); border-radius: var(--r-md);
   background: var(--surface); box-shadow: var(--shadow); }
 @media (max-width: 900px) { .tblwrap { overflow-x: auto; } }
@@ -849,13 +836,12 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
 @media (max-width: 999px) { .tbl .col-tier { display: none; } }
 .tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-secondary);
   font-variant-numeric: tabular-nums; }
-/* Pinned under the site header and the sticky toolbar, so the five numeric
-   columns keep their labels for the whole page. */
+/* Pinned under the site header AND the sticky toolbar. */
 .tbl thead th { position: sticky; top: calc(var(--header-h) + var(--tbar-h)); z-index: 2; background: var(--surface-2);
   text-align: left; padding: 9px var(--sp-3); font-size: 10px; font-weight: 800;
   text-transform: uppercase; letter-spacing: .07em; color: var(--muted);
   border-bottom: 1px solid var(--border); white-space: nowrap; }
-/* Click-to-sort. The button carries the label so the whole cell is a target. */
+/* The button carries the label so the whole cell is the target. */
 .tbl thead th.sortable { padding: 0; }
 .tbl thead th .th-btn {
   width: 100%; border: 0; background: transparent; color: inherit; font: inherit;
@@ -867,8 +853,7 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
 .tbl thead th.sorted { color: var(--accent); }
 .tbl thead th.sorted .th-btn { color: var(--accent); }
 .th-dir { font-size: 8px; }
-/* Thesis: the note's first line, clamped. Table density used to drop the one
-   column that is not already on a screener. */
+
 .tbl .t-th { display: block; color: var(--muted); font-size: var(--fs-label);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tbl .t-th.empty { color: var(--border); }
@@ -950,13 +935,11 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
 .tp-foot { display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap;
   margin-top: var(--sp-4); padding-top: var(--sp-3); border-top: 1px solid var(--border); }
 .tp-foot .token-reset { margin-left: auto; }
-/* The count the panel is hiding: on a phone the results line is below the fold
-   while you are filtering, so the panel states it and doubles as the way out. */
+
 .tp-show { font-size: var(--fs-secondary); }
 .tp-show b { font-variant-numeric: tabular-nums; margin: 0 3px; }
 
-/* Opaque, not 94% + blur: card text stayed legible through the bar while
-   scrolling, which read as a rendering fault rather than a design. */
+/* Opaque, not 94% + blur: card text stayed legible through the bar while scrolling. */
 @media (min-width: 760px) {
   .tbar-wrap { position: sticky; top: var(--header-h); z-index: 15;
     background: var(--surface); margin: 0 0 var(--sp-3); }
@@ -974,12 +957,13 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   .tpanel .tp-mob { display: none; }       /* the phone-only copies of those two */
 }
 
-/* View and EMA groups sit side by side on desktop — stacked they left a
-   1000px-wide panel two-thirds empty and cost ~110px of height. */
-.tp-two { display: grid; grid-template-columns: max-content max-content max-content;
-  gap: var(--sp-4) var(--sp-8); margin-top: var(--sp-4); }
-@media (max-width: 760px) { .tp-two { grid-template-columns: 1fr; gap: var(--sp-3); } }
-@media (max-width: 1099px) { .tp-two { grid-template-columns: max-content max-content; } }
+/* Flex-wrap, not `max-content` grid columns: those sized each column to an
+   unwrapped chip row (493px + 347px), pushing this panel to 853px inside a
+   356px phone and scrolling the whole PAGE sideways. Shrinking is wanted here —
+   the chip rows wrap on their own. */
+.tp-two { display: flex; flex-wrap: wrap; gap: var(--sp-4) var(--sp-8); margin-top: var(--sp-4); }
+.tp-two > * { min-width: 0; }
+@media (max-width: 760px) { .tp-two { gap: var(--sp-3); } .tp-two > * { flex: 1 1 100%; } }
 .tp-sort .dd { display: flex; }
 .tp-sort .dd-trigger { min-width: 210px; }
 @media (max-width: 760px) { .tp-sort .dd-trigger { width: 100%; min-width: 0; } }
@@ -1016,10 +1000,7 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   .tbl tbody td, .tbl thead th { padding: 7px var(--sp-2); }
 }
 
-/* --- compact rows: table density on a phone ---------------------------------
-   The 11-column table needed a sideways swipe per row at 390px, which made it
-   carry less than a card. One line per company instead: view glyph, name, the
-   quarter the view came from, price, and the EMA the price is closest to. */
+/* --- compact rows: table density on a phone, without the sideways swipe --- */
 .clist { border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface);
   box-shadow: var(--shadow); overflow: hidden; }
 .crow { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: var(--sp-2);
@@ -1127,8 +1108,7 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   .dg-pre { display: none; }                 /* "What changed in" — the quarter alone carries it */
   .dg-bar .dg-pills { flex: 1 1 auto; padding: 0; scroll-snap-type: x proximity; }
   .dg-pills .qp { scroll-snap-align: start; min-height: 34px; }
-  /* A cut-off pill at the viewport edge read as a broken layout; the mask says
-     "this scrolls" and the last pill starts visibly inside the edge. */
+  /* The mask is the scroll affordance — a hard-cut pill read as a broken layout. */
   .dg-bar .dg-pills {
     -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 26px), transparent 100%);
     mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 26px), transparent 100%);

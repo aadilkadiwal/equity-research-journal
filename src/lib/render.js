@@ -133,9 +133,6 @@ export function rowHTML(c, e, newestQ) {
           <div class="row-note preview${e.note ? '' : ' empty'}">${esc(e.note || 'No note this quarter.')}</div>
           ${emaPillsHTML(c)}
         </div>
-        <!-- Two zones, never one wrapping row: outbound links left, the two
-             card-level actions right. Footer height is then the same on every
-             card whether or not it has a report. -->
         <div class="row-actions">
           <span class="ra-links">
             ${report ? `<a class="link-chip primary" href="${esc(report)}" target="_blank" rel="noopener">✨ AI report</a>` : ''}
@@ -169,8 +166,6 @@ export function tableRowHTML(c, e, newestQ) {
     const up = r.dayChangePct >= 0;
     return `<span class="t-chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'}${Math.abs(r.dayChangePct).toFixed(2)}%</span>`;
   })();
-  // The note is what this site has that a screener does not, so Table density
-  // carries its first line too — clamped, with the full text on hover.
   const note = e.note ? `<span class="t-th" title="${esc(e.note)}">${esc(e.note)}</span>` : '<span class="t-th empty">—</span>';
   return `<tr class="view-${vs}" id="c-${esc(c.slug)}" data-slug="${esc(c.slug)}">
       <td class="tv"><span class="t-view view-${vs}"><span class="gly">${VIEW_GLYPH[e.view] || ''}</span><span class="t-vw">${esc(e.view || 'Unrated')}</span></span></td>
@@ -185,8 +180,8 @@ export function tableRowHTML(c, e, newestQ) {
     </tr>`;
 }
 
-// Sortable columns. `key` matches the sort keys in index.astro's apply(), so a
-// header click and the Sort dropdown drive the same state.
+// `key` must match the sort keys in index.astro's apply(), so a header click and
+// the Sort dropdown drive the same state.
 const TH = [
   ['view', 'View', ''],
   ['name', 'Company', ''],
@@ -201,7 +196,6 @@ const TH = [
   ['d40', '40W', 'r'],
 ];
 
-// `sort` = { key, dir } so the active column can show its direction arrow.
 export function tableHTML(rows, sort) {
   const s = sort || {};
   const head = TH.map(([key, label, cls]) => {
@@ -216,10 +210,8 @@ export function tableHTML(rows, sort) {
     </table></div>`;
 }
 
-// ---- Compact rows: table density on a phone ----
-// The 11-column table needs a sideways swipe per row at 390px, which makes it
-// carry less than a card. One line per company instead: view, name, price, and
-// the EMA the price is closest to — no horizontal scroll.
+// Table density on a phone: the 11-column table needs a sideways swipe per row
+// at 390px, so a compact row carries the same fields without one.
 export function compactRowHTML(c, e, newestQ) {
   const vs = vslug(e.view);
   const fresh = newestQ && e.quarter === newestQ ? ' fresh' : '';
@@ -347,9 +339,8 @@ export function growthMatrixHTML(e) {
       <div class="g-none">Growth figures are not recorded for this quarter. They start from the first quarter you enter them.</div>
     </section>`;
   }
-  // YoY carries the colour because YoY is what the Tier is read from. QoQ stays
-  // muted: for most Indian companies the March quarter is seasonally the
-  // largest, so a June-quarter sequential fall is a calendar effect, not news.
+  // Colour only on YoY: the March quarter is seasonally the largest for most
+  // Indian companies, so a June-quarter QoQ fall is a calendar effect.
   const rows = GROWTH_ROWS.map(([key, label, , tierRow]) => {
     const v = g[key] || {};
     const yoyCell = (n) => (n == null
@@ -382,7 +373,6 @@ function growthTilesHTML(e) {
   const tiles = GROWTH_ROWS.map(([key, , short]) => {
     const v = (e.growth || {})[key] || {};
     const cls = v.yoy == null ? '' : v.yoy >= 0 ? 'up' : 'down';
-    // Same rule as the matrix: the YoY line is coloured, the sequential line is not.
     const row = (n, k, sub) => (n == null ? '' : `<div class="g-row${sub ? ' sub' : ''}"><span class="gp ${sub ? 'seq' : sgn(n)}">${sub ? '' : `<span class="arw">${arw(n)}</span>`}${pct(n)}</span><span class="gk">${k}</span></div>`);
     return `<div class="g-tile ${cls}"><div class="gl">${short}</div>${row(v.yoy, 'YoY', false)}${row(v.qoq, 'QoQ', true)}</div>`;
   }).join('');

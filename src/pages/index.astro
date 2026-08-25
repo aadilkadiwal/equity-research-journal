@@ -53,9 +53,7 @@ const initialRows = initialListHTML(companies, 24);
           </span>
         ))}
       </div>
-      <!-- On a phone the meanings move behind the ⓘ and the counts stay: 85px → 22px.
-           The ⓘ opens a real popover on tap — a title= tooltip never appears on touch,
-           which left the rating vocabulary unreachable on the phone. -->
+      <!-- On a phone the meanings move behind the ⓘ and the counts stay: 85px → 22px. -->
       <div class="vs-compact">
         {VIEW_ORDER.map((v) => (
           <span class={`vsc view-${v.toLowerCase()}`}><span class="gly">{VIEW_GLYPH[v]}</span>{counts[v]}</span>
@@ -76,9 +74,6 @@ const initialRows = initialListHTML(companies, 24);
   <!-- Counts only. Pressing a pill filters the list, which shows those companies
        as full cards or rows — better than a cramped column of names. A <details>
        could not do this: a <summary> swallows clicks on its own children. -->
-  <!-- A bucket with nothing in it renders no pill: a greyed-out "0 downgraded"
-       was 144px of dead control in the densest row on the page. If every bucket
-       is empty the whole strip goes. -->
   {(dg.up + dg.down + dg.new) > 0 && (
     <section class="digest" aria-label={`What changed in ${newestQ}`}>
       <div class="dg-bar">
@@ -104,8 +99,6 @@ const initialRows = initialListHTML(companies, 24);
           <button class="seg" data-density="table" aria-selected="false"><span class="ic">☰</span>Table</button>
         </span>
       </span>
-      <!-- The label says what it downloads and for how many companies; the old
-           button explained itself only in a title= attribute. -->
       <button class="btn ghost" id="export" title="Download the filtered list as a TradingView-importable NSE:SYMBOL text file">⬇ Watchlist<span class="wl-n" id="wl-n"></span></button>
     </div>
 
@@ -157,8 +150,6 @@ const initialRows = initialListHTML(companies, 24);
             <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤5% apart)">⇉ Converging EMAs</button>
           </div>
         </div>
-        <!-- Sort has its own labelled slot: it was the fourth control in a grid
-             headed "Narrow by", and sorting is not narrowing. -->
         <div class="tp-sort">
           <p class="tp-lab">Sort by</p>
           <select class="sort" id="sort" aria-label="Sort by" data-dd>
@@ -175,8 +166,6 @@ const initialRows = initialListHTML(companies, 24);
         </div>
       </div>
 
-      <!-- "Show N" closes the loop on a phone, where the panel fills the screen
-           and the results count sits below the fold. -->
       <div class="tp-foot">
         <button class="btn primary tp-show" id="tp-show" type="button">Show <b id="tp-show-n">0</b> companies</button>
         <button class="btn ghost tp-mob" id="export-m">⬇ Watchlist</button>
@@ -251,8 +240,8 @@ const initialRows = initialListHTML(companies, 24);
   let PAGE_SIZE = pageSize();
   let currentPage = 1;
   let lastVisible = [];
-  // Sort is a key plus a direction so a table header can toggle it. The default
-  // must stay view/asc — that is the order initialListHTML() renders at build.
+  // The default must stay view/asc — that is the order initialListHTML() renders
+  // at build time, so anything else reflows the SSR'd first page on load.
   const SORT_DIR = {
     view: 'asc', name: 'asc', tier: 'asc',
     mcap: 'desc', quarter: 'desc', price: 'desc', d10: 'desc', d20: 'desc', d40: 'desc',
@@ -333,8 +322,7 @@ const initialRows = initialListHTML(companies, 24);
     writeURL(term, quarter, tier, industry);
   }
 
-  // Numeric sort keys, each reading the value the column shows. A missing value
-  // sorts last in both directions rather than flipping to the top.
+  // A missing value sorts last in BOTH directions, so nulls never lead the list.
   const NUM_KEY = {
     mcap: (c) => c.marketCap,
     quarter: (c) => quarterKey(c._latest.quarter),
@@ -373,10 +361,7 @@ const initialRows = initialListHTML(companies, 24);
     if (sortEl.value !== sortKey) { sortEl.value = sortKey; dropdowns.forEach((d) => d.repaint()); }
   }
 
-  /* ---- filter state in the URL ----
-     Without this a screen cannot be shared or bookmarked, Back from a company
-     page loses it, and a reload resets it. Only non-default values are written,
-     so a clean list keeps a clean URL. */
+  // Only non-default values are written, so an untouched list keeps a clean URL.
   let restoring = false;
   function writeURL(term, quarter, tier, industry) {
     if (restoring) return;
@@ -391,8 +376,8 @@ const initialRows = initialListHTML(companies, 24);
     if (sortKey !== 'view') p.set('sort', sortKey);
     if (sortDir !== SORT_DIR[sortKey]) p.set('dir', sortDir);
     const qs = p.toString();
-    // A #c-slug anchor is a deep link to a company and has to survive; the old
-    // #changed= hash does not, because `changed` is a query param now.
+    // A #c-slug anchor is a deep link and has to survive; the old #changed= hash
+    // does not, because `changed` is a query param now.
     const hash = /^#changed=/.test(location.hash) ? '' : location.hash;
     history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + hash);
   }
@@ -436,8 +421,6 @@ const initialRows = initialListHTML(companies, 24);
     const slice = lastVisible.slice(start, start + PAGE_SIZE);
     const entry = (c) => c._latest || latestEntry(c);
     if (density === 'table') {
-      // The 11-column table needs a sideways swipe per row at 390px, so the
-      // phone gets compact rows for the same "one line per company" job.
       tblHost.innerHTML = mqMobile.matches
         ? compactListHTML(slice.map((c) => compactRowHTML(c, entry(c), NEWEST_Q)).join(''))
         : tableHTML(slice.map((c) => tableRowHTML(c, entry(c), NEWEST_Q)).join(''), { key: sortKey, dir: sortDir });
@@ -452,9 +435,6 @@ const initialRows = initialListHTML(companies, 24);
     countEl.innerHTML = total === 0
       ? '0 companies'
       : `Showing <b>${start + 1}–${start + slice.length}</b> of <b>${total}</b>${suffix}`;
-    // Both say how many companies the current screen holds: the export button
-    // because it downloads exactly those, the panel button because on a phone
-    // the count itself is below the fold while you are filtering.
     if (wlN) wlN.textContent = total ? ` (${total})` : '';
     if (showN) showN.textContent = String(total);
     renderPagination(pages);
@@ -537,7 +517,7 @@ const initialRows = initialListHTML(companies, 24);
 
   function clearAll() {
     searchEl.value = ''; quarterEl.value = ''; tierEl.value = ''; industryEl.value = '';
-    sortKey = 'view'; sortDir = SORT_DIR.view; sortEl.value = 'view';   // back to the default sort
+    sortKey = 'view'; sortDir = SORT_DIR.view; sortEl.value = 'view';
     activeViews.clear();
     activeEma.clear();
     activeChange = null;
@@ -637,7 +617,7 @@ const initialRows = initialListHTML(companies, 24);
     const k = p.dataset.change;
     activeChange = activeChange === k ? null : k;
     pillsEl.querySelectorAll('.qp').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.change === activeChange)));
-    apply();   // apply() writes ?changed= to the URL, so the screen stays shareable
+    apply();
   });
 
   // Both copies of the switch (toolbar on desktop, results line on a phone)
@@ -657,9 +637,6 @@ const initialRows = initialListHTML(companies, 24);
     if (btn && !btn.disabled) goToPage(btn.dataset.pg);
   });
 
-  // Copying a link is an explicit button. The company name used to do it, which
-  // made the most obvious target on the card the one thing that did not open the
-  // company — every other pixel of the card did.
   function copyLink(slug) {
     const url = location.origin + location.pathname + '#c-' + slug;
     if (navigator.clipboard) navigator.clipboard.writeText(url).then(() => toast('Link copied')).catch(() => {});
@@ -669,8 +646,8 @@ const initialRows = initialListHTML(companies, 24);
   listEl.addEventListener('click', (e) => {
     const copy = e.target.closest('.row-copy');
     if (copy) { e.preventDefault(); copyLink(copy.dataset.copy); return; }
-    // Anywhere else on the card opens the company page. The name and
-    // "Full note →" are real links, so this works without JS and by keyboard.
+    // Anywhere else on the card opens the company page; the name and
+    // "Full note →" are real links, so that path also works without JS.
     if (e.target.closest('a')) return;
     const row = e.target.closest('.row');
     if (row && row.dataset.slug) location.href = `/company/${row.dataset.slug}/`;
@@ -681,8 +658,6 @@ const initialRows = initialListHTML(companies, 24);
     if (line) location.href = `/company/${line.dataset.slug}/`;
   });
 
-  // Table headers sort: same key as the Sort dropdown, clicking the active
-  // column flips the direction.
   tblHost.addEventListener('click', (e) => {
     const th = e.target.closest('th[data-sort]');
     if (!th) return;
@@ -690,8 +665,7 @@ const initialRows = initialListHTML(companies, 24);
     const fromKeyboard = document.activeElement && document.activeElement.closest('th[data-sort]');
     setSort(key, key === sortKey ? (sortDir === 'asc' ? 'desc' : 'asc') : null);
     apply();
-    // The header row is re-rendered, so put focus back on the column just sorted
-    // instead of dropping it to the top of the document.
+    // The header row is re-rendered, so focus has to be put back by hand.
     if (fromKeyboard) tblHost.querySelector(`th[data-sort="${key}"] .th-btn`)?.focus();
   });
 
@@ -791,13 +765,12 @@ const initialRows = initialListHTML(companies, 24);
   document.addEventListener('click', (e) => { dropdowns.forEach((d) => { if (!d.wrap.contains(e.target)) d.close(); }); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') dropdowns.forEach((d) => d.close()); });
 
-  // Re-paginate if the viewport crosses the mobile/desktop breakpoint. In table
+  // Re-paginate if the viewport crosses the mobile/desktop breakpoint — in table
   // density this also swaps the table for compact rows and back.
   mqMobile.addEventListener('change', () => { currentPage = 1; renderPage(); });
 
-  // ---- the view legend's popover ----
-  // A title= tooltip is invisible on touch, and the compact legend is the phone
-  // layout, so the four meanings needed somewhere a tap can reach.
+  // The legend's ⓘ needs a real popover: a title= tooltip never shows on touch,
+  // and the compact legend is the phone layout.
   const vsInfo = document.getElementById('vs-info');
   const vsTip = document.getElementById('vs-tip');
   function closeVsTip() { vsTip.hidden = true; vsInfo.setAttribute('aria-expanded', 'false'); }
@@ -821,12 +794,9 @@ const initialRows = initialListHTML(companies, 24);
 
   // Sync both switches to whatever was restored before paint.
   document.querySelectorAll('.dens .seg').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.density === density)));
-  // A URL carrying filters wins over the defaults, so a shared or bookmarked
-  // screen comes back exactly as it was sent.
   if (readURL()) dropdowns.forEach((d) => d.repaint());
   apply();
   handleHash();
   window.addEventListener('hashchange', handleHash);
-  // Back / forward between screens: re-read the query string and re-render.
   window.addEventListener('popstate', () => { clearControls(); readURL(); apply(); });
 </script>
