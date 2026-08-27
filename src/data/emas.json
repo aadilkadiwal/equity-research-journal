@@ -1,27 +1,27 @@
 {
  "companies": {
   "accentmic": {
-   "asOf": "2026-08-26",
-   "dayChangePct": 0.33,
+   "asOf": "2026-08-28",
+   "dayChangePct": 0.3,
    "dist": {
-    "10W": 9.84,
-    "20W": 19.8,
-    "40W": 36.08
+    "10W": 10.1,
+    "20W": 20.11,
+    "40W": 36.45
    },
    "ema": {
-    "10W": 538.96,
-    "20W": 494.17,
-    "40W": 435.05
+    "10W": 539.28,
+    "20W": 494.33,
+    "40W": 435.14
    },
-   "min_abs_dist": 9.84,
-   "prevClose": 590.05,
-   "price": 592.0,
+   "min_abs_dist": 10.1,
+   "prevClose": 592.0,
+   "price": 593.75,
    "slug": "accentmic",
-   "spread": 23.89,
+   "spread": 23.93,
    "weeks": 142
   },
   "ace": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.36,
    "dist": {
     "10W": 8.27,
@@ -41,7 +41,7 @@
    "weeks": 314
   },
   "acutaas": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -1.68,
    "dist": {
     "10W": 0.84,
@@ -61,7 +61,7 @@
    "weeks": 259
   },
   "adffoods": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.45,
    "dist": {
     "10W": 0.91,
@@ -81,7 +81,7 @@
    "weeks": 314
   },
   "aeroenter": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.06,
    "dist": {
     "10W": 12.04,
@@ -101,7 +101,7 @@
    "weeks": 197
   },
   "aeroflex": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 8.19,
    "dist": {
     "10W": 16.88,
@@ -121,27 +121,27 @@
    "weeks": 157
   },
   "aimtron": {
-   "asOf": "2026-08-26",
-   "dayChangePct": -0.71,
+   "asOf": "2026-08-28",
+   "dayChangePct": -1.24,
    "dist": {
-    "10W": 11.18,
-    "20W": 24.59,
-    "40W": 45.6
+    "10W": 10.08,
+    "20W": 23.22,
+    "40W": 43.92
    },
    "ema": {
-    "10W": 1501.6,
-    "20W": 1340.07,
-    "40W": 1146.67
+    "10W": 1497.83,
+    "20W": 1338.09,
+    "40W": 1145.66
    },
-   "min_abs_dist": 11.18,
-   "prevClose": 1681.45,
-   "price": 1669.55,
+   "min_abs_dist": 10.08,
+   "prevClose": 1669.55,
+   "price": 1648.85,
    "slug": "aimtron",
-   "spread": 30.95,
+   "spread": 30.74,
    "weeks": 117
   },
   "antelopus": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.69,
    "dist": {
     "10W": -0.84,
@@ -161,7 +161,7 @@
    "weeks": 314
   },
   "apollo": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.42,
    "dist": {
     "10W": -0.54,
@@ -181,7 +181,7 @@
    "weeks": 314
   },
   "ashapurmin": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.85,
    "dist": {
     "10W": -8.3,
@@ -201,7 +201,7 @@
    "weeks": 314
   },
   "atherenerg": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.83,
    "dist": {
     "10W": 12.75,
@@ -221,7 +221,7 @@
    "weeks": 69
   },
   "atlantaele": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.32,
    "dist": {
     "10W": 1.34,
@@ -241,7 +241,7 @@
    "weeks": 48
   },
   "avalon": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 5.44,
    "dist": {
     "10W": 16.56,
@@ -261,7 +261,7 @@
    "weeks": 176
   },
   "avtnpl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.25,
    "dist": {
     "10W": 12.9,
@@ -281,7 +281,7 @@
    "weeks": 314
   },
   "bhageria": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.4,
    "dist": {
     "10W": 6.05,
@@ -301,7 +301,7 @@
    "weeks": 314
   },
   "bhel": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.36,
    "dist": {
     "10W": 2.23,
@@ -321,7 +321,7 @@
    "weeks": 314
   },
   "bororenew": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.39,
    "dist": {
     "10W": -5.84,
@@ -341,7 +341,7 @@
    "weeks": 314
   },
   "buildpro": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.74,
    "dist": {
     "10W": 3.66,
@@ -361,7 +361,7 @@
    "weeks": 34
   },
   "centenka": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.01,
    "dist": {
     "10W": 1.16,
@@ -381,7 +381,7 @@
    "weeks": 314
   },
   "cgpower": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -1.53,
    "dist": {
     "10W": -1.55,
@@ -401,7 +401,7 @@
    "weeks": 314
   },
   "corona": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.28,
    "dist": {
     "10W": 2.98,
@@ -421,7 +421,7 @@
    "weeks": 37
   },
   "cpplus": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 4.03,
    "dist": {
     "10W": 2.3,
@@ -441,7 +441,7 @@
    "weeks": 56
   },
   "cyientdlm": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.71,
    "dist": {
     "10W": 22.85,
@@ -461,7 +461,7 @@
    "weeks": 164
   },
   "deepakntr": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.47,
    "dist": {
     "10W": 3.87,
@@ -481,7 +481,7 @@
    "weeks": 314
   },
   "dycl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 7.16,
    "dist": {
     "10W": 11.45,
@@ -501,7 +501,7 @@
    "weeks": 214
   },
   "emmvee": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.22,
    "dist": {
     "10W": 2.7,
@@ -521,7 +521,7 @@
    "weeks": 41
   },
   "gael": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -2.44,
    "dist": {
     "10W": 4.07,
@@ -541,7 +541,7 @@
    "weeks": 314
   },
   "galaprec": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -3.34,
    "dist": {
     "10W": -1.33,
@@ -561,7 +561,7 @@
    "weeks": 103
   },
   "gandhar": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.01,
    "dist": {
     "10W": 12.18,
@@ -581,7 +581,7 @@
    "weeks": 144
   },
   "gksl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.08,
    "dist": {
     "10W": 10.31,
@@ -601,7 +601,7 @@
    "weeks": 35
   },
   "gland": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.78,
    "dist": {
     "10W": 11.51,
@@ -621,7 +621,7 @@
    "weeks": 302
   },
   "granules": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -2.1,
    "dist": {
     "10W": -0.47,
@@ -641,7 +641,7 @@
    "weeks": 314
   },
   "gvt-d": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.7,
    "dist": {
     "10W": -1.06,
@@ -661,7 +661,7 @@
    "weeks": 314
   },
   "happyforge": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.85,
    "dist": {
     "10W": 19.08,
@@ -681,7 +681,7 @@
    "weeks": 140
   },
   "hardwyn": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.0,
    "dist": {
     "10W": -25.01,
@@ -701,7 +701,7 @@
    "weeks": 229
   },
   "hfcl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.89,
    "dist": {
     "10W": 12.29,
@@ -721,7 +721,7 @@
    "weeks": 314
   },
   "hindcopper": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 4.39,
    "dist": {
     "10W": 5.05,
@@ -741,7 +741,7 @@
    "weeks": 314
   },
   "hindzinc": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 5.72,
    "dist": {
     "10W": 8.73,
@@ -761,7 +761,7 @@
    "weeks": 314
   },
   "hscl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.62,
    "dist": {
     "10W": -5.07,
@@ -781,7 +781,7 @@
    "weeks": 314
   },
   "imfa": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.2,
    "dist": {
     "10W": -1.28,
@@ -801,7 +801,7 @@
    "weeks": 314
   },
   "innovacap": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.88,
    "dist": {
     "10W": 4.52,
@@ -821,7 +821,7 @@
    "weeks": 140
   },
   "kddl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.42,
    "dist": {
     "10W": 11.19,
@@ -841,7 +841,7 @@
    "weeks": 314
   },
   "kennamet": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 4.68,
    "dist": {
     "10W": 26.7,
@@ -861,7 +861,7 @@
    "weeks": 192
   },
   "kernex": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -2.05,
    "dist": {
     "10W": -8.09,
@@ -881,7 +881,7 @@
    "weeks": 314
   },
   "kingfa": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.56,
    "dist": {
     "10W": 9.59,
@@ -901,7 +901,7 @@
    "weeks": 314
   },
   "kirlpnu": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.93,
    "dist": {
     "10W": -5.49,
@@ -921,7 +921,7 @@
    "weeks": 175
   },
   "koltepatil": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.6,
    "dist": {
     "10W": 7.73,
@@ -961,7 +961,7 @@
    "weeks": 18
   },
   "krishnadef": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.46,
    "dist": {
     "10W": -10.01,
@@ -981,7 +981,7 @@
    "weeks": 228
   },
   "krn": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.85,
    "dist": {
     "10W": 13.47,
@@ -1001,7 +1001,7 @@
    "weeks": 100
   },
   "kshintl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -2.26,
    "dist": {
     "10W": 4.95,
@@ -1021,7 +1021,7 @@
    "weeks": 36
   },
   "lloydsengg": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.24,
    "dist": {
     "10W": 1.46,
@@ -1041,7 +1041,7 @@
    "weeks": 314
   },
   "lumaxtech": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.22,
    "dist": {
     "10W": 9.75,
@@ -1061,7 +1061,7 @@
    "weeks": 314
   },
   "mahlog": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.08,
    "dist": {
     "10W": 1.18,
@@ -1081,7 +1081,7 @@
    "weeks": 314
   },
   "marksans": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.94,
    "dist": {
     "10W": 15.43,
@@ -1101,7 +1101,7 @@
    "weeks": 314
   },
   "menonbe": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 4.67,
    "dist": {
     "10W": 24.32,
@@ -1121,7 +1121,7 @@
    "weeks": 314
   },
   "metropolis": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.64,
    "dist": {
     "10W": 2.56,
@@ -1141,7 +1141,7 @@
    "weeks": 314
   },
   "midhani": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.43,
    "dist": {
     "10W": 1.93,
@@ -1161,7 +1161,7 @@
    "weeks": 314
   },
   "mindacorp": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.56,
    "dist": {
     "10W": 2.24,
@@ -1181,7 +1181,7 @@
    "weeks": 314
   },
   "mtartech": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.22,
    "dist": {
     "10W": 3.87,
@@ -1201,7 +1201,7 @@
    "weeks": 285
   },
   "navinfluor": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 4.19,
    "dist": {
     "10W": 7.99,
@@ -1221,7 +1221,7 @@
    "weeks": 314
   },
   "navkarcorp": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.41,
    "dist": {
     "10W": -2.29,
@@ -1241,7 +1241,7 @@
    "weeks": 314
   },
   "nephroplus": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.53,
    "dist": {
     "10W": 2.34,
@@ -1261,7 +1261,7 @@
    "weeks": 37
   },
   "nestleind": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -1.86,
    "dist": {
     "10W": -0.69,
@@ -1281,7 +1281,7 @@
    "weeks": 314
   },
   "netweb": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.03,
    "dist": {
     "10W": 8.67,
@@ -1301,7 +1301,7 @@
    "weeks": 162
   },
   "neulandlab": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.6,
    "dist": {
     "10W": 12.46,
@@ -1321,7 +1321,7 @@
    "weeks": 314
   },
   "nglfine": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.62,
    "dist": {
     "10W": -6.47,
@@ -1341,7 +1341,7 @@
    "weeks": 217
   },
   "nibe": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.18,
    "dist": {
     "10W": -4.72,
@@ -1361,7 +1361,7 @@
    "weeks": 82
   },
   "nykaa": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.8,
    "dist": {
     "10W": 5.31,
@@ -1381,7 +1381,7 @@
    "weeks": 251
   },
   "paras": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.29,
    "dist": {
     "10W": 14.43,
@@ -1401,7 +1401,7 @@
    "weeks": 257
   },
   "parkhosps": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.81,
    "dist": {
     "10W": 3.01,
@@ -1421,7 +1421,7 @@
    "weeks": 37
   },
   "polycab": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.42,
    "dist": {
     "10W": -0.56,
@@ -1441,7 +1441,7 @@
    "weeks": 314
   },
   "precwire": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 4.98,
    "dist": {
     "10W": 4.79,
@@ -1461,7 +1461,7 @@
    "weeks": 314
   },
   "pspproject": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.49,
    "dist": {
     "10W": -3.91,
@@ -1481,7 +1481,7 @@
    "weeks": 314
   },
   "rainbow": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.1,
    "dist": {
     "10W": -0.39,
@@ -1501,7 +1501,7 @@
    "weeks": 225
   },
   "rajratan": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.23,
    "dist": {
     "10W": 1.67,
@@ -1521,7 +1521,7 @@
    "weeks": 314
   },
   "rpel": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 8.33,
    "dist": {
     "10W": 24.61,
@@ -1541,7 +1541,7 @@
    "weeks": 108
   },
   "rptech": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.06,
    "dist": {
     "10W": -0.29,
@@ -1561,7 +1561,7 @@
    "weeks": 133
   },
   "rrkabel": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.34,
    "dist": {
     "10W": 8.69,
@@ -1581,7 +1581,7 @@
    "weeks": 154
   },
   "rubicon": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 6.44,
    "dist": {
     "10W": 18.11,
@@ -1601,7 +1601,7 @@
    "weeks": 46
   },
   "sakar": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.87,
    "dist": {
     "10W": 4.79,
@@ -1621,7 +1621,7 @@
    "weeks": 314
   },
   "sanghvimov": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.02,
    "dist": {
     "10W": 2.83,
@@ -1641,7 +1641,7 @@
    "weeks": 314
   },
   "sansera": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.22,
    "dist": {
     "10W": 8.97,
@@ -1661,7 +1661,7 @@
    "weeks": 258
   },
   "sbcl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.41,
    "dist": {
     "10W": 19.63,
@@ -1681,7 +1681,7 @@
    "weeks": 271
   },
   "seamecltd": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.52,
    "dist": {
     "10W": 7.68,
@@ -1701,7 +1701,7 @@
    "weeks": 314
   },
   "sedemac": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.55,
    "dist": {
     "10W": 7.49,
@@ -1721,7 +1721,7 @@
    "weeks": 25
   },
   "servotech": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.11,
    "dist": {
     "10W": -7.69,
@@ -1741,7 +1741,7 @@
    "weeks": 314
   },
   "shadowfax": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -4.19,
    "dist": {
     "10W": 5.24,
@@ -1761,7 +1761,7 @@
    "weeks": 31
   },
   "shilpamed": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.09,
    "dist": {
     "10W": 21.23,
@@ -1781,7 +1781,7 @@
    "weeks": 314
   },
   "shyammetl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.41,
    "dist": {
     "10W": 4.47,
@@ -1801,7 +1801,7 @@
    "weeks": 271
   },
   "sis": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.94,
    "dist": {
     "10W": -0.17,
@@ -1821,7 +1821,7 @@
    "weeks": 314
   },
   "sjs": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -2.56,
    "dist": {
     "10W": 5.68,
@@ -1841,7 +1841,7 @@
    "weeks": 250
   },
   "skipper": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.36,
    "dist": {
     "10W": 2.66,
@@ -1861,7 +1861,7 @@
    "weeks": 314
   },
   "sobha": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.98,
    "dist": {
     "10W": -4.36,
@@ -1881,7 +1881,7 @@
    "weeks": 314
   },
   "solarinds": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.5,
    "dist": {
     "10W": 6.23,
@@ -1901,7 +1901,7 @@
    "weeks": 314
   },
   "sotl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.16,
    "dist": {
     "10W": 9.45,
@@ -1921,7 +1921,7 @@
    "weeks": 314
   },
   "southwest": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 3.51,
    "dist": {
     "10W": -6.31,
@@ -1941,7 +1941,7 @@
    "weeks": 314
   },
   "splpetro": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.15,
    "dist": {
     "10W": -0.48,
@@ -1961,7 +1961,7 @@
    "weeks": 314
   },
   "srf": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 0.31,
    "dist": {
     "10W": -2.26,
@@ -1981,7 +1981,7 @@
    "weeks": 314
   },
   "sswl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.24,
    "dist": {
     "10W": 3.47,
@@ -2001,7 +2001,7 @@
    "weeks": 314
   },
   "stltech": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.75,
    "dist": {
     "10W": 11.41,
@@ -2021,7 +2021,7 @@
    "weeks": 314
   },
   "supriya": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -1.25,
    "dist": {
     "10W": -6.46,
@@ -2041,7 +2041,7 @@
    "weeks": 244
   },
   "syrma": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.1,
    "dist": {
     "10W": 6.75,
@@ -2061,7 +2061,7 @@
    "weeks": 210
   },
   "tatva": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.61,
    "dist": {
     "10W": 3.36,
@@ -2081,7 +2081,7 @@
    "weeks": 266
   },
   "tdpowersys": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.22,
    "dist": {
     "10W": 10.62,
@@ -2101,7 +2101,7 @@
    "weeks": 314
   },
   "thangamayl": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.83,
    "dist": {
     "10W": -0.7,
@@ -2121,7 +2121,7 @@
    "weeks": 314
   },
   "timex": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 1.84,
    "dist": {
     "10W": 14.94,
@@ -2141,7 +2141,7 @@
    "weeks": 19
   },
   "ttkprestig": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.45,
    "dist": {
     "10W": 1.47,
@@ -2161,7 +2161,7 @@
    "weeks": 314
   },
   "uniparts": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -2.35,
    "dist": {
     "10W": 8.88,
@@ -2181,7 +2181,7 @@
    "weeks": 194
   },
   "venusrem": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -3.05,
    "dist": {
     "10W": -1.37,
@@ -2201,7 +2201,7 @@
    "weeks": 314
   },
   "vidhiing": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -1.69,
    "dist": {
     "10W": 7.9,
@@ -2221,7 +2221,7 @@
    "weeks": 314
   },
   "vidyawires": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 2.26,
    "dist": {
     "10W": -3.98,
@@ -2241,7 +2241,7 @@
    "weeks": 38
   },
   "vijaya": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.71,
    "dist": {
     "10W": 5.54,
@@ -2261,27 +2261,27 @@
    "weeks": 259
   },
   "vinyas": {
-   "asOf": "2026-08-26",
-   "dayChangePct": 3.33,
+   "asOf": "2026-08-28",
+   "dayChangePct": -5.57,
    "dist": {
-    "10W": 16.61,
-    "20W": 24.94,
-    "40W": 34.38
+    "10W": 11.43,
+    "20W": 18.76,
+    "40W": 27.36
    },
    "ema": {
-    "10W": 1420.63,
-    "20W": 1325.93,
-    "40W": 1232.75
+    "10W": 1403.85,
+    "20W": 1317.14,
+    "40W": 1228.25
    },
-   "min_abs_dist": 16.61,
-   "prevClose": 1603.15,
-   "price": 1656.6,
+   "min_abs_dist": 11.43,
+   "prevClose": 1656.6,
+   "price": 1564.3,
    "slug": "vinyas",
-   "spread": 15.24,
+   "spread": 14.3,
    "weeks": 152
   },
   "viyash": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -5.37,
    "dist": {
     "10W": 0.28,
@@ -2301,27 +2301,27 @@
    "weeks": 314
   },
   "vmarcind": {
-   "asOf": "2026-08-26",
-   "dayChangePct": -1.71,
+   "asOf": "2026-08-28",
+   "dayChangePct": -2.27,
    "dist": {
-    "10W": -21.37,
-    "20W": -38.55,
-    "40W": -42.04
+    "10W": -22.91,
+    "20W": -39.86,
+    "40W": -43.32
    },
    "ema": {
-    "10W": 496.09,
-    "20W": 634.72,
-    "40W": 672.98
+    "10W": 494.48,
+    "20W": 633.88,
+    "40W": 672.55
    },
-   "min_abs_dist": 21.37,
-   "prevClose": 396.85,
-   "price": 390.05,
+   "min_abs_dist": 22.91,
+   "prevClose": 390.05,
+   "price": 381.2,
    "slug": "vmarcind",
-   "spread": 35.66,
+   "spread": 36.01,
    "weeks": 276
   },
   "wendt": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.49,
    "dist": {
     "10W": 2.69,
@@ -2341,7 +2341,7 @@
    "weeks": 314
   },
   "wheels": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.81,
    "dist": {
     "10W": 1.73,
@@ -2361,7 +2361,7 @@
    "weeks": 314
   },
   "wockpharma": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": -0.92,
    "dist": {
     "10W": -0.41,
@@ -2381,7 +2381,7 @@
    "weeks": 314
   },
   "yatharth": {
-   "asOf": "2026-08-26",
+   "asOf": "2026-08-28",
    "dayChangePct": 4.58,
    "dist": {
     "10W": 11.95,
@@ -2402,5 +2402,5 @@
   }
  },
  "source": "yf",
- "updatedAt": "2026-08-26T11:06+00:00"
+ "updatedAt": "2026-08-27T20:45+00:00"
 }
