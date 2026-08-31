@@ -96,3 +96,35 @@ def build_record(slug, price, weekly_closes, prev_close=None, use_live_close=Tru
         rec["prevClose"] = round(prev_close, 2)
         rec["dayChangePct"] = round((price - prev_close) / prev_close * 100, 2)
     return rec
+
+
+def price_return(rows, days):
+    """Trailing % return over `days` calendar days from chronological [(date, close)].
+
+    The daily fetch already carries ~6y of split-adjusted closes, so a 1y (365) or
+    3y (1095) window is just a lookup — no extra network call. Returns None unless
+    the history actually spans the window: a stock listed 8 months ago has no
+    1-year return, and inventing one from its first bar would overstate it.
+
+    SLACK absorbs weekends/holidays around the target date; the base bar is the
+    last close at or before it.
+    """
+    SLACK = 12   # days — the target rarely lands on a trading session
+    if not rows or len(rows) < 2:
+        return None
+    import datetime
+    end_date, end_close = rows[-1]
+    target = end_date - datetime.timedelta(days=days)
+    if rows[0][0] > target + datetime.timedelta(days=SLACK):
+        return None                      # history does not reach back far enough
+    base = None
+    for d, c in rows:
+        if d <= target:
+            base = c
+        else:
+            break
+    if base is None:                     # every bar sits after the target
+        return None
+    if not base or not end_close:
+        return None
+    return round((end_close / base - 1) * 100, 2)

@@ -7,6 +7,10 @@
   --text: #14181d;
   --muted: #556070;            /* darkened → clears 4.5:1 AA even at small sizes */
   --accent: #6355d6;           /* indigo — deliberately NOT any view colour */
+  /* Text ON the accent. White clears AA on this indigo but not on the dark theme's
+     lifted #8f83ff, where it measured 3.06:1 — so the pairing travels with the theme
+     instead of being hard-coded at every call site. */
+  --on-accent: #ffffff;
   --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
 
   /* ---- view (semantic) colours ---- */
@@ -49,6 +53,7 @@
   --text: #e6edf3;
   --muted: #99a4b2;            /* lifted for AA on dark surfaces */
   --accent: #8f83ff;
+  --on-accent: #14121f;
   --shadow: 0 1px 2px rgba(0,0,0,.3);
 
   --view-positive-bg: #10281a; --view-positive-fg: #5ed88a;
@@ -61,7 +66,8 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0d1117; --surface: #161b22; --surface-2: #1c232c; --border: #2a323c;
-    --text: #e6edf3; --muted: #99a4b2; --accent: #8f83ff; --shadow: 0 1px 2px rgba(0,0,0,.3);
+    --text: #e6edf3; --muted: #99a4b2; --accent: #8f83ff; --on-accent: #14121f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3);
     --view-positive-bg: #10281a; --view-positive-fg: #5ed88a;
     --view-watch-bg: #101f36; --view-watch-fg: #6fa8ff;
     --view-concern-bg: #2a2210; --view-concern-fg: #e8be5c;
@@ -90,7 +96,7 @@ a:hover { text-decoration: underline; }
 .skip-link {
   position: fixed; top: 8px; left: 8px; z-index: 100;
   transform: translateY(-200%); transition: transform .12s ease;
-  background: var(--accent); color: #fff; font-size: var(--fs-secondary); font-weight: 700;
+  background: var(--accent); color: var(--on-accent); font-size: var(--fs-secondary); font-weight: 700;
   padding: 10px 16px; border-radius: var(--r-sm); box-shadow: var(--shadow);
 }
 .skip-link:focus { transform: none; text-decoration: none; }
@@ -116,8 +122,12 @@ a:hover { text-decoration: underline; }
 }
 .theme-toggle:hover { border-color: var(--accent); }
 .market-breadth { gap: 6px; }
+.market-breadth .mb-label-short { display: none; }
 @media (max-width: 560px) {
+  /* A bare 📊 leaving the site named nothing. One word costs ~52px and says where
+     the link goes. */
   .market-breadth .mb-label { display: none; }
+  .market-breadth .mb-label-short { display: inline; }
   .market-breadth { padding: 0 var(--sp-3); }
 }
 
@@ -145,7 +155,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   padding: 0 var(--sp-4); cursor: pointer; font-weight: 600;
   display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
 }
-.btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .btn:hover { border-color: var(--accent); }
 
 /* ---------- Custom dropdown (native <select> hidden underneath) ---------- */
@@ -241,7 +251,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   font-size: var(--fs-secondary); font-weight: 600; font-variant-numeric: tabular-nums; font-family: inherit;
 }
 .pg-btn:hover:not(:disabled):not(.active) { border-color: var(--accent); }
-.pg-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); cursor: default; }
+.pg-btn.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); cursor: default; }
 .pg-btn:disabled { opacity: .45; cursor: not-allowed; }
 .pg-gap { color: var(--muted); padding: 0 var(--sp-1); }
 
@@ -274,7 +284,12 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
   position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--r-md); padding: var(--sp-4) var(--sp-5) var(--sp-4) var(--sp-5); box-shadow: var(--shadow); overflow: hidden;
   transition: border-color .12s ease;
+  /* The whole card navigates (see the click handler in index.astro), so it has to
+     read as a target. Inner links and buttons take their own cursor back below. */
+  cursor: pointer;
 }
+.row a, .row button { cursor: pointer; }
+.tbl tbody tr[data-slug], .crow[data-slug] { cursor: pointer; }
 .row:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
 .row.view-positive { background: color-mix(in srgb, var(--view-positive-bar) 4%, var(--surface)); }
 .row.view-watch { background: color-mix(in srgb, var(--view-watch-bar) 4%, var(--surface)); }
@@ -283,14 +298,17 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 
 /* card internals: badges+mcap row | name/meta/note | actions footer (pinned bottom) */
 .row-head { display: flex; flex-direction: column; gap: var(--sp-2); flex: 1 1 auto; }
-.row-view { display: flex; flex-direction: row; align-items: center; gap: var(--sp-2); }
+.row-view { display: flex; flex-direction: row; align-items: center; gap: var(--sp-2);
+  /* Four labels now share this line (view · tier · setup band · quarter); on a
+     narrow phone they wrap instead of pushing the quarter off the card. */
+  flex-wrap: wrap; row-gap: var(--sp-2); }
 .row-view .badge { width: auto; }
-.row-view-q { font-size: var(--fs-label); color: var(--muted); font-weight: 700; margin-left: auto; }
-/* Cards carrying the newest quarter in the dataset. Accent (indigo) is
-   deliberately not a view colour, so freshness never reads as a rating. */
-.row-view-q.fresh {
+/* Every quarter reads the same: one tag, one colour. Accent (indigo) is
+   deliberately not a view colour, so the quarter never reads as a rating. */
+.row-view-q {
+  font-size: var(--fs-label); font-weight: 700; margin-left: auto;
   color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, transparent);
-  padding: 2px 8px; border-radius: var(--r-pill);
+  padding: 2px 8px; border-radius: var(--r-pill); white-space: nowrap;
 }
 .row-id { min-width: 0; }
 .row-name { font-weight: 700; font-size: var(--fs-body); line-height: var(--lh-heading); }
@@ -438,7 +456,14 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .vs-seg.view-watch { background: var(--view-watch-bar); }
 .vs-seg.view-concern { background: var(--view-concern-bar); }
 .vs-seg.view-negative { background: var(--view-negative-bar); }
-.vs-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: var(--fs-label); color: var(--muted); }
+/* Each item carries its own 8px of padding now that it is a button, so the old 18px
+   column gap pushed the fourth view onto a second line. */
+.vs-legend { display: flex; flex-wrap: wrap; gap: 2px 4px; margin-top: 8px; font-size: var(--fs-label); color: var(--muted); }
+.vs-item { display: inline-block; border: 1px solid transparent;
+  background: transparent; font: inherit; color: inherit; cursor: pointer;
+  padding: 3px 5px; border-radius: var(--r-pill); line-height: inherit; }
+.vs-item:hover { border-color: var(--border); background: var(--surface); }
+.vs-item[aria-pressed="true"] { border-color: var(--accent); background: var(--surface); }
 .vs-item b { color: var(--text); font-weight: 700; }
 .vs-item .gly { font-size: 10px; margin-right: 4px; }
 .vs-n { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 700; margin-left: 4px; }
@@ -459,6 +484,13 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .vs-tip li b { color: var(--text); }
 .vsc-i[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); }
 
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* "Show 127 companies" with nothing filtered is a primary-styled no-op — the list
+   below already shows all 127. It reads as a plain Done until a filter bites. */
+.tp-show.is-noop { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.tp-show.is-noop:hover { color: var(--text); border-color: var(--accent); }
+
 /* ---------- Deep-link: clickable name + flash ---------- */
 .row-nm { color: inherit; }
 .row-nm:hover { text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
@@ -474,7 +506,14 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 }
 .row:hover .row-copy, .row:focus-within .row-copy, .row-copy:focus-visible { opacity: 1; }
 .row-copy:hover { border-color: var(--border); color: var(--text); }
-@media (hover: none) { .row-copy { opacity: 1; width: 44px; height: 44px; } }
+@media (hover: none) {
+  .row-copy { opacity: 1; width: 44px; height: 44px; }
+  /* Chart/Screener are only ~32px WIDE, so the 44px height above them still left a
+     narrow target between two neighbours. The company page's rail links had no
+     touch sizing at all. */
+  .row-actions .ilink { padding-left: 8px; padding-right: 8px; }
+  .aside-links .link-chip { min-height: 44px; }
+}
 @keyframes rowFlash { 0% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 55%, transparent); } 100% { box-shadow: 0 0 0 3px transparent; } }
 .row-flash { animation: rowFlash 1.5s ease-out; }
 
@@ -563,11 +602,19 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px
 .gmatrix thead th { font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 800; border-bottom: 1px solid var(--border); padding-bottom: var(--sp-2); }
 .gmatrix th.m { text-align: left; font-weight: 700; font-size: var(--fs-secondary); color: var(--text); }
 .gmatrix tbody tr:last-child th, .gmatrix tbody tr:last-child td { border-bottom: 0; }
-.gmatrix td .v { font-size: var(--fs-body); font-weight: 800; letter-spacing: -.01em; }
+.gmatrix td .v { font-size: var(--fs-body); font-weight: 800; letter-spacing: -.01em;
+  white-space: nowrap; }
 
 .gmatrix tbody tr.hi th.m, .gmatrix tbody tr.hi td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
 /* Colour stays with YoY: a June-quarter QoQ fall is seasonal, not news. */
 .gmatrix .qoq { color: var(--muted); }
+/* 3Y is the score's growth axis, so it reads like YoY; 5Y is a durability
+   reference and stays muted. A left rule separates the compounded pair from the
+   quarterly pair, so the two horizons do not blur together. */
+.gmatrix .cagr { border-left: 1px solid var(--border); }
+.gmatrix th.cagr, .gmatrix td.cagr { padding-left: var(--sp-4); }
+.gmatrix .c5 { border-left: 0; color: var(--muted); }
+.gmatrix td.cagr .v.seq { color: var(--muted); font-weight: 700; }
 .gmatrix td.qoq .v.seq { color: var(--muted); font-weight: 700; }
 .g-row .gp.seq { color: var(--muted); }
 .gm-foot { color: var(--muted); font-size: var(--fs-label); margin: var(--sp-3) 0 0; line-height: 1.5; }
@@ -639,10 +686,6 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
 /* Aside blocks */
 .aside-links { display: flex; flex-direction: column; gap: var(--sp-2); }
 .aside-links .link-chip { justify-content: center; padding: 9px var(--sp-3); font-size: var(--fs-secondary); }
-.kv { display: flex; justify-content: space-between; gap: var(--sp-3); padding: 7px 0; border-bottom: 1px solid var(--border); font-size: var(--fs-secondary); }
-.kv:last-child { border-bottom: 0; }
-.kv dt { color: var(--muted); }
-.kv dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
 
 /* ---------- 4. Earlier quarters — rail timeline (detail page) ----------
    The old version boxed every past quarter in its own view-tinted card, which
@@ -682,12 +725,25 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   /* display:contents promotes the main column's children to grid items, so the
      reading order can interleave the sidebar: note -> growth -> price/links -> history. */
   .dt-grid { grid-template-columns: 1fr; gap: var(--sp-4); }
-  .dt-main { display: contents; }
+  /* Both wrappers dissolve so the panels inside them can be ordered against each
+     other. Without this the whole aside — price included — could only move as one
+     block, which put "what is it trading at" below the score panel, the growth
+     table and every earlier quarter. */
+  .dt-main, .dt-side { display: contents; }
   .dt-note { order: 1; }
   .dt-report { order: 2; }
-  .dt-growth { order: 3; }
-  .dt-side { order: 4; position: static; }
-  .dt-hist { order: 5; }
+  /* Child selectors throughout: `.dt-side > .panel` outranks a bare `.dt-price`,
+     which silently left the price panel down at order 7. */
+  .dt-side > .panel { order: 9; }        /* Go deeper, Explore */
+  .dt-side > .dt-price { order: 3; }
+  .dt-score { order: 4; }
+  /* The reference blocks follow the panel they were split out of, so the phone
+     reading order is unchanged from when they lived inside it. */
+  .dt-side > .dt-figures { order: 5; }
+  .dt-growth { order: 6; }
+  .dt-hist { order: 7; }
+  .dt-side > .gloss-panel { order: 10; }
+  .dt-side { position: static; }
 }
 @media (max-width: 640px) {
   .tl-g { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -715,15 +771,25 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   .vs-legend { display: none; }
   .vs-compact { display: flex; align-items: center; gap: 6px; margin-top: 9px; }
   .vsc { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: var(--r-pill);
-    font-size: var(--fs-label); font-weight: 800; font-variant-numeric: tabular-nums; }
+    font-size: var(--fs-label); font-weight: 800; font-variant-numeric: tabular-nums;
+    border: 1px solid transparent; font-family: inherit; cursor: pointer; min-height: 34px; }
+  .vsc[aria-pressed="true"] { border-color: currentColor; }
   .vsc .gly { font-size: 9px; }
   .vsc.view-positive { background: var(--view-positive-bg); color: var(--view-positive-fg); }
   .vsc.view-watch { background: var(--view-watch-bg);    color: var(--view-watch-fg); }
   .vsc.view-concern { background: var(--view-concern-bg);  color: var(--view-concern-fg); }
   .vsc.view-negative { background: var(--view-negative-bg); color: var(--view-negative-fg); }
-  .vsc-i { margin-left: auto; border: 1px solid var(--border); background: var(--surface); color: var(--muted);
-    width: 24px; height: 24px; border-radius: 50%; font-size: 12px; cursor: pointer; font-family: inherit;
+  /* 24px was well under the 44px floor, and on a phone this button is the only way
+     to find out what the four views mean. The ring stays 24px; the target is 44. */
+  .vsc-i { margin-left: auto; border: 0; background: none; padding: 0; color: var(--muted);
+    width: 44px; height: 44px; font-size: 12px; cursor: pointer; font-family: inherit;
     display: inline-flex; align-items: center; justify-content: center; }
+  .vsc-i::before { content: "i"; border: 1px solid var(--border); background: var(--surface);
+    width: 24px; height: 24px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center; }
+  .vsc-i { font-size: 0; }
+  .vsc-i::before { font-size: 12px; }
+  .vsc-i[aria-expanded="true"]::before { border-color: var(--accent); color: var(--accent); }
 
   /* --- 2. the digest summary stops wrapping to two lines --- */
   
@@ -799,7 +865,9 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
     margin: var(--sp-5) 0 var(--sp-2); }
   .topbar .hero { margin: 0; flex: 0 0 auto; }
   .topbar .view-summary { margin: 0; flex: 0 1 640px; min-width: 0; }
-  .topbar .vs-legend { margin-top: 8px; gap: 4px 16px; }
+  /* The items are buttons now and carry their own padding, so the 16px column gap
+     that used to separate them pushed the fourth view onto a second line. */
+  .topbar .vs-legend { margin-top: 8px; gap: 2px 2px; }
 }
 
 /* --- 6d. the density switch, reusing the existing .segmented component --- */
@@ -813,31 +881,61 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
    inside a container that never scrolls vertically rides away with the page. So
    above 900px the table is made to always fit instead (fixed layout, one column
    dropped per step down); below 900px the wrapper scrolls sideways as before. */
+/* Scroll, don't shrink. `table-layout: fixed` with percentage widths made every
+   column fit at any window size, which meant they were ALL ellipsised at once —
+   the name, the industry and the thesis together. The table now sizes to its
+   content and the wrapper scrolls sideways; View and Company are pinned to the
+   left edge so a row never loses the two fields that say which company it is. */
 .tblwrap { border: 1px solid var(--border); border-radius: var(--r-md);
-  background: var(--surface); box-shadow: var(--shadow); }
-@media (max-width: 900px) { .tblwrap { overflow-x: auto; } }
-@media (min-width: 901px) {
-  .tbl { table-layout: fixed; width: 100%; }
-  /* Percentages, not pixels: when a column is dropped the rest re-normalise, so
-     Price keeps growing as the table narrows instead of clipping. */
-  .tbl th:nth-child(1), .tbl td:nth-child(1) { width: 7%; }
-  .tbl th:nth-child(2), .tbl td:nth-child(2) { width: 19%; }
-  .tbl th:nth-child(3), .tbl td:nth-child(3) { width: 16%; }
-  .tbl th:nth-child(4), .tbl td:nth-child(4) { width: 7%; }
-  .tbl th:nth-child(5), .tbl td:nth-child(5) { width: 5%; }
-  .tbl th:nth-child(6), .tbl td:nth-child(6) { width: 10%; }
-  .tbl th:nth-child(7), .tbl td:nth-child(7) { width: 8%; }
-  .tbl th:nth-child(8), .tbl td:nth-child(8) { width: 11%; }
-  .tbl th:nth-child(n+9), .tbl td:nth-child(n+9) { width: 5.6%; }
-  .tbl tbody td { overflow: hidden; text-overflow: ellipsis; }
+  background: var(--surface); box-shadow: var(--shadow); overflow-x: auto; }
+.tbl { table-layout: auto; width: max-content; min-width: 100%; }
+
+/* --- the two pinned columns ---
+   One token drives both the first column's WIDTH and the second's left offset. They
+   have to agree exactly: with table-layout:auto the View column sized itself to 81px
+   while Company was pinned at a hard-coded 104px, so Company sat 23px right of its
+   own cell and covered the first 23px of Industry. min+max width (not `width`, which
+   auto layout treats as a suggestion) makes the first column deterministic. */
+.tbl { --pin-1: 104px; }
+.tbl .col-view { left: 0; min-width: var(--pin-1); max-width: var(--pin-1); }
+.tbl .col-name { left: var(--pin-1); }
+.tbl th.col-view, .tbl td.col-view, .tbl th.col-name, .tbl td.col-name {
+  position: sticky; z-index: 3;
 }
-@media (max-width: 1279px) { .tbl .col-thesis { display: none; } }
-@media (max-width: 1099px) { .tbl .col-ind { display: none; } }
-@media (max-width: 999px) { .tbl .col-tier { display: none; } }
+/* Bodies need an opaque background or the scrolling columns show through. The
+   header cells already have one and must out-rank the body cells they cross. */
+.tbl tbody td.col-view, .tbl tbody td.col-name { background: var(--surface); }
+.tbl thead th.col-view, .tbl thead th.col-name { z-index: 4; }
+.tbl tbody tr:hover td.col-view, .tbl tbody tr:hover td.col-name {
+  background: color-mix(in srgb, var(--accent) 4%, var(--surface));
+}
+/* The seam: a hairline that only shows once there is something scrolled under it. */
+.tbl .col-name::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0;
+  width: 1px; background: var(--border); }
+.tbl .col-name { min-width: 210px; }
+/* Free text, so it needs a ceiling of its own — but it is last, where a wide
+   column only lengthens the scroll instead of squeezing a neighbour. Notes run to a
+   median of 201 characters, so no width shows one whole: it gets the same two-line
+   preview the card uses, with the full note on hover. */
+.tbl .col-thesis { max-width: 460px; min-width: 300px; white-space: normal; }
+.tbl .col-thesis .t-th { white-space: normal; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  line-height: 1.45; }
+
+/* A column whose value is identical for every company on screen is dead width —
+   on the default sort that is View, Tier and Quarter all at once. */
+.tbl.hide-view .col-view, .tbl.hide-quarter .col-quarter, .tbl.hide-tier .col-tier { display: none; }
+/* With View gone, Company becomes the leading column: it takes the row's colour
+   edge and slides to the left edge itself. */
+.tbl.hide-view .col-name { left: 0; }
+.tbl.hide-view tbody td.col-name { box-shadow: inset 3px 0 0 var(--bar, var(--view-unrated-bar)); }
 .tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-secondary);
   font-variant-numeric: tabular-nums; }
 /* Pinned under the site header AND the sticky toolbar. */
-.tbl thead th { position: sticky; top: calc(var(--header-h) + var(--tbar-h)); z-index: 2; background: var(--surface-2);
+/* top:0, not the page header offset. .tblwrap scrolls (overflow-x: auto also makes
+   overflow-y a scrollport), so a sticky thead resolves against the WRAPPER — the old
+   126px offset pushed the header down into the middle of the rows. */
+.tbl thead th { position: sticky; top: 0; z-index: 2; background: var(--surface-2);
   text-align: left; padding: 9px var(--sp-3); font-size: 10px; font-weight: 800;
   text-transform: uppercase; letter-spacing: .07em; color: var(--muted);
   border-bottom: 1px solid var(--border); white-space: nowrap; }
@@ -881,7 +979,8 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
 .tbl .t-e { font-size: var(--fs-label); font-weight: 800; }
 .tbl .t-e.up { color: var(--view-positive-fg); }
 .tbl .t-e.down { color: var(--view-negative-fg); }
-@media (max-width: 900px) { .tbl .col-tier, .tbl .col-ind { display: none; } }
+/* Nothing is dropped by viewport width any more: the table scrolls, so a narrow
+   window costs a swipe rather than three columns. */
 
 /* --- 6f. keep the toolbar on one row at 1400px ---
    With the density switch added, the controls overflowed and Watchlist
@@ -902,9 +1001,7 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
    same job. This is one: a single row that is always visible, and one
    panel behind a Filters button. Desktop and mobile differ only in how
    the panel lays its controls out — 4-up vs 2-up.
-   Net effect on desktop: the toolbar drops from two rows (~130px) to one
-   (~64px), and .toolbar / .tb-find / .filter-row / .mtb / .mfilters
-   collapse into .tbar / .tpanel.
+   Net effect on desktop: the toolbar drops from two rows (~130px) to one (~64px).
    ============================================================ */
 .tbar-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg);
   padding: var(--sp-3) var(--sp-4); margin: var(--sp-3) 0; box-shadow: var(--shadow); }
@@ -949,7 +1046,20 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   
   .tbar-wrap { position: sticky; top: var(--header-h); z-index: 16;
     background: var(--surface); border-radius: var(--r-sm); }
-  .tbar .dens { display: none; }          /* density switch moves into the panel on a phone */
+  /* Density returns to the toolbar row as icons. That empties the results line down
+     to one 18px text line, which is what lets the count row stop being a 41px band
+     of its own — the toolbar row's height does not change to carry it. */
+  .tbar .dens { display: inline-flex; flex: none; }
+  /* At 320px the search field is left with 49px of text room — less than the word
+     "Search". The two fixed controls give some back. */
+  @media (max-width: 380px) {
+    .tbar { gap: var(--sp-2); }
+    .fbtn { padding: 0 var(--sp-2); }
+    .tbar .dens .seg { padding: 6px; }
+  }
+  .tbar .dens .seg { padding: var(--sp-2); gap: 0; }
+  .tbar .dens .seg .lbl { display: none; }
+  .tbar .dens .seg .ic { font-size: 14px; }
   .tbar .btn.ghost { display: none; }      /* so does the export button */
   
 }
@@ -977,10 +1087,16 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
 /* --- 8a. the Cards/Table switch reaches the phone via the results line ---
    The bar has no room for it at 390px, but the results count already occupies
    a row there. Putting the switch at the right of that row costs ~4px, not 40. */
-.count-row { display: flex; align-items: center; gap: var(--sp-3); margin: var(--sp-1) 0 var(--sp-3); }
+.count-row { display: flex; align-items: baseline; gap: var(--sp-2) var(--sp-3);
+  flex-wrap: wrap; margin: var(--sp-1) 0 var(--sp-3); }
 .count-row .count { margin: 0; }
-.count-row .dens { margin-left: auto; }
-@media (min-width: 761px) { .count-row .dens { display: none; } }  /* desktop keeps it in the bar */
+/* Was printed on all 24 cards (119 of 120 companies share it); it belongs here. */
+.asof { color: var(--muted); font-size: var(--fs-label); font-variant-numeric: tabular-nums;
+  white-space: nowrap; }
+.count-row .asof { margin-left: auto; }
+/* A card only dates itself when its price is older than the rest of the book. */
+.ema-tag.stale { color: var(--view-concern-fg); font-weight: 700; }
+
 
 /* --- 8b. table on a phone: scroll sideways, but never lose the company ---
    Tier and Industry drop out, the view label reduces to its glyph, and the
@@ -988,8 +1104,7 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
    identified while price and the three EMAs scroll past. */
 @media (max-width: 900px) {
   .tbl .t-vw { display: none; }
-  .tbl thead th:nth-child(1), .tbl tbody td:nth-child(1) { position: sticky; left: 0; z-index: 2; }
-  .tbl thead th:nth-child(2), .tbl tbody td:nth-child(2) { position: sticky; left: 34px; z-index: 2; }
+  /* View/Company are pinned at every width now — see the .col-view/.col-name rules. */
   .tbl tbody td:nth-child(1), .tbl tbody td:nth-child(2) { background: var(--surface); }
   .tbl thead th:nth-child(1), .tbl thead th:nth-child(2) { z-index: 4; background: var(--surface-2); }
   .tbl tbody td:nth-child(2) { box-shadow: 1px 0 0 var(--border); }
@@ -1017,7 +1132,7 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .crow .c-nm:hover { text-decoration: none; color: var(--accent); }
 .crow .c-sub { font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: .02em; }
-.crow .c-q.fresh { color: var(--accent); }
+.crow .c-q { color: var(--accent); font-weight: 700; }
 .crow .c-num { display: flex; flex-direction: column; align-items: flex-end; gap: 1px;
   font-variant-numeric: tabular-nums; white-space: nowrap; }
 .crow .c-px { font-size: var(--fs-secondary); font-weight: 700; }
@@ -1106,8 +1221,12 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   .dg-bar { padding: 0; gap: var(--sp-2); align-items: center; flex-wrap: nowrap; }
   .dg-bar .dg-title { flex: 0 0 auto; padding: 0; }
   .dg-pre { display: none; }                 /* "What changed in" — the quarter alone carries it */
+  .qp-tail { display: none; }                /* "27 + newly covered" -> "27 + new": it was cut mid-word */
   .dg-bar .dg-pills { flex: 1 1 auto; padding: 0; scroll-snap-type: x proximity; }
   .dg-pills .qp { scroll-snap-align: start; min-height: 34px; }
+  /* 320px (SE-class) is 5px short of fitting both pills — buy it back from the
+     padding rather than leaving the last one under the fade. */
+  @media (max-width: 340px) { .dg-pills .qp { padding-left: 10px; padding-right: 10px; } }
   /* The mask is the scroll affordance — a hard-cut pill read as a broken layout. */
   .dg-bar .dg-pills {
     -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 26px), transparent 100%);
@@ -1128,10 +1247,10 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
    something nine months old. Newest quarter takes the same accent pill the
    card uses; anything older stays muted, so a column of grey quarters reads
    as "this needs revisiting" at a glance. */
-.tbl .t-q { font-size: var(--fs-label); font-weight: 700; color: var(--muted);
-  font-variant-numeric: tabular-nums; white-space: nowrap; }
-.tbl .t-q.fresh { color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, transparent);
-  padding: 2px 8px; border-radius: var(--r-pill); font-weight: 800; }
+.tbl .t-q { font-size: var(--fs-label); font-weight: 800;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+  color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, transparent);
+  padding: 2px 8px; border-radius: var(--r-pill); }
 
 /* Which density is showing is decided before first paint (Base.astro reads
    localStorage alongside the theme), so switching never flashes the wrong one. */
@@ -1169,5 +1288,314 @@ a.badge.tier:hover { background: color-mix(in srgb, var(--accent) 12%, var(--sur
   /* "sequential," is what the footnote is for; at 390px it cost the YoY column
      enough width to wrap its own numbers onto two lines. */
   .gm-seq { display: none; }
+  /* On a phone the five columns cannot fit. The 5-year reference is the least
+     load-bearing so it goes first; then the compounded sub-labels and the extra
+     gutter on the CAGR column, which together were costing ~40px at 360px. */
+  .gmatrix .c5 { display: none; }
+  .gm-comp { display: none; }
+  .gmatrix th.cagr, .gmatrix td.cagr { padding-left: var(--sp-2); }
+  .gmatrix th, .gmatrix td { padding-left: var(--sp-1); padding-right: var(--sp-1); }
+  .gmatrix th.m { padding-left: var(--sp-2); }
   .gmatrix td .v { white-space: nowrap; }
 }
+
+/* ── Multibagger setup score ────────────────────────────────────────────────
+   Band intensity rides the indigo accent only. The four view colours
+   (green / blue / amber / red) are reserved for Positive / Watch / Concern /
+   Negative, so a coloured score badge would read as a view. */
+.mb-badge {
+  display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-label);
+  line-height: var(--lh-label); font-weight: 800; padding: 3px 10px;
+  border-radius: var(--r-pill); white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.mb-warn { opacity: .8; font-size: 10px; }
+/* One filled-pill treatment for every band, matching the quarter tag. Only the
+   intensity of the accent changes, so the five bands stay distinguishable without
+   three different shapes (solid / ringed / outlined) competing in one row. */
+.mb-strong { background: var(--accent); color: #fff; }
+.mb-fair { background: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent); }
+.mb-thin { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.mb-weak { background: color-mix(in srgb, var(--accent) 9%, transparent); color: var(--muted); }
+.mb-none { background: var(--surface-2); color: var(--muted); }
+
+/* Band-only badge in the list/table. Letter-spacing matches the view badges so the
+   three sit as one line of labels rather than three different type treatments. */
+.tbl .mb-badge { font-size: 11px; padding: 2px 8px; }
+
+/* A flag replaces trust in the number, so it reads as a warning without
+   borrowing the Negative red. */
+.mb-flag {
+  display: inline-flex; align-items: center; gap: 5px; font-size: var(--fs-label);
+  font-weight: 700; color: var(--muted); padding: 2px 9px; border-radius: var(--r-pill);
+  border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent); white-space: nowrap;
+}
+
+.mb-quad { display: flex; align-items: baseline; gap: var(--sp-3); flex-wrap: wrap;
+  padding: var(--sp-3) 0; border-bottom: 1px solid var(--border); margin-bottom: var(--sp-3); }
+.mb-quad b { font-size: var(--fs-body); letter-spacing: -.01em; }
+.mb-quad .mb-ax { color: var(--muted); font-size: var(--fs-label); font-weight: 700; }
+
+/* Two components abreast on a wide screen: four stacked rows, each with a
+   full-width bar beneath, ran to ~250px of height while using a third of the
+   width. */
+.mb-rows { display: grid; gap: var(--sp-3) var(--sp-5); }
+/* Two abreast on a wide screen — 164px shorter than one column. The letters that
+   used to imply a reading order across this grid are gone, so the shape is honest. */
+@media (min-width: 760px) { .mb-rows { grid-template-columns: 1fr 1fr; } }
+.mb-r { display: grid; grid-template-columns: 1fr 66px; gap: var(--sp-2) var(--sp-3);
+  align-items: center; align-content: start; }
+.mb-lab { font-size: var(--fs-secondary); font-weight: 600; }
+.mb-sub { display: block; color: var(--muted); font-size: var(--fs-label); font-weight: 500; margin-top: 1px; }
+.mb-pts { text-align: right; font-size: var(--fs-secondary); font-weight: 800; font-variant-numeric: tabular-nums; }
+.mb-pts s { color: var(--muted); font-weight: 600; text-decoration: none; font-size: var(--fs-label); }
+.mb-bar { grid-column: 1 / 3; height: 5px; border-radius: 999px; background: var(--surface-2);
+  overflow: hidden; margin-top: 2px; }
+.mb-bar i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+
+/* The plain-English lead. First thing in the panel and the only part written for a
+   reader who does not know what a P/E is, so it gets body size, not label size. */
+.mb-lead { margin: 0 0 var(--sp-4); font-size: var(--fs-secondary); line-height: 1.6;
+  color: var(--muted); max-width: 68ch; }
+.mb-lead b { color: var(--text); font-size: var(--fs-body); letter-spacing: -.01em;
+  display: block; margin-bottom: 2px; }
+
+/* Score and View can point opposite ways. Two badges contradicting each other
+   quietly is how a skimming reader takes away the wrong signal, so it is stated. */
+.mb-clash { margin: 0 0 var(--sp-3); padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm); font-size: var(--fs-label); line-height: 1.55;
+  color: var(--muted); background: var(--surface-2);
+  border: 1px solid var(--border); border-left: 3px solid var(--view-concern-bar); }
+.mb-clash b { color: var(--text); }
+
+/* The sentence the whole forward block exists to deliver. */
+.mb-dbl { margin-bottom: var(--sp-3); padding-bottom: var(--sp-3);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 18%, transparent); }
+.mb-dbl-h { display: block; font-size: var(--fs-body); letter-spacing: -.01em;
+  line-height: 1.3; color: var(--text); }
+.mb-dbl-b { margin: var(--sp-1) 0 0; font-size: var(--fs-secondary); line-height: 1.6;
+  color: var(--muted); font-variant-numeric: tabular-nums; max-width: 68ch; }
+.mb-dbl-b b { color: var(--text); }
+
+/* Plain-English glossary, collapsed. Fills the right rail, which used to run out
+   of content well above the end of the main column. */
+.gloss > summary { cursor: pointer; font-size: var(--fs-label); font-weight: 800;
+  letter-spacing: .5px; text-transform: uppercase; color: var(--muted); }
+.gloss > summary:hover { color: var(--text); }
+.gloss dl { margin: var(--sp-3) 0 0; }
+.gloss dt { font-size: var(--fs-secondary); font-weight: 700; color: var(--text); }
+.gloss dd { margin: 2px 0 var(--sp-3); font-size: var(--fs-label); line-height: 1.55;
+  color: var(--muted); }
+.gloss dd:last-child { margin-bottom: 0; }
+
+/* The framework's three closing facts, read across instead of stacked. */
+/* The forward view, given the room it deserves — this is the question the panel
+   exists to answer, so it sits above the evidence rather than under it. */
+.mb-out { background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); margin-bottom: var(--sp-4); }
+.mb-out-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-3); }
+.mb-out-h .mb-tk { flex: 0 0 100%; }
+.mb-big { font-size: 30px; line-height: 1.05; letter-spacing: -.03em; color: var(--accent);
+  font-variant-numeric: tabular-nums; }
+.mb-out-sub { color: var(--muted); font-size: var(--fs-secondary); }
+.mb-need { display: grid; gap: var(--sp-2) var(--sp-3); margin-top: var(--sp-3);
+  padding-top: var(--sp-3); border-top: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.mb-n b { display: block; font-size: var(--fs-body); font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em; margin-top: 2px; }
+.mb-out .mb-fine { margin-top: var(--sp-3); }
+
+/* Where the band changes. The score is 70% a function of price, so the prices at
+   which it flips are the actionable form of it. */
+.mb-win { margin-top: var(--sp-4); padding-top: var(--sp-3); border-top: 1px solid var(--border); }
+/* One-up only in the actual 336px rail. Below 900px this panel is full-width, where
+   forcing one column made it TALLER than the auto-fit default it replaced. */
+.dt-figures .mb-stats { margin-top: 0; }
+@media (min-width: 901px) { .dt-figures .mb-stats { grid-template-columns: 1fr; } }
+.dt-figures .mb-win:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.mb-wrow { font-size: var(--fs-secondary); font-variant-numeric: tabular-nums; margin-top: var(--sp-1); }
+.mb-wrow span { color: var(--muted); }
+
+.mb-stats { display: grid; gap: var(--sp-2) var(--sp-3); margin-top: var(--sp-3);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.mb-t { background: var(--surface-2); border-radius: var(--r-sm); padding: var(--sp-2) var(--sp-3); }
+.mb-tk { display: block; font-size: var(--fs-label); font-weight: 800; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--muted); }
+.mb-t b { display: block; font-size: var(--fs-body); font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em; margin-top: 2px; }
+.mb-ts { display: block; font-size: var(--fs-label); color: var(--muted); margin-top: 1px; line-height: 1.35; }
+.mb-badge .mb-n { font-weight: 800; font-variant-numeric: tabular-nums; margin-left: 5px; }
+.mb-badge s { text-decoration: none; opacity: .6; font-weight: 700; margin-left: 1px; }
+.mb-say { margin: var(--sp-2) 0 0; color: var(--muted); font-size: var(--fs-label); line-height: 1.55; }
+.mb-fine { opacity: .8; }
+/* The verdict is the one line of prose that earns a permanent place. */
+.mb-verdict { margin-top: var(--sp-3); color: var(--text); font-weight: 600; }
+.mb-capline { margin-top: var(--sp-3); }
+
+/* Five stacked explainers were 392px of a phone screen on all 127 pages, all of it
+   worth reading once. One disclosure, closed by default. */
+.mb-how { margin-top: var(--sp-3); border-top: 1px solid var(--border); padding-top: var(--sp-2); }
+.mb-how > summary { cursor: pointer; font-size: var(--fs-label); font-weight: 800;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--muted);
+  list-style: none; display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 0; min-height: 32px; }
+.mb-how > summary::-webkit-details-marker { display: none; }
+.mb-how > summary::before { content: "▸"; font-size: 10px; transition: transform .12s ease; }
+.mb-how[open] > summary::before { transform: rotate(90deg); }
+.mb-how > summary:hover { color: var(--text); }
+.mb-how-body { padding-bottom: var(--sp-2); }
+
+/* The 11-column row is already tight on a phone; the badge wraps rather than
+   pushing the quarter label off the line. */
+@media (max-width: 480px) {
+  .mb-r { grid-template-columns: 1fr 64px; }
+}
+
+/* ── "How to read this page" ────────────────────────────────────────────────
+   The strip and its compact replacement are driven off one root attribute set
+   before paint, so the two can never both show. */
+.howto {
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--border));
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+  border-radius: var(--r-md); padding: var(--sp-4) var(--sp-5);
+  margin: var(--sp-5) 0 var(--sp-2);
+}
+.howto-head { display: flex; align-items: baseline; gap: var(--sp-3); }
+.howto-h { margin: 0; flex: 1 1 auto; font-size: var(--fs-body); font-weight: 800;
+  letter-spacing: -.01em; color: var(--text); }
+.howto-x {
+  flex: none; border: 0; background: transparent; cursor: pointer; font-family: inherit;
+  color: var(--muted); font-size: 13px; line-height: 1; padding: 6px; margin: -6px -6px -6px 0;
+  border-radius: var(--r-sm); min-width: 32px; min-height: 32px;
+}
+.howto-x:hover { color: var(--text); background: var(--surface-2); }
+.howto-items { list-style: none; margin: var(--sp-3) 0 0; padding: 0;
+  display: grid; gap: var(--sp-3); }
+@media (min-width: 900px) { .howto-items { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-4); } }
+.howto-items li { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.howto-eg { display: flex; }
+.howto-t { font-size: var(--fs-label); line-height: 1.6; color: var(--muted); }
+.howto-t b { color: var(--text); font-weight: 700; }
+.howto-t i { font-style: normal; color: var(--text); font-weight: 600; }
+.howto-foot { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-4);
+  margin: var(--sp-4) 0 0; padding-top: var(--sp-3); border-top: 1px solid var(--border); }
+.howto-link { font-size: var(--fs-label); font-weight: 700; color: var(--accent); }
+.howto-note { font-size: var(--fs-label); color: var(--muted); margin-left: auto; }
+@media (max-width: 640px) { .howto-note { margin-left: 0; } }
+
+/* The strip's replacement once dismissed — put away, never lost. */
+.howto-reopen {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-family: inherit;
+  margin: var(--sp-5) 0 0; padding: 6px 12px; min-height: 32px;
+  border: 1px solid var(--border); background: var(--surface); border-radius: var(--r-pill);
+  color: var(--muted); font-size: var(--fs-label); font-weight: 700;
+}
+.howto-reopen:hover { border-color: var(--accent); color: var(--accent); }
+:root[data-howto="off"] .howto { display: none; }
+:root:not([data-howto="off"]) .howto-reopen { display: none; }
+
+/* ── Tap-to-explain (taptip.js) ─────────────────────────────────────────── */
+.taptip {
+  position: absolute; z-index: 300; max-width: min(320px, calc(100vw - 16px));
+  background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  border-radius: var(--r-sm); box-shadow: var(--shadow-lg, 0 8px 28px rgba(0,0,0,.16));
+  padding: 10px 12px; font-size: var(--fs-label); line-height: 1.55;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.taptip b { font-size: 10px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--accent); }
+.taptip span { color: var(--muted); }
+/* The two elements that open one have to look pressable. */
+.mb-badge[data-tip], .ema-pill[data-tip] { cursor: help; }
+.mb-badge[data-tip]:focus-visible, .ema-pill[data-tip]:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+
+/* ── An ⓘ beside a filter-group heading ─────────────────────────────────── */
+.tp-lab-sub { font-weight: 700; text-transform: none; letter-spacing: 0; opacity: .75; margin-left: 5px; }
+.lab-i {
+  border: 0; background: transparent; cursor: pointer; font-family: inherit;
+  color: var(--muted); font-size: 12px; line-height: 1; padding: 4px; margin-left: 2px;
+  min-width: 24px; min-height: 24px; border-radius: 50%;
+}
+.lab-i:hover { color: var(--accent); }
+.lab-i[aria-expanded="true"] { color: var(--accent); }
+.lab-tip {
+  margin: 0 0 var(--sp-2); padding: 10px 12px; border: 1px solid var(--border);
+  border-radius: var(--r-sm); background: var(--surface-2); max-width: 460px;
+}
+.lab-tip[hidden] { display: none; }
+.lab-tip-h { margin: 0 0 4px; font-size: 10px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--accent); }
+.lab-tip p { margin: 0 0 6px; font-size: var(--fs-label); line-height: 1.55; color: var(--muted); }
+.lab-tip p:last-child { margin-bottom: 0; }
+.lab-tip b { color: var(--text); }
+
+/* ── The glossary, now on the list page too ─────────────────────────────────── */
+.gloss-list { margin-top: var(--sp-6); }
+.gloss-more { margin: var(--sp-3) 0 0; padding-top: var(--sp-3); border-top: 1px solid var(--border);
+  font-size: var(--fs-label); font-weight: 700; }
+.gloss-more a { color: var(--accent); }
+@media (min-width: 900px) {
+  .gloss-list dl { columns: 2; column-gap: var(--sp-8); }
+  .gloss-list dd { break-inside: avoid; }
+}
+.footer-links { margin: var(--sp-3) 0 0; font-weight: 700; }
+.footer-links a { color: var(--accent); }
+
+/* ── /how-to-read ───────────────────────────────────────────────────────────
+   Its examples are live — the same rowHTML() and scorePanelHTML() the site uses —
+   so they cannot drift the way a screenshot would. */
+.htr-head { margin: var(--sp-5) 0 var(--sp-6); }
+.htr-lead { margin: var(--sp-3) 0 0; max-width: 68ch; font-size: 17px; line-height: var(--lh-body); color: var(--muted); }
+.htr-lead b { color: var(--text); }
+.htr-sec { margin: var(--sp-10) 0; }
+.htr-h2 { margin: 0 0 var(--sp-2); font-size: clamp(19px, 2.4vw, 24px); line-height: var(--lh-tight); letter-spacing: -.02em; }
+.htr-p { margin: 0 0 var(--sp-4); max-width: 68ch; font-size: var(--fs-secondary); line-height: var(--lh-body); color: var(--muted); }
+.htr-p b { color: var(--text); }
+
+.htr-defbody { margin: 0; max-width: 68ch; font-size: var(--fs-secondary); line-height: var(--lh-body); color: var(--muted); }
+.htr-defbody b { color: var(--text); }
+.htr-defbody i { font-style: normal; color: var(--text); font-weight: 600; }
+.htr-defnote { margin-top: var(--sp-4); }
+.htr-eq { display: flex; align-items: stretch; gap: var(--sp-3); margin: var(--sp-4) 0; flex-wrap: wrap; }
+.htr-eq-part { flex: 1 1 240px; min-width: 0; border: 1px solid var(--border); border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface)); padding: var(--sp-3) var(--sp-4);
+  display: flex; flex-direction: column; gap: 4px; }
+.htr-eq-part b { font-size: var(--fs-secondary); letter-spacing: -.01em; }
+.htr-eq-part span { font-size: var(--fs-label); line-height: 1.55; color: var(--muted); }
+.htr-eq-part i { font-style: normal; color: var(--accent); font-weight: 700; }
+.htr-eq-op { align-self: center; font-size: 20px; font-weight: 800; color: var(--accent); }
+
+/* Framed so the example reads as a specimen, not as page furniture. */
+.htr-demo { border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-radius: var(--r-md); padding: var(--sp-3); background: var(--surface-2);
+  margin-bottom: var(--sp-5); }
+.htr-demo .row { margin: 0; }
+.htr-demo-panel .panel { margin-bottom: 0; }
+
+/* The live badge sits beside the words that name it — no positioned overlay to
+   break. */
+.htr-parts { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-5); counter-reset: htr; }
+.htr-parts > li { display: grid; gap: var(--sp-2) var(--sp-5); align-items: start;
+  padding-top: var(--sp-4); border-top: 1px solid var(--border); }
+@media (min-width: 900px) { .htr-parts > li { grid-template-columns: 250px minmax(0, 1fr); } }
+.htr-part-eg { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start; }
+.htr-part-t { font-size: var(--fs-secondary); line-height: var(--lh-body); color: var(--muted); min-width: 0; }
+.htr-part-t b { color: var(--text); }
+.htr-part-t i { font-style: normal; color: var(--text); font-weight: 600; }
+.htr-part-wide { grid-column: 1 / -1; max-width: 76ch; }
+.htr-sub { margin: var(--sp-2) 0; padding-left: 18px; display: grid; gap: 3px; }
+.htr-sub li { font-size: var(--fs-label); line-height: 1.6; }
+.htr-sub .gly { margin-right: 5px; }
+.htr-warnline { margin: var(--sp-3) 0 0; padding: var(--sp-2) var(--sp-3);
+  border-left: 3px solid color-mix(in srgb, var(--view-concern-bar) 70%, transparent);
+  background: color-mix(in srgb, var(--view-concern-bar) 7%, transparent);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0; font-size: var(--fs-label); line-height: 1.6; }
+
+.htr-filters { margin: 0 0 var(--sp-4); padding-left: 20px; display: grid; gap: var(--sp-2);
+  max-width: 72ch; font-size: var(--fs-secondary); line-height: var(--lh-body); color: var(--muted); }
+.htr-filters b { color: var(--text); }
+.htr-gloss { margin-top: var(--sp-8); }
+.htr-caveat { border-color: color-mix(in srgb, var(--view-concern-bar) 45%, var(--border)); }
+.htr-back { margin: var(--sp-4) 0 0; }

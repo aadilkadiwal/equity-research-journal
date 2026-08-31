@@ -40,6 +40,10 @@ const ogImage = site ? new URL('/og.png', site).href : '/og.png';
           if (t) document.documentElement.setAttribute('data-theme', t);
           var d = localStorage.getItem('density');
           if (d) document.documentElement.setAttribute('data-density', d);
+          // Read before paint like the other two, so a reader who dismissed the
+          // introduction never sees it flash back on the next visit.
+          var h = localStorage.getItem('howto');
+          if (h) document.documentElement.setAttribute('data-howto', h);
         } catch (e) {}
       })();
     </script>
@@ -51,12 +55,14 @@ const ogImage = site ? new URL('/og.png', site).href : '/og.png';
         <a class="brand" href="/">
           <svg class="brand-mark" viewBox="0 0 64 64" width="24" height="24" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="var(--accent)"></rect>
-            <text x="32" y="44" text-anchor="middle" font-family="var(--font-sans)" font-size="30" font-weight="700" fill="#fff">AK</text>
+            <text x="32" y="44" text-anchor="middle" font-family="var(--font-sans)" font-size="30" font-weight="700" fill="var(--on-accent)">AK</text>
           </svg>
           <span class="brand-name">Aadil Kadiwal</span>
         </a>
         <span class="spacer"></span>
-        <a class="btn ghost market-breadth" href="https://chartink.com/dashboard/422097" target="_blank" rel="noopener" title="Open the Market Breadth dashboard on Chartink">📊 <span class="mb-label">Market Breadth ↗</span></a>
+        <!-- A bare emoji leaving the site said nothing, so the phone keeps a short
+             word and screen readers always get the full name. -->
+        <a class="btn ghost market-breadth" href="https://chartink.com/dashboard/422097" target="_blank" rel="noopener" aria-label="Market Breadth dashboard on Chartink" title="Open the Market Breadth dashboard on Chartink">📊 <span class="mb-label">Market Breadth ↗</span><span class="mb-label-short">Breadth ↗</span></a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">🌗</button>
       </div>
     </header>
@@ -68,13 +74,18 @@ const ogImage = site ? new URL('/og.png', site).href : '/og.png';
     <footer class="site-footer">
       <div class="container">
         <div class="footer-about">
-          <h3>About</h3>
+          <h2>About</h2>
           <p>
             <strong>Aadil Kadiwal · Equity Research &amp; Views.</strong> A personal, plain-English take on Indian
             listed companies — one recorded view per company each quarter, with an AI-generated concall report behind
             most names. <strong>Method:</strong> each company gets a view (Positive / Watch / Concern / Negative) formed
             from its latest results, concall reading and valuation; a <em>Tier</em> (1–4) grades earnings momentum
-            (the weaker of YoY sales &amp; PAT growth). Views are revisited every quarter and may change.
+            (the weaker of YoY sales &amp; PAT growth); and a <em>multibagger potential</em> score (0–100) rates how
+            strong the case looks on the figures alone. A <em>multibagger</em> is simply a stock that returns several
+            times what you paid for it. Views are revisited every quarter and may change.
+          </p>
+          <p class="footer-links">
+            <a href="/how-to-read/">How to read this site →</a>
           </p>
         </div>
         <p class="disclaimer">

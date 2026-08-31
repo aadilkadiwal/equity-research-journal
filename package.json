@@ -9,7 +9,10 @@
     "preview": "astro preview",
     "preview:cf": "astro build && npx wrangler pages dev dist",
     "import": "python3 scripts/import_excel.py",
-    "template": "node scripts/make_template.mjs"
+    "template": "node scripts/make_template.mjs",
+    "test": "node --test src/lib/*.test.js",
+    "pe": "python3 scripts/pe/fetch_pe_history.py",
+    "test:py": "python3 scripts/emas/test_ema_core.py && python3 scripts/pe/test_pe_core.py"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

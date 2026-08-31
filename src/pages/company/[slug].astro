@@ -2,7 +2,10 @@
 import Base from '../../layouts/Base.astro';
 import data from '../../data/companies.json';
 import emas from '../../data/emas.json';
-import { VIEW_GLYPH, latestEntry, newestQuarter, emaPanelHTML, growthMatrixHTML, timelineHTML, esc } from '../../lib/render.js';
+// Refreshed once a quarter by scripts/pe/fetch_pe_history.py. Company page only:
+// the range is report-only, so the list needs neither the data nor the payload.
+import pe from '../../data/pe.json';
+import { VIEW_GLYPH, latestEntry, emaPanelHTML, growthMatrixHTML, scorePanelHTML, sidePanelsHTML, timelineHTML, glossaryHTML } from '../../lib/render.js';
 import { formatMcap, quarterKey } from '../../lib/format.js';
 
 // One pre-rendered page per studied company. Ordered by market cap so the
@@ -19,14 +22,13 @@ export function getStaticPaths() {
 }
 
 const { company, prev, next } = Astro.props;
-const c = { ...company, ema: (emas.companies || {})[company.slug] || null };
+const c = { ...company, ema: (emas.companies || {})[company.slug] || null,
+  peRange: (pe.companies || {})[company.slug] || null };
 const e = latestEntry(c);
-const newestQ = newestQuarter(data.companies);
 const chrono = [...(c.quarters || [])].sort((a, b) => quarterKey(a.quarter) - quarterKey(b.quarter));
 const prevEntry = chrono.length > 1 ? chrono[chrono.length - 2] : null;
 const flip = prevEntry && prevEntry.view && e.view && prevEntry.view !== e.view ? prevEntry.view : null;
 const vs = (e.view || 'unrated').toLowerCase();
-const fresh = e.quarter === newestQ;
 const symbol = c.tvCode ? `NSE:${c.tvCode}` : null;
 const report = /^https?:\/\//i.test(e.reportUrl || '') ? e.reportUrl : null;
 
@@ -64,7 +66,7 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
       {e.tier && (tierNum
         ? <a class="badge tier" href={`/?tier=${tierNum}`} title={`All Tier ${tierNum} companies`}>{e.tier}</a>
         : <span class="badge tier">{e.tier}</span>)}
-      <span class={`row-view-q${fresh ? ' fresh' : ''}`}>{e.quarter}</span>
+      <span class="row-view-q">{e.quarter}</span>
       {flip && <span class="flip-chip">↕ from {flip}</span>}
     </div>
     <h1 class="dt-title">{c.name}{symbol && <span class="dt-sym">{symbol}</span>}</h1>
@@ -91,6 +93,8 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
       </section>
     )}
 
+    <div class="dt-score" set:html={scorePanelHTML(c, e, { split: true })}></div>
+
     <div class="dt-growth" set:html={growthMatrixHTML(e)}></div>
 
     <div class="dt-hist" set:html={timelineHTML(c, e.quarter)}></div>
@@ -98,11 +102,13 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
 
     <aside class="dt-side">
       {c.ema && c.ema.ema && (
-        <section class="panel">
+        <section class="panel dt-price">
           <h2 class="section-title">Price &amp; weekly trend</h2>
           <div set:html={emaPanelHTML(c)}></div>
         </section>
       )}
+
+      <Fragment set:html={sidePanelsHTML(c, e)} />
 
       <section class="panel">
         <h2 class="section-title">Go deeper</h2>
@@ -133,6 +139,9 @@ const description = (e.note || `View and quarter history for ${c.name}.`).slice(
         </div>
         <p class="ex-foot">Covered for {chrono.length} quarter{chrono.length > 1 ? 's' : ''} since {chrono[0].quarter}.</p>
       </section>
+      <!-- Collapsed, and last in the rail: it is here for the reader who needs it,
+           and it fills a column that used to run out of content halfway down. -->
+      <section class="panel gloss-panel" set:html={glossaryHTML()}></section>
     </aside>
   </div>
 </Base>

@@ -23,6 +23,17 @@ const FIELD_ALIASES = {
   tvCode:    ['TradingView Code', 'TradingViewCode'],
   view:      ['View'],
   note:      ['Note'],
+  // Valuation inputs, all optional — see EXTRA_OPTIONAL below.
+  epsTtmRs:     ['EPS TTM', 'EPS (TTM)', 'TTM EPS', 'EPSTTM'],
+  epsCagr3y:    ['EPS growth 3Years', 'EPS CAGR 3Y', '3Y EPS CAGR'],
+  epsCagr5y:    ['EPS growth 5Years', 'EPS CAGR 5Y', '5Y EPS CAGR'],
+  salesCagr3y:  ['Sales growth 3Years', 'Sales CAGR 3Y', '3Y Sales CAGR'],
+  salesCagr5y:  ['Sales growth 5Years', 'Sales CAGR 5Y', '5Y Sales CAGR'],
+  ebitdaCagr3y: ['EBIDT growth 3Years', 'EBITDA growth 3Years', '3Y EBITDA CAGR'],
+  ebitdaCagr5y: ['EBIDT growth 5Years', 'EBITDA growth 5Years', '5Y EBITDA CAGR'],
+  peAvg5y:      ['5Y Avg P/E', '5Y Avg PE', '5 Year Avg PE', 'Median PE', 'Avg PE 5Y'],
+  peIndustry:   ['Industry P/E', 'Industry PE', 'Sector PE'],
+  bvps:         ['Book Value', 'Book Value per Share', 'BVPS'],
 };
 
 // Column order as it appears in the workbook, so a column-by-column paste lines
@@ -34,6 +45,10 @@ const SHEET_ORDER = [
   'YoY EPS Growth', 'QoQ EPS Growth',
   'YoY PAT Growth', 'QoQ PAT Growth',
   'Market Cap', 'Tier', 'TradingView Code', 'View', 'Note',
+  'EPS TTM', '5Y Avg P/E', 'Industry P/E', 'Book Value',
+  'EPS growth 3Years', 'EPS growth 5Years',
+  'Sales growth 3Years', 'Sales growth 5Years',
+  'EBIDT growth 3Years', 'EBIDT growth 5Years',
 ];
 
 const nk = (s) => String(s == null ? '' : s).toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -78,13 +93,18 @@ function readGrowth(row) {
 
 // All three lists are derived from SHEET_ORDER, so they cannot drift apart.
 const GROWTH_NAMES = new Set(Object.values(GROWTH_FIELDS).flatMap((b) => [b.yoy[0], b.qoq[0]]));
+// Optional beyond the growth columns: in the template so it gets filled going
+// forward, but never required, so every sheet downloaded before it existed and
+// every sheet that leaves it blank still uploads.
+const EXTRA_OPTIONAL = new Set(['EPS TTM', '5Y Avg P/E', 'Industry P/E', 'Book Value',
+  'EPS growth 3Years', 'EPS growth 5Years', 'Sales growth 3Years', 'Sales growth 5Years',
+  'EBIDT growth 3Years', 'EBIDT growth 5Years']);
 
 // Required for a valid upload. The eight growth columns are deliberately NOT
 // here — a sheet without them must still import, yielding no "growth" key, which
 // the site renders as "not recorded" rather than zero.
-export const REQUIRED_COLUMNS = SHEET_ORDER.filter((c) => !GROWTH_NAMES.has(c));
-export const GROWTH_COLUMNS = SHEET_ORDER.filter((c) => GROWTH_NAMES.has(c));
-// What the downloadable template contains: all 15, in the workbook's own order.
+export const REQUIRED_COLUMNS = SHEET_ORDER.filter((c) => !GROWTH_NAMES.has(c) && !EXTRA_OPTIONAL.has(c));
+// What the downloadable template contains: every column, in the workbook's own order.
 export const TEMPLATE_COLUMNS = SHEET_ORDER;
 
 // Alias-aware header check for uploads: returns the canonical names that are
@@ -139,6 +159,10 @@ export function mergeRows(data, rows, { quarter }) {
     const mcap = num(pick(row, FIELD_ALIASES.marketCap));
     const industry = str(pick(row, FIELD_ALIASES.industry));
     const growth = readGrowth(row);
+    const VAL_FIELDS = ['epsTtmRs', 'peAvg5y', 'peIndustry', 'bvps',
+      'epsCagr3y', 'epsCagr5y', 'salesCagr3y', 'salesCagr5y', 'ebitdaCagr3y', 'ebitdaCagr5y'];
+    const vals = {};
+    for (const f of VAL_FIELDS) { const v = num(pick(row, FIELD_ALIASES[f])); if (v != null) vals[f] = v; }
 
     let comp = byKey.get(key);
     const isNew = !comp;
@@ -157,6 +181,7 @@ export function mergeRows(data, rows, { quarter }) {
       const prior = comp.quarters.find((q) => q.quarter === quarter);
       const entry = { quarter, tier, view, note: note || '' };
       if (growth) entry.growth = growth;
+      Object.assign(entry, vals);
       if (prior && prior.reportUrl) entry.reportUrl = prior.reportUrl; // preserve linked report
       comp.quarters = comp.quarters.filter((q) => q.quarter !== quarter); // upsert: drop same quarter first
       comp.quarters.push(entry);
