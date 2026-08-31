@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 import data from '../data/companies.json';
 import emas from '../data/emas.json';
-import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterBuckets, newestQuarter, digestCounts } from '../lib/render.js';
+import { VIEW_ORDER, VIEW_GLYPH, initialListHTML, viewCounts, quarterBuckets, newestQuarter, digestCounts, latestEntry, setupBand, commonAsOf, glossaryHTML } from '../lib/render.js';
+import { BANDS } from '../lib/score.js';
 
 // Attach the weekly-EMA record (10/20/40W + % distance) to each company by slug.
 // Refreshed daily by .github/workflows/refresh-emas.yml; absent entries just
@@ -15,9 +16,12 @@ const tiers = ['Tier 1', 'Tier 2', 'Tier 3', 'Tier 4'];
 // only, so these counts partition the book rather than overlapping.
 const quarters = quarterBuckets(companies);
 
+// The -fg variants, not -bar: these glyphs are 10px text on the page background, and
+// the bar colours are tuned to be seen as a filled 8px block, not read as a shape
+// (amber ◆ measured 2.06:1 on white). -bar still paints the distribution bar itself.
 const viewDots = {
-  Positive: 'var(--view-positive-bar)', Watch: 'var(--view-watch-bar)',
-  Concern: 'var(--view-concern-bar)', Negative: 'var(--view-negative-bar)',
+  Positive: 'var(--view-positive-fg)', Watch: 'var(--view-watch-fg)',
+  Concern: 'var(--view-concern-fg)', Negative: 'var(--view-negative-fg)',
 };
 const VIEW_MEANING = {
   Positive: 'looks promising', Watch: 'keep an eye on',
@@ -26,12 +30,69 @@ const VIEW_MEANING = {
 
 const counts = viewCounts(companies);
 const newestQ = newestQuarter(companies);
+// Band counts for the potential filter. Computed here so the select shows how many
+// companies sit behind each option before you pick it, the way quarters do.
+const SETUP_ORDER = Object.keys(BANDS);
+const setupCounts = {};
+for (const c of companies) {
+  const e = latestEntry(c);
+  const b = e ? setupBand(c, e) : null;
+  const k = b || 'UNSCORED';
+  setupCounts[k] = (setupCounts[k] || 0) + 1;
+}
+const setups = SETUP_ORDER.filter((b) => setupCounts[b])
+  .map((b) => ({ value: b, label: BANDS[b].label, count: setupCounts[b] }));
 // Every company lands in exactly one digest bucket, so the five counts partition
 // the book and each can drive a filter.
 const dg = digestCounts(companies);
 const initialRows = initialListHTML(companies, 24);
+// Stated once here instead of on all 24 cards; a company whose price is older than
+// this still carries its own date. See commonAsOf() in render.js.
+const priceAsOf = commonAsOf(companies);
+// Same shape the EMA panel uses ("27 Aug '26"), so the one date on the page and the
+// one on a stale card read as the same kind of thing.
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const asOfParts = priceAsOf ? /^(\d{4})-(\d{2})-(\d{2})/.exec(priceAsOf) : null;
+const priceAsOfLabel = asOfParts
+  ? `${+asOfParts[3]} ${MONTHS[+asOfParts[2] - 1]} '${asOfParts[1].slice(2)}`
+  : null;
 ---
 <Base title="Aadil Kadiwal · Equity Research & Views">
+  <!-- Three gradings that look alike — a view, a tier and a score — named once, in the
+       order the badges are printed. Dismissal is stored like the theme and read back
+       before paint (Base.astro), so a returning reader never sees it. -->
+  <section class="howto" id="howto" aria-labelledby="howto-h">
+    <div class="howto-head">
+      <p class="howto-h" id="howto-h">New here? Every card carries three badges</p>
+      <button class="howto-x" id="howto-x" type="button" aria-label="Hide this introduction">✕</button>
+    </div>
+    <ol class="howto-items">
+      <li>
+        <span class="howto-eg"><span class="badge view-positive"><span class="gly">{VIEW_GLYPH.Positive}</span>Positive</span></span>
+        <span class="howto-t"><b>The View</b> — my own call after reading the results and the earnings
+          call.{' '}<i>Positive</i> looks promising, <i>Watch</i> keep an eye on, <i>Concern</i> be
+          cautious,{' '}<i>Negative</i> avoid for now. A judgement, not a calculation.</span>
+      </li>
+      <li>
+        <span class="howto-eg"><span class="badge tier">Tier 1</span></span>
+        <span class="howto-t"><b>The Tier</b> — how fast the business is growing, graded 1 to 4 on the weaker
+          of its yearly sales and profit growth. Tier 1 is both above 20%. Pure arithmetic.</span>
+      </li>
+      <li>
+        <span class="howto-eg"><span class="mb-badge mb-strong">Strong<b class="mb-n">78<s>/100</s></b></span></span>
+        <span class="howto-t"><b>Multibagger potential</b> — a 0–100 score of how strong the case looks
+          on the{' '}<i>figures alone</i>: is it cheap, is it growing, has the market paid for that
+          growth yet. A <b>multibagger</b> is a stock that returns several times what you paid.
+          This score has not read the earnings call — the View has.</span>
+      </li>
+    </ol>
+    <p class="howto-foot">
+      <a class="howto-link" href="/how-to-read/">See a real card taken apart, piece by piece →</a>
+      <span class="howto-note">Personal opinions, for information only — not investment advice.</span>
+    </p>
+  </section>
+  <button class="howto-reopen" id="howto-reopen" type="button">ⓘ How to read this page</button>
+
   <!-- Title and legend share one line on desktop; stacked they cost 161px of
        every visit for information that fits in 52. -->
   <div class="topbar">
@@ -45,18 +106,21 @@ const initialRows = initialListHTML(companies, 24);
           <span class={`vs-seg view-${v.toLowerCase()}`} style={`flex:${counts[v]}`} title={`${v}: ${counts[v]}`}></span>
         ))}
       </div>
-      <div class="vs-legend">
+      <!-- Buttons, not labels. These carry the same colour, glyph and count as the
+           View chips inside the Filters panel, so reading them as filters and finding
+           nothing happens was the obvious trap. Both drive one set of active views. -->
+      <div class="vs-legend" id="vs-legend">
         {VIEW_ORDER.map((v) => (
-          <span class="vs-item">
+          <button class="vs-item" data-view={v} aria-pressed="false" title={`Show only ${v}`}>
             <span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>
             <b>{v}</b> <span class="vs-meaning">{VIEW_MEANING[v]}</span> <span class="vs-n">{counts[v]}</span>
-          </span>
+          </button>
         ))}
       </div>
       <!-- On a phone the meanings move behind the ⓘ and the counts stay: 85px → 22px. -->
-      <div class="vs-compact">
+      <div class="vs-compact" id="vs-compact">
         {VIEW_ORDER.map((v) => (
-          <span class={`vsc view-${v.toLowerCase()}`}><span class="gly">{VIEW_GLYPH[v]}</span>{counts[v]}</span>
+          <button class={`vsc view-${v.toLowerCase()}`} data-view={v} aria-pressed="false" title={`Show only ${v}`}><span class="gly">{VIEW_GLYPH[v]}</span>{counts[v]}</button>
         ))}
         <button class="vsc-i" id="vs-info" aria-expanded="false" aria-controls="vs-tip" aria-label="What the four views mean">i</button>
       </div>
@@ -81,7 +145,7 @@ const initialRows = initialListHTML(companies, 24);
         <div class="dg-pills" id="dg-pills">
           {dg.up > 0 && <button class="qp up" data-change="up" aria-pressed="false"><span class="n">{dg.up}</span>↑ upgraded</button>}
           {dg.down > 0 && <button class="qp down" data-change="down" aria-pressed="false"><span class="n">{dg.down}</span>↓ downgraded</button>}
-          {dg.new > 0 && <button class="qp new" data-change="new" aria-pressed="false"><span class="n">{dg.new}</span>+ newly covered</button>}
+          {dg.new > 0 && <button class="qp new" data-change="new" aria-pressed="false"><span class="n">{dg.new}</span><span class="qp-lab">+ new<span class="qp-tail">ly covered</span></span></button>}
         </div>
       </div>
     </section>
@@ -95,8 +159,8 @@ const initialRows = initialListHTML(companies, 24);
       <button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="tpanel">Filters<span class="fbtn-n" id="fbtn-n" hidden></span><span class="cv">▾</span></button>
       <span class="dens">
         <span class="segmented" role="tablist" aria-label="Density">
-          <button class="seg" data-density="cards" aria-selected="true"><span class="ic">▦</span>Cards</button>
-          <button class="seg" data-density="table" aria-selected="false"><span class="ic">☰</span>Table</button>
+          <button class="seg" data-density="cards" aria-selected="true" aria-label="Card view" title="Card view"><span class="ic">▦</span><span class="lbl">Cards</span></button>
+          <button class="seg" data-density="table" aria-selected="false" aria-label="Table view" title="Table view"><span class="ic">☰</span><span class="lbl">Table</span></button>
         </span>
       </span>
       <button class="btn ghost" id="export" title="Download the filtered list as a TradingView-importable NSE:SYMBOL text file">⬇ Watchlist<span class="wl-n" id="wl-n"></span></button>
@@ -113,11 +177,31 @@ const initialRows = initialListHTML(companies, 24);
           <option value="" data-count={String(companies.length)}>All quarters</option>
           {quarters.map((q) => <option value={q.quarter} data-count={String(q.count)}>{q.quarter}</option>)}
         </select>
-        <select id="tier" aria-label="Filter by tier" data-dd data-note="tier-note-tpl">
+        <select id="tier" aria-label="Filter by tier" data-dd data-note="tier-note-tpl" data-note-label="What are tiers?">
           <option value="">All tiers</option>
           {tiers.map((t) => <option value={t}>{t}</option>)}
         </select>
+        <select id="setup" aria-label="Filter by multibagger potential" data-dd data-note="setup-note-tpl" data-note-label="What is multibagger potential?">
+          <option value="" data-count={String(companies.length)}>All potential</option>
+          {setups.map((s2) => <option value={s2.value} data-count={String(s2.count)}>{s2.label}</option>)}
+          {setupCounts.UNSCORED ? <option value="UNSCORED" data-count={String(setupCounts.UNSCORED)}>Not enough data</option> : null}
+        </select>
       </div>
+      <template id="setup-note-tpl">
+        <div class="dd-note">
+          <b>Multibagger potential</b> — a 0–100 score of how strong the case looks on the
+          figures alone. A <b>multibagger</b> returns several times what you paid, which takes
+          both growing earnings and buyers willing to pay more for them.
+          <ul>
+            <li><b>Strong</b> 75+ — a shortlist</li>
+            <li><b>Good</b> 65–74 — a watchlist</li>
+            <li><b>Average</b> 50–64 — the middle of the book</li>
+            <li><b>Weak</b> 32–49 · <b>Poor</b> under 32</li>
+            <li><b>Not enough data</b> — the growth figures for this quarter are not in yet</li>
+          </ul>
+          It has not read the earnings call. The View has.
+        </div>
+      </template>
       <template id="tier-note-tpl">
         <div class="dd-note">
           <b>Tier</b> = the weaker of YoY Sales &amp; PAT growth
@@ -142,32 +226,46 @@ const initialRows = initialListHTML(companies, 24);
           </div>
         </div>
         <div>
-          <p class="tp-lab">Near an EMA (≤2%)</p>
+          <!-- The heading says what an EMA is; the ⓘ carries the rest. -->
+          <p class="tp-lab">Price near its trend line <span class="tp-lab-sub">within 2%</span>
+            <button class="lab-i" id="ema-info" type="button" aria-expanded="false" aria-controls="ema-tip" aria-label="What is a trend line?">ⓘ</button>
+          </p>
+          <div class="lab-tip" id="ema-tip" hidden>
+            <p class="lab-tip-h">Trend lines</p>
+            <p>A <b>trend line</b> is the average price over the last 10, 20 or 40 weeks —
+              a smoothed version of the chart that ignores day-to-day noise. Its proper name is
+              an <b>EMA</b>.</p>
+            <p>A price sitting <b>right on</b> one of them is at a level buyers have defended before,
+              which is why it is worth filtering for. <b>Bunched</b> means all three are within 5% of
+              each other — the price has gone quiet, which often comes before it moves.</p>
+          </div>
           <div class="ema-tools" id="ema-tools">
-            <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of the 10-week EMA">10W</button>
-            <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of the 20-week EMA">20W</button>
-            <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of the 40-week EMA">40W</button>
-            <button class="chip" data-ema="converge" aria-pressed="false" title="10 / 20 / 40-week EMAs bunched together (≤5% apart)">⇉ Converging EMAs</button>
+            <button class="chip" data-ema="near10" aria-pressed="false" title="Price within 2% of its 10-week trend line (10-week EMA)">10-week</button>
+            <button class="chip" data-ema="near20" aria-pressed="false" title="Price within 2% of its 20-week trend line (20-week EMA)">20-week</button>
+            <button class="chip" data-ema="near40" aria-pressed="false" title="Price within 2% of its 40-week trend line (40-week EMA)">40-week</button>
+            <button class="chip" data-ema="converge" aria-pressed="false" title="All three trend lines bunched within 5% of each other — the price has gone quiet">⇉ All three bunched</button>
           </div>
         </div>
         <div class="tp-sort">
           <p class="tp-lab">Sort by</p>
           <select class="sort" id="sort" aria-label="Sort by" data-dd>
             <option value="view" selected>View · newest first</option>
+            <option value="potential">Multibagger potential</option>
+            <option value="upside">Upside · 3y</option>
             <option value="mcap">Market cap</option>
             <option value="name">Name A–Z</option>
             <option value="tier">Tier</option>
             <option value="quarter">Quarter</option>
             <option value="price">Price</option>
-            <option value="d10">Distance from 10W</option>
-            <option value="d20">Distance from 20W</option>
-            <option value="d40">Distance from 40W</option>
+            <option value="d10">Distance from 10-week trend</option>
+            <option value="d20">Distance from 20-week trend</option>
+            <option value="d40">Distance from 40-week trend</option>
           </select>
         </div>
       </div>
 
       <div class="tp-foot">
-        <button class="btn primary tp-show" id="tp-show" type="button">Show <b id="tp-show-n">0</b> companies</button>
+        <button class="btn primary tp-show" id="tp-show" type="button">Show <b id="tp-show-n">0</b><span class="tp-show-tail"> companies</span></button>
         <button class="btn ghost tp-mob" id="export-m">⬇ Watchlist</button>
         <button class="token-reset" id="reset-panel">↺ Reset all</button>
       </div>
@@ -175,18 +273,14 @@ const initialRows = initialListHTML(companies, 24);
   </div>
 
   <div class="active-filters" id="active-filters"></div>
-  <!-- The results line hosts the density switch on a phone, where the toolbar
-       row has no space for it: ~4px instead of ~40. -->
+  <!-- Text only. The density switch went back into the toolbar as two icons, which
+       turns this from a 41px band on a phone into one 18px line. -->
   <div class="count-row">
     <p class="count" id="count" role="status" aria-live="polite"></p>
-    <span class="dens">
-      <span class="segmented" role="tablist" aria-label="Density">
-        <button class="seg" data-density="cards" aria-selected="true"><span class="ic">▦</span>Cards</button>
-        <button class="seg" data-density="table" aria-selected="false"><span class="ic">☰</span>Table</button>
-      </span>
-    </span>
+    {priceAsOfLabel && <span class="asof" title={`Prices and EMAs as of ${priceAsOfLabel}`}>Prices {priceAsOfLabel}</span>}
   </div>
 
+  <h2 class="sr-only">Companies</h2>
   <div class="list" id="list" set:html={initialRows}></div>
   <div id="tblhost"></div>
   <div class="empty-state" id="empty" style="display:none">
@@ -194,12 +288,15 @@ const initialRows = initialListHTML(companies, 24);
   </div>
   <nav class="pager" id="pager" aria-label="Pagination"></nav>
 
+  <section class="panel gloss-panel gloss-list" set:html={glossaryHTML()}></section>
+
   <script type="application/json" id="dataset" set:html={JSON.stringify(companies).replace(/</g, '\\u003c')}></script>
 </Base>
 
 <script>
-  import { rowHTML, tableRowHTML, tableHTML, compactRowHTML, compactListHTML, latestEntry, newestQuarter, changeClass, VIEW_GLYPH, viewRank, esc } from '../lib/render.js';
+  import { rowHTML, tableRowHTML, tableHTML, compactRowHTML, compactListHTML, latestEntry, newestQuarter, changeClass, VIEW_GLYPH, viewRank, esc, setupBand, setupOutlook, setupRank, redundantFields } from '../lib/render.js';
   import { quarterKey } from '../lib/format.js';
+  import { initTapTips } from '../lib/taptip.js';
 
   const DATA = JSON.parse(document.getElementById('dataset').textContent);
   const NEWEST_Q = newestQuarter(DATA);
@@ -215,6 +312,11 @@ const initialRows = initialListHTML(companies, 24);
   const chipsEl = document.getElementById('view-chips');
   const exportBtn = document.getElementById('export');
   const activeFiltersEl = document.getElementById('active-filters');
+  const setupEl = document.getElementById('setup');
+  // Labels for the active-filter chip; the option text already carries them, but the
+  // chip is built in script.
+  const BAND_LABEL = { STRONG: 'Strong', FAIR: 'Good', THIN: 'Average',
+    WEAK: 'Weak', NONE: 'Poor' };
   const pagerEl = document.getElementById('pager');
   const tblHost = document.getElementById('tblhost');
   // Absent when no bucket has anything in it, so every use is guarded.
@@ -227,6 +329,8 @@ const initialRows = initialListHTML(companies, 24);
   const showN = document.getElementById('tp-show-n');
 
   const emaToolsEl = document.getElementById('ema-tools');
+  const vsLegendEl = document.getElementById('vs-legend');
+  const vsCompactEl = document.getElementById('vs-compact');
   const activeViews = new Set();
   const activeEma = new Set();
   // Which digest bucket is filtering, if any. Single-select: the five buckets
@@ -245,6 +349,7 @@ const initialRows = initialListHTML(companies, 24);
   const SORT_DIR = {
     view: 'asc', name: 'asc', tier: 'asc',
     mcap: 'desc', quarter: 'desc', price: 'desc', d10: 'desc', d20: 'desc', d40: 'desc',
+    potential: 'desc', upside: 'desc',
   };
   let sortKey = 'view';
   let sortDir = 'asc';
@@ -274,6 +379,7 @@ const initialRows = initialListHTML(companies, 24);
     // Resolve each company's latest quarter once per pass and cache it on the
     // object — filter, counts, view-filter and the sort comparators all reuse it
     // instead of re-reducing the timeline every time.
+    const setup = setupEl ? setupEl.value : '';
     const base = DATA.filter((c) => {
       c._latest = latestEntry(c);
       if (!c._latest) return false;
@@ -285,6 +391,12 @@ const initialRows = initialListHTML(companies, 24);
       if (tier && (c._latest.tier || c.tier) !== tier) return false;
       if (industry && c.industry !== industry) return false;
       if (activeChange && changeClass(c, NEWEST_Q) !== activeChange) return false;
+      // "NONE" is the blank bucket: companies with no band at all, which is how you
+      // find the ones still missing growth or price data.
+      if (setup) {
+        const b = setupBand(c, c._latest);
+        if (setup === 'UNSCORED' ? b !== null : b !== setup) return false;
+      }
       return true;
     });
 
@@ -330,6 +442,14 @@ const initialRows = initialListHTML(companies, 24);
     d10: (c) => (c.ema && c.ema.dist ? c.ema.dist['10W'] : null),
     d20: (c) => (c.ema && c.ema.dist ? c.ema.dist['20W'] : null),
     d40: (c) => (c.ema && c.ema.dist ? c.ema.dist['40W'] : null),
+    // Score first, outlook only as a tiebreak — so the order always matches the
+    // number every row prints. Sorting on the projection alone put a flagged
+    // Moderate company above a clean Strong one under a "case strength" label.
+    // Companies with nothing to project return null and sort last, as nulls do.
+    potential: (c) => setupRank(c, c._latest),
+    // The projection on its own, for when the SIZE of the prize is the question
+    // being asked. Labelled as what it is, so it cannot be mistaken for the case.
+    upside: (c) => setupOutlook(c, c._latest),
   };
 
   function comparator() {
@@ -373,6 +493,7 @@ const initialRows = initialListHTML(companies, 24);
     if (quarter) p.set('quarter', quarter);
     if (activeEma.size) p.set('ema', [...activeEma].join(','));
     if (activeChange) p.set('changed', activeChange);
+    if (setupEl && setupEl.value) p.set('setup', setupEl.value);
     if (sortKey !== 'view') p.set('sort', sortKey);
     if (sortDir !== SORT_DIR[sortKey]) p.set('dir', sortDir);
     const qs = p.toString();
@@ -392,10 +513,11 @@ const initialRows = initialListHTML(companies, 24);
     tierEl.value = t ? (/^\d$/.test(t) ? `Tier ${t}` : t) : '';
     industryEl.value = p.get('industry') || '';
     quarterEl.value = p.get('quarter') || '';
+    if (setupEl) setupEl.value = p.get('setup') || '';
     (p.get('view') || '').split(',').filter(Boolean).forEach((v) => {
-      const chip = chipsEl.querySelector(`.chip[data-view="${CSS.escape(v)}"]`);
-      if (chip) { activeViews.add(v); chip.setAttribute('aria-pressed', 'true'); }
+      if (chipsEl.querySelector(`.chip[data-view="${CSS.escape(v)}"]`)) activeViews.add(v);
     });
+    paintViews();
     (p.get('ema') || '').split(',').filter(Boolean).forEach((k) => {
       const chip = emaToolsEl.querySelector(`.chip[data-ema="${CSS.escape(k)}"]`);
       if (chip) { activeEma.add(k); chip.setAttribute('aria-pressed', 'true'); }
@@ -420,13 +542,16 @@ const initialRows = initialListHTML(companies, 24);
     const start = (currentPage - 1) * PAGE_SIZE;
     const slice = lastVisible.slice(start, start + PAGE_SIZE);
     const entry = (c) => c._latest || latestEntry(c);
+    // Over the whole filtered set, not the page: which badge or column is dropped
+    // must not change as you page through the same result set.
+    const redundant = redundantFields(lastVisible);
     if (density === 'table') {
       tblHost.innerHTML = mqMobile.matches
-        ? compactListHTML(slice.map((c) => compactRowHTML(c, entry(c), NEWEST_Q)).join(''))
-        : tableHTML(slice.map((c) => tableRowHTML(c, entry(c), NEWEST_Q)).join(''), { key: sortKey, dir: sortDir });
+        ? compactListHTML(slice.map((c) => compactRowHTML(c, entry(c), redundant)).join(''))
+        : tableHTML(slice.map((c) => tableRowHTML(c, entry(c))).join(''), { key: sortKey, dir: sortDir }, redundant);
       listEl.innerHTML = '';
     } else {
-      listEl.innerHTML = slice.map((c) => rowHTML(c, entry(c), NEWEST_Q)).join('');
+      listEl.innerHTML = slice.map((c) => rowHTML(c, entry(c), redundant)).join('');
       tblHost.innerHTML = '';
     }
     emptyEl.style.display = total === 0 ? '' : 'none';
@@ -437,6 +562,16 @@ const initialRows = initialListHTML(companies, 24);
       : `Showing <b>${start + 1}–${start + slice.length}</b> of <b>${total}</b>${suffix}`;
     if (wlN) wlN.textContent = total ? ` (${total})` : '';
     if (showN) showN.textContent = String(total);
+    // With nothing narrowed, "Show 127 companies" is a primary-styled no-op — the
+    // list below already shows all 127. It only becomes an action once a filter bites.
+    if (showBtn) {
+      const narrowed = total !== DATA.length;
+      showBtn.classList.toggle('is-noop', !narrowed);
+      showBtn.firstChild.textContent = narrowed ? 'Show ' : 'Done';
+      showN.hidden = !narrowed;
+      const tail = showBtn.querySelector('.tp-show-tail');
+      if (tail) tail.hidden = !narrowed;
+    }
     renderPagination(pages);
   }
 
@@ -469,6 +604,9 @@ const initialRows = initialListHTML(companies, 24);
   }
 
   function renderActiveFilters(term, quarter, tier, industry) {
+    const setupVal = setupEl ? setupEl.value : '';
+    const setupLabel = setupVal === 'UNSCORED' ? 'Not enough data'
+      : setupVal ? BAND_LABEL[setupVal] : '';
     // Faceted chips: each carries its category (kicker or, for views, a coloured
     // glyph) so you can read WHAT is filtered at a glance, not just the value.
     const tokens = [];
@@ -477,9 +615,10 @@ const initialRows = initialListHTML(companies, 24);
     [...activeViews].forEach((v) => tokens.push({ type: 'view', val: v, label: v, cls: `view-${v.toLowerCase()}`, gly: VIEW_GLYPH[v] }));
     if (tier) tokens.push({ type: 'tier', cat: 'Tier', label: tier.replace(/^Tier\s*/i, '') });
     if (industry) tokens.push({ type: 'industry', cat: 'Industry', label: industry });
+    if (setupVal) tokens.push({ type: 'setup', val: setupVal, cat: 'Potential', label: setupLabel });
     if (activeChange) tokens.push({ type: 'change', val: activeChange, cat: 'Changed', label: CHANGE_LABEL[activeChange] });
-    const emaShort = { near10: 'Near 10W', near20: 'Near 20W', near40: 'Near 40W', converge: 'Converging' };
-    [...activeEma].forEach((k) => tokens.push({ type: 'ema', val: k, cat: 'EMA', label: emaShort[k] }));
+    const emaShort = { near10: 'Near 10-week', near20: 'Near 20-week', near40: 'Near 40-week', converge: 'All three bunched' };
+    [...activeEma].forEach((k) => tokens.push({ type: 'ema', val: k, cat: 'Trend', label: emaShort[k] }));
     // "Dirty" = any filter OR a non-default sort — so Reset also surfaces when
     // only the sort was changed (Reset returns sort to View too).
     const sorted = sortKey !== 'view' || sortDir !== SORT_DIR.view;
@@ -510,19 +649,20 @@ const initialRows = initialListHTML(companies, 24);
     activeViews.clear(); activeEma.clear(); activeChange = null;
     sortKey = 'view'; sortDir = SORT_DIR.view; sortEl.value = 'view';
     if (pillsEl) pillsEl.querySelectorAll('.qp').forEach((b) => b.setAttribute('aria-pressed', 'false'));
-    chipsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+    paintViews();
     emaToolsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
     dropdowns.forEach((d) => d.repaint());
   }
 
   function clearAll() {
     searchEl.value = ''; quarterEl.value = ''; tierEl.value = ''; industryEl.value = '';
+    if (setupEl) setupEl.value = '';
     sortKey = 'view'; sortDir = SORT_DIR.view; sortEl.value = 'view';
     activeViews.clear();
     activeEma.clear();
     activeChange = null;
     if (pillsEl) pillsEl.querySelectorAll('.qp').forEach((p) => p.setAttribute('aria-pressed', 'false'));
-    chipsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+    paintViews();
     emaToolsEl.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
     dropdowns.forEach((d) => d.repaint());   // resync custom-dropdown labels to the reset <select>s
     apply();
@@ -566,14 +706,27 @@ const initialRows = initialListHTML(companies, 24);
   quarterEl.addEventListener('change', apply);
   tierEl.addEventListener('change', apply);
   industryEl.addEventListener('change', apply);
+  if (setupEl) setupEl.addEventListener('change', apply);
 
-  chipsEl.addEventListener('click', (e) => {
-    const chip = e.target.closest('.chip');
-    if (!chip) return;
-    const v = chip.dataset.view;
-    if (activeViews.has(v)) { activeViews.delete(v); chip.setAttribute('aria-pressed', 'false'); }
-    else { activeViews.add(v); chip.setAttribute('aria-pressed', 'true'); }
+  // The panel chips, the legend and the phone's count pills are three views of one
+  // set. Painting them from the set (rather than from the element clicked) is what
+  // keeps them from drifting apart.
+  function paintViews() {
+    document.querySelectorAll('[data-view]').forEach((el) => {
+      el.setAttribute('aria-pressed', String(activeViews.has(el.dataset.view)));
+    });
+  }
+  function toggleView(v) {
+    if (!v) return;
+    if (activeViews.has(v)) activeViews.delete(v); else activeViews.add(v);
+    paintViews();
     apply();
+  }
+  [chipsEl, vsLegendEl, vsCompactEl].forEach((host) => {
+    if (host) host.addEventListener('click', (e) => {
+      const el = e.target.closest('[data-view]');
+      if (el && host.contains(el)) toggleView(el.dataset.view);
+    });
   });
 
   emaToolsEl.addEventListener('click', (e) => {
@@ -594,8 +747,9 @@ const initialRows = initialListHTML(companies, 24);
     else if (type === 'quarter') { quarterEl.value = ''; quarterEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'tier') { tierEl.value = ''; tierEl.dispatchEvent(new Event('change', { bubbles: true })); }
     else if (type === 'industry') { industryEl.value = ''; industryEl.dispatchEvent(new Event('change', { bubbles: true })); }
-    else if (type === 'view') { activeViews.delete(val); chipsEl.querySelector(`.chip[data-view="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
+    else if (type === 'view') { activeViews.delete(val); paintViews(); }
     else if (type === 'ema') { activeEma.delete(val); emaToolsEl.querySelector(`.chip[data-ema="${val}"]`)?.setAttribute('aria-pressed', 'false'); }
+    else if (type === 'setup') { if (setupEl) { setupEl.value = ''; setupEl.dispatchEvent(new Event('change', { bubbles: true })); } }
     else if (type === 'change') { activeChange = null; if (pillsEl) pillsEl.querySelectorAll('.qp').forEach((p) => p.setAttribute('aria-pressed', 'false')); }
     apply();
   });
@@ -692,6 +846,7 @@ const initialRows = initialListHTML(companies, 24);
     const searchable = !!searchPlaceholder;
     const noteTpl = sel.dataset.note ? document.getElementById(sel.dataset.note) : null;
     const noteHTML = noteTpl ? noteTpl.innerHTML : '';
+    const noteLabel = sel.dataset.noteLabel || 'More about this filter';
     // data-count renders a right-aligned tally in the menu only — the trigger
     // stays label-only so it doesn't read as "Q1 2027 · 15".
     const opts = [...sel.options].map((o) => ({ value: o.value, label: o.textContent, count: o.dataset.count || '' }));
@@ -712,7 +867,7 @@ const initialRows = initialListHTML(companies, 24);
 
     const CHEV = `<span class="dd-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>`;
     function paintTrigger() {
-      const info = noteHTML ? `<span class="dd-info" tabindex="0" role="note" aria-label="What are tiers?">ⓘ<span class="dd-tip">${noteHTML}</span></span>` : '';
+      const info = noteHTML ? `<span class="dd-info" tabindex="0" role="note" aria-label="${esc(noteLabel)}">ⓘ<span class="dd-tip">${noteHTML}</span></span>` : '';
       btn.innerHTML = `<span class="dd-label">${esc(labelOf(sel.value))}</span>${info}${CHEV}`;
     }
     const optEls = () => [...menu.querySelectorAll('.dd-opt')];
@@ -785,11 +940,50 @@ const initialRows = initialListHTML(companies, 24);
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !vsTip.hidden) closeVsTip(); });
 
+  initTapTips();
+
+  // ---- the trend-line ⓘ, same popover the view legend uses ------------------
+  const emaInfo = document.getElementById('ema-info');
+  const emaTip = document.getElementById('ema-tip');
+  if (emaInfo && emaTip) {
+    emaInfo.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = emaTip.hidden;
+      emaTip.hidden = !open;
+      emaInfo.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', (e) => {
+      if (!emaTip.hidden && !emaTip.contains(e.target) && e.target !== emaInfo) {
+        emaTip.hidden = true; emaInfo.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // ---- the introduction, dismissed once and for all -------------------------
+  const howtoEl = document.getElementById('howto');
+  const howtoX = document.getElementById('howto-x');
+  const howtoReopen = document.getElementById('howto-reopen');
+  function setHowto(on) {
+    document.documentElement.setAttribute('data-howto', on ? 'on' : 'off');
+    try { localStorage.setItem('howto', on ? 'on' : 'off'); } catch (err) {}
+  }
+  if (howtoX) howtoX.addEventListener('click', () => { setHowto(false); howtoReopen.focus(); });
+  if (howtoReopen) howtoReopen.addEventListener('click', () => {
+    setHowto(true);
+    howtoEl.scrollIntoView({ block: 'nearest' });
+    howtoX.focus();
+  });
+
   // At 390px the descriptive placeholder truncates mid-word ("Search company nan").
+  // Three steps, set by what actually fits: "Search company…" needs 141px of text
+  // room and only has 119px at 390, so the short form starts below 410.
+  const mqTiny = window.matchMedia('(max-width: 409px)');
   const syncPlaceholder = () => {
-    searchEl.placeholder = mqMobile.matches ? 'Search company…' : 'Search company name or symbol…';
+    searchEl.placeholder = mqTiny.matches ? 'Search…'
+      : mqMobile.matches ? 'Search company…' : 'Search company name or symbol…';
   };
   mqMobile.addEventListener('change', syncPlaceholder);
+  mqTiny.addEventListener('change', syncPlaceholder);
   syncPlaceholder();
 
   // Sync both switches to whatever was restored before paint.

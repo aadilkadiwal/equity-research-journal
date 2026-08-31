@@ -39,6 +39,26 @@ COL_ALIASES = {
     "tvCode":    ["TradingView Code", "TradingViewCode"],
     "view":      ["View"],
     "note":      ["Note"],
+    # Valuation inputs, all OPTIONAL. Headers are matched on their full normalised
+    # name, so "EPS TTM" cannot collide with "YoY EPS Growth".
+    #   epsTtmRs  — trailing-twelve-month diluted EPS (Rs). price / this = P/E.
+    #   peAvg5y   — the company's own 5-year average P/E. The benchmark that makes
+    #               "still expensive" mean something without pooling a developer
+    #               against speciality chemicals.
+    #   peIndustry, bvps — see DATA-FLOW.md.
+    "epsTtmRs":     ["EPS TTM", "EPS (TTM)", "TTM EPS", "EPSTTM"],
+    # Compounded growth from Screener's prebuilt ratios. These are the framework's
+    # real growth axis — a 3-year CAGR cannot be a one-quarter base effect the way
+    # the YoY columns can, which is why they carry the growth signal now.
+    "epsCagr3y":    ["EPS growth 3Years", "EPS CAGR 3Y", "3Y EPS CAGR"],
+    "epsCagr5y":    ["EPS growth 5Years", "EPS CAGR 5Y", "5Y EPS CAGR"],
+    "salesCagr3y":  ["Sales growth 3Years", "Sales CAGR 3Y", "3Y Sales CAGR"],
+    "salesCagr5y":  ["Sales growth 5Years", "Sales CAGR 5Y", "5Y Sales CAGR"],
+    "ebitdaCagr3y": ["EBIDT growth 3Years", "EBITDA growth 3Years", "3Y EBITDA CAGR"],
+    "ebitdaCagr5y": ["EBIDT growth 5Years", "EBITDA growth 5Years", "5Y EBITDA CAGR"],
+    "peAvg5y":      ["5Y Avg P/E", "5Y Avg PE", "5 Year Avg PE", "Median PE", "Avg PE 5Y"],
+    "peIndustry":   ["Industry P/E", "Industry PE", "Sector PE"],
+    "bvps":         ["Book Value", "Book Value per Share", "BVPS"],
 }
 # YoY/QoQ growth, percentages. A metric with both cells blank is simply omitted,
 # so the site shows "not recorded" rather than a misleading zero.
@@ -250,6 +270,12 @@ def main():
             growth = read_growth(ws, r, gcols)
             if growth:
                 entry["growth"] = growth
+            for fld in ("epsTtmRs", "peAvg5y", "peIndustry", "bvps",
+                        "epsCagr3y", "epsCagr5y", "salesCagr3y", "salesCagr5y",
+                        "ebitdaCagr3y", "ebitdaCagr5y"):
+                v = parse_pct(cell(ws, r, cols.get(fld)))
+                if v is not None:
+                    entry[fld] = v
             # The CLI path never re-runs linkReports, so keep any existing link.
             if prior and prior.get("reportUrl"):
                 entry["reportUrl"] = prior["reportUrl"]

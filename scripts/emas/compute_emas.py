@@ -18,7 +18,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from ema_core import weekly_closes_from_daily, build_record  # noqa: E402
+from ema_core import weekly_closes_from_daily, build_record, price_return  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 COMPANIES = os.path.normpath(os.path.join(HERE, "..", "..", "src", "data", "companies.json"))
@@ -76,6 +76,13 @@ def main():
             # frozen price as fresh — let it fall through to kept-last-good.
             stale = (run_date_obj - rows[-1][0]).days > STALE_DAYS
             r = build_record(slug, res.get("price"), weekly, prev_close=prev_close)
+            # Trailing returns off the same 6y of closes we already hold. ret1y is the
+            # earnings-independent half of the Multibagger score (see src/lib/score.js);
+            # ret3y is free from the same series and None until the history is there.
+            for key, days in (("ret1y", 365), ("ret3y", 1095)):
+                v = price_return(rows, days)
+                if v is not None:
+                    r[key] = v
             if r["ema"]["10W"] is not None and not stale:   # need ≥10W EMA and a recent bar
                 r["asOf"] = run_date
                 rec = r

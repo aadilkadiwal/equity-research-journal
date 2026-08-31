@@ -1,0 +1,341 @@
+---
+import Base from '../layouts/Base.astro';
+import data from '../data/companies.json';
+import emas from '../data/emas.json';
+import pe from '../data/pe.json';
+import { VIEW_ORDER, VIEW_GLYPH, latestEntry, rowHTML, scorePanelHTML, scoreFor,
+  setupBand, glossaryHTML } from '../lib/render.js';
+import { formatMcap } from '../lib/format.js';
+
+// Chosen, never a pinned slug: the book is re-imported every quarter and a hard-coded
+// name would eventually 404 its own teaching page. rank() prefers a company with an
+// outlook, a caution flag (so the ⚠ has something to point at), a readable note and a
+// P/E range — each preference degrading on its own.
+const enriched = data.companies
+  .map((c) => ({ ...c, ema: (emas.companies || {})[c.slug] || null,
+    peRange: (pe.companies || {})[c.slug] || null }))
+  .map((c) => ({ c, e: latestEntry(c) }))
+  .filter(({ c, e }) => e && c.ema && setupBand(c, e));
+const rank = ({ c, e }) => {
+  const r = scoreFor(c, e);
+  return (r.outlook3y != null ? 8 : 0) + (r.flags.length ? 4 : 0)
+    + ((e.note || '').length > 150 ? 2 : 0) + (c.peRange ? 1 : 0);
+};
+const picked = enriched.sort((a, b) => rank(b) - rank(a)
+  || scoreFor(b.c, b.e).score - scoreFor(a.c, a.e).score)[0];
+const ex = picked ? picked.c : null;
+const exEntry = picked ? picked.e : null;
+const exScore = picked ? scoreFor(ex, exEntry) : null;
+const cardHTML = picked ? rowHTML(ex, exEntry, {}) : '';
+// The annotations quote the panel's own numbers — illustrative ones sat directly
+// under a live panel showing different figures.
+const fx = (v) => (v == null ? null : `${v < 10 ? v.toFixed(1) : v.toFixed(0)}×`);
+const exOutlook = picked && exScore.outlook3y != null
+  ? `×${(exScore.outlook3y + 1).toFixed(1)}` : null;
+const exGrowth = picked ? Math.round(exScore.growth) : null;
+const exNeed2x = picked ? fx(exScore.needFor2x) : null;
+const exPe = picked ? fx(exScore.pe) : null;
+const panelHTML = picked ? scorePanelHTML(ex, exEntry, { split: false }) : '';
+
+const VIEW_MEANING = {
+  Positive: 'looks promising', Watch: 'keep an eye on',
+  Concern: 'be cautious', Negative: 'avoid for now',
+};
+const viewDots = {
+  Positive: 'var(--view-positive-fg)', Watch: 'var(--view-watch-fg)',
+  Concern: 'var(--view-concern-fg)', Negative: 'var(--view-negative-fg)',
+};
+const title = 'How to read this site · Aadil Kadiwal';
+const description = 'A plain-English walkthrough of one real card and one real company '
+  + 'page — what every badge, number and filter on this site means, assuming no '
+  + 'investing background at all.';
+---
+<Base title={title} description={description}>
+  <div class="dt-nav">
+    <a class="link-chip" href="/">← All companies</a>
+  </div>
+
+  <div class="htr-head">
+    <h1 class="dt-title">How to read this site</h1>
+    <p class="htr-lead">
+      This is a research journal about Indian listed companies. Every three months each
+      company gets re-read and re-judged, and what you see is that judgement plus the
+      figures behind it. <b>You need no investing background to read it</b> — this page
+      takes one real card apart, piece by piece, and names everything on it.
+    </p>
+  </div>
+
+  <section class="panel htr-def">
+    <h2 class="section-title">First, the one word the site is built around</h2>
+    <p class="htr-defbody">
+      A <b>multibagger</b> is a stock that returns several times what you paid for it —
+      a “ten-bagger” turned ₹1 lakh into ₹10 lakh. It takes <b>two</b> things happening
+      together, and this is the whole idea behind the site:
+    </p>
+    <div class="htr-eq">
+      <div class="htr-eq-part">
+        <b>The company earns more</b>
+        <span>Profit per share grows year after year.</span>
+      </div>
+      <span class="htr-eq-op" aria-hidden="true">×</span>
+      <div class="htr-eq-part">
+        <b>Buyers pay more for those earnings</b>
+        <span>They accept a higher price for each ₹1 of profit. This is called
+          a{' '}<i>re-rating</i>.</span>
+      </div>
+    </div>
+    <p class="htr-defbody htr-defnote">
+      Growth alone is not enough — if buyers pay <i>less</i> per ₹1 of profit while profit
+      grows, the price goes nowhere. The <b>multibagger potential</b> score on every card is
+      an attempt to measure how much of both is on the table.
+    </p>
+  </section>
+
+  {picked && (
+  <section class="htr-sec">
+    <h2 class="htr-h2">1 · A card on the list page</h2>
+    <p class="htr-p">
+      This is a live card for <b>{ex.name}</b>, exactly as the front page renders it —
+      not a picture of one. Everything below names a piece of it.
+    </p>
+    <div class="htr-demo" set:html={cardHTML}></div>
+
+    <ol class="htr-parts">
+      <li>
+        <div class="htr-part-eg">
+          {VIEW_ORDER.map((v) => (
+            <span class={`badge view-${v.toLowerCase()}`}><span class="gly">{VIEW_GLYPH[v]}</span>{v}</span>
+          ))}
+        </div>
+        <div class="htr-part-t">
+          <b>The View — a person's opinion.</b> This is my own call on the company after
+          reading its quarterly results and listening to its earnings call. It is the only
+          thing on the card that is a judgement rather than a calculation, and it is the
+          thing to read first.
+          <ul class="htr-sub">
+            {VIEW_ORDER.map((v) => (
+              <li><span class="gly" style={`color:${viewDots[v]}`}>{VIEW_GLYPH[v]}</span>
+                <b>{v}</b> — {VIEW_MEANING[v]}</li>
+            ))}
+          </ul>
+          The shapes are deliberately not arrows: ▲ and ▼ elsewhere on the card always mean
+          the <i>price</i> went up or down, never an opinion.
+        </div>
+      </li>
+
+      <li>
+        <div class="htr-part-eg">
+          <span class="badge tier">Tier 1</span><span class="badge tier">Tier 2</span>
+          <span class="badge tier">Tier 3</span><span class="badge tier">Tier 4</span>
+        </div>
+        <div class="htr-part-t">
+          <b>The Tier — how fast it is growing.</b> Pure arithmetic, no opinion in it. The
+          company's sales growth and its profit growth over the last year are compared, and
+          the <i>weaker</i> of the two sets the tier.
+          <ul class="htr-sub">
+            <li><b>Tier 1</b> — both above 20%</li>
+            <li><b>Tier 2</b> — both above 15%</li>
+            <li><b>Tier 3</b> — both above 10%</li>
+            <li><b>Tier 4</b> — either one below 10%</li>
+          </ul>
+          The weaker of the two is used on purpose: sales growing 40% while profit grows 4%
+          means the growth is not reaching the bottom line.
+        </div>
+      </li>
+
+      <li>
+        <div class="htr-part-eg">
+          <span class="mb-badge mb-strong">Strong<b class="mb-n">78<s>/100</s></b></span>
+          <span class="mb-badge mb-fair">Good<b class="mb-n">68<s>/100</s></b></span>
+          <span class="mb-badge mb-thin">Average<b class="mb-n">55<s>/100</s></b></span>
+          <span class="mb-badge mb-weak">Weak<b class="mb-n">40<s>/100</s></b></span>
+          <span class="mb-badge mb-none">Poor<b class="mb-n">22<s>/100</s></b></span>
+        </div>
+        <div class="htr-part-t">
+          <b>Multibagger potential — a score out of 100.</b> How strong the case looks on
+          the{' '}<i>figures alone</i>: is it cheap today, has the market already paid for its growth,
+          is that growth real, what does it earn on its own money, and is the price trend
+          agreeing. {ex.name} scores <b>{exScore.score}</b>.
+          <p class="htr-warnline">
+            <b>It has not read the earnings call. The View has.</b> When the two disagree —
+            a high score under a Concern view, say — the company page says so outright, and
+            the written note is the one to trust. A high score is a reason to look, never a
+            reason to buy.
+          </p>
+          {exScore.flags.length > 0 && (
+            <p class="htr-warnline">
+              A <span class="mb-warn">⚠</span> on the badge means something undermines the
+              number — on this company: <b>{exScore.flags.map((f) => f.label).join(', ')}</b>.
+              Tap the badge on any card to read it.
+            </p>
+          )}
+        </div>
+      </li>
+
+      <li>
+        <div class="htr-part-eg">
+          <span class="ema-pill above">10W <b>▲2.4%</b></span>
+          <span class="ema-pill above">20W <b>▲5.1%</b></span>
+          <span class="ema-pill below">40W <b>▼1.8%</b></span>
+        </div>
+        <div class="htr-part-t">
+          <b>The trend lines — where the price sits.</b> A <b>trend line</b> is simply the
+          average price over the last 10, 20 or 40 weeks: a smoothed version of the chart
+          that ignores day-to-day noise. Its technical name is an <b>EMA</b>.
+          <ul class="htr-sub">
+            <li><b>Green, ▲</b> — today's price is above that average. Buyers have been in
+              control over that stretch.</li>
+            <li><b>Red, ▼</b> — below it. Sellers have.</li>
+            <li>The <b>10-week</b> line reacts fastest, the <b>40-week</b> is the slow anchor.
+              Price above all three is the strongest reading.</li>
+          </ul>
+          None of this says anything about the business. It says what the market has been
+          doing to the price lately.
+        </div>
+      </li>
+
+      <li>
+        <div class="htr-part-eg">
+          <span class="row-view-q">{exEntry.quarter}</span>
+          <span class="flip-chip">↕ from Watch</span>
+        </div>
+        <div class="htr-part-t">
+          <b>The quarter, and whether the view moved.</b> The quarter tag says which set of
+          results this judgement came from — the newest one on file for that company.
+          Companies are not re-read every quarter, so an older tag means the thinking has
+          not been revisited, not that nothing happened.
+          A <b>↕ from</b> chip appears when the view changed from the quarter before, which
+          is the single most informative thing on a card.
+        </div>
+      </li>
+
+      <li>
+        <div class="htr-part-eg">
+          <span class="row-cap">{formatMcap(ex.marketCap)}</span>
+          <a class="link-chip primary" href="#top">✨ AI report</a>
+        </div>
+        <div class="htr-part-t">
+          <b>Market cap and the report link.</b> <b>Market cap</b> is what the whole company
+          costs at today's price — the share price times every share in existence. It matters
+          because size sets the odds: a ₹500-crore company tripling asks far less of the
+          market than a ₹50,000-crore one doing the same.
+          The <b>✨ AI report</b> link opens a written read of that quarter's earnings call —
+          what management promised, what they delivered, and whether the story has drifted.
+        </div>
+      </li>
+    </ol>
+  </section>
+  )}
+
+  {picked && (
+  <section class="htr-sec">
+    <h2 class="htr-h2">2 · Inside a company page</h2>
+    <p class="htr-p">
+      Clicking a card opens the full note. The panel below is the live one from
+      <a href={`/company/${ex.slug}/`}> {ex.name}'s page</a> — the part that does the most
+      work, and the part most worth learning to read.
+    </p>
+    <div class="htr-demo htr-demo-panel" set:html={panelHTML}></div>
+
+    <ol class="htr-parts">
+      <li>
+        <div class="htr-part-t htr-part-wide">
+          <b>The sentence at the top is the whole verdict.</b> Everything under it is
+          evidence. If you read one line per company, read that one — it is written to be
+          understood without knowing a single ratio.
+        </div>
+      </li>
+      {exOutlook && (
+      <li>
+        <div class="htr-part-t htr-part-wide">
+          <b>“If this keeps up for 3 more years · {exOutlook}”</b> is arithmetic, not a
+          forecast. It takes the growth rate the company has actually delivered
+          ({exGrowth}% a year here), assumes it simply continues, assumes buyers pay what
+          they have historically paid, and multiplies the two. It says
+          <i>what would have to be true</i> for that return — never how likely it is. The
+          assumption doing nearly all the work is “growth continues”, which is exactly the
+          assumption that most often fails.
+        </div>
+      </li>
+      )}
+      {exNeed2x && (
+      <li>
+        <div class="htr-part-t htr-part-wide">
+          <b>“Needs the P/E at {exNeed2x} — it is {exPe} today.”</b> <b>P/E</b> is what you
+          pay for ₹1 of yearly profit: at {exPe}, you are paying that many rupees for every
+          ₹1 the company earns in a year. This line answers a question worth asking about
+          every stock — for the price to double, does the market have to pay <i>more</i> than
+          it ever has, or would this company's normal multiple already do it? The five-year
+          range printed beside it is what it has actually traded at.
+        </div>
+      </li>
+      )}
+      <li>
+        <div class="htr-part-t htr-part-wide">
+          <b>The five scored rows are the score taken apart</b>, each phrased as a question —
+          is it cheap, has the market paid for this growth yet, is the growth real or
+          flattered, what does it earn on its own money, is the price trend agreeing. The bar
+          shows how many of that row's available points it earned.
+        </div>
+      </li>
+      <li>
+        <div class="htr-part-t htr-part-wide">
+          <b>“How this is calculated” at the bottom</b> holds the working: which growth rate
+          was used, over what window, and why anything was capped. Nothing on the page is
+          hidden from you — it is folded away because it is worth reading once, not on every
+          company.
+        </div>
+      </li>
+    </ol>
+  </section>
+  )}
+
+  <section class="htr-sec">
+    <h2 class="htr-h2">3 · Narrowing the list</h2>
+    <p class="htr-p">
+      The <b>Filters</b> button on the front page opens five ways to cut the book. None of
+      them need explaining except the last two.
+    </p>
+    <ul class="htr-filters">
+      <li><b>Industry</b> — what the company does.</li>
+      <li><b>Quarter</b> — which set of results the current view came from. Useful for
+        “what have I looked at recently”.</li>
+      <li><b>Tier</b> — the growth grade above.</li>
+      <li><b>Potential</b> — the 0–100 score above, bucketed. <b>Not enough data</b> means the
+        growth figures for that quarter have not been entered yet, so no score exists — that
+        is missing data, not a bad verdict.</li>
+      <li><b>Price near its trend line</b> — finds companies whose price is sitting within 2%
+        of one of those weekly averages, or where all three have bunched together within 5%
+        (which usually means the price has gone quiet and is about to move one way or the
+        other). This is a timing tool, not a quality one.</li>
+    </ul>
+    <p class="htr-p">
+      The coloured bar at the very top of the front page is the whole book split by view —
+      clicking any part of it filters to that view. <b>⬇ Watchlist</b> downloads whatever you
+      have narrowed to as a file you can import into TradingView.
+    </p>
+  </section>
+
+  <section class="panel gloss-panel htr-gloss" set:html={glossaryHTML({ open: true })}></section>
+
+  <section class="panel htr-caveat">
+    <h2 class="section-title">Before you use any of this</h2>
+    <p class="htr-defbody">
+      <b>This is a personal journal, not advice.</b> The views are one person's opinions,
+      recorded on a date, and they are sometimes wrong and often out of date. The scores are
+      arithmetic on figures the companies themselves reported — arithmetic cannot tell you
+      whether a business is honest, whether its market is about to disappear, or whether its
+      biggest customer is about to leave. Nothing here accounts for your situation, your
+      timeframe, or what you can afford to lose. Do your own research, and consider talking
+      to someone licensed to advise you.
+    </p>
+    <p class="htr-back"><a class="btn primary" href="/">Start reading the companies →</a></p>
+  </section>
+</Base>
+
+<script>
+  // The demo card is real rowHTML(), so its badge and pills carry real data-tips —
+  // inert without this, on the one page that tells the reader to tap them.
+  import { initTapTips } from '../lib/taptip.js';
+  initTapTips();
+</script>

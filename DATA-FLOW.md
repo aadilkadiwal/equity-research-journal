@@ -32,6 +32,13 @@ template is a mirror of the sheet you maintain:
 | 13 | `TradingView Code` | Symbol (for Chart/Screener links) |
 | 14 | `View` | **View** — Positive / Watch / Concern / Negative |
 | 15 | `Note` | **The note** (plain-English take) |
+| 16 | `EPS TTM` | **Trailing-twelve-month diluted EPS in ₹**. `price ÷ this` = the P/E. |
+| 17 | `5Y Avg P/E` | The company's **own** 5-year average P/E — the yardstick for "still expensive". |
+| 18 | `Industry P/E` | Sector P/E. Used only when `5Y Avg P/E` is blank. |
+| 19 | `Book Value` | Per share, ₹. Gives P/B, which matters where P/E is the wrong lens. |
+
+Columns 16–19 are the **valuation columns** — all optional, all read per quarter, and
+all supplied whenever a company is added or a new quarter's results are recorded.
 
 The older template spellings (`CompanyName`, `MarketCap`) are still accepted, so
 sheets downloaded before this change keep importing.
@@ -44,11 +51,33 @@ Columns 3–10 are the eight **optional** growth columns, percentages
 | `YoY Sales Growth` | `QoQ Sales Growth` | `YoY EPS Growth` | `QoQ EPS Growth` |
 | `YoY Op Profit Growth` | `QoQ Op Profit Growth` | `YoY PAT Growth` | `QoQ PAT Growth` |
 
+### The valuation columns (16–19)
+
+`EPS TTM` is the **trailing-twelve-month** diluted figure in rupees — the number
+Screener's P/E is built on, not the single quarter's EPS. Trailing on purpose:
+multiplying one quarter by four overstates a growing company's earnings, which
+understates its P/E and makes an expensive stock look cheap — the exact error the
+level check exists to catch. On Screener, `Current Price ÷ Stock P/E` gives it.
+
+`5Y Avg P/E` is the most valuable of the six. Without it the score can only see the
+*direction* the multiple moved, not the level it moved from — and a fall from 70× to
+58× reads identically to a fall from 12× to 10×, though one is earnings catching up
+to a price already paid and the other is growth nobody has paid for. With it, "still
+expensive" means *expensive against this company's own history*, so a developer is
+never benchmarked against speciality chemicals. Yardstick order: `5Y Avg P/E`, then
+`Industry P/E`, then a 75th-percentile fallback across the book.
+
+`Book Value` gives P/B, which replaces P/E entirely for the real-estate and
+financial names where lumpy revenue recognition makes earnings a poor guide.
+
+Recording these every quarter also builds a comparable series (Q1 2027 vs Q1 2026),
+which is what a real multi-year EPS CAGR needs.
+
 A blank cell means **not recorded** — never zero. A metric with both cells empty is
 omitted, and the company page says so rather than showing a misleading 0%.
 
 Only rows that have a View/Note become companies on the site. The `/admin`
-template (`npm run template`) ships all 15 in this order. It omits the workbook's
+template (`npm run template`) ships all 16 in this order. It omits the workbook's
 `Halal`, `Wrap Suggestion`, `Chart Setup` and `Q1…  Concall` columns, which the
 site does not read — so `View`/`Note` sit at 14–15 in the template but 18–19 in
 the workbook. Uploading the raw sheet works either way.
@@ -91,6 +120,20 @@ Then deploy: push to the site's GitHub repo — Cloudflare Pages auto-builds. Or
 - The **"What changed last quarter"** digest auto-populates (upgrades / downgrades).
 - A company's **"↕ from …"** chip appears when its view changed vs last quarter.
 - AI-report links point to the new quarter's PDFs.
+
+## Once a quarter — refresh the 5-year P/E range
+
+```bash
+python3 scripts/pe/fetch_pe_history.py
+```
+
+Writes `src/data/pe.json` (low / median / high per company) from Screener's chart
+endpoint. Nothing to fill in by hand. It **resumes** — Screener rate-limits around
+the 30th company, so run it again until it reports `0 failed`; already-fetched
+companies are skipped unless you pass `--refresh`.
+
+This feeds the company page's forward block only, and never the score — see the
+"5-year P/E range" section in `README.md` for why.
 
 ## One-off single-company edit
 - Quickest: edit `src/data/companies.json` by hand, then `npm run build`.

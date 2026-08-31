@@ -13,7 +13,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Maggi-and-Nescafe giant just posted its best sales quarter in a decade, driven by selling more in small towns plus premium products. Steady record, but a new outsider CEO is unproven.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nestle-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nestle-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.6,
+              "qoq": 19.07
+            },
+            "opProfit": {
+              "yoy": 27.61,
+              "qoq": 47.52
+            },
+            "eps": {
+              "yoy": 25.93,
+              "qoq": 9.47
+            },
+            "pat": {
+              "yoy": 28.84,
+              "qoq": 29.44
+            }
+          },
+          "epsTtmRs": 20,
+          "peAvg5y": 78.6,
+          "peIndustry": 46.3,
+          "bvps": 27.5,
+          "epsCagr3y": 13.1,
+          "epsCagr5y": 10.6,
+          "salesCagr3y": 11.1,
+          "salesCagr5y": 11.6,
+          "ebitdaCagr3y": 12,
+          "ebitdaCagr5y": 9.8
         }
       ]
     },
@@ -30,7 +58,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Record profits, but nearly half now ride on a silver-price boom that could reverse. Costs are world-class, yet the promised silver-output growth keeps falling short.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hindustan-zinc-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hindustan-zinc-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 49.19,
+              "qoq": 23.49
+            },
+            "opProfit": {
+              "yoy": 60.28,
+              "qoq": 27.66
+            },
+            "eps": {
+              "yoy": 68.04,
+              "qoq": 28.87
+            },
+            "pat": {
+              "yoy": 67.91,
+              "qoq": 29.45
+            }
+          },
+          "epsTtmRs": 40.1,
+          "peAvg5y": 16,
+          "peIndustry": 41.1,
+          "bvps": 53.2,
+          "epsCagr3y": 9.15,
+          "epsCagr5y": 12.1,
+          "salesCagr3y": 6.04,
+          "salesCagr5y": 12.4,
+          "ebitdaCagr3y": 6.8,
+          "ebitdaCagr5y": 11.8
         }
       ]
     },
@@ -47,7 +103,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "World's largest explosives maker with a booming defence arm (Pinaka rockets, drones) - profit up 35% and a two-year order book. Real, proven growth, but the stock is very pricey.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/solar-industries-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/solar-industries-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 40.9,
+              "qoq": 19.79
+            },
+            "opProfit": {
+              "yoy": 53.79,
+              "qoq": 16.65
+            },
+            "eps": {
+              "yoy": 69.95,
+              "qoq": 22.73
+            },
+            "pat": {
+              "yoy": 69.95,
+              "qoq": 22.72
+            }
+          },
+          "epsTtmRs": 144,
+          "peAvg5y": 117,
+          "peIndustry": 63,
+          "bvps": 467,
+          "epsCagr3y": 39.9,
+          "epsCagr5y": 45.2,
+          "salesCagr3y": 10.3,
+          "salesCagr5y": 28.6,
+          "ebitdaCagr3y": 37.1,
+          "ebitdaCagr5y": 42.8
         }
       ]
     },
@@ -64,7 +148,25 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes boilers and turbines for coal power plants, which India is ordering again. The record order book is finally turning into real sales and tripled profit - but at 87 times earnings on thin ~8% returns, it's priced for perfection.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bharat-heavy-electricals-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bharat-heavy-electricals-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 36.88,
+              "qoq": 45.29
+            },
+            "opProfit": {
+              "yoy": 110.79,
+              "qoq": 221.49
+            },
+            "eps": {
+              "yoy": 155.86,
+              "qoq": 231.25
+            },
+            "pat": {
+              "yoy": 155.82,
+              "qoq": 230.55
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -89,7 +191,17 @@
               "yoy": 182.7,
               "qoq": -70.81
             }
-          }
+          },
+          "epsTtmRs": 6.99,
+          "peAvg5y": 130,
+          "peIndustry": 35,
+          "bvps": 75.1,
+          "epsCagr3y": 37.6,
+          "epsCagr5y": 20.8,
+          "salesCagr3y": 13.1,
+          "salesCagr5y": 14.3,
+          "ebitdaCagr3y": 30.7,
+          "ebitdaCagr5y": 26.8
         }
       ]
     },
@@ -124,7 +236,17 @@
               "yoy": 32.46,
               "qoq": 1.5
             }
-          }
+          },
+          "epsTtmRs": 186,
+          "peAvg5y": 46.7,
+          "peIndustry": 27.4,
+          "bvps": 787,
+          "epsCagr3y": 26.1,
+          "epsCagr5y": 24.2,
+          "salesCagr3y": 26.5,
+          "salesCagr5y": 26.4,
+          "ebitdaCagr3y": 28.3,
+          "ebitdaCagr5y": 27
         }
       ]
     },
@@ -141,7 +263,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Riding a power-grid boom, winning big transformer orders including for US data centres, with capacity being multiplied several-fold and a new semiconductor bet. Cleaned-up, debt-free business; current management consistently delivers, though the turnaround is young.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/cg-power-and-industrial-solutions-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/cg-power-and-industrial-solutions-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 25.03,
+              "qoq": 8.39
+            },
+            "opProfit": {
+              "yoy": 34.5,
+              "qoq": 17.41
+            },
+            "eps": {
+              "yoy": 30.34,
+              "qoq": 28.18
+            },
+            "pat": {
+              "yoy": 33.67,
+              "qoq": 17.5
+            }
+          },
+          "epsTtmRs": 7.94,
+          "peAvg5y": 81.4,
+          "peIndustry": 35,
+          "bvps": 50.6,
+          "epsCagr3y": 20.4,
+          "epsCagr5y": 70.6,
+          "salesCagr3y": 19.9,
+          "salesCagr5y": 35,
+          "ebitdaCagr3y": 22.8,
+          "ebitdaCagr5y": 64.3
         }
       ]
     },
@@ -158,7 +308,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Grid-equipment maker in India's massive power build-out; orders booked equal ~3 years of sales and profit margins tripled. Management reliably under-promises and over-delivers. Strongest pick here.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ge-vernova-t-and-d-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ge-vernova-t-and-d-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 42.04,
+              "qoq": -3.74
+            },
+            "opProfit": {
+              "yoy": 76.47,
+              "qoq": -2.13
+            },
+            "eps": {
+              "yoy": 88.74,
+              "qoq": 20.95
+            },
+            "pat": {
+              "yoy": 86.32,
+              "qoq": 2.09
+            }
+          },
+          "epsTtmRs": 51,
+          "peAvg5y": 103,
+          "peIndustry": 35,
+          "bvps": 105,
+          "epsCagr3y": 490,
+          "epsCagr5y": 85.6,
+          "salesCagr3y": 30.8,
+          "salesCagr5y": 12.4,
+          "ebitdaCagr3y": 126,
+          "ebitdaCagr5y": 50
         }
       ]
     },
@@ -193,7 +371,17 @@
               "yoy": 75.53,
               "qoq": 28.4
             }
-          }
+          },
+          "epsTtmRs": 63.9,
+          "peAvg5y": 48.7,
+          "peIndustry": 19.8,
+          "bvps": 428,
+          "epsCagr3y": -3.92,
+          "epsCagr5y": 14.1,
+          "salesCagr3y": 0.95,
+          "salesCagr5y": 12.2,
+          "ebitdaCagr3y": -1.47,
+          "ebitdaCagr5y": 11.8
         }
       ]
     },
@@ -210,7 +398,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Runs Nykaa, India's online beauty and fashion retailer. Sales crossed Rs 10,000 crore and profit jumped 183% as margins finally widen - but the stock trades near 460 times earnings on a thin 2% profit.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/fsn-e-commerce-ventures-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/fsn-e-commerce-ventures-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 28.44,
+              "qoq": -7.83
+            },
+            "opProfit": {
+              "yoy": 67.17,
+              "qoq": -2.98
+            },
+            "eps": {
+              "yoy": 285.71,
+              "qoq": 22.73
+            },
+            "pat": {
+              "yoy": 286.49,
+              "qoq": 7.72
+            }
+          },
+          "epsTtmRs": 0.3,
+          "peAvg5y": 609,
+          "peIndustry": 53.4,
+          "bvps": 6.3,
+          "epsCagr3y": 16,
+          "epsCagr5y": -40,
+          "salesCagr3y": 8.98,
+          "salesCagr5y": 19.6,
+          "ebitdaCagr3y": 16.3,
+          "ebitdaCagr5y": 20.1
         }
       ]
     },
@@ -227,7 +443,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "India's only integrated copper miner. FY26 profit nearly doubled on high copper prices, not volume; the plan to triple ore output by 2030 is finally moving but years away, and the stock looks expensive.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hindustan-copper-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hindustan-copper-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 58.06,
+              "qoq": 68.2
+            },
+            "opProfit": {
+              "yoy": 135.31,
+              "qoq": 84.43
+            },
+            "eps": {
+              "yoy": 132.99,
+              "qoq": 183.33
+            },
+            "pat": {
+              "yoy": 133.05,
+              "qoq": 95.85
+            }
+          },
+          "epsTtmRs": 11.8,
+          "peAvg5y": 54.3,
+          "peIndustry": 32.5,
+          "bvps": 34.6,
+          "epsCagr3y": 49.9,
+          "epsCagr5y": 53.8,
+          "salesCagr3y": 22.4,
+          "salesCagr5y": 11.5,
+          "ebitdaCagr3y": 37.8,
+          "ebitdaCagr5y": 28
         }
       ]
     },
@@ -244,7 +488,34 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Electric scooter maker whose market share nearly tripled to 1-in-5, losses almost gone. But still not profitable, shares look pricey, and a sharp jump in raw-material costs is squeezing margins.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ather-energy-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ather-energy-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 73.75,
+              "qoq": 23.18
+            },
+            "opProfit": {
+              "yoy": 59.61,
+              "qoq": 3.27
+            },
+            "eps": {
+              "yoy": 67.49,
+              "qoq": -18.02
+            },
+            "pat": {
+              "yoy": 57.23,
+              "qoq": -25.92
+            }
+          },
+          "epsTtmRs": -10.2,
+          "peIndustry": 37.9,
+          "bvps": 67.2,
+          "epsCagr3y": 26,
+          "epsCagr5y": 14.9,
+          "salesCagr3y": 27.3,
+          "salesCagr5y": 115,
+          "ebitdaCagr3y": 17.6,
+          "ebitdaCagr5y": -12.7
         }
       ]
     },
@@ -261,7 +532,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Specialty chemical maker: sales up 41%, profit doubled as new plants filled up, with more capacity landing next year. Management reliably delivers. Only catch is the very expensive share price.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/navin-fluorine-international-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/navin-fluorine-international-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 33.78,
+              "qoq": 5.08
+            },
+            "opProfit": {
+              "yoy": 79.7,
+              "qoq": 4.42
+            },
+            "eps": {
+              "yoy": 116.61,
+              "qoq": 14.65
+            },
+            "pat": {
+              "yoy": 113.03,
+              "qoq": 0.48
+            }
+          },
+          "epsTtmRs": 110,
+          "peAvg5y": 75.5,
+          "peIndustry": 28.4,
+          "bvps": 715,
+          "epsCagr3y": 14.5,
+          "epsCagr5y": 12.7,
+          "salesCagr3y": 12.2,
+          "salesCagr5y": 15.2,
+          "ebitdaCagr3y": 17.4,
+          "ebitdaCagr5y": 13.8
         }
       ]
     },
@@ -296,7 +595,17 @@
               "yoy": 26.33,
               "qoq": 14.31
             }
-          }
+          },
+          "epsTtmRs": 15.8,
+          "peAvg5y": 38.2,
+          "peIndustry": 45.2,
+          "bvps": 91.6,
+          "epsCagr3y": 40.8,
+          "epsCagr5y": 67.8,
+          "salesCagr3y": 1.83,
+          "salesCagr5y": 21.3,
+          "ebitdaCagr3y": 38.8,
+          "ebitdaCagr5y": 51
         }
       ]
     },
@@ -313,7 +622,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes CP PLUS CCTV cameras. A 2025 rule banning Chinese brands handed it the market - FY26 sales up 36%, profit up 166%, share near 45%. But the stock trades at a punchy 127 times earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aditya-infotech-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aditya-infotech-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 45.49,
+              "qoq": 24.84
+            },
+            "opProfit": {
+              "yoy": 161.91,
+              "qoq": 83.48
+            },
+            "eps": {
+              "yoy": 186.63,
+              "qoq": 75.76
+            },
+            "pat": {
+              "yoy": 207.73,
+              "qoq": 76.21
+            }
+          },
+          "epsTtmRs": 40.6,
+          "peAvg5y": 95.9,
+          "peIndustry": 33.8,
+          "bvps": 159,
+          "epsCagr3y": -61.8,
+          "epsCagr5y": -21.6,
+          "salesCagr3y": 22.3,
+          "salesCagr5y": 30.4,
+          "ebitdaCagr3y": 43.4,
+          "ebitdaCagr5y": 50.5
         }
       ]
     },
@@ -330,7 +667,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Injectable-drug maker whose loss-making Europe unit finally turned profitable, powering profit up 47%. Contract manufacturing is the growth engine, plus future weight-loss-drug upside. But that Europe fix arrived a year late.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/gland-pharma-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/gland-pharma-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.31,
+              "qoq": 2.8
+            },
+            "opProfit": {
+              "yoy": 47.63,
+              "qoq": 17.97
+            },
+            "eps": {
+              "yoy": 96.64,
+              "qoq": 40.26
+            },
+            "pat": {
+              "yoy": 96.57,
+              "qoq": 31.67
+            }
+          },
+          "epsTtmRs": 84.6,
+          "peAvg5y": 28.8,
+          "peIndustry": 33.4,
+          "bvps": 656,
+          "epsCagr3y": 17.3,
+          "epsCagr5y": 5.55,
+          "salesCagr3y": 7.97,
+          "salesCagr5y": 5.62,
+          "ebitdaCagr3y": 16.1,
+          "ebitdaCagr5y": 6.45
         }
       ]
     },
@@ -347,7 +712,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes optical fibre and cable for telecom and data centres. Recovery is real - FY26 orders doubled to Rs 7,687 crore, profit turned positive - but margins stay thin and much is already priced in.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sterlite-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sterlite-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 36.98,
+              "qoq": 14.64
+            },
+            "opProfit": {
+              "yoy": 56,
+              "qoq": 62.5
+            },
+            "eps": {
+              "yoy": 247.56,
+              "qoq": 445.71
+            },
+            "pat": {
+              "yoy": 744.4,
+              "qoq": 703.14
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -365,14 +748,24 @@
               "qoq": 97.44
             },
             "eps": {
-              "yoy": 1920.0,
+              "yoy": 1920,
               "qoq": 233.88
             },
             "pat": {
-              "yoy": 1870.0,
+              "yoy": 1870,
               "qoq": 366.6
             }
-          }
+          },
+          "epsTtmRs": 2.56,
+          "peAvg5y": 27.1,
+          "peIndustry": 48.5,
+          "bvps": 31.3,
+          "epsCagr3y": -74.3,
+          "epsCagr5y": -52.9,
+          "salesCagr3y": -23,
+          "salesCagr5y": -10,
+          "ebitdaCagr3y": -28.8,
+          "ebitdaCagr5y": -15.1
         }
       ]
     },
@@ -389,7 +782,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "India's wire-and-cable maker is booming - profit jumped 62% as it shifts to higher-value cable for data centres and solar. Big new factories arrive by 2027-28. Fans/lights arm still loss-making.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rr-kabel-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rr-kabel-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 33.65,
+              "qoq": 16.89
+            },
+            "opProfit": {
+              "yoy": 34.61,
+              "qoq": 28.08
+            },
+            "eps": {
+              "yoy": 30.04,
+              "qoq": 41.97
+            },
+            "pat": {
+              "yoy": 30.06,
+              "qoq": 26.84
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -414,7 +825,17 @@
               "yoy": 117.32,
               "qoq": 16.1
             }
-          }
+          },
+          "epsTtmRs": 53.2,
+          "peAvg5y": 52.4,
+          "peIndustry": 27.4,
+          "bvps": 227,
+          "epsCagr3y": 31.4,
+          "epsCagr5y": -4.37,
+          "salesCagr3y": 20.2,
+          "salesCagr5y": 29,
+          "ebitdaCagr3y": 33.4,
+          "ebitdaCagr5y": 27.3
         }
       ]
     },
@@ -431,7 +852,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Steel sales keep growing fast but profit stayed flat four years while it kept building plants. Latest quarter finally shows profit jumping - a first real hint that spending pays off.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shyam-metalics-and-energy-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shyam-metalics-and-energy-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 26.6,
+              "qoq": 18.52
+            },
+            "opProfit": {
+              "yoy": 41.1,
+              "qoq": 49.22
+            },
+            "eps": {
+              "yoy": 45.79,
+              "qoq": 61.67
+            },
+            "pat": {
+              "yoy": 45.87,
+              "qoq": 61.78
+            }
+          },
+          "epsTtmRs": 18.8,
+          "peAvg5y": 43.4,
+          "peIndustry": 22.5,
+          "bvps": 231,
+          "epsCagr3y": 20.4,
+          "epsCagr5y": 1.1,
+          "salesCagr3y": 3.74,
+          "salesCagr5y": 18.3,
+          "ebitdaCagr3y": 24.7,
+          "ebitdaCagr5y": 7.6
         }
       ]
     },
@@ -466,7 +915,17 @@
               "yoy": 207.5,
               "qoq": 57.01
             }
-          }
+          },
+          "epsTtmRs": 57.4,
+          "peAvg5y": 37.7,
+          "peIndustry": 28.4,
+          "bvps": 428,
+          "epsCagr3y": -25,
+          "epsCagr5y": -11.3,
+          "salesCagr3y": -4.53,
+          "salesCagr5y": 7.85,
+          "ebitdaCagr3y": -20.3,
+          "ebitdaCagr5y": -9.09
         }
       ]
     },
@@ -483,7 +942,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Solar-panel maker riding India's make-in-India push; sales doubled, profit nearly tripled, debt-free, with a huge new factory funded and on track. Management delivers what it promises.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/emmvee-photovoltaic-power-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/emmvee-photovoltaic-power-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 62.25,
+              "qoq": 50.91
+            },
+            "opProfit": {
+              "yoy": 58.35,
+              "qoq": 38.16
+            },
+            "eps": {
+              "yoy": -85.23,
+              "qoq": 48.82
+            },
+            "pat": {
+              "yoy": 89.43,
+              "qoq": 48.83
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -508,7 +985,17 @@
               "yoy": 102.64,
               "qoq": -3.08
             }
-          }
+          },
+          "epsTtmRs": 1.53,
+          "peAvg5y": 7.96,
+          "peIndustry": 26.4,
+          "bvps": 38.7,
+          "epsCagr3y": -35.7,
+          "epsCagr5y": -6.35,
+          "salesCagr3y": 15.1,
+          "salesCagr5y": 24.2,
+          "ebitdaCagr3y": 49.9,
+          "ebitdaCagr5y": 29.6
         }
       ]
     },
@@ -525,7 +1012,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes medicines and its own novel antibiotic. The turnaround is real - profit back at 317 cr and margins tripled - but the whole story now rests on Zaynich, a just-FDA-approved drug that isn't selling yet.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/wockhardt-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/wockhardt-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 29.88,
+              "qoq": 8.67
+            },
+            "opProfit": {
+              "yoy": 251.56,
+              "qoq": 27.12
+            },
+            "eps": {
+              "yoy": 763.64,
+              "qoq": 181.54
+            },
+            "pat": {
+              "yoy": 687.64,
+              "qoq": 116.68
+            }
+          },
+          "epsTtmRs": 21.9,
+          "peAvg5y": 116,
+          "peIndustry": 33.4,
+          "bvps": 190,
+          "epsCagr3y": 46.1,
+          "epsCagr5y": -18.8,
+          "salesCagr3y": 17.5,
+          "salesCagr5y": 12,
+          "ebitdaCagr3y": 68.4,
+          "ebitdaCagr5y": 54.3
         }
       ]
     },
@@ -542,7 +1057,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Sales nearly doubled. It builds India's AI supercomputers and already holds a huge government AI order bigger than last year's entire sales, so the growth engine is very real.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/netweb-technologies-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/netweb-technologies-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 86.59,
+              "qoq": -3.88
+            },
+            "opProfit": {
+              "yoy": 62.96,
+              "qoq": -1.4
+            },
+            "eps": {
+              "yoy": 64.89,
+              "qoq": -4.17
+            },
+            "pat": {
+              "yoy": 65.67,
+              "qoq": -3.71
+            }
+          },
+          "epsTtmRs": 45.9,
+          "peAvg5y": 142,
+          "peIndustry": 26,
+          "bvps": 127,
+          "epsCagr3y": 57.7,
+          "epsCagr5y": 20,
+          "salesCagr3y": 69.9,
+          "salesCagr5y": 72.5,
+          "ebitdaCagr3y": 62.6,
+          "ebitdaCagr5y": 80.4
         }
       ]
     },
@@ -559,7 +1102,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes pharma ingredients and does contract manufacturing for drug innovators. FY26 sales jumped 37% as a few big custom-molecule orders shipped - but revenue is lumpy and the stock trades at 69x earnings. Management stays honest.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/neuland-laboratories-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/neuland-laboratories-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 136.4,
+              "qoq": 76.54
+            },
+            "opProfit": {
+              "yoy": 501.66,
+              "qoq": 298.41
+            },
+            "eps": {
+              "yoy": 664.58,
+              "qoq": 424.23
+            },
+            "pat": {
+              "yoy": 664.72,
+              "qoq": 424.21
+            }
+          },
+          "epsTtmRs": 387,
+          "peAvg5y": 29.3,
+          "peIndustry": 33.4,
+          "bvps": 1454,
+          "epsCagr3y": 30,
+          "epsCagr5y": 38.6,
+          "salesCagr3y": 19.3,
+          "salesCagr5y": 16.6,
+          "ebitdaCagr3y": 28.7,
+          "ebitdaCagr5y": 32
         }
       ]
     },
@@ -576,7 +1147,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Order book fine, but there IS a trigger: shifting to higher-value electronics doubled its profit margin and nearly doubled profit in one year. Management under-promises, over-delivers.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/syrma-sgs-technology-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/syrma-sgs-technology-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 58.49,
+              "qoq": 15.89
+            },
+            "opProfit": {
+              "yoy": 62.01,
+              "qoq": 9.27
+            },
+            "eps": {
+              "yoy": 43.05,
+              "qoq": -1.5
+            },
+            "pat": {
+              "yoy": 55.84,
+              "qoq": -3.15
+            }
+          },
+          "epsTtmRs": 17.3,
+          "peAvg5y": 127,
+          "peIndustry": 33.8,
+          "bvps": 154,
+          "epsCagr3y": 70.3,
+          "epsCagr5y": -47.4,
+          "salesCagr3y": 56.7,
+          "salesCagr5y": 58.4,
+          "ebitdaCagr3y": 59.3,
+          "ebitdaCagr5y": 54.8
         }
       ]
     },
@@ -593,7 +1192,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes advanced pharma-chemical building blocks (formerly Ami Organics). A shift into high-value CDMO contracts has doubled both margins and profit, and management keeps beating its own guidance. Main worry is the rich price, near record highs.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/acutaas-chemicals-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/acutaas-chemicals-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 40.28,
+              "qoq": 10.06
+            },
+            "opProfit": {
+              "yoy": 116.02,
+              "qoq": 21.81
+            },
+            "eps": {
+              "yoy": 110.88,
+              "qoq": 21.99
+            },
+            "pat": {
+              "yoy": 110.88,
+              "qoq": 22.05
+            }
+          },
+          "epsTtmRs": 47.2,
+          "peAvg5y": 59.2,
+          "peIndustry": 33.4,
+          "bvps": 202,
+          "epsCagr3y": 57.2,
+          "epsCagr5y": 38.8,
+          "salesCagr3y": 29,
+          "salesCagr5y": 31.2,
+          "ebitdaCagr3y": 60.6,
+          "ebitdaCagr5y": 45.1
         }
       ]
     },
@@ -610,7 +1237,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes precision parts for AI-data-centre fuel cells and nuclear reactors. Order book tripled, profit up 76% - real growth. Catch: leans heavily on one US customer and often misses its targets.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/mtar-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/mtar-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 67.14,
+              "qoq": 10.12
+            },
+            "opProfit": {
+              "yoy": 79.63,
+              "qoq": -3.89
+            },
+            "eps": {
+              "yoy": 212.12,
+              "qoq": 26.16
+            },
+            "pat": {
+              "yoy": 212.25,
+              "qoq": 17.12
+            }
+          },
+          "epsTtmRs": 43.8,
+          "peAvg5y": 92.1,
+          "peIndustry": 26.4,
+          "bvps": 268,
+          "epsCagr3y": -1.33,
+          "epsCagr5y": 16.3,
+          "salesCagr3y": 15.2,
+          "salesCagr5y": 28.9,
+          "ebitdaCagr3y": 4.42,
+          "ebitdaCagr5y": 18.2
         }
       ]
     },
@@ -627,7 +1282,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes generators for gas power plants, with booming demand from AI data centres; order book more than doubled and management keeps beating its own targets. Caveats: very expensive stock and founders selling down heavily.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/td-power-systems-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/td-power-systems-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 69.21,
+              "qoq": 33.1
+            },
+            "opProfit": {
+              "yoy": 49.47,
+              "qoq": 21.69
+            },
+            "eps": {
+              "yoy": 36.28,
+              "qoq": 27.98
+            },
+            "pat": {
+              "yoy": 36.16,
+              "qoq": 28.18
+            }
+          },
+          "epsTtmRs": 8.16,
+          "peAvg5y": 42.4,
+          "peIndustry": 35,
+          "bvps": 32.9,
+          "epsCagr3y": 35,
+          "epsCagr5y": 65.6,
+          "salesCagr3y": 27.8,
+          "salesCagr5y": 28,
+          "ebitdaCagr3y": 31.4,
+          "ebitdaCagr5y": 43.7
         }
       ]
     },
@@ -644,7 +1327,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes precision-forged auto parts and is fast building an aerospace, defence and semiconductor arm - sales there jumped 155% to Rs 315 crore, lifting profit and margins. But the stock is priced very richly.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sansera-engineering-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sansera-engineering-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 27.77,
+              "qoq": 10.03
+            },
+            "opProfit": {
+              "yoy": 51.86,
+              "qoq": 19.08
+            },
+            "eps": {
+              "yoy": 103.55,
+              "qoq": 76.45
+            },
+            "pat": {
+              "yoy": 104.84,
+              "qoq": 50.91
+            }
+          },
+          "epsTtmRs": 52.1,
+          "peAvg5y": 33.7,
+          "peIndustry": 29.5,
+          "bvps": 491,
+          "epsCagr3y": 20.7,
+          "epsCagr5y": 19.1,
+          "salesCagr3y": 13.9,
+          "salesCagr5y": 18,
+          "ebitdaCagr3y": 19,
+          "ebitdaCagr5y": 18.7
         }
       ]
     },
@@ -661,7 +1372,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes internet fibre cables. AI data-centre demand brought a record $1.1 billion export order and doubled profit. Real driver - but management chronically misses deadlines and the stock's pricey.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hfcl-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hfcl-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 127.81,
+              "qoq": 50.66
+            },
+            "opProfit": {
+              "yoy": 946.86,
+              "qoq": 37.63
+            },
+            "eps": {
+              "yoy": 308.93,
+              "qoq": 82.81
+            },
+            "pat": {
+              "yoy": 319.21,
+              "qoq": 82.85
+            }
+          },
+          "epsTtmRs": 3.12,
+          "peAvg5y": 41,
+          "peIndustry": 14.6,
+          "bvps": 30.9,
+          "epsCagr3y": -3.67,
+          "epsCagr5y": -1.25,
+          "salesCagr3y": 0.99,
+          "salesCagr5y": 1.97,
+          "ebitdaCagr3y": 9.1,
+          "ebitdaCagr5y": 5.95
         }
       ]
     },
@@ -678,7 +1417,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Shifted from raw ingredients to finished tablets, lifting margins and finally breaking three flat years (sales +20%). Swiss weight-loss-drug arm now profitable. Watch: a US FDA plant issue stays unresolved.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/granules-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/granules-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.81,
+              "qoq": 5.96
+            },
+            "opProfit": {
+              "yoy": 39.52,
+              "qoq": 14.28
+            },
+            "eps": {
+              "yoy": 29.67,
+              "qoq": 31.34
+            },
+            "pat": {
+              "yoy": 44.64,
+              "qoq": 26.05
+            }
+          },
+          "epsTtmRs": 16.5,
+          "peAvg5y": 22,
+          "peIndustry": 33.4,
+          "bvps": 178,
+          "epsCagr3y": -7.13,
+          "epsCagr5y": -5.83,
+          "salesCagr3y": -4.04,
+          "salesCagr5y": 2.07,
+          "ebitdaCagr3y": -3.06,
+          "ebitdaCagr5y": -2.43
         }
       ]
     },
@@ -695,7 +1462,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes complex US specialty and generic medicines; sales rose 37% to Rs1,754 crore as higher-margin new launches land and its FDA pipeline grows. But the stock trades near 100 times earnings - priced for perfection.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rubicon-research-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rubicon-research-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 43.49,
+              "qoq": 8.07
+            },
+            "opProfit": {
+              "yoy": 63.79,
+              "qoq": 9.79
+            },
+            "eps": {
+              "yoy": 98.3,
+              "qoq": 5.43
+            },
+            "pat": {
+              "yoy": 111.83,
+              "qoq": 5.48
+            }
+          },
+          "epsTtmRs": 14.4,
+          "peAvg5y": 91,
+          "peIndustry": 33.4,
+          "bvps": 82,
+          "epsCagr3y": 32.8,
+          "epsCagr5y": -35.7,
+          "salesCagr3y": 49.2,
+          "salesCagr5y": 31.6,
+          "ebitdaCagr3y": 94.3,
+          "ebitdaCagr5y": 21.4
         }
       ]
     },
@@ -730,7 +1525,17 @@
               "yoy": 273.35,
               "qoq": -44.63
             }
-          }
+          },
+          "epsTtmRs": 29.3,
+          "peAvg5y": 78.9,
+          "peIndustry": 26.4,
+          "bvps": 439,
+          "epsCagr3y": 46.4,
+          "epsCagr5y": 35.5,
+          "salesCagr3y": 17.3,
+          "salesCagr5y": 20.7,
+          "ebitdaCagr3y": 13.4,
+          "ebitdaCagr5y": -2.53
         }
       ]
     },
@@ -765,7 +1570,17 @@
               "yoy": 192.05,
               "qoq": 38.9
             }
-          }
+          },
+          "epsTtmRs": 25.7,
+          "peAvg5y": 27.5,
+          "peIndustry": 14.5,
+          "bvps": 126,
+          "epsCagr3y": -11.8,
+          "epsCagr5y": -7.41,
+          "salesCagr3y": 0.32,
+          "salesCagr5y": 10.9,
+          "ebitdaCagr3y": -7.22,
+          "ebitdaCagr5y": -4.5
         }
       ]
     },
@@ -782,7 +1597,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "India's largest children's-hospital chain. It has built lots of new beds that are still half-empty, so profits can grow just by filling them. New CEO targets 20% growth; management delivers consistently.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rainbow-childrens-medicare-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rainbow-childrens-medicare-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 24.26,
+              "qoq": 3.24
+            },
+            "opProfit": {
+              "yoy": 26.14,
+              "qoq": -1.54
+            },
+            "eps": {
+              "yoy": 36.76,
+              "qoq": 6.3
+            },
+            "pat": {
+              "yoy": 38.62,
+              "qoq": 7.68
+            }
+          },
+          "epsTtmRs": 24.7,
+          "peAvg5y": 54.5,
+          "peIndustry": 51.2,
+          "bvps": 166,
+          "epsCagr3y": 1.59,
+          "epsCagr5y": 13.9,
+          "salesCagr3y": 11.5,
+          "salesCagr5y": 20.3,
+          "ebitdaCagr3y": 7.82,
+          "ebitdaCagr5y": 24
         }
       ]
     },
@@ -799,7 +1642,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Spark Minda makes auto parts - wiring, locks, clusters. FY26 sales rose 22% and profit 40% on premium electronics and a Rs 10,000 crore order book, but the stock is pricey near 69 times earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/minda-corporation-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/minda-corporation-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 28.95,
+              "qoq": 9.2
+            },
+            "opProfit": {
+              "yoy": 33.03,
+              "qoq": 10.82
+            },
+            "eps": {
+              "yoy": 138.99,
+              "qoq": 45.53
+            },
+            "pat": {
+              "yoy": 135.63,
+              "qoq": 39.02
+            }
+          },
+          "epsTtmRs": 10.9,
+          "peAvg5y": 38.5,
+          "peIndustry": 29.5,
+          "bvps": 92.8,
+          "epsCagr3y": -3.18,
+          "epsCagr5y": 23.6,
+          "salesCagr3y": 12.8,
+          "salesCagr5y": 17,
+          "ebitdaCagr3y": 16.2,
+          "ebitdaCagr5y": 21.1
         }
       ]
     },
@@ -816,7 +1687,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Making pricier, precision truck and tractor parts is lifting profits to record highs; a signed Rs 950 cr order book fuels growth. FY27 is spending-heavy, but management reliably delivers.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/happy-forgings-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/happy-forgings-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 20.42,
+              "qoq": 8.31
+            },
+            "opProfit": {
+              "yoy": 30.37,
+              "qoq": 10.74
+            },
+            "eps": {
+              "yoy": 23.4,
+              "qoq": 5.85
+            },
+            "pat": {
+              "yoy": 23.55,
+              "qoq": 5.85
+            }
+          },
+          "epsTtmRs": 34.7,
+          "peAvg5y": 39.9,
+          "peIndustry": 28,
+          "bvps": 226,
+          "epsCagr3y": 10.8,
+          "epsCagr5y": -49.5,
+          "salesCagr3y": 8.92,
+          "salesCagr5y": 21.5,
+          "ebitdaCagr3y": 12.8,
+          "ebitdaCagr5y": 24.8
         }
       ]
     },
@@ -833,7 +1732,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes power transformers. Roughly quadrupled capacity into India's grid boom; FY26 sales jumped 49% and it turned debt-free. But it's freshly listed, the high-voltage push is unproven, and the stock trades near 60 times earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/atlanta-electricals-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/atlanta-electricals-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 81.69,
+              "qoq": 58.45
+            },
+            "opProfit": {
+              "yoy": 117.94,
+              "qoq": 63.78
+            },
+            "eps": {
+              "yoy": 112.98,
+              "qoq": 135.64
+            },
+            "pat": {
+              "yoy": 129.07,
+              "qoq": 132.14
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -851,14 +1768,24 @@
               "qoq": -48.45
             },
             "eps": {
-              "yoy": 40.0,
+              "yoy": 40,
               "qoq": -54.18
             },
             "pat": {
               "yoy": 50.42,
               "qoq": -54.2
             }
-          }
+          },
+          "epsTtmRs": 28.3,
+          "peAvg5y": 58.5,
+          "peIndustry": 35,
+          "bvps": 121,
+          "epsCagr3y": -14,
+          "epsCagr5y": 46.7,
+          "salesCagr3y": 29.1,
+          "salesCagr5y": 36.5,
+          "ebitdaCagr3y": 46,
+          "ebitdaCagr5y": 60.8
         }
       ]
     },
@@ -875,7 +1802,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "South-India diagnostics chain with an excellent, honest management team that consistently beats its own targets, high margins, and volume-led growth. The only worry is the pricey stock versus its sales and assets.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vijaya-diagnostic-centre-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vijaya-diagnostic-centre-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 26.63,
+              "qoq": 6.91
+            },
+            "opProfit": {
+              "yoy": 38.72,
+              "qoq": 11.01
+            },
+            "eps": {
+              "yoy": 37.06,
+              "qoq": 10.95
+            },
+            "pat": {
+              "yoy": 34.56,
+              "qoq": 11
+            }
+          },
+          "epsTtmRs": 18.8,
+          "peAvg5y": 61.8,
+          "peIndustry": 43,
+          "bvps": 91.7,
+          "epsCagr3y": 29.2,
+          "epsCagr5y": -0.9,
+          "salesCagr3y": 19.5,
+          "salesCagr5y": 15.9,
+          "ebitdaCagr3y": 21.9,
+          "ebitdaCagr5y": 15
         }
       ]
     },
@@ -899,7 +1854,7 @@
               "qoq": -23.68
             },
             "opProfit": {
-              "yoy": 27.0,
+              "yoy": 27,
               "qoq": -31.62
             },
             "eps": {
@@ -910,7 +1865,17 @@
               "yoy": 22.28,
               "qoq": 7.74
             }
-          }
+          },
+          "epsTtmRs": 36.7,
+          "peAvg5y": 30.4,
+          "peIndustry": 31.6,
+          "bvps": 169,
+          "epsCagr3y": 38.3,
+          "epsCagr5y": 39.6,
+          "salesCagr3y": 14.9,
+          "salesCagr5y": 21.7,
+          "ebitdaCagr3y": 36.2,
+          "ebitdaCagr5y": 36.9
         }
       ]
     },
@@ -927,7 +1892,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Auto-parts firm moving into high-tech parts; sensors business grew 150% and CNG kits are scaling fast, beating targets. Solid, but the dividend was cut sharply despite booming profit.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/lumax-auto-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/lumax-auto-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 25.07,
+              "qoq": 11.51
+            },
+            "opProfit": {
+              "yoy": 29.74,
+              "qoq": 15.53
+            },
+            "eps": {
+              "yoy": 50.88,
+              "qoq": 6.86
+            },
+            "pat": {
+              "yoy": 50.39,
+              "qoq": -2.73
+            }
+          },
+          "epsTtmRs": 29.3,
+          "peAvg5y": 36.2,
+          "peIndustry": 29.5,
+          "bvps": 152,
+          "epsCagr3y": 40.8,
+          "epsCagr5y": 39.9,
+          "salesCagr3y": 39.7,
+          "salesCagr5y": 31.9,
+          "ebitdaCagr3y": 53.3,
+          "ebitdaCagr5y": 42
         }
       ]
     },
@@ -944,7 +1937,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes cheap generic medicines sold to US and UK stores. Steadily grabbing more shelf space in America, debt-free with cash to spare; the new Goa factory is only half used, so room to grow.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/marksans-pharma-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/marksans-pharma-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 20.84,
+              "qoq": 13.48
+            },
+            "opProfit": {
+              "yoy": 53.95,
+              "qoq": 21.57
+            },
+            "eps": {
+              "yoy": 63.5,
+              "qoq": 30.8
+            },
+            "pat": {
+              "yoy": 63.59,
+              "qoq": 30.86
+            }
+          },
+          "epsTtmRs": 7.1,
+          "peAvg5y": 36.8,
+          "peIndustry": 33.4,
+          "bvps": 36.5,
+          "epsCagr3y": 42.7,
+          "epsCagr5y": 22.4,
+          "salesCagr3y": 27,
+          "salesCagr5y": 17.5,
+          "ebitdaCagr3y": 40.8,
+          "ebitdaCagr5y": 24.1
         }
       ]
     },
@@ -961,7 +1982,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Diagnostics chain; the flashy 24% growth came mostly from buying labs. Real underlying growth is only ~12% and the promised profit-margin improvement has never arrived.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/metropolis-healthcare-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/metropolis-healthcare-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.99,
+              "qoq": 4.62
+            },
+            "opProfit": {
+              "yoy": 73.37,
+              "qoq": 13.87
+            },
+            "eps": {
+              "yoy": 74.47,
+              "qoq": 23
+            },
+            "pat": {
+              "yoy": 74.43,
+              "qoq": 5.94
+            }
+          },
+          "epsTtmRs": 8.32,
+          "peAvg5y": 66.3,
+          "peIndustry": 43,
+          "bvps": 67,
+          "epsCagr3y": 4.53,
+          "epsCagr5y": -4.31,
+          "salesCagr3y": 8.6,
+          "salesCagr5y": 10.8,
+          "ebitdaCagr3y": 6.3,
+          "ebitdaCagr5y": 4.03
         }
       ]
     },
@@ -978,7 +2027,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Tamil Nadu gold-jewellery retailer opening new Chennai stores; FY26 sales up 73% and profit nearly tripled - but much of that jump is soaring gold prices, and the stock trades at a steep 57 times earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/thangamayil-jewellery-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/thangamayil-jewellery-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 105.63,
+              "qoq": 18.01
+            },
+            "opProfit": {
+              "yoy": 273.73,
+              "qoq": 24.58
+            },
+            "eps": {
+              "yoy": 354.46,
+              "qoq": 36.16
+            },
+            "pat": {
+              "yoy": 354.33,
+              "qoq": 33.97
+            }
+          },
+          "epsTtmRs": 126,
+          "peAvg5y": 38.4,
+          "peIndustry": 16.5,
+          "bvps": 456,
+          "epsCagr3y": 64.1,
+          "epsCagr5y": 32.4,
+          "salesCagr3y": 39.2,
+          "salesCagr5y": 36.1,
+          "ebitdaCagr3y": 54.8,
+          "ebitdaCagr5y": 31.1
         }
       ]
     },
@@ -995,7 +2072,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes electronics for nearly every Indian missile and naval weapon, now adding explosives. A booming order book lifted sales 61% and doubled profit, but cash burn is heavy and the stock trades near 120x earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/apollo-micro-systems-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/apollo-micro-systems-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 81.28,
+              "qoq": 16.27
+            },
+            "opProfit": {
+              "yoy": 87.97,
+              "qoq": 34.25
+            },
+            "eps": {
+              "yoy": 128.26,
+              "qoq": 45.83
+            },
+            "pat": {
+              "yoy": 168.71,
+              "qoq": 46.5
+            }
+          },
+          "epsTtmRs": 3.42,
+          "peAvg5y": 67.9,
+          "peIndustry": 77.1,
+          "bvps": 36.8,
+          "epsCagr3y": 48.6,
+          "epsCagr5y": 46.9,
+          "salesCagr3y": 37,
+          "salesCagr5y": 30.4,
+          "ebitdaCagr3y": 52.1,
+          "ebitdaCagr5y": 42.6
         }
       ]
     },
@@ -1012,7 +2117,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Steady branded-medicine maker growing twice as fast as the market, and it beat its own targets. New brands, weight-loss drug launch and fertility push add fresh growth; management delivers.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/corona-remedies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/corona-remedies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 20.23,
+              "qoq": 3.12
+            },
+            "opProfit": {
+              "yoy": 14.39,
+              "qoq": -25.42
+            },
+            "eps": {
+              "yoy": 43.95,
+              "qoq": 9.35
+            },
+            "pat": {
+              "yoy": 43.75,
+              "qoq": -17.23
+            }
+          },
+          "epsTtmRs": 32.5,
+          "peAvg5y": 55.9,
+          "peIndustry": 33.4,
+          "bvps": 122,
+          "epsCagr3y": 33.1,
+          "epsCagr5y": -26.4,
+          "salesCagr3y": 16.6,
+          "salesCagr5y": 19.5,
+          "ebitdaCagr3y": 31.2,
+          "ebitdaCagr5y": 22.5
         }
       ]
     },
@@ -1029,7 +2162,32 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Buys and builds hospitals at half the usual cost, then fills the beds. Profit up 27%, now debt-free, and future expansion is fully self-funded. A third of beds still empty means room to grow.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/park-medi-world-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/park-medi-world-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 30.09,
+              "qoq": 12.3
+            },
+            "opProfit": {
+              "yoy": 44.03,
+              "qoq": 28.12
+            },
+            "eps": {
+              "yoy": 40.17,
+              "qoq": 40.17
+            },
+            "pat": {
+              "yoy": 58.03,
+              "qoq": 39.63
+            }
+          },
+          "epsTtmRs": 0.78,
+          "peAvg5y": 321,
+          "peIndustry": 51.2,
+          "bvps": 19.9,
+          "epsCagr3y": 22.4,
+          "salesCagr3y": 7.98,
+          "ebitdaCagr3y": 30
         }
       ]
     },
@@ -1046,7 +2204,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Merging two drug firms nearly tripled profit margins and grew profit 14-fold - management delivered early and honestly. A real, proven turnaround; only catch is the pricey stock.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/viyash-scientific-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/viyash-scientific-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 129.02,
+              "qoq": 7.17
+            },
+            "opProfit": {
+              "yoy": 298.46,
+              "qoq": 4.91
+            },
+            "eps": {
+              "yoy": 221.62,
+              "qoq": 35.23
+            },
+            "pat": {
+              "yoy": 455.54,
+              "qoq": 8.83
+            }
+          },
+          "epsTtmRs": 2.2,
+          "peAvg5y": 198,
+          "peIndustry": 33.4,
+          "bvps": 73,
+          "epsCagr3y": 128,
+          "epsCagr5y": 12.6,
+          "salesCagr3y": 83.8,
+          "salesCagr5y": 39.1,
+          "ebitdaCagr3y": 443,
+          "ebitdaCagr5y": 41.1
         }
       ]
     },
@@ -1063,7 +2249,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "India's largest last-mile delivery firm for online shopping and quick commerce. Just turned profitable - FY26 profit jumped to Rs 115 crore as market share doubled, but the stock trades at a steep 116 times earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shadowfax-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shadowfax-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 73.62,
+              "qoq": 6.88
+            },
+            "opProfit": {
+              "yoy": 614.53,
+              "qoq": 20.92
+            },
+            "eps": {
+              "yoy": 243.94,
+              "qoq": 30.14
+            },
+            "pat": {
+              "yoy": 648.31,
+              "qoq": 51.3
+            }
+          },
+          "epsTtmRs": 3.75,
+          "peAvg5y": 110,
+          "peIndustry": 25.8,
+          "bvps": 30,
+          "epsCagr3y": 26,
+          "epsCagr5y": 14.9,
+          "salesCagr3y": 42.3,
+          "salesCagr5y": 54.5,
+          "ebitdaCagr3y": 62.4,
+          "ebitdaCagr5y": 29.8
         }
       ]
     },
@@ -1080,7 +2294,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Pharma turnaround finally paying off: profit doubled, debt slashed, new drug launched. But management repeatedly hypes then quietly drops promised drug deals, and a US FDA warning stays unresolved.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shilpa-medicare-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shilpa-medicare-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 32.09,
+              "qoq": 6.51
+            },
+            "opProfit": {
+              "yoy": 51.13,
+              "qoq": 4.56
+            },
+            "eps": {
+              "yoy": 644.59,
+              "qoq": 141.67
+            },
+            "pat": {
+              "yoy": 147.82,
+              "qoq": 58.15
+            }
+          },
+          "epsTtmRs": 9.34,
+          "peAvg5y": 76,
+          "peIndustry": 33.4,
+          "bvps": 139,
+          "epsCagr3y": 8.08,
+          "epsCagr5y": -8.89,
+          "salesCagr3y": 34,
+          "salesCagr5y": 18.4,
+          "ebitdaCagr3y": 96.4,
+          "ebitdaCagr5y": 23.5
         }
       ]
     },
@@ -1113,9 +2355,19 @@
             },
             "pat": {
               "yoy": 103.94,
-              "qoq": 43.0
+              "qoq": 43
             }
-          }
+          },
+          "epsTtmRs": 15.8,
+          "peAvg5y": 42.8,
+          "peIndustry": 39.1,
+          "bvps": 146,
+          "epsCagr3y": -7.8,
+          "epsCagr5y": -1.68,
+          "salesCagr3y": 1.83,
+          "salesCagr5y": 6.4,
+          "ebitdaCagr3y": -3.97,
+          "ebitdaCagr5y": 1.19
         }
       ]
     },
@@ -1132,7 +2384,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes compressors India used to import, winning market share with record orders and its best-ever profit margins. A real growth engine - but it keeps missing its own sales-growth targets.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kirloskar-pneumatic-company-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kirloskar-pneumatic-company-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 21.13,
+              "qoq": 74.89
+            },
+            "opProfit": {
+              "yoy": 69.15,
+              "qoq": 130.36
+            },
+            "eps": {
+              "yoy": 78.5,
+              "qoq": 233.89
+            },
+            "pat": {
+              "yoy": 68.58,
+              "qoq": 154.89
+            }
+          },
+          "epsTtmRs": 20.4,
+          "peAvg5y": 36.6,
+          "peIndustry": 43.4,
+          "bvps": 96.3,
+          "epsCagr3y": 35.7,
+          "epsCagr5y": 33.2,
+          "salesCagr3y": 12.4,
+          "salesCagr5y": 16.4,
+          "ebitdaCagr3y": 30.1,
+          "ebitdaCagr5y": 25.6
         }
       ]
     },
@@ -1149,7 +2429,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes sensorless engine/motor control units for two-wheelers and gensets. Sales jumped 61% to Rs 1,058 cr and profit doubled as emission rules drove ISG adoption - but the stock trades at a steep 117 P/E.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sedemac-mechatronics-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sedemac-mechatronics-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 59.91,
+              "qoq": 7.83
+            },
+            "opProfit": {
+              "yoy": 113.9,
+              "qoq": 19.47
+            },
+            "eps": {
+              "yoy": -99.76,
+              "qoq": 30.58
+            },
+            "pat": {
+              "yoy": 272.59,
+              "qoq": 31.85
+            }
+          },
+          "epsTtmRs": 23.4,
+          "peAvg5y": 0.15,
+          "peIndustry": 29.5,
+          "bvps": 102,
+          "epsCagr3y": -85.6,
+          "epsCagr5y": -67.8,
+          "salesCagr3y": 35.8,
+          "salesCagr5y": 34.5,
+          "ebitdaCagr3y": 59.6,
+          "ebitdaCagr5y": 48.5
         }
       ]
     },
@@ -1184,7 +2492,17 @@
               "yoy": 156.91,
               "qoq": -48.1
             }
-          }
+          },
+          "epsTtmRs": 27.4,
+          "peAvg5y": 96.1,
+          "peIndustry": 21.7,
+          "bvps": 108,
+          "epsCagr3y": 56.8,
+          "epsCagr5y": 30.1,
+          "salesCagr3y": 30.7,
+          "salesCagr5y": 25,
+          "ebitdaCagr3y": 40.8,
+          "ebitdaCagr5y": 19.2
         }
       ]
     },
@@ -1201,7 +2519,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Builds electronics for other firms; sales up 46%, profit nearly doubled, and it hit its revenue-doubling target a year early. Strong growth - but the stock is priced for perfection.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/avalon-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/avalon-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 40,
+              "qoq": 14.93
+            },
+            "opProfit": {
+              "yoy": 37.53,
+              "qoq": 18.55
+            },
+            "eps": {
+              "yoy": 67.85,
+              "qoq": 26.23
+            },
+            "pat": {
+              "yoy": 69.48,
+              "qoq": 26.23
+            }
+          },
+          "epsTtmRs": 20,
+          "peAvg5y": 79.4,
+          "peIndustry": 26.4,
+          "bvps": 108,
+          "epsCagr3y": 39.7,
+          "epsCagr5y": -55,
+          "salesCagr3y": 19.6,
+          "salesCagr5y": 17.3,
+          "ebitdaCagr3y": 29.8,
+          "ebitdaCagr5y": 34.2
         }
       ]
     },
@@ -1218,7 +2564,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Engineering firm with a huge confirmed order book riding India's infra boom. Red flag: the flashy '4x growth' was only on paper, and a group merger dilutes owners ~26%. Very expensive stock.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/lloyds-steels-industries-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/lloyds-steels-industries-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 113.41,
+              "qoq": 81.69
+            },
+            "opProfit": {
+              "yoy": 76.49,
+              "qoq": 15.59
+            },
+            "eps": {
+              "yoy": 175,
+              "qoq": -36.54
+            },
+            "pat": {
+              "yoy": 156.6,
+              "qoq": -23.27
+            }
+          },
+          "epsTtmRs": 1.11,
+          "peAvg5y": 94.3,
+          "peIndustry": 33.8,
+          "bvps": 11.4,
+          "epsCagr3y": 42.2,
+          "epsCagr5y": 190,
+          "salesCagr3y": 49.9,
+          "salesCagr5y": 71.9,
+          "ebitdaCagr3y": 47.7,
+          "ebitdaCagr5y": 128
         }
       ]
     },
@@ -1235,7 +2609,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Low-cost maker of a key stainless-steel ingredient. Nearly doubling output via a bought Tata plant plus a new one, right as global prices spike. Genuine growth, reasonably priced; watch for delays.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/indian-metals-ferro-alloys-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/indian-metals-ferro-alloys-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 34.58,
+              "qoq": 8.6
+            },
+            "opProfit": {
+              "yoy": 125.52,
+              "qoq": -3.2
+            },
+            "eps": {
+              "yoy": 118.13,
+              "qoq": -21.37
+            },
+            "pat": {
+              "yoy": 118.13,
+              "qoq": -21.38
+            }
+          },
+          "epsTtmRs": 97.2,
+          "peAvg5y": 9.39,
+          "peIndustry": 17.5,
+          "bvps": 499,
+          "epsCagr3y": 22.2,
+          "epsCagr5y": 21.4,
+          "salesCagr3y": 1.83,
+          "salesCagr5y": 8.91,
+          "ebitdaCagr3y": 8.84,
+          "ebitdaCagr5y": 11.4
         }
       ]
     },
@@ -1252,7 +2654,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "A proven engine: buy hospitals cheaply near Delhi, fill beds, raise the bill per bed. Sales up 36%, heading to 5,000 beds. New premium Gurugram hospital opens 2027; management delivers.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/yatharth-hospital-and-trauma-care-services-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/yatharth-hospital-and-trauma-care-services-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 47.36,
+              "qoq": 6.58
+            },
+            "opProfit": {
+              "yoy": 40.12,
+              "qoq": 7.62
+            },
+            "eps": {
+              "yoy": 22.64,
+              "qoq": 4.67
+            },
+            "pat": {
+              "yoy": 22.73,
+              "qoq": 4.79
+            }
+          },
+          "epsTtmRs": 10,
+          "peAvg5y": 53.8,
+          "peIndustry": 51.2,
+          "bvps": 168,
+          "epsCagr3y": 0.36,
+          "epsCagr5y": 5.62,
+          "salesCagr3y": 21.3,
+          "salesCagr5y": 29.2,
+          "ebitdaCagr3y": 14.8,
+          "ebitdaCagr5y": 29.4
         }
       ]
     },
@@ -1287,7 +2717,17 @@
               "yoy": 171.87,
               "qoq": 31.14
             }
-          }
+          },
+          "epsTtmRs": 9.08,
+          "peAvg5y": 18,
+          "peIndustry": 15.8,
+          "bvps": 71.9,
+          "epsCagr3y": -2.5,
+          "epsCagr5y": -2.02,
+          "salesCagr3y": 5.28,
+          "salesCagr5y": 4.01,
+          "ebitdaCagr3y": 1.33,
+          "ebitdaCagr5y": 0.31
         }
       ]
     },
@@ -1304,7 +2744,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "India's near-monopoly maker of strategic defence metals, riding a large import-substitution opportunity. But management repeatedly promises high growth and delivers less; profit margins have also halved over the years. Story steady, execution disappoints.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/mishra-dhatu-nigam-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/mishra-dhatu-nigam-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 34.63,
+              "qoq": 100.52
+            },
+            "opProfit": {
+              "yoy": 24.3,
+              "qoq": 112.34
+            },
+            "eps": {
+              "yoy": 38.33,
+              "qoq": 182.31
+            },
+            "pat": {
+              "yoy": 38.49,
+              "qoq": 183.14
+            }
+          },
+          "epsTtmRs": 7.17,
+          "peAvg5y": 53.4,
+          "peIndustry": 77.1,
+          "bvps": 81.7,
+          "epsCagr3y": -5.68,
+          "epsCagr5y": -4.69,
+          "salesCagr3y": 11.5,
+          "salesCagr5y": 8.25,
+          "ebitdaCagr3y": -2.41,
+          "ebitdaCagr5y": 0.73
         }
       ]
     },
@@ -1321,7 +2789,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "India's biggest transformer-wire maker, growing steadily on the grid boom (sales +35%, profit +72%). New copper plant should lift margins, but it's not running yet and stock is pricey.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/precision-wires-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/precision-wires-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 67.19,
+              "qoq": 30.81
+            },
+            "opProfit": {
+              "yoy": 76.63,
+              "qoq": 38.47
+            },
+            "eps": {
+              "yoy": 80.72,
+              "qoq": 45.63
+            },
+            "pat": {
+              "yoy": 85.5,
+              "qoq": 45.54
+            }
+          },
+          "epsTtmRs": 9.58,
+          "peAvg5y": 33.9,
+          "peIndustry": 16.4,
+          "bvps": 42.2,
+          "epsCagr3y": 37,
+          "epsCagr5y": 30,
+          "salesCagr3y": 21.3,
+          "salesCagr5y": 25.8,
+          "ebitdaCagr3y": 34.4,
+          "ebitdaCagr5y": 30.1
         }
       ]
     },
@@ -1338,7 +2834,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "India's biggest maker of upgraded high-performance plastics for cars and appliances. A fully-funded new-plant expansion is live, profit margins keep rising yearly, almost no debt, and management delivers what it promises.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kingfa-science-and-technology-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kingfa-science-and-technology-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 23.2,
+              "qoq": 18.19
+            },
+            "opProfit": {
+              "yoy": 33.98,
+              "qoq": 30.88
+            },
+            "eps": {
+              "yoy": 26.16,
+              "qoq": 30.96
+            },
+            "pat": {
+              "yoy": 41.17,
+              "qoq": 30.95
+            }
+          },
+          "epsTtmRs": 167,
+          "peAvg5y": 31.9,
+          "peIndustry": 22.6,
+          "bvps": 1033,
+          "epsCagr3y": 26.7,
+          "epsCagr5y": 98.9,
+          "salesCagr3y": 12.4,
+          "salesCagr5y": 26,
+          "ebitdaCagr3y": 29.4,
+          "ebitdaCagr5y": 61.2
         }
       ]
     },
@@ -1355,7 +2879,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes cooling coils for AC and data centres; sales jumped 38%. But the big new factory is only 15-20% used, profit margins slipped, and it may sell new shares, hurting existing owners.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/krn-heat-exchanger-and-refrigeration-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/krn-heat-exchanger-and-refrigeration-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 36.49,
+              "qoq": 17.13
+            },
+            "opProfit": {
+              "yoy": 77.55,
+              "qoq": 7.95
+            },
+            "eps": {
+              "yoy": 57.32,
+              "qoq": 3.01
+            },
+            "pat": {
+              "yoy": 57.09,
+              "qoq": 3.09
+            }
+          },
+          "epsTtmRs": 11.8,
+          "peAvg5y": 91.7,
+          "peIndustry": 24,
+          "bvps": 91.2,
+          "epsCagr3y": 16,
+          "epsCagr5y": 15.4,
+          "salesCagr3y": 40,
+          "salesCagr5y": 55,
+          "ebitdaCagr3y": 24.1,
+          "ebitdaCagr5y": 72.8
         }
       ]
     },
@@ -1372,7 +2924,34 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "India's biggest dialysis chain is exporting its low-cost model to pricier overseas markets, lifting profit 75%. Saudi unit still loses money but is minor; too newly-listed to fully trust management.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nephrocare-health-services-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nephrocare-health-services-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 21.18,
+              "qoq": 2.27
+            },
+            "opProfit": {
+              "yoy": -1.25,
+              "qoq": -16.74
+            },
+            "eps": {
+              "yoy": -97.46,
+              "qoq": -5.61
+            },
+            "pat": {
+              "yoy": 22.11,
+              "qoq": -5.8
+            }
+          },
+          "epsTtmRs": -14.7,
+          "peAvg5y": 3.24,
+          "peIndustry": 43,
+          "bvps": 96.8,
+          "epsCagr3y": 25.7,
+          "salesCagr3y": 17.7,
+          "salesCagr5y": 17.2,
+          "ebitdaCagr3y": 34.4,
+          "ebitdaCagr5y": 19.7
         }
       ]
     },
@@ -1389,7 +2968,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Debt-free drug-ingredient maker winning business as the world shifts away from China. Rich, rising margins; management consistently delivers. New capacity funded, breaking ground next year.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/supriya-lifescience-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/supriya-lifescience-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 50.2,
+              "qoq": 33.95
+            },
+            "opProfit": {
+              "yoy": 44.45,
+              "qoq": 35.43
+            },
+            "eps": {
+              "yoy": 47.28,
+              "qoq": 49.43
+            },
+            "pat": {
+              "yoy": 47.34,
+              "qoq": 48.4
+            }
+          },
+          "epsTtmRs": 24.6,
+          "peAvg5y": 26.5,
+          "peIndustry": 33.4,
+          "bvps": 149,
+          "epsCagr3y": 32.6,
+          "epsCagr5y": 9.04,
+          "salesCagr3y": 21.6,
+          "salesCagr5y": 16.2,
+          "ebitdaCagr3y": 30.2,
+          "ebitdaCagr5y": 11.4
         }
       ]
     },
@@ -1406,7 +3013,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "India's near-monopoly maker of military-grade optics for defence and space. Order book keeps growing and profits rose 46%, but the share is priced extremely high and founders are trimming stake.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/paras-defence-and-space-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/paras-defence-and-space-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 58.28,
+              "qoq": 61.08
+            },
+            "opProfit": {
+              "yoy": 50.58,
+              "qoq": 62.47
+            },
+            "eps": {
+              "yoy": 74.29,
+              "qoq": 88.94
+            },
+            "pat": {
+              "yoy": 64.35,
+              "qoq": 77.98
+            }
+          },
+          "epsTtmRs": 11.1,
+          "peAvg5y": 81.8,
+          "peIndustry": 77.1,
+          "bvps": 89.8,
+          "epsCagr3y": 30.8,
+          "epsCagr5y": 32.6,
+          "salesCagr3y": 24.8,
+          "salesCagr5y": 25.7,
+          "ebitdaCagr3y": 26.3,
+          "ebitdaCagr5y": 23.9
         }
       ]
     },
@@ -1423,7 +3058,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Sales nearly doubled as its West Africa bauxite mine ramped up. But profit per tonne halved when bauxite prices crashed - strong volumes, yet earnings swing wildly with commodity prices.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ashapura-minechem-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ashapura-minechem-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 254.55,
+              "qoq": 104.97
+            },
+            "opProfit": {
+              "yoy": 51.6,
+              "qoq": 11.96
+            },
+            "eps": {
+              "yoy": 28.07,
+              "qoq": 31.41
+            },
+            "pat": {
+              "yoy": 28.03,
+              "qoq": 25.4
+            }
+          },
+          "epsTtmRs": 42.6,
+          "peAvg5y": 14.8,
+          "peIndustry": 15.9,
+          "bvps": 173,
+          "epsCagr3y": 219,
+          "epsCagr5y": 31.3,
+          "salesCagr3y": 24.7,
+          "salesCagr5y": 0.5,
+          "ebitdaCagr3y": 71.9,
+          "ebitdaCagr5y": 11.5
         }
       ]
     },
@@ -1440,7 +3103,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes industrial cutting tools and machine tools; India's factory-building boom lifted latest-quarter sales 39%. But profit stayed flat for three years, exports remain weak, and the stock is pricey at 45 times earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kennametal-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kennametal-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 39.19,
+              "qoq": 20.69
+            },
+            "opProfit": {
+              "yoy": 92.98,
+              "qoq": 71.88
+            },
+            "eps": {
+              "yoy": 110.72,
+              "qoq": 110.72
+            },
+            "pat": {
+              "yoy": 110.66,
+              "qoq": 110.66
+            }
+          },
+          "epsTtmRs": 89.2,
+          "peAvg5y": 48,
+          "peIndustry": 33.8,
+          "bvps": 388,
+          "epsCagr3y": 31.8,
+          "epsCagr5y": 24.2,
+          "salesCagr3y": 11.9,
+          "salesCagr5y": 13.2,
+          "ebitdaCagr3y": 26.9,
+          "ebitdaCagr5y": 19.9
         }
       ]
     },
@@ -1457,7 +3148,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Actually has a clear growth engine the note missed: fancier decorative parts, big new customer Hero, exports up 60%, record margins. Strong - but the stock is priced expensively.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sjs-enterprises-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sjs-enterprises-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 29.73,
+              "qoq": 6.81
+            },
+            "opProfit": {
+              "yoy": 46.43,
+              "qoq": 4.62
+            },
+            "eps": {
+              "yoy": 41.99,
+              "qoq": 8.52
+            },
+            "pat": {
+              "yoy": 45.14,
+              "qoq": 8.7
+            }
+          },
+          "epsTtmRs": 51.6,
+          "peAvg5y": 32.8,
+          "peIndustry": 29.5,
+          "bvps": 242,
+          "epsCagr3y": 28.8,
+          "epsCagr5y": 21,
+          "salesCagr3y": 24,
+          "salesCagr5y": 17.6,
+          "ebitdaCagr3y": 28.4,
+          "ebitdaCagr5y": 20.2
         }
       ]
     },
@@ -1474,7 +3193,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "World's top furnace-lining maker, debt-free with fat ~29% margins and steady market-share gains. New 29% capacity boost goes live around Oct 2026 for very little money. Worth watching for that.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/raghav-productivity-enhancers-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/raghav-productivity-enhancers-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 39.31,
+              "qoq": 9.41
+            },
+            "opProfit": {
+              "yoy": 47.5,
+              "qoq": 9.94
+            },
+            "eps": {
+              "yoy": 49.32,
+              "qoq": 7.14
+            },
+            "pat": {
+              "yoy": 49.65,
+              "qoq": 7.37
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -1499,7 +3236,17 @@
               "yoy": 67.55,
               "qoq": 29.09
             }
-          }
+          },
+          "epsTtmRs": 7.61,
+          "peAvg5y": 62.2,
+          "peIndustry": 35.8,
+          "bvps": 44.4,
+          "epsCagr3y": 2.33,
+          "epsCagr5y": 23.3,
+          "salesCagr3y": -6.03,
+          "salesCagr5y": 12.1,
+          "ebitdaCagr3y": 0.32,
+          "ebitdaCagr5y": 20.7
         }
       ]
     },
@@ -1516,7 +3263,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "India's biggest power-line tower maker, riding a huge grid build-out with a record order book. But management has cut its growth target two years running as exports weaken.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/skipper-limited.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/skipper-limited.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 29.42,
+              "qoq": 21.6
+            },
+            "opProfit": {
+              "yoy": 40.23,
+              "qoq": 22.63
+            },
+            "eps": {
+              "yoy": 70.23,
+              "qoq": 50.68
+            },
+            "pat": {
+              "yoy": 70.33,
+              "qoq": 50.71
+            }
+          },
+          "epsTtmRs": 19.4,
+          "peAvg5y": 38.5,
+          "peIndustry": 35,
+          "bvps": 131,
+          "epsCagr3y": 88.1,
+          "epsCagr5y": 60.2,
+          "salesCagr3y": 41,
+          "salesCagr5y": 28.6,
+          "ebitdaCagr3y": 43.4,
+          "ebitdaCagr5y": 31.7
         }
       ]
     },
@@ -1533,7 +3308,25 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Debt-free maker of industrial metal hoses. Real new engine: cooling units for AI data centres, already 5% of sales and guided to a fifth next year. Management reliably delivers.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aeroflex-industries-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aeroflex-industries-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 37.25,
+              "qoq": 4.09
+            },
+            "opProfit": {
+              "yoy": 58.97,
+              "qoq": 5.96
+            },
+            "eps": {
+              "yoy": 52.87,
+              "qoq": 3.91
+            },
+            "pat": {
+              "yoy": 57.08,
+              "qoq": 6.97
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -1558,7 +3351,17 @@
               "yoy": 162.06,
               "qoq": 6.52
             }
-          }
+          },
+          "epsTtmRs": 5.13,
+          "peAvg5y": 50.5,
+          "peIndustry": 22.5,
+          "bvps": 33.8,
+          "epsCagr3y": 13.8,
+          "epsCagr5y": 5.71,
+          "salesCagr3y": 15.3,
+          "salesCagr5y": 23.3,
+          "ebitdaCagr3y": 23.2,
+          "ebitdaCagr5y": 34.4
         }
       ]
     },
@@ -1575,7 +3378,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Runs India's biggest security-guard and facility-management business. FY26 rebounded hard - Q4 sales up 31% and returns finally crossed 15% - but margins are wafer-thin (~2.4% net) and the long-promised cash-logistics listing keeps slipping.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sis-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sis-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 30.96,
+              "qoq": 7.27
+            },
+            "opProfit": {
+              "yoy": 25.66,
+              "qoq": 9.39
+            },
+            "eps": {
+              "yoy": 146.93,
+              "qoq": 174.01
+            },
+            "pat": {
+              "yoy": 92.24,
+              "qoq": -12.24
+            }
+          },
+          "epsTtmRs": 4.5,
+          "peAvg5y": 35.5,
+          "peIndustry": 14.8,
+          "bvps": 76.4,
+          "epsCagr3y": 3.34,
+          "epsCagr5y": 30.4,
+          "salesCagr3y": 11,
+          "salesCagr5y": 12.7,
+          "ebitdaCagr3y": 14.3,
+          "ebitdaCagr5y": 14.2
         }
       ]
     },
@@ -1610,7 +3441,17 @@
               "yoy": 118.36,
               "qoq": -27.41
             }
-          }
+          },
+          "epsTtmRs": 10.4,
+          "peAvg5y": 69.7,
+          "peIndustry": 77.1,
+          "bvps": 128,
+          "epsCagr3y": 5.41,
+          "epsCagr5y": -39.3,
+          "salesCagr3y": 4.25,
+          "salesCagr5y": 8.46,
+          "ebitdaCagr3y": 9.76,
+          "ebitdaCagr5y": 18
         }
       ]
     },
@@ -1627,7 +3468,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Medicine-maker's sales jumped 31%, led by fast-growing own brands. New Jammu factory barely used yet - big growth runway - but it keeps missing management's targets, and profit grew only 10%.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/innova-captab-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/innova-captab-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 42.28,
+              "qoq": -0.55
+            },
+            "opProfit": {
+              "yoy": 36.51,
+              "qoq": -6.21
+            },
+            "eps": {
+              "yoy": 28.63,
+              "qoq": -9.77
+            },
+            "pat": {
+              "yoy": 28.78,
+              "qoq": -9.66
+            }
+          },
+          "epsTtmRs": 16.7,
+          "peAvg5y": 52.9,
+          "peIndustry": 33.4,
+          "bvps": 155,
+          "epsCagr3y": 7.89,
+          "epsCagr5y": -44.8,
+          "salesCagr3y": 14.8,
+          "salesCagr5y": 25.9,
+          "ebitdaCagr3y": 16.2,
+          "ebitdaCagr5y": 24.2
         }
       ]
     },
@@ -1644,7 +3513,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes special wire for grid transformers, the only Indian supplier for the top grade; profit-per-tonne rising fast in a power boom. Caution: very expensive stock, short record.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ksh-international-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ksh-international-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 100.52,
+              "qoq": 24.53
+            },
+            "opProfit": {
+              "yoy": 60.2,
+              "qoq": 14.16
+            },
+            "eps": {
+              "yoy": 56.92,
+              "qoq": 48.26
+            },
+            "pat": {
+              "yoy": 87.16,
+              "qoq": 40.79
+            }
+          },
+          "epsTtmRs": 20,
+          "peAvg5y": 38.3,
+          "peIndustry": 27.4,
+          "bvps": 119,
+          "epsCagr3y": -67.2,
+          "epsCagr5y": -42.2,
+          "salesCagr3y": 43.6,
+          "salesCagr5y": 45.9,
+          "ebitdaCagr3y": 54.4,
+          "ebitdaCagr5y": 47.4
         }
       ]
     },
@@ -1661,7 +3558,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes and licences fashion watches (Timex, Guess, Versace). Sales up 48% to Rs 799 cr and profit doubled as brands and online scaled - but stock trades at 72x and the promoter sold down to 51%.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/timex-group-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/timex-group-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 73.69,
+              "qoq": 55.99
+            },
+            "opProfit": {
+              "yoy": 180.74,
+              "qoq": 322.72
+            },
+            "eps": {
+              "yoy": 194.57,
+              "qoq": 746.88
+            },
+            "pat": {
+              "yoy": 212.12,
+              "qoq": 462.18
+            }
+          },
+          "epsTtmRs": 8.5,
+          "peAvg5y": 59.1,
+          "peIndustry": 16.5,
+          "bvps": 7.47,
+          "epsCagr3y": 19.4,
+          "epsCagr5y": 64.1,
+          "salesCagr3y": 27.7,
+          "salesCagr5y": 41.5,
+          "ebitdaCagr3y": 44.4,
+          "ebitdaCagr5y": 120
         }
       ]
     },
@@ -1696,7 +3621,17 @@
               "yoy": 43.19,
               "qoq": 10.95
             }
-          }
+          },
+          "epsTtmRs": 14.2,
+          "peAvg5y": 15.4,
+          "peIndustry": 29.5,
+          "bvps": 110,
+          "epsCagr3y": 1.26,
+          "epsCagr5y": 32.7,
+          "salesCagr3y": 8.65,
+          "salesCagr5y": 24.3,
+          "ebitdaCagr3y": 4.73,
+          "ebitdaCagr5y": 19
         }
       ]
     },
@@ -1731,7 +3666,15 @@
               "yoy": 960.86,
               "qoq": 1015.27
             }
-          }
+          },
+          "epsTtmRs": 19.3,
+          "peAvg5y": 92.3,
+          "peIndustry": 26.4,
+          "bvps": 138,
+          "salesCagr3y": -9.99,
+          "salesCagr5y": 5.57,
+          "ebitdaCagr3y": -23,
+          "ebitdaCagr5y": -3.51
         }
       ]
     },
@@ -1766,7 +3709,17 @@
               "yoy": 335.09,
               "qoq": 25.76
             }
-          }
+          },
+          "epsTtmRs": 6.61,
+          "peAvg5y": 86.5,
+          "peIndustry": 25.8,
+          "bvps": 149,
+          "epsCagr3y": -8.85,
+          "epsCagr5y": 11.7,
+          "salesCagr3y": 8.35,
+          "salesCagr5y": 13.9,
+          "ebitdaCagr3y": 8.33,
+          "ebitdaCagr5y": 21.8
         }
       ]
     },
@@ -1783,7 +3736,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Owns India's biggest fleet of offshore oil-field support ships. Record FY26 - sales up 46% and profit doubled as new vessels and high charter rates kicked in. Earnings stay lumpy and it pays heavy promoter fees.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/seamec-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/seamec-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 63.85,
+              "qoq": 3.16
+            },
+            "opProfit": {
+              "yoy": 96.11,
+              "qoq": 17.18
+            },
+            "eps": {
+              "yoy": 140.83,
+              "qoq": 3.88
+            },
+            "pat": {
+              "yoy": 141.04,
+              "qoq": 3.87
+            }
+          },
+          "epsTtmRs": 95.9,
+          "peAvg5y": 28,
+          "peIndustry": 10.6,
+          "bvps": 484,
+          "epsCagr3y": 82.7,
+          "epsCagr5y": 46.4,
+          "salesCagr3y": 31.2,
+          "salesCagr5y": 31.5,
+          "ebitdaCagr3y": 46.3,
+          "ebitdaCagr5y": 37.4
         }
       ]
     },
@@ -1800,7 +3781,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Wheel and parts maker recovering nicely, but the promised double-digit profit margin has been '2 years away' for years and is still stuck near 8%. Rising steel and fuel costs are a fresh worry.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/wheels-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/wheels-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.46,
+              "qoq": 14.04
+            },
+            "opProfit": {
+              "yoy": 22.32,
+              "qoq": 26.07
+            },
+            "eps": {
+              "yoy": 51.95,
+              "qoq": 61.11
+            },
+            "pat": {
+              "yoy": 51.91,
+              "qoq": 61.05
+            }
+          },
+          "epsTtmRs": 61,
+          "peAvg5y": 20.5,
+          "peIndustry": 29.5,
+          "bvps": 399,
+          "epsCagr3y": 29.8,
+          "epsCagr5y": 82.4,
+          "salesCagr3y": 5.67,
+          "salesCagr5y": 18.2,
+          "ebitdaCagr3y": 17.9,
+          "ebitdaCagr5y": 23.1
         }
       ]
     },
@@ -1817,7 +3826,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes tiny critical parts for circuit breakers, smart meters and EVs. Profit jumped 25% by shifting to higher-value products; new EV-parts plant coming. But management keeps swapping its growth story.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shivalik-bimetal-controls-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shivalik-bimetal-controls-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.8,
+              "qoq": 21.16
+            },
+            "opProfit": {
+              "yoy": 24.46,
+              "qoq": 10.12
+            },
+            "eps": {
+              "yoy": 23.84,
+              "qoq": 17.4
+            },
+            "pat": {
+              "yoy": 23.75,
+              "qoq": 13.9
+            }
+          },
+          "epsTtmRs": 15.2,
+          "peAvg5y": 39.7,
+          "peIndustry": 22.5,
+          "bvps": 78,
+          "epsCagr3y": 4.25,
+          "epsCagr5y": 28,
+          "salesCagr3y": 3.21,
+          "salesCagr5y": 17.8,
+          "ebitdaCagr3y": 3.72,
+          "ebitdaCagr5y": 25.7
         }
       ]
     },
@@ -1834,7 +3871,33 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "A razor-thin (2-3% margin) tech-hardware distributor, but a real PC-upgrade wave lifted profits 35% this year. Just remember it's riding a temporary cycle, not a lasting advantage.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rashi-peripherals-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/rashi-peripherals-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 51,
+              "qoq": 11.39
+            },
+            "opProfit": {
+              "yoy": 41.47,
+              "qoq": 11.53
+            },
+            "eps": {
+              "yoy": 64.27,
+              "qoq": 14.52
+            },
+            "pat": {
+              "yoy": 70.5,
+              "qoq": 14.49
+            }
+          },
+          "epsTtmRs": 45.5,
+          "peAvg5y": 10.9,
+          "peIndustry": 29.5,
+          "bvps": 301,
+          "salesCagr3y": 17.9,
+          "salesCagr5y": 20.9,
+          "ebitdaCagr3y": 21.4,
+          "ebitdaCagr5y": 19.1
         }
       ]
     },
@@ -1869,7 +3932,17 @@
               "yoy": 155.34,
               "qoq": 64.53
             }
-          }
+          },
+          "epsTtmRs": 19,
+          "peAvg5y": 88.8,
+          "peIndustry": 28.4,
+          "bvps": 324,
+          "epsCagr3y": -5.43,
+          "epsCagr5y": -8.17,
+          "salesCagr3y": 7.18,
+          "salesCagr5y": 11.2,
+          "ebitdaCagr3y": 15.4,
+          "ebitdaCagr5y": 5.66
         }
       ]
     },
@@ -1886,7 +3959,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Builder now co-owned by Adani, with a four-year order book. But profit's been flat four years as margins collapsed, and management repeatedly misses targets and flip-flopped strategy.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/psp-projects-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/psp-projects-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 65.74,
+              "qoq": 37.21
+            },
+            "opProfit": {
+              "yoy": 84.8,
+              "qoq": 9.66
+            },
+            "eps": {
+              "yoy": 226.38,
+              "qoq": 18.22
+            },
+            "pat": {
+              "yoy": 226.47,
+              "qoq": 18.28
+            }
+          },
+          "epsTtmRs": 17,
+          "peAvg5y": 19.5,
+          "peIndustry": 15.8,
+          "bvps": 318,
+          "epsCagr3y": -29,
+          "epsCagr5y": -10.4,
+          "salesCagr3y": 15.8,
+          "salesCagr5y": 19.2,
+          "ebitdaCagr3y": -7.33,
+          "ebitdaCagr5y": 5.84
         }
       ]
     },
@@ -1903,7 +4004,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Sells Indian frozen food abroad; its US brand is now in 3,000 stores and running ahead of plan, plus a new factory just opened. Watch out: Middle East war could slow next year's growth.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/adf-foods-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/adf-foods-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 23.68,
+              "qoq": 2.99
+            },
+            "opProfit": {
+              "yoy": 38.98,
+              "qoq": -7.47
+            },
+            "eps": {
+              "yoy": 57.33,
+              "qoq": 15.69
+            },
+            "pat": {
+              "yoy": 57.6,
+              "qoq": -4.67
+            }
+          },
+          "epsTtmRs": 8.37,
+          "peAvg5y": 33.3,
+          "peIndustry": 46.3,
+          "bvps": 52.1,
+          "epsCagr3y": 20.7,
+          "epsCagr5y": 20.6,
+          "salesCagr3y": 14.3,
+          "salesCagr5y": 17.4,
+          "ebitdaCagr3y": 21.1,
+          "ebitdaCagr5y": 21.8
         }
       ]
     },
@@ -1920,7 +4049,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Makes transformer oils for power grids; FY26 was a record rebound. But profits swing with oil prices - they nearly halved over two years before recovering. Exciting new products still tiny.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/savita-oil-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/savita-oil-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 21.71,
+              "qoq": 14
+            },
+            "opProfit": {
+              "yoy": 34.73,
+              "qoq": 60.72
+            },
+            "eps": {
+              "yoy": 46.8,
+              "qoq": 23.15
+            },
+            "pat": {
+              "yoy": 45.79,
+              "qoq": 23.14
+            }
+          },
+          "epsTtmRs": 62.3,
+          "peAvg5y": 13.7,
+          "peIndustry": 11.2,
+          "bvps": 269,
+          "epsCagr3y": -10.3,
+          "epsCagr5y": -5.87,
+          "salesCagr3y": 6.31,
+          "salesCagr5y": 17.9,
+          "ebitdaCagr3y": -8,
+          "ebitdaCagr5y": -3.4
         }
       ]
     },
@@ -1937,7 +4094,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes railway anti-collision Kavach systems; one of three approved suppliers. A 4,150 crore order book drove sales up over 120% - but operating cash flow is deeply negative, debt is rising and the stock is pricey.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kernex-microsystems-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kernex-microsystems-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 206.46,
+              "qoq": 250.66
+            },
+            "opProfit": {
+              "yoy": 514.02,
+              "qoq": 526.09
+            },
+            "eps": {
+              "yoy": 108.89,
+              "qoq": 1031.75
+            },
+            "pat": {
+              "yoy": 109.45,
+              "qoq": 1030.13
+            }
+          },
+          "epsTtmRs": 109,
+          "peAvg5y": 40.3,
+          "peIndustry": 40.3,
+          "bvps": 153,
+          "epsCagr3y": 79,
+          "epsCagr5y": 204,
+          "salesCagr3y": 497,
+          "salesCagr5y": 93.8,
+          "ebitdaCagr3y": 127,
+          "ebitdaCagr5y": 121
         }
       ]
     },
@@ -1954,7 +4139,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes electronics and safety systems for Indian Railways. Sales and profit nearly tripled on a fat order book and new Kavach approval - but the stock is pricey and profits came with heavy negative cash flow and rising debt.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/concord-control-systems-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/concord-control-systems-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 72.57,
+              "qoq": 58.1
+            },
+            "opProfit": {
+              "yoy": 155.56,
+              "qoq": 88.34
+            },
+            "eps": {
+              "yoy": 68.26,
+              "qoq": 51.07
+            },
+            "pat": {
+              "yoy": 73.02,
+              "qoq": 55.31
+            }
+          },
+          "epsTtmRs": 40.3,
+          "peAvg5y": 52.2,
+          "peIndustry": 33.8,
+          "bvps": 201,
+          "epsCagr3y": 88.8,
+          "epsCagr5y": -2.31,
+          "salesCagr3y": 62.3,
+          "salesCagr5y": 64.9,
+          "ebitdaCagr3y": 97.6,
+          "ebitdaCagr5y": 95
         }
       ]
     },
@@ -1971,7 +4184,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "India's biggest crane-rental firm is riding the wind-power and infrastructure boom, growing ~30% yearly. Demand is solid, but watch the big management shake-up, thinner margins and reduced disclosure.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sanghvi-movers-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sanghvi-movers-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 31.41,
+              "qoq": 49.04
+            },
+            "opProfit": {
+              "yoy": 25.51,
+              "qoq": 57.23
+            },
+            "eps": {
+              "yoy": 27.81,
+              "qoq": 137.31
+            },
+            "pat": {
+              "yoy": 27.1,
+              "qoq": 95.32
+            }
+          },
+          "epsTtmRs": 18.2,
+          "peAvg5y": 23.1,
+          "peIndustry": 20.1,
+          "bvps": 145,
+          "epsCagr3y": 11.1,
+          "epsCagr5y": 40.1,
+          "salesCagr3y": 13.9,
+          "salesCagr5y": 24.7,
+          "ebitdaCagr3y": 9.97,
+          "ebitdaCagr5y": 29.1
         }
       ]
     },
@@ -1988,7 +4229,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Cable maker whose sales doubled and profit tripled. Old worry about 'no room to grow' looks wrong: capacity is tripling toward FY30 and exports just began. Management keeps beating targets, but stock is pricey.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/v-marc-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/v-marc-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 97.52,
+              "qoq": 59.85
+            },
+            "opProfit": {
+              "yoy": 95.22,
+              "qoq": 56.55
+            },
+            "eps": {
+              "yoy": 157.26,
+              "qoq": 74.66
+            },
+            "pat": {
+              "yoy": 157.3,
+              "qoq": 74.62
+            }
+          },
+          "epsTtmRs": 6.74,
+          "peAvg5y": 23.8,
+          "peIndustry": 27.4,
+          "bvps": 19.8,
+          "epsCagr3y": 107,
+          "epsCagr5y": 63.7,
+          "salesCagr3y": 94.3,
+          "salesCagr5y": 59.9,
+          "ebitdaCagr3y": 93,
+          "ebitdaCagr5y": 67.4
         }
       ]
     },
@@ -2005,7 +4274,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes tractor and earth-mover parts, mostly for export. The farm and construction downturn has bottomed - Q4 sales jumped 34% and profit doubled - but it's a cyclical bounce, still below the 2023 peak, with US-tariff risk.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/uniparts-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/uniparts-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 34.07,
+              "qoq": 20.62
+            },
+            "opProfit": {
+              "yoy": 129.2,
+              "qoq": 44.36
+            },
+            "eps": {
+              "yoy": 123.91,
+              "qoq": 53.52
+            },
+            "pat": {
+              "yoy": 124.05,
+              "qoq": 42.76
+            }
+          },
+          "epsTtmRs": 35.1,
+          "peAvg5y": 18.7,
+          "peIndustry": 29.5,
+          "bvps": 122,
+          "epsCagr3y": 0.59,
+          "epsCagr5y": 28.6,
+          "salesCagr3y": -8.27,
+          "salesCagr5y": 3.94,
+          "ebitdaCagr3y": -1.26,
+          "ebitdaCagr5y": 19.2
         }
       ]
     },
@@ -2022,7 +4319,29 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Newly separated steel-and-building-materials distributor with very high returns; sales up 30%, profit up 63%. But margins are wafer-thin (~3%), and its higher-margin own-brand push keeps disappointing.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shankara-buildpro-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/shankara-buildpro-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 27.95,
+              "qoq": 19.81
+            },
+            "opProfit": {
+              "yoy": 48.17,
+              "qoq": 28.11
+            },
+            "eps": {
+              "yoy": -99.94,
+              "qoq": 65.79
+            },
+            "pat": {
+              "yoy": 41.69,
+              "qoq": 55.31
+            }
+          },
+          "epsTtmRs": 54,
+          "peAvg5y": 0.02,
+          "peIndustry": 47.1,
+          "bvps": 225
         }
       ]
     },
@@ -2039,7 +4358,31 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Watch-parts maker that also owns India's top luxury-watch retailer. Real star is its precision-metal-parts arm growing 35%+ for aerospace and EVs. Trustworthy team that keeps beating its own targets.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kddl-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kddl-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 37.04,
+              "qoq": -3.64
+            },
+            "opProfit": {
+              "yoy": 32.38,
+              "qoq": 2.9
+            },
+            "eps": {
+              "yoy": 24.65,
+              "qoq": 10.11
+            }
+          },
+          "epsTtmRs": 68.4,
+          "peAvg5y": 39.6,
+          "peIndustry": 16.5,
+          "bvps": 312,
+          "epsCagr3y": 35.8,
+          "epsCagr5y": 88,
+          "salesCagr3y": 17.6,
+          "salesCagr5y": 27.5,
+          "ebitdaCagr3y": 29.9,
+          "ebitdaCagr5y": 38.2
         }
       ]
     },
@@ -2056,7 +4399,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Oil producer whose new owners are pumping far more from cheap, proven wells - production and profit rising four straight years, debt-free. Real driver; main risk is falling oil prices.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/antelopus-selan-energy-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/antelopus-selan-energy-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 65.28,
+              "qoq": 43.45
+            },
+            "opProfit": {
+              "yoy": 86.81,
+              "qoq": 28.97
+            },
+            "eps": {
+              "yoy": 11.42,
+              "qoq": 33.54
+            },
+            "pat": {
+              "yoy": 157.65,
+              "qoq": 33.61
+            }
+          },
+          "epsTtmRs": 37.7,
+          "peAvg5y": 25.4,
+          "peIndustry": 75,
+          "bvps": 186,
+          "epsCagr3y": 7.88,
+          "epsCagr5y": 63.2,
+          "salesCagr3y": 33.2,
+          "salesCagr5y": 41.7,
+          "ebitdaCagr3y": 38.8,
+          "ebitdaCagr5y": 62
         }
       ]
     },
@@ -2091,7 +4462,17 @@
               "yoy": 69.82,
               "qoq": 48.8
             }
-          }
+          },
+          "epsTtmRs": 9.45,
+          "peAvg5y": 52,
+          "peIndustry": 29.5,
+          "bvps": 83.4,
+          "epsCagr3y": -14.5,
+          "epsCagr5y": 3.68,
+          "salesCagr3y": 5.62,
+          "salesCagr5y": 16.4,
+          "ebitdaCagr3y": -6.02,
+          "ebitdaCagr5y": 9.54
         }
       ]
     },
@@ -2126,7 +4507,17 @@
               "yoy": 633.09,
               "qoq": 372.69
             }
-          }
+          },
+          "epsTtmRs": 29.7,
+          "peAvg5y": 16.4,
+          "peIndustry": 11.2,
+          "bvps": 133,
+          "epsCagr3y": -12.6,
+          "epsCagr5y": -15.1,
+          "salesCagr3y": 5.43,
+          "salesCagr5y": 11.5,
+          "ebitdaCagr3y": -6.21,
+          "ebitdaCagr5y": 14.3
         }
       ]
     },
@@ -2161,7 +4552,17 @@
               "yoy": 74.62,
               "qoq": -25.49
             }
-          }
+          },
+          "epsTtmRs": 1.76,
+          "peAvg5y": 94.4,
+          "peIndustry": 26.4,
+          "bvps": 11.8,
+          "epsCagr3y": 47.8,
+          "epsCagr5y": 93.2,
+          "salesCagr3y": 36.7,
+          "salesCagr5y": 49.1,
+          "ebitdaCagr3y": 58.4,
+          "ebitdaCagr5y": 66.8
         }
       ]
     },
@@ -2196,7 +4597,17 @@
               "yoy": 37.01,
               "qoq": 3.23
             }
-          }
+          },
+          "epsTtmRs": 18.8,
+          "peAvg5y": 22.6,
+          "peIndustry": 27.4,
+          "bvps": 94.4,
+          "epsCagr3y": 34.5,
+          "epsCagr5y": 50.3,
+          "salesCagr3y": 21.4,
+          "salesCagr5y": 28.4,
+          "ebitdaCagr3y": 26.8,
+          "ebitdaCagr5y": 31.9
         }
       ]
     },
@@ -2213,7 +4624,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes defence gear - rocket-launcher structures and armour - plus e-vehicles. Big Army and Israel orders are the draw, but FY26 sales fell 13%, quarters swing wildly, and it burns cash while priced at 143 times earnings.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nibe-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/nibe-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 130.48,
+              "qoq": 339.23
+            },
+            "opProfit": {
+              "yoy": 168.08,
+              "qoq": 635.04
+            },
+            "eps": {
+              "yoy": 266.29,
+              "qoq": 266.33
+            },
+            "pat": {
+              "yoy": 282.59,
+              "qoq": 271.34
+            }
+          },
+          "epsTtmRs": 2.59,
+          "peAvg5y": 102,
+          "peIndustry": 77.1,
+          "bvps": 236,
+          "epsCagr3y": 44.4,
+          "epsCagr5y": 147,
+          "salesCagr3y": 58.4,
+          "salesCagr5y": 178,
+          "ebitdaCagr3y": 66,
+          "ebitdaCagr5y": 219
         }
       ]
     },
@@ -2230,7 +4669,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Contract electronics builder nearly doubling sales on the China-plus-one shift into higher-value design work. Real growth, but expensive, cash flow is weak, and reporting stays thin.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aimtron-electronics-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aimtron-electronics-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 75.94,
+              "qoq": 45.68
+            },
+            "opProfit": {
+              "yoy": 85.05,
+              "qoq": 18.39
+            },
+            "eps": {
+              "yoy": 76.13,
+              "qoq": 25.45
+            },
+            "pat": {
+              "yoy": 77.79,
+              "qoq": 26.61
+            }
+          },
+          "epsTtmRs": 22.3,
+          "peAvg5y": 53.7,
+          "peIndustry": 33.8,
+          "bvps": 114,
+          "epsCagr3y": -22.8,
+          "epsCagr5y": -39,
+          "salesCagr3y": 45.5,
+          "salesCagr5y": 37.3,
+          "ebitdaCagr3y": 39.8,
+          "ebitdaCagr5y": 23.9
         }
       ]
     },
@@ -2247,7 +4714,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Exports generic medicines. Sales jumped 36% to Rs503 crore as it pushes into higher-margin regulated European markets - but profit isn't turning into cash (only Rs17 crore collected) and money owed by customers is piling up.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kwality-pharmaceuticals-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kwality-pharmaceuticals-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 35.81,
+              "qoq": 27.28
+            },
+            "opProfit": {
+              "yoy": 49.77,
+              "qoq": 29.42
+            },
+            "eps": {
+              "yoy": 74.64,
+              "qoq": 58
+            },
+            "pat": {
+              "yoy": 74.6,
+              "qoq": 52.41
+            }
+          },
+          "epsTtmRs": 78.1,
+          "peAvg5y": 17.8,
+          "peIndustry": 33.4,
+          "bvps": 321,
+          "epsCagr3y": 28.6,
+          "epsCagr5y": 34.3,
+          "salesCagr3y": 26.1,
+          "salesCagr5y": 14.1,
+          "ebitdaCagr3y": 23.6,
+          "ebitdaCagr5y": 31.3
         }
       ]
     },
@@ -2264,7 +4759,29 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes low-cost latex condoms; profit doubled to ~27cr and capacity nearly doubled, with a first 43cr South Africa export order shipping - but the stock trades at 78x earnings and profit isn't turning into cash.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/anondita-medicare-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/anondita-medicare-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 82.76,
+              "qoq": 54.01
+            },
+            "opProfit": {
+              "yoy": 97.49,
+              "qoq": 63.85
+            },
+            "eps": {
+              "yoy": 36.51,
+              "qoq": 47.26
+            },
+            "pat": {
+              "yoy": 85.87,
+              "qoq": 47.28
+            }
+          },
+          "epsTtmRs": 18.5,
+          "peAvg5y": 60.4,
+          "peIndustry": 36.1,
+          "bvps": 71.5
         }
       ]
     },
@@ -2281,7 +4798,32 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Sales jumped mainly on higher copper prices, not more selling (volume up just 6.5%). New factory doubles capacity but is barely running yet; profit margins stay thin and unproven.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vidya-wires-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vidya-wires-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 29.26,
+              "qoq": 17.65
+            },
+            "opProfit": {
+              "yoy": 44.49,
+              "qoq": 51.35
+            },
+            "eps": {
+              "yoy": 9.09,
+              "qoq": 9.09
+            },
+            "pat": {
+              "yoy": 46.58,
+              "qoq": 46.86
+            }
+          },
+          "epsTtmRs": 3.19,
+          "peAvg5y": 25.3,
+          "peIndustry": 16.4,
+          "bvps": 22.7,
+          "epsCagr3y": -62.4,
+          "salesCagr3y": 22.2,
+          "ebitdaCagr3y": 35.9
         }
       ]
     },
@@ -2298,7 +4840,25 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes furnace-lining powder (ramming mass) for India's steel makers. Sales up 39% and profit up 60% as it quadruples capacity - but the stock is pricey at 82 times earnings and the big expansion is still unproven.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/monolithisch-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/monolithisch-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 34.87,
+              "qoq": 8.81
+            },
+            "opProfit": {
+              "yoy": 74.62,
+              "qoq": 33.41
+            },
+            "eps": {
+              "yoy": 32.74,
+              "qoq": 33.21
+            },
+            "pat": {
+              "yoy": 80.62,
+              "qoq": 33.39
+            }
+          }
         },
         {
           "quarter": "Q1 2027",
@@ -2323,7 +4883,17 @@
               "yoy": 134.73,
               "qoq": 24.17
             }
-          }
+          },
+          "epsTtmRs": 10.1,
+          "peAvg5y": 51.5,
+          "peIndustry": 35.8,
+          "bvps": 58.5,
+          "epsCagr3y": -29.3,
+          "epsCagr5y": 14.4,
+          "salesCagr3y": 42.3,
+          "salesCagr5y": 54.4,
+          "ebitdaCagr3y": 61.6,
+          "ebitdaCagr5y": 81.7
         }
       ]
     },
@@ -2340,7 +4910,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Makes navy steel India once imported - a real engine that grew sales fivefold. But orders in hand have shrunk to under half a year's sales, clouding near-term growth.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/krishna-defence-and-allied-industries-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/krishna-defence-and-allied-industries-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 42.18,
+              "qoq": 1.87
+            },
+            "opProfit": {
+              "yoy": 54.92,
+              "qoq": 13.27
+            },
+            "eps": {
+              "yoy": 62.81,
+              "qoq": 26.55
+            },
+            "pat": {
+              "yoy": 72.87,
+              "qoq": 26.71
+            }
+          },
+          "epsTtmRs": 27.5,
+          "peAvg5y": 53.3,
+          "peIndustry": 77.1,
+          "bvps": 127,
+          "epsCagr3y": 76.6,
+          "epsCagr5y": 40.8,
+          "salesCagr3y": 56.9,
+          "salesCagr5y": 47.6,
+          "ebitdaCagr3y": 77.7,
+          "ebitdaCagr5y": 56.6
         }
       ]
     },
@@ -2357,7 +4955,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes animal-medicine ingredients. Old plants are full; sales up 36% and profit doubled as demand recovered - but it's a cyclical bounce and the new plant keeps slipping. Management stays honest.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ngl-fine-chem-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/ngl-fine-chem-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 55.61,
+              "qoq": 14.58
+            },
+            "opProfit": {
+              "yoy": 349.87,
+              "qoq": -12.44
+            },
+            "eps": {
+              "yoy": 2286.9,
+              "qoq": -23.01
+            },
+            "pat": {
+              "yoy": 2282.69,
+              "qoq": -23
+            }
+          },
+          "epsTtmRs": 81.6,
+          "peAvg5y": 37.9,
+          "peIndustry": 33.4,
+          "bvps": 518,
+          "epsCagr3y": 32.4,
+          "epsCagr5y": -3.38,
+          "salesCagr3y": 21.1,
+          "salesCagr5y": 13.6,
+          "ebitdaCagr3y": 31.6,
+          "ebitdaCagr5y": -0.64
         }
       ]
     },
@@ -2374,7 +5000,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Makes fluid and high-pressure air systems for Navy submarines. A Rs 514 cr defence order book drove FY26 sales up 43% and profit up 63% - but cash flow stays negative and the stock is pricey at 44x.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/cff-fluid-control-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/cff-fluid-control-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 59.64,
+              "qoq": 0.46
+            },
+            "opProfit": {
+              "yoy": 66.97,
+              "qoq": 1.36
+            },
+            "eps": {
+              "yoy": 90.26,
+              "qoq": 4.93
+            },
+            "pat": {
+              "yoy": 104.8,
+              "qoq": 4.91
+            }
+          },
+          "epsTtmRs": 18.7,
+          "peAvg5y": 52.8,
+          "peIndustry": 77.1,
+          "bvps": 127,
+          "epsCagr3y": 38,
+          "epsCagr5y": 39.8,
+          "salesCagr3y": 43.5,
+          "salesCagr5y": 70.4,
+          "ebitdaCagr3y": 46.6,
+          "ebitdaCagr5y": 80.8
         }
       ]
     },
@@ -2391,7 +5045,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Single-city Trichy hospital. Its new 200-bed block filled from 65% to 81% occupancy, doubling FY26 profit to Rs47cr; trustworthy team. But the easy ramp is now done and the stock is pricey at P/E 47.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kmc-speciality-hospitals-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kmc-speciality-hospitals-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 34.99,
+              "qoq": 0.23
+            },
+            "opProfit": {
+              "yoy": 67.88,
+              "qoq": 4.53
+            },
+            "eps": {
+              "yoy": 221.43,
+              "qoq": 7.14
+            },
+            "pat": {
+              "yoy": 223.67,
+              "qoq": 6.55
+            }
+          },
+          "epsTtmRs": 3.42,
+          "peAvg5y": 45.4,
+          "peIndustry": 51.2,
+          "bvps": 12.9,
+          "epsCagr3y": 20.4,
+          "epsCagr5y": 29.6,
+          "salesCagr3y": 25.2,
+          "salesCagr5y": 24.4,
+          "ebitdaCagr3y": 27.5,
+          "ebitdaCagr5y": 29.7
         }
       ]
     },
@@ -2408,7 +5090,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Makes injectable medicines and antibiotics, exports over 70%. FY26 profit doubled to Rs 103 crore as margins jumped and debt hit zero - but roughly Rs 23 crore was a one-off gain.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/venus-remedies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/venus-remedies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 33.05,
+              "qoq": 43.9
+            },
+            "opProfit": {
+              "yoy": 118.69,
+              "qoq": 69.03
+            },
+            "eps": {
+              "yoy": 126.23,
+              "qoq": 85.68
+            },
+            "pat": {
+              "yoy": 126.19,
+              "qoq": 85.69
+            }
+          },
+          "epsTtmRs": 84.6,
+          "peAvg5y": 12.3,
+          "peIndustry": 33.4,
+          "bvps": 516,
+          "epsCagr3y": 50.8,
+          "epsCagr5y": 24.4,
+          "salesCagr3y": 12.9,
+          "salesCagr5y": 8.53,
+          "ebitdaCagr3y": 29.4,
+          "ebitdaCagr5y": 19.2
         }
       ]
     },
@@ -2443,7 +5153,17 @@
               "yoy": 63.49,
               "qoq": 21.41
             }
-          }
+          },
+          "epsTtmRs": 129,
+          "peAvg5y": 55,
+          "peIndustry": 66.1,
+          "bvps": 1169,
+          "epsCagr3y": -22.9,
+          "epsCagr5y": 7.14,
+          "salesCagr3y": 2.58,
+          "salesCagr5y": 11.6,
+          "ebitdaCagr3y": -11.6,
+          "ebitdaCagr5y": 10.2
         }
       ]
     },
@@ -2478,7 +5198,17 @@
               "yoy": 401.22,
               "qoq": -12.16
             }
-          }
+          },
+          "epsTtmRs": 2.66,
+          "peAvg5y": 18.2,
+          "peIndustry": 25.8,
+          "bvps": 130,
+          "epsCagr3y": -27.2,
+          "epsCagr5y": 12.3,
+          "salesCagr3y": 15.9,
+          "salesCagr5y": 0.45,
+          "ebitdaCagr3y": 8.14,
+          "ebitdaCagr5y": -3.55
         }
       ]
     },
@@ -2495,7 +5225,33 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes electronics for defence and aerospace gear. A Rs 1,309 crore order book and 30% sales growth give a real runway, but cash stays stuck in working capital and the stock is richly priced.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vinyas-innovative-technologies-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/vinyas-innovative-technologies-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 22.36,
+              "qoq": 42.68
+            },
+            "opProfit": {
+              "yoy": 64.85,
+              "qoq": 85.25
+            },
+            "eps": {
+              "yoy": 73.53,
+              "qoq": 130.59
+            },
+            "pat": {
+              "yoy": 73.49,
+              "qoq": 130.51
+            }
+          },
+          "epsTtmRs": 24.5,
+          "peAvg5y": 64.8,
+          "peIndustry": 33.8,
+          "bvps": 187,
+          "salesCagr3y": 29.9,
+          "salesCagr5y": 20.2,
+          "ebitdaCagr3y": 37.2,
+          "ebitdaCagr5y": 37.1
         }
       ]
     },
@@ -2530,7 +5286,17 @@
               "yoy": 34.67,
               "qoq": 28.89
             }
-          }
+          },
+          "epsTtmRs": 10.7,
+          "peAvg5y": 41.1,
+          "peIndustry": 28.4,
+          "bvps": 65.9,
+          "epsCagr3y": 9.09,
+          "epsCagr5y": 6,
+          "salesCagr3y": -2.02,
+          "salesCagr5y": 7.36,
+          "ebitdaCagr3y": 11.8,
+          "ebitdaCagr5y": 8.07
         }
       ]
     },
@@ -2563,9 +5329,19 @@
             },
             "pat": {
               "yoy": 299.41,
-              "qoq": 59.0
+              "qoq": 59
             }
-          }
+          },
+          "epsTtmRs": 67.4,
+          "peAvg5y": 16.9,
+          "peIndustry": 18,
+          "bvps": 685,
+          "epsCagr3y": 2.34,
+          "epsCagr5y": 6.59,
+          "salesCagr3y": -6.28,
+          "salesCagr5y": 6.88,
+          "ebitdaCagr3y": 5.27,
+          "ebitdaCagr5y": 7.11
         }
       ]
     },
@@ -2582,7 +5358,35 @@
           "tier": "Tier 1",
           "view": "Positive",
           "note": "Cancer-drug factory is the engine: sales jumped 42%, profit 67%, and the plant is paid-for and under 30% full. Watch: the big Europe export dream keeps slipping.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sakar-healthcare-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/sakar-healthcare-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 41.52,
+              "qoq": 1.08
+            },
+            "opProfit": {
+              "yoy": 66.92,
+              "qoq": 41.08
+            },
+            "eps": {
+              "yoy": 88.93,
+              "qoq": 7.38
+            },
+            "pat": {
+              "yoy": 91.32,
+              "qoq": 7.51
+            }
+          },
+          "epsTtmRs": 16.2,
+          "peAvg5y": 40.7,
+          "peIndustry": 33.4,
+          "bvps": 146,
+          "epsCagr3y": 27.1,
+          "epsCagr5y": 14.6,
+          "salesCagr3y": 23.6,
+          "salesCagr5y": 21.6,
+          "ebitdaCagr3y": 23.6,
+          "ebitdaCagr5y": 24.4
         }
       ]
     },
@@ -2610,14 +5414,24 @@
               "qoq": 11.94
             },
             "eps": {
-              "yoy": 155.0,
+              "yoy": 155,
               "qoq": 40.69
             },
             "pat": {
               "yoy": 156.6,
               "qoq": 41.24
             }
-          }
+          },
+          "epsTtmRs": 5.5,
+          "peAvg5y": 20.4,
+          "peIndustry": 15.8,
+          "bvps": 36.7,
+          "epsCagr3y": -10.5,
+          "epsCagr5y": 5.01,
+          "salesCagr3y": 5.5,
+          "salesCagr5y": 7.77,
+          "ebitdaCagr3y": -9.94,
+          "ebitdaCagr5y": 3.04
         }
       ]
     },
@@ -2634,7 +5448,35 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Makes door and window hardware; sales grew to Rs160 crore and margins hit 13%. Growth is real, but the stock trades at 95 times earnings and much of its balance sheet is idle related-party investment.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hardwyn-india-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/hardwyn-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 27.85,
+              "qoq": 20.36
+            },
+            "opProfit": {
+              "yoy": 98.23,
+              "qoq": 98.93
+            },
+            "eps": {
+              "yoy": 75,
+              "qoq": 133.33
+            },
+            "pat": {
+              "yoy": 96.55,
+              "qoq": 108.54
+            }
+          },
+          "epsTtmRs": 0.17,
+          "peAvg5y": 97.2,
+          "peIndustry": 30.8,
+          "bvps": 5.93,
+          "epsCagr3y": 12,
+          "epsCagr5y": 37,
+          "salesCagr3y": 8.75,
+          "salesCagr5y": 22.8,
+          "ebitdaCagr3y": 14.4,
+          "ebitdaCagr5y": 54.4
         }
       ]
     },
@@ -2651,7 +5493,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Not a real operating business but a holding company that buys firms and sells them for one-off gains. Profits are lumpy, 'startup portfolio' claims look promotional, disclosure weak. Best avoided.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aeroflex-enterprises-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/aeroflex-enterprises-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 24.09,
+              "qoq": 4.26
+            },
+            "opProfit": {
+              "yoy": 30.97,
+              "qoq": -5.06
+            },
+            "eps": {
+              "yoy": 116.33,
+              "qoq": 49.3
+            },
+            "pat": {
+              "yoy": 120.61,
+              "qoq": 52.81
+            }
+          },
+          "epsTtmRs": 13.3,
+          "peAvg5y": 18.5,
+          "peIndustry": 22.5,
+          "bvps": 73.1,
+          "epsCagr3y": 39,
+          "epsCagr5y": 65.1,
+          "salesCagr3y": -57.1,
+          "salesCagr5y": 8.03,
+          "ebitdaCagr3y": 15.8,
+          "ebitdaCagr5y": 45.4
         }
       ]
     },
@@ -2668,7 +5538,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Kolkata steel processor that converts steel for Tata for a fee; posted record FY26 profit of Rs 81 cr. Now betting Rs 803 cr on a new Bokaro plant - transformational but unproven and debt-heavy.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bmw-industries-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/bmw-industries-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 33.32,
+              "qoq": 29.19
+            },
+            "opProfit": {
+              "yoy": 71.51,
+              "qoq": 48.38
+            },
+            "eps": {
+              "yoy": 88.46,
+              "qoq": 88.46
+            },
+            "pat": {
+              "yoy": 88.2,
+              "qoq": 88.3
+            }
+          },
+          "epsTtmRs": 3.8,
+          "peAvg5y": 16.6,
+          "peIndustry": 22.5,
+          "bvps": 35.8,
+          "epsCagr3y": 25.6,
+          "epsCagr5y": 5.65,
+          "salesCagr3y": 9.36,
+          "salesCagr5y": 13.2,
+          "ebitdaCagr3y": 16.4,
+          "ebitdaCagr5y": 12.8
         }
       ]
     },
@@ -2685,7 +5583,29 @@
           "tier": "Tier 1",
           "view": "Concern",
           "note": "Fast-growing, debt-free tap-and-tool maker with unusually high profit margins from premium products. But the stock looks expensive versus its sales and assets, and its listing is too new to trust the track record yet.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/emkay-tools-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/emkay-tools-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 31.74,
+              "qoq": 33.27
+            },
+            "opProfit": {
+              "yoy": 39.79,
+              "qoq": 39.92
+            },
+            "eps": {
+              "yoy": 39.94,
+              "qoq": 41.04
+            },
+            "pat": {
+              "yoy": 39.96,
+              "qoq": 41.05
+            }
+          },
+          "epsTtmRs": 55,
+          "peAvg5y": 19.6,
+          "peIndustry": 33.8,
+          "bvps": 131
         }
       ]
     },
@@ -2702,7 +5622,31 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Gujarat hospital chain growing by buying hospitals, not organically; own margins slipping. Red flags: restated three years' accounts in court, broke listing rules, and big investors quickly exited.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/gujarat-kidney-super-speciality-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/gujarat-kidney-super-speciality-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 212.68,
+              "qoq": 31.53
+            },
+            "opProfit": {
+              "yoy": 141.38,
+              "qoq": -8.7
+            },
+            "eps": {
+              "yoy": 178.26,
+              "qoq": 72.97
+            },
+            "pat": {
+              "yoy": 293.75,
+              "qoq": 71.43
+            }
+          },
+          "epsTtmRs": 1.13,
+          "peAvg5y": 75.6,
+          "peIndustry": 51.2,
+          "bvps": 31.3,
+          "epsCagr3y": 65.2,
+          "ebitdaCagr3y": 1085
         }
       ]
     },
@@ -2719,7 +5663,35 @@
           "tier": "Tier 1",
           "view": "Watch",
           "note": "Its bolt and fastener business is booming (+64%), and a new Chennai plant ramps up mid-2026 to fuel growth. Management delivers on promises, though profit margins stay slightly thin.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/gala-precision-engineering-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/gala-precision-engineering-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 25.56,
+              "qoq": 10.92
+            },
+            "opProfit": {
+              "yoy": 29.59,
+              "qoq": 13.93
+            },
+            "eps": {
+              "yoy": 21.32,
+              "qoq": 46.63
+            },
+            "pat": {
+              "yoy": 21.39,
+              "qoq": 34.36
+            }
+          },
+          "epsTtmRs": 29.1,
+          "peAvg5y": 34.4,
+          "peIndustry": 33.8,
+          "bvps": 229,
+          "epsCagr3y": -23.7,
+          "epsCagr5y": 31.3,
+          "salesCagr3y": 24.4,
+          "salesCagr5y": 25,
+          "ebitdaCagr3y": 23.6,
+          "ebitdaCagr5y": 34
         }
       ]
     },
@@ -2747,14 +5719,24 @@
               "qoq": -6.85
             },
             "eps": {
-              "yoy": 68.0,
+              "yoy": 68,
               "qoq": 2.44
             },
             "pat": {
               "yoy": 67.38,
               "qoq": 2.39
             }
-          }
+          },
+          "epsTtmRs": 6.08,
+          "peAvg5y": 25.5,
+          "peIndustry": 29.5,
+          "bvps": 27.3,
+          "epsCagr3y": -0.02,
+          "epsCagr5y": 11.7,
+          "salesCagr3y": -0.39,
+          "salesCagr5y": 7.72,
+          "ebitdaCagr3y": -1.27,
+          "ebitdaCagr5y": 7.42
         }
       ]
     },
@@ -2771,7 +5753,35 @@
           "tier": "Tier 1",
           "view": "Negative",
           "note": "Risky. Its one growth plant has been delayed twice and still earns nothing; this year's sales growth came from thin-margin reselling, not real products. Wait for the plant to actually run.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/accent-microcell-ltd.pdf"
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/accent-microcell-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 51.34,
+              "qoq": 50.44
+            },
+            "opProfit": {
+              "yoy": 41.46,
+              "qoq": 37.2
+            },
+            "eps": {
+              "yoy": 55.35,
+              "qoq": 42.76
+            },
+            "pat": {
+              "yoy": 55.36,
+              "qoq": 42.72
+            }
+          },
+          "epsTtmRs": 18.3,
+          "peAvg5y": 20.6,
+          "peIndustry": 33.4,
+          "bvps": 115,
+          "epsCagr3y": 30.3,
+          "epsCagr5y": 12.3,
+          "salesCagr3y": 21,
+          "salesCagr5y": 21.4,
+          "ebitdaCagr3y": 43.6,
+          "ebitdaCagr5y": 36.8
         }
       ]
     },
@@ -2806,7 +5816,17 @@
               "yoy": 199.75,
               "qoq": 154.89
             }
-          }
+          },
+          "epsTtmRs": 15.8,
+          "peAvg5y": 26.7,
+          "peIndustry": 17.3,
+          "bvps": 137,
+          "epsCagr3y": 48.5,
+          "epsCagr5y": -6.34,
+          "salesCagr3y": 20.2,
+          "salesCagr5y": 16.9,
+          "ebitdaCagr3y": 20.6,
+          "ebitdaCagr5y": -1.8
         }
       ]
     },
@@ -2841,7 +5861,17 @@
               "yoy": 289.17,
               "qoq": -28.43
             }
-          }
+          },
+          "epsTtmRs": 12.2,
+          "peAvg5y": 38.5,
+          "peIndustry": 20.1,
+          "bvps": 67.9,
+          "epsCagr3y": 51.3,
+          "epsCagr5y": 24.4,
+          "salesCagr3y": 25.1,
+          "salesCagr5y": 18.9,
+          "ebitdaCagr3y": 36.2,
+          "ebitdaCagr5y": 19.6
         }
       ]
     }
