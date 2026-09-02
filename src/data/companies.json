@@ -840,6 +840,86 @@
       ]
     },
     {
+      "slug": "netweb",
+      "name": "Netweb Technologies India Ltd",
+      "tvCode": "NETWEB",
+      "industry": "Data Centers and Cloud",
+      "marketCap": 25020.24,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Sales nearly doubled. It builds India's AI supercomputers and already holds a huge government AI order bigger than last year's entire sales, so the growth engine is very real.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/netweb-technologies-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 86.59,
+              "qoq": -3.88
+            },
+            "opProfit": {
+              "yoy": 62.96,
+              "qoq": -1.4
+            },
+            "eps": {
+              "yoy": 64.89,
+              "qoq": -4.17
+            },
+            "pat": {
+              "yoy": 65.67,
+              "qoq": -3.71
+            }
+          },
+          "epsTtmRs": 45.9,
+          "peAvg5y": 142,
+          "peIndustry": 26,
+          "bvps": 127,
+          "epsCagr3y": 57.7,
+          "epsCagr5y": 20,
+          "salesCagr3y": 69.9,
+          "salesCagr5y": 72.5,
+          "ebitdaCagr3y": 62.6,
+          "ebitdaCagr5y": 80.4
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "India's only home-grown company that can design and build the full AI stack - servers, supercomputers and the software to run them - and one of under ten NVIDIA OEM partners. AI is now two-thirds of sales, margins are recovering to about 15%, and FY27 opened with a ~₹2,400 cr order book bigger than all of FY26's sales, on 37.5% return on capital and net cash. New R&D is pushing into physical AI and quantum computing. But management has twice walked its own margin target down.",
+          "growth": {
+            "sales": {
+              "yoy": 172.13,
+              "qoq": 5.94
+            },
+            "opProfit": {
+              "yoy": 169,
+              "qoq": 24.79
+            },
+            "eps": {
+              "yoy": 178.44,
+              "qoq": 20.81
+            },
+            "pat": {
+              "yoy": 179.92,
+              "qoq": 20.87
+            }
+          },
+          "epsTtmRs": 45.87,
+          "peAvg5y": 142,
+          "peIndustry": 25.2,
+          "bvps": 127,
+          "epsCagr3y": 57.6,
+          "epsCagr5y": 19.9,
+          "salesCagr3y": 69.9,
+          "salesCagr5y": 72.5,
+          "ebitdaCagr3y": 62.5,
+          "ebitdaCagr5y": 80.4,
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/netweb-technologies-india-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "shyammetl",
       "name": "Shyam Metalics & Energy Ltd",
       "tvCode": "SHYAMMETL",
@@ -1041,51 +1121,6 @@
           "salesCagr5y": 12,
           "ebitdaCagr3y": 68.4,
           "ebitdaCagr5y": 54.3
-        }
-      ]
-    },
-    {
-      "slug": "netweb",
-      "name": "Netweb Technologies India Ltd",
-      "tvCode": "NETWEB",
-      "industry": "Technology",
-      "marketCap": 23145.25,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Concern",
-          "note": "Sales nearly doubled. It builds India's AI supercomputers and already holds a huge government AI order bigger than last year's entire sales, so the growth engine is very real.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/netweb-technologies-india-ltd.pdf",
-          "growth": {
-            "sales": {
-              "yoy": 86.59,
-              "qoq": -3.88
-            },
-            "opProfit": {
-              "yoy": 62.96,
-              "qoq": -1.4
-            },
-            "eps": {
-              "yoy": 64.89,
-              "qoq": -4.17
-            },
-            "pat": {
-              "yoy": 65.67,
-              "qoq": -3.71
-            }
-          },
-          "epsTtmRs": 45.9,
-          "peAvg5y": 142,
-          "peIndustry": 26,
-          "bvps": 127,
-          "epsCagr3y": 57.7,
-          "epsCagr5y": 20,
-          "salesCagr3y": 69.9,
-          "salesCagr5y": 72.5,
-          "ebitdaCagr3y": 62.6,
-          "ebitdaCagr5y": 80.4
         }
       ]
     },
@@ -2188,6 +2223,51 @@
           "epsCagr3y": 22.4,
           "salesCagr3y": 7.98,
           "ebitdaCagr3y": 30
+        }
+      ]
+    },
+    {
+      "slug": "manorama",
+      "name": "Manorama Industries",
+      "tvCode": "MANORAMA",
+      "industry": "Food Products",
+      "marketCap": 10221.59,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes speciality cocoa-butter-equivalent and shea-based fats for chocolate and cosmetics. Revenue and margins both keep climbing as capacity utilisation fills up, and management has delivered every guidance so far. But the earnings trigger has already played out and the business is running at peak performance - the next leg, a new product line plus capacity expansion, is an FY28 story.",
+          "growth": {
+            "sales": {
+              "yoy": 39.51,
+              "qoq": 5.67
+            },
+            "opProfit": {
+              "yoy": 38.29,
+              "qoq": 6.18
+            },
+            "eps": {
+              "yoy": 61.08,
+              "qoq": 37.01
+            },
+            "pat": {
+              "yoy": 61.31,
+              "qoq": 37.08
+            }
+          },
+          "epsTtmRs": 44.25,
+          "peAvg5y": 62.9,
+          "peIndustry": 20.5,
+          "bvps": 116,
+          "epsCagr3y": 98.6,
+          "epsCagr5y": 71.6,
+          "salesCagr3y": 57,
+          "salesCagr5y": 46.3,
+          "ebitdaCagr3y": 82.4,
+          "ebitdaCagr5y": 56.2,
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/manorama-industries-ltd.pdf"
         }
       ]
     },
@@ -3769,6 +3849,86 @@
       ]
     },
     {
+      "slug": "kernex",
+      "name": "Kernex Microsystems (India) Ltd",
+      "tvCode": "KERNEX",
+      "industry": "Railways",
+      "marketCap": 3740.63,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q4 2026",
+          "tier": "Tier 1",
+          "view": "Watch",
+          "note": "Makes railway anti-collision Kavach systems; one of three approved suppliers. A 4,150 crore order book drove sales up over 120% - but operating cash flow is deeply negative, debt is rising and the stock is pricey.",
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kernex-microsystems-india-ltd.pdf",
+          "growth": {
+            "sales": {
+              "yoy": 206.46,
+              "qoq": 250.66
+            },
+            "opProfit": {
+              "yoy": 514.02,
+              "qoq": 526.09
+            },
+            "eps": {
+              "yoy": 108.89,
+              "qoq": 1031.75
+            },
+            "pat": {
+              "yoy": 109.45,
+              "qoq": 1030.13
+            }
+          },
+          "epsTtmRs": 109,
+          "peAvg5y": 40.3,
+          "peIndustry": 40.3,
+          "bvps": 153,
+          "epsCagr3y": 79,
+          "epsCagr5y": 204,
+          "salesCagr3y": 497,
+          "salesCagr5y": 93.8,
+          "ebitdaCagr3y": 127,
+          "ebitdaCagr5y": 121
+        },
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Concern",
+          "note": "Supplies Kavach, the anti-collision braking system, to Indian Railways as one of only three RDSO-approved makers, on an ₹4,150 cr order book worth ten years of sales. The reported numbers look good but the balance sheet does not: operating cash flow is negative and widening, debtor days keep rising, and interest has gone from ₹3 cr to ₹13 cr. Whatever profit it earns is not converting to cash. The 45x peak multiple has at least corrected to 15x.",
+          "growth": {
+            "sales": {
+              "yoy": 800.38,
+              "qoq": 97.81
+            },
+            "opProfit": {
+              "yoy": 1194.28,
+              "qoq": 54.89
+            },
+            "eps": {
+              "yoy": 1368.99,
+              "qoq": 60.89
+            },
+            "pat": {
+              "yoy": 1372.52,
+              "qoq": 60.93
+            }
+          },
+          "epsTtmRs": 108.8,
+          "peAvg5y": 40.3,
+          "peIndustry": 38,
+          "bvps": 153,
+          "epsCagr3y": 79,
+          "epsCagr5y": 204,
+          "salesCagr3y": 497,
+          "salesCagr5y": 93.8,
+          "ebitdaCagr3y": 127,
+          "ebitdaCagr5y": 121,
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/kernex-microsystems-india-ltd.pdf"
+        }
+      ]
+    },
+    {
       "slug": "wheels",
       "name": "Wheels India",
       "tvCode": "WHEELS",
@@ -4078,51 +4238,6 @@
           "salesCagr5y": 17.9,
           "ebitdaCagr3y": -8,
           "ebitdaCagr5y": -3.4
-        }
-      ]
-    },
-    {
-      "slug": "kernex",
-      "name": "Kernex Microsystems (India) Ltd",
-      "tvCode": "KERNEX",
-      "industry": "Railways",
-      "marketCap": 2842.98,
-      "tier": "Tier 1",
-      "quarters": [
-        {
-          "quarter": "Q4 2026",
-          "tier": "Tier 1",
-          "view": "Watch",
-          "note": "Makes railway anti-collision Kavach systems; one of three approved suppliers. A 4,150 crore order book drove sales up over 120% - but operating cash flow is deeply negative, debt is rising and the stock is pricey.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q4-2026/kernex-microsystems-india-ltd.pdf",
-          "growth": {
-            "sales": {
-              "yoy": 206.46,
-              "qoq": 250.66
-            },
-            "opProfit": {
-              "yoy": 514.02,
-              "qoq": 526.09
-            },
-            "eps": {
-              "yoy": 108.89,
-              "qoq": 1031.75
-            },
-            "pat": {
-              "yoy": 109.45,
-              "qoq": 1030.13
-            }
-          },
-          "epsTtmRs": 109,
-          "peAvg5y": 40.3,
-          "peIndustry": 40.3,
-          "bvps": 153,
-          "epsCagr3y": 79,
-          "epsCagr5y": 204,
-          "salesCagr3y": 497,
-          "salesCagr5y": 93.8,
-          "ebitdaCagr3y": 127,
-          "ebitdaCagr5y": 121
         }
       ]
     },
@@ -4577,9 +4692,8 @@
         {
           "quarter": "Q1 2027",
           "tier": "Tier 1",
-          "view": "Watch",
-          "note": "Power-cable maker riding India's grid spending, with a better product mix and its first US shipment done. Units sold are barely growing - the headline is mostly metal prices - the order book has stalled because buyers won't lock high prices, and the new plant is already 15 months late.",
-          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/dynamic-cables-ltd.pdf",
+          "view": "Positive",
+          "note": "Jaipur maker of the wires that carry electricity across India's grid, and the customer has flipped from government discoms to 71% private. Entered the US market after a 15-18 month delay - 2% of sales today, a long runway later - and the new plant commissions this September, on an ₹811 cr order book, 26% return on capital and low debt at 21x. But volumes barely grew and the order book is up only 10%, so the headline growth is aluminium prices.",
           "growth": {
             "sales": {
               "yoy": 33.22,
@@ -4598,16 +4712,17 @@
               "qoq": 3.23
             }
           },
-          "epsTtmRs": 18.8,
-          "peAvg5y": 22.6,
-          "peIndustry": 27.4,
+          "epsTtmRs": 18.82,
+          "peAvg5y": 22.8,
+          "peIndustry": 28.8,
           "bvps": 94.4,
           "epsCagr3y": 34.5,
           "epsCagr5y": 50.3,
           "salesCagr3y": 21.4,
           "salesCagr5y": 28.4,
           "ebitdaCagr3y": 26.8,
-          "ebitdaCagr5y": 31.9
+          "ebitdaCagr5y": 31.9,
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/dynamic-cables-ltd.pdf"
         }
       ]
     },
@@ -4653,6 +4768,51 @@
           "salesCagr5y": 178,
           "ebitdaCagr3y": 66,
           "ebitdaCagr5y": 219
+        }
+      ]
+    },
+    {
+      "slug": "tinnarubr",
+      "name": "Tinna Rubber & Infrastructure Ltd",
+      "tvCode": "TINNARUBR",
+      "industry": "Recycling & Waste Management",
+      "marketCap": 2150.96,
+      "tier": "Tier 2",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 2",
+          "view": "Positive",
+          "note": "Recycles end-of-life tyres into rubber crumb and modifiers for road-building and tyre makers. Management guides 20-25% growth and is steering the mix toward high-value products, with margins rising year on year and energy cost falling as renewable capacity went from 1.23 to 4.48 MW. Two new lines land soon: pyrolysis oil from Q2 FY27 and recovered carbon black from Q4 FY27. But borrowing is high, all of it funding that capacity expansion.",
+          "growth": {
+            "sales": {
+              "yoy": 19.89,
+              "qoq": -0.49
+            },
+            "opProfit": {
+              "yoy": 63.06,
+              "qoq": 19.87
+            },
+            "eps": {
+              "yoy": 75.15,
+              "qoq": 24.4
+            },
+            "pat": {
+              "yoy": 75.21,
+              "qoq": 24.44
+            }
+          },
+          "epsTtmRs": 34.61,
+          "peAvg5y": 31.1,
+          "peIndustry": 21.6,
+          "bvps": 163,
+          "epsCagr3y": 34.9,
+          "epsCagr5y": 116,
+          "salesCagr3y": 21.5,
+          "salesCagr5y": 32.4,
+          "ebitdaCagr3y": 30.4,
+          "ebitdaCagr5y": 37.2,
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/tinna-rubber-and-infrastructure-ltd.pdf"
         }
       ]
     },
@@ -4743,6 +4903,51 @@
           "salesCagr5y": 14.1,
           "ebitdaCagr3y": 23.6,
           "ebitdaCagr5y": 31.3
+        }
+      ]
+    },
+    {
+      "slug": "huhtamaki",
+      "name": "Huhtamaki India",
+      "tvCode": "HUHTAMAKI",
+      "industry": "Packaging",
+      "marketCap": 1995.93,
+      "tier": "Tier 1",
+      "quarters": [
+        {
+          "quarter": "Q1 2027",
+          "tier": "Tier 1",
+          "view": "Positive",
+          "note": "Prints and laminates the pouches and wrappers for big FMCG brands. A new MD arrived January 2026 to cut unused product lines and lift margins, which have already doubled from 5% to ~8-10%, with ₹480 cr net cash at 1.8x book. Revenue has been flat seven years and volumes kept falling until last quarter, when they finally grew. But management refuses to guide on whether that continues, and returns are still only 12%.",
+          "growth": {
+            "sales": {
+              "yoy": 22.51,
+              "qoq": 22.33
+            },
+            "opProfit": {
+              "yoy": 76.43,
+              "qoq": 88.04
+            },
+            "eps": {
+              "yoy": 75.45,
+              "qoq": 70.8
+            },
+            "pat": {
+              "yoy": 76.83,
+              "qoq": 70.82
+            }
+          },
+          "epsTtmRs": 18.06,
+          "peAvg5y": 25.8,
+          "peIndustry": 19.7,
+          "bvps": 179,
+          "epsCagr3y": 33.7,
+          "epsCagr5y": 3.51,
+          "salesCagr3y": -6.1,
+          "salesCagr5y": 0.05,
+          "ebitdaCagr3y": 8.65,
+          "ebitdaCagr5y": -1.8,
+          "reportUrl": "https://github.com/aadilkadiwal/india-stock-research/blob/main/Q1-2027/huhtamaki-india-ltd.pdf"
         }
       ]
     },
